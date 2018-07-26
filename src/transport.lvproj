@@ -10,6 +10,7 @@
 		<Property Name="server.vi.callsEnabled" Type="Bool">true</Property>
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
+		<Item Name="SweepControl.lvclass" Type="LVClass" URL="../SMOs/SweepControl/SweepControl.lvclass"/>
 		<Item Name="Transport.lvclass" Type="LVClass" URL="../Transport.lvclass"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="instr.lib" Type="Folder">
@@ -129,7 +130,7 @@
 				<Item Name="sgl-wordswap.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/IBWtoLV/utl/sgl-wordswap.vi"/>
 				<Item Name="Split Cluster TD__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Split Cluster TD__ogtk.vi"/>
 				<Item Name="StateHistory.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/SubVIs/StateHistory.vi"/>
-				<Item Name="STP_Client.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/RemoteControl/STP_Client.vi"/>
+				<Item Name="STM_Client.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/RemoteControl/STM_Client.vi"/>
 				<Item Name="Tick Count (ms)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/time/time.llb/Tick Count (ms)__ogtk.vi"/>
 				<Item Name="Type Descriptor Enumeration__ogtk.ctl" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Type Descriptor Enumeration__ogtk.ctl"/>
 				<Item Name="Type Descriptor Header__ogtk.ctl" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Type Descriptor Header__ogtk.ctl"/>
@@ -390,6 +391,7 @@
 			<Item Name="nilvaiu.dll" Type="Document" URL="nilvaiu.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
+			<Item Name="SMO.Basic.lvclass" Type="LVClass" URL="../../../../../../Program Files (x86)/National Instruments/LabVIEW 2016/templates/JKI/JKI SMO/SMO.Basic/SMO.Basic.lvclass"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
