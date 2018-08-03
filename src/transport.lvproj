@@ -107,7 +107,6 @@
 				<Item Name="IBW to Labview Array 2.2.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/IBWtoLV/IBW to Labview Array 2.2.vi"/>
 				<Item Name="increment filename.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/FileUtilities/increment filename.vi"/>
 				<Item Name="IPS-120.lvlib" Type="Library" URL="/&lt;userlib&gt;/Oxford/IPS120/IPS-120.lvlib"/>
-				<Item Name="Lockin-4461_MultiChannel - IV 3.0 globals.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/DAQ-Lockin-SubVI/Lockin-4461_MultiChannel - IV 3.0 globals.vi"/>
 				<Item Name="LVtoITX.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/LV to ITX/LVtoITX.lvclass"/>
 				<Item Name="Make Color Table.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Graph Utilities/Make Color Table.vi"/>
 				<Item Name="Max_Min_conversion.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Control VI/SubVIs/Max_Min_conversion.vi"/>
