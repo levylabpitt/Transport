@@ -34,6 +34,15 @@
 			<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
 			<Property Name="NI.ClassItem.State" Type="Int">1107821072</Property>
 		</Item>
+		<Item Name="Control Experiment.vi" Type="VI" URL="../subVI/Control Experiment.vi">
+			<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">&amp;A#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!#1!!!!!A!%!!!!B!$Q!"1!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Q!"%!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1!"!!!!!!</Property>
+			<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
+			<Property Name="NI.ClassItem.Flags" Type="Int">1077936129</Property>
+			<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">true</Property>
+			<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
+			<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
+			<Property Name="NI.ClassItem.State" Type="Int">1082405392</Property>
+		</Item>
 		<Item Name="Filter IV Data-3VoltageAmp.vi" Type="VI" URL="../subVI/Filter IV Data-3VoltageAmp.vi">
 			<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">&amp;A#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!$5!!!!#A!&amp;!!I!!!Q!1!!"`````Q!!!!I!5!!#!!%!!1!71%!!!@````]!!AB7)(:T)%EA-A!!(%"!!!(`````!!!02'6D;7VB&gt;'6E)%&amp;S=G&amp;Z!"J!5!!#!!1!"!^5&gt;W]A&gt;'6S&lt;7FO97QA369!'5!+!".M&lt;X=A9X6U&lt;W:G)':S:8%[)':M!!I!5!!#!!1!"!!?1%!!!@````]!"R&amp;'&lt;X6S)(2F=GVJ&lt;G&amp;M)%F7=Q!E!0!!"!!$!!5!"A!)!Q!!-!!!#1!!!!A!!!!+!!!"#A!!!!!"!!E!!!!!</Property>
 			<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
@@ -61,15 +70,6 @@
 			<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
 			<Property Name="NI.ClassItem.State" Type="Int">1082143232</Property>
 		</Item>
-		<Item Name="KH Control Experiment.vi" Type="VI" URL="../subVI/KH Control Experiment.vi">
-			<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">&amp;A#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!#1!!!!!A!%!!!!B!$Q!"1!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Q!"%!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1!"!!!!!!</Property>
-			<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
-			<Property Name="NI.ClassItem.Flags" Type="Int">1077936129</Property>
-			<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">true</Property>
-			<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
-			<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
-			<Property Name="NI.ClassItem.State" Type="Int">1082405392</Property>
-		</Item>
 		<Item Name="Voltage Update.vi" Type="VI" URL="../subVI/Voltage Update.vi">
 			<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">&amp;A#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!#4!!!!"!!61!I!$F:P&lt;(2B:W5A4X6U=(6U!!!%!!!!-%!X`````Q!/&amp;A#!!!!!!!%!"!!!!!%!!!!!!!!15'BZ=WFD97QA1WBB&lt;GZF&lt;!!!1A$Q!!E!!!!"!!)!!1!"!!%!!1!"!!%$!!#Q!!!+!!!!!!!!!1I!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1!$!!!!!!</Property>
 			<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
@@ -80,7 +80,6 @@
 			<Property Name="NI.ClassItem.State" Type="Int">1082143248</Property>
 		</Item>
 	</Item>
-	<Item Name="Sweep Control" Type="Folder"/>
 	<Item Name="1-Continuous B sweep.vi" Type="VI" URL="../1-Continuous B sweep.vi">
 		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">&amp;A#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!%^!!!!$1!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!71&amp;!!!Q!!!!%!!AFF=H*P=C"P&gt;81!"!!!!"*!-0````])1W^N&lt;76O&gt;(-!!"2!-0````]+3629)':P&lt;'2F=A!!'5!+!"*4&gt;W6F=#"S982F)#B5,WVJ&lt;CE!!#"!5!!$!!!!!1!#%W6S=G^S)'FO)#BO&lt;S"F=H*P=CE!,5!7!!).=WFN&gt;7RB&gt;'5A&lt;7^E:1BS&gt;7YA&lt;7^E:1!!$&amp;.J&lt;86M982F,V*V&lt;A!!%5!+!!N.;7YA+(.U98*U+1!01!I!#5VB?#!I:7ZE+1")!0!!#A!$!!1!"1!'!!1!"Q!)!!E!#A!,!Q!!=!!!#1!!!!!!!!%+!!!"#A!!!!!!!!!+!!!!#A!!!!A!!!!)!!!!#!!!!!!"!!Q!!!!!</Property>
 		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
