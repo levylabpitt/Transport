@@ -14,6 +14,8 @@
 		<Item Name="build support" Type="Folder">
 			<Item Name="Transport.vipb" Type="Document" URL="../../build support/Transport.vipb"/>
 		</Item>
+		<Item Name="Control Experiment.vi" Type="VI" URL="../Transport/Control Experiment.vi"/>
+		<Item Name="Control Experiment FGV.vi" Type="VI" URL="../Transport/subVI/Control Experiment FGV.vi"/>
 		<Item Name="Transport.lvclass" Type="LVClass" URL="../Transport/Transport.lvclass"/>
 		<Item Name="SweepControl.lvclass" Type="LVClass" URL="../SMOs/SweepControl/SweepControl.lvclass"/>
 		<Item Name="Dependencies" Type="Dependencies">
