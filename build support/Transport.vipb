@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2017" Created_Date="2018-09-18 13:12:29" Modified_Date="2018-09-18 17:35:33" Creator="Patrick" Comments="" ID="6eca7a5b01719f7c34a809ffdd71f7e6">
+<VI_Package_Builder_Settings Version="2017" Created_Date="2018-09-18 13:12:29" Modified_Date="2018-09-18 22:05:44" Creator="Patrick" Comments="" ID="ca4bb621c8ddcb379b639e184385ff83">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_Transport</Package_File_Name>
-    <Library_Version>1.0.1.6</Library_Version>
+    <Library_Version>1.0.1.7</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\src</Library_Source_Folder>
     <Library_Output_Folder>..</Library_Output_Folder>
@@ -34,7 +34,8 @@
       <URL/>
       <Release_Notes>- first build. probably incomplete and not working at all
 - update palette
-- move Experiment Control &amp; FGV outside of the transport.lvclass (trial). move more stuff out of transport.lvclass. move even more stuff out of transport.lvclass. </Release_Notes>
+- move Experiment Control &amp; FGV outside of the transport.lvclass (trial). move more stuff out of transport.lvclass. move even more stuff out of transport.lvclass. 
+- update FGV data types</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
@@ -355,7 +356,7 @@
         <Path>..\src\Transport\C-IV.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>ADF1A6F06BF42751642D22A35BBEC00E</GUID>
+      <GUID>7647B0F082DE22ABADB6F55079D69053</GUID>
     </Functions_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>-1</Parent_Palette_Index>
@@ -404,7 +405,7 @@
         <Path>..\src\subVI</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>E194C0F6307A38BCBC2EB86EDC06D7B6</GUID>
+      <GUID>164FBFE73591BA86C3F5C18E130C54C2</GUID>
     </Controls_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -439,7 +440,7 @@
         <Path>..\src\SMOs\SweepControl</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>21AF3D9DBBCD6BA4E6B0987195458F79</GUID>
+      <GUID>16A73D593075330827C4AEFFA8402690</GUID>
     </Controls_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -474,7 +475,7 @@
         <Path>..\src\Transport\subVI\Control Experiment FGV-cluster.ctl</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>6807C4E90A50199098EE38CE205AAD06</GUID>
+      <GUID>0409EFD679F1736D7A002C639AA0FD36</GUID>
     </Controls_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -509,7 +510,7 @@
         <Path>..\src\SMOs\SweepControl\Typedefs</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>C95BB6E81093FFEBDFDFB76337E70F26</GUID>
+      <GUID>47792FE1FA0536C400BBA31A7FCC3023</GUID>
     </Controls_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>3</Parent_Palette_Index>
@@ -642,7 +643,7 @@
         <Path>..\src\SMOs\SweepControl\Typedefs\ScanParamters.ctl</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>DFB7B2DCD1D8B03DEB39FA4573C12C81</GUID>
+      <GUID>20DA1DA4262395FA23E5EFF8DCBAE98D</GUID>
     </Controls_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
