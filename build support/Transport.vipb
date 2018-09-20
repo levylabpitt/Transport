@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2017" Created_Date="2018-09-18 13:12:29" Modified_Date="2018-09-18 22:05:44" Creator="Patrick" Comments="" ID="ca4bb621c8ddcb379b639e184385ff83">
+<VI_Package_Builder_Settings Version="2017" Created_Date="2018-09-18 13:12:29" Modified_Date="2018-09-19 23:41:17" Creator="Patrick" Comments="" ID="9577b2b1a9f68dbd34efd3bb2f708e0c">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_Transport</Package_File_Name>
-    <Library_Version>1.0.1.7</Library_Version>
+    <Library_Version>1.0.1.11</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\src</Library_Source_Folder>
     <Library_Output_Folder>..</Library_Output_Folder>
@@ -35,13 +35,17 @@
       <Release_Notes>- first build. probably incomplete and not working at all
 - update palette
 - move Experiment Control &amp; FGV outside of the transport.lvclass (trial). move more stuff out of transport.lvclass. move even more stuff out of transport.lvclass. 
-- update FGV data types</Release_Notes>
+- update FGV data types
+- update comments data types; add generate comments from lockin
+- package installs into user.lib now instead of vi.lib
+- add rudimentary comments support to sweep control
+- new experiment for controlling "lockin Vsg" from sweep control</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
         <LLB>false</LLB>
         <Preserve_Hierarchy>true</Preserve_Hierarchy>
-        <Path/>
+        <Path>&lt;user.lib&gt;\Levylab\Transport</Path>
       </Toolkit_VIs>
       <Examples>
         <LLB>false</LLB>
@@ -356,7 +360,7 @@
         <Path>..\src\Transport\C-IV.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>7647B0F082DE22ABADB6F55079D69053</GUID>
+      <GUID>889700DE3349AA9AFBC636FD29A02736</GUID>
     </Functions_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>-1</Parent_Palette_Index>
@@ -405,7 +409,7 @@
         <Path>..\src\subVI</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>164FBFE73591BA86C3F5C18E130C54C2</GUID>
+      <GUID>E49FA7C75E60703EA0E5E4ABEE73438E</GUID>
     </Controls_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -440,7 +444,7 @@
         <Path>..\src\SMOs\SweepControl</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>16A73D593075330827C4AEFFA8402690</GUID>
+      <GUID>6134A8EAA9B7FD2225136B4C471A5197</GUID>
     </Controls_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -475,7 +479,7 @@
         <Path>..\src\Transport\subVI\Control Experiment FGV-cluster.ctl</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>0409EFD679F1736D7A002C639AA0FD36</GUID>
+      <GUID>3FDB55CD50BE9907FB836DF0A970C426</GUID>
     </Controls_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -510,7 +514,7 @@
         <Path>..\src\SMOs\SweepControl\Typedefs</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>47792FE1FA0536C400BBA31A7FCC3023</GUID>
+      <GUID>198F5B84CDE4D2C4BF85A26B18E4DD19</GUID>
     </Controls_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>3</Parent_Palette_Index>
@@ -643,7 +647,7 @@
         <Path>..\src\SMOs\SweepControl\Typedefs\ScanParamters.ctl</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>20DA1DA4262395FA23E5EFF8DCBAE98D</GUID>
+      <GUID>F5ABE54C1824A21D88A7FD3BEE927539</GUID>
     </Controls_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
