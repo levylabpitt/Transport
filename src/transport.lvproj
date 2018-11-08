@@ -14,20 +14,7 @@
 		<Item Name="build support" Type="Folder">
 			<Item Name="Transport.vipb" Type="Document" URL="../../build support/Transport.vipb"/>
 		</Item>
-		<Item Name="Control Experiment" Type="Folder">
-			<Item Name="Typedefs" Type="Folder">
-				<Item Name="Comments-cluster.ctl" Type="VI" URL="../Transport/Typedefs/Comments-cluster.ctl"/>
-				<Item Name="Control Experiment FGV-cluster.ctl" Type="VI" URL="../Transport/subVI/Control Experiment FGV-cluster.ctl"/>
-			</Item>
-			<Item Name="Control Experiment.vi" Type="VI" URL="../Transport/Control Experiment.vi"/>
-			<Item Name="Control Experiment FGV.vi" Type="VI" URL="../Transport/subVI/Control Experiment FGV.vi"/>
-			<Item Name="Channel Global.vi" Type="VI" URL="../Transport/subVI/Channel Global.vi"/>
-			<Item Name="ITX_Global.vi" Type="VI" URL="../Transport/subVI/ITX_Global.vi"/>
-			<Item Name="ElectrodesLabelsToPickeringChannels.vi" Type="VI" URL="../Transport/subVI/ElectrodesLabelsToPickeringChannels.vi"/>
-			<Item Name="GetTimeISO.vi" Type="VI" URL="../Transport/subVI/GetTimeISO.vi"/>
-			<Item Name="Generate Comments.vi" Type="VI" URL="../Transport/subVI/Generate Comments.vi"/>
-			<Item Name="Generate Lockin Comments.vi" Type="VI" URL="../Transport/subVI/Generate Lockin Comments.vi"/>
-		</Item>
+		<Item Name="Control Experiment" Type="Folder"/>
 		<Item Name="Transport.lvclass" Type="LVClass" URL="../Transport/Transport.lvclass"/>
 		<Item Name="SweepControl.lvclass" Type="LVClass" URL="../SMOs/SweepControl/SweepControl.lvclass"/>
 		<Item Name="Control Experiment.lvclass" Type="LVClass" URL="../Transport/Control Experiment.lvclass"/>
