@@ -14,14 +14,15 @@
 		<Item Name="build support" Type="Folder">
 			<Item Name="Transport.vipb" Type="Document" URL="../../build support/Transport.vipb"/>
 		</Item>
-		<Item Name="Control Experiment" Type="Folder"/>
+		<Item Name="Sandbox" Type="Folder">
+			<Item Name="Cluster Typedef JSON Staging.vi" Type="VI" URL="../Sandbox/Cluster Typedef JSON Staging.vi"/>
+			<Item Name="ReadTDMSTest1.vi" Type="VI" URL="../Sandbox/ReadTDMSTest1.vi"/>
+			<Item Name="WriteTDMSTest1.vi" Type="VI" URL="../Sandbox/WriteTDMSTest1.vi"/>
+			<Item Name="aws.vi" Type="VI" URL="../Sandbox/aws.vi"/>
+		</Item>
 		<Item Name="Transport.lvclass" Type="LVClass" URL="../Transport/Transport.lvclass"/>
 		<Item Name="SweepControl.lvclass" Type="LVClass" URL="../SMOs/SweepControl/SweepControl.lvclass"/>
-		<Item Name="Control Experiment.lvclass" Type="LVClass" URL="../Transport/Control Experiment.lvclass"/>
-		<Item Name="Cluster Typedef JSON Staging.vi" Type="VI" URL="../Transport/Cluster Typedef JSON Staging.vi"/>
-		<Item Name="ReadTDMSTest1.vi" Type="VI" URL="../Transport/ReadTDMSTest1.vi"/>
-		<Item Name="WriteTDMSTest1.vi" Type="VI" URL="../Transport/WriteTDMSTest1.vi"/>
-		<Item Name="aws.vi" Type="VI" URL="../Transport/aws.vi"/>
+		<Item Name="Control Experiment.lvclass" Type="LVClass" URL="../Control Experiment/Control Experiment.lvclass"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="1D Array to String__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/string/string.llb/1D Array to String__ogtk.vi"/>
