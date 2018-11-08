@@ -23,6 +23,7 @@
 		<Item Name="Transport.lvclass" Type="LVClass" URL="../Transport/Transport.lvclass"/>
 		<Item Name="SweepControl.lvclass" Type="LVClass" URL="../SMOs/SweepControl/SweepControl.lvclass"/>
 		<Item Name="Control Experiment.lvclass" Type="LVClass" URL="../Control Experiment/Control Experiment.lvclass"/>
+		<Item Name="Guid Generator.vi" Type="VI" URL="/&lt;vilib&gt;/National Instruments/GUID Generator/Guid Generator.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="1D Array to String__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/string/string.llb/1D Array to String__ogtk.vi"/>
