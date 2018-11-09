@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2017" Created_Date="2018-09-18 13:12:29" Modified_Date="2018-11-09 17:11:30" Creator="Patrick" Comments="" ID="4efe3534c6a030a5413e26ad69dd3798">
+<VI_Package_Builder_Settings Version="2017" Created_Date="2018-09-18 13:12:29" Modified_Date="2018-11-09 17:27:47" Creator="Patrick" Comments="" ID="fb80f6e00a040c378c4015b9bf7fced9">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_Transport</Package_File_Name>
-    <Library_Version>1.0.1.13</Library_Version>
+    <Library_Version>1.0.1.14</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\src</Library_Source_Folder>
     <Library_Output_Folder>..</Library_Output_Folder>
@@ -16,7 +16,58 @@
     <Target>LabVIEW</Target>
   </Library_General_Settings>
   <Advanced_Settings>
-    <Package_Dependencies/>
+    <Package_Dependencies>
+      <External_Dependencies>jki_lib_json_serialization &gt;= 1.1.10.37</External_Dependencies>
+      <External_Dependencies>jki_lib_state_machine &gt;= 3.0.0.8</External_Dependencies>
+      <External_Dependencies>jki_statemachineobjects &gt;= 1.3.0.56</External_Dependencies>
+      <External_Dependencies>levylab_lib_colorutillities &gt;= 1.0.0.2</External_Dependencies>
+      <External_Dependencies>levylab_lib_control_vi &gt;= 1.3.0.11</External_Dependencies>
+      <External_Dependencies>levylab_lib_fileutilities &gt;= 1.2.1.7</External_Dependencies>
+      <External_Dependencies>levylab_lib_krohn_hite_7008 &gt;= 1.4.3.18</External_Dependencies>
+      <External_Dependencies>levylab_lib_leiden_tools &gt;= 1.1.1.10</External_Dependencies>
+      <External_Dependencies>levylab_lib_lockin_multichannel &gt;= 2.5.6.75</External_Dependencies>
+      <External_Dependencies>levylab_lib_lvtoitx &gt;= 2.6.4.19</External_Dependencies>
+      <External_Dependencies>lvh_toolbox &gt;= 2.0.0.35</External_Dependencies>
+      <External_Dependencies>mgi_lib_cluster &gt;= 1.1.0.1</External_Dependencies>
+      <External_Dependencies>mgi_lib_error_handling &gt;= 1.1.1.3</External_Dependencies>
+      <External_Dependencies>mgi_lib_file &gt;= 1.1.0.4</External_Dependencies>
+      <External_Dependencies>mgi_lib_read_write_anything &gt;= 2.1.4.4</External_Dependencies>
+      <External_Dependencies>mgi_lib_string &gt;= 1.1.1.5</External_Dependencies>
+      <External_Dependencies>mgi_lib_timing &gt;= 1.1.0.2</External_Dependencies>
+      <External_Dependencies>national_instruments_lib_guid_generator &gt;= 1.0.2.3</External_Dependencies>
+      <External_Dependencies>ni_lib_stm &gt;= 3.1.0.9</External_Dependencies>
+      <External_Dependencies>oglib_appcontrol &gt;= 4.1.0.7</External_Dependencies>
+      <External_Dependencies>oglib_array &gt;= 4.1.1.14</External_Dependencies>
+      <External_Dependencies>oglib_dictionary &gt;= 4.0.0.4</External_Dependencies>
+      <External_Dependencies>oglib_error &gt;= 4.2.0.23</External_Dependencies>
+      <External_Dependencies>oglib_file &gt;= 4.0.1.22</External_Dependencies>
+      <External_Dependencies>oglib_time &gt;= 4.0.1.3</External_Dependencies>
+      <Direct_Dependencies>jki_lib_json_serialization-1.1.10.37</Direct_Dependencies>
+      <Direct_Dependencies>jki_lib_state_machine-3.0.0.8</Direct_Dependencies>
+      <Direct_Dependencies>jki_statemachineobjects-1.3.0.56</Direct_Dependencies>
+      <Direct_Dependencies>levylab_lib_colorutillities-1.0.0.2</Direct_Dependencies>
+      <Direct_Dependencies>levylab_lib_control_vi-1.3.0.11</Direct_Dependencies>
+      <Direct_Dependencies>levylab_lib_fileutilities-1.2.1.7</Direct_Dependencies>
+      <Direct_Dependencies>levylab_lib_krohn_hite_7008-1.4.3.18</Direct_Dependencies>
+      <Direct_Dependencies>levylab_lib_leiden_tools-1.1.1.10</Direct_Dependencies>
+      <Direct_Dependencies>levylab_lib_lockin_multichannel-2.5.6.75</Direct_Dependencies>
+      <Direct_Dependencies>levylab_lib_lvtoitx-2.6.4.19</Direct_Dependencies>
+      <Direct_Dependencies>lvh_toolbox-2.0.0.35</Direct_Dependencies>
+      <Direct_Dependencies>mgi_lib_cluster-1.1.0.1</Direct_Dependencies>
+      <Direct_Dependencies>mgi_lib_error_handling-1.1.1.3</Direct_Dependencies>
+      <Direct_Dependencies>mgi_lib_file-1.1.0.4</Direct_Dependencies>
+      <Direct_Dependencies>mgi_lib_read_write_anything-2.1.4.4</Direct_Dependencies>
+      <Direct_Dependencies>mgi_lib_string-1.1.1.5</Direct_Dependencies>
+      <Direct_Dependencies>mgi_lib_timing-1.1.0.2</Direct_Dependencies>
+      <Direct_Dependencies>national_instruments_lib_guid_generator-1.0.2.3</Direct_Dependencies>
+      <Direct_Dependencies>ni_lib_stm-3.1.0.9</Direct_Dependencies>
+      <Direct_Dependencies>oglib_appcontrol-4.1.0.7</Direct_Dependencies>
+      <Direct_Dependencies>oglib_array-4.1.1.14</Direct_Dependencies>
+      <Direct_Dependencies>oglib_dictionary-4.0.0.4</Direct_Dependencies>
+      <Direct_Dependencies>oglib_error-4.2.0.23</Direct_Dependencies>
+      <Direct_Dependencies>oglib_file-4.0.1.22</Direct_Dependencies>
+      <Direct_Dependencies>oglib_time-4.0.1.3</Direct_Dependencies>
+    </Package_Dependencies>
     <Custom_Action_VIs>
       <Pre-Build_VI/>
       <Post-Build_VI/>
@@ -43,7 +94,7 @@
     <Destinations>
       <Toolkit_VIs>
         <LLB>false</LLB>
-        <Preserve_Hierarchy>false</Preserve_Hierarchy>
+        <Preserve_Hierarchy>true</Preserve_Hierarchy>
         <Path>&lt;user.lib&gt;\Levylab\Transport</Path>
       </Toolkit_VIs>
       <Examples>
@@ -250,7 +301,7 @@
         <Path>..\src\Transport</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>2B2B83CC7A2680251872B8BFD6617369</GUID>
+      <GUID>19DF8811A18768AA9562DBB8B82738A2</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -299,7 +350,7 @@
         <Path>..\src\Control Experiment\subVIs</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>70D8153FEB4AC8FB8C33B57CABD63FC2</GUID>
+      <GUID>F67F9027876467F51221A0D429236B8A</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -446,7 +497,7 @@
         <Path>..\src\SweepControl\Sweep Control.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>0A644E7A3F02E4492F948344F6F51FB7</GUID>
+      <GUID>3A7306F90943003F3CE7A182149FF9A2</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -551,7 +602,7 @@
         <Path>..\src\Transport\subVI</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>6BFA89AB5F32544613E87C1F46D265EC</GUID>
+      <GUID>AB6AB43F231A5D351A162BC48AA25A17</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -670,7 +721,7 @@
         <Path>..\src\Control Experiment\subVIs\GetTimeISO.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>912C51017183B0C0CAC66A4740619B5A</GUID>
+      <GUID>D898A30AC60326436333D7B07BFC7EA5</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>4</Parent_Palette_Index>
@@ -719,7 +770,7 @@
         <Path>..\src\Control Experiment\subVIs\legacy\ITX_Global.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>11E9AE4E1CA2A2112A1B3B20870358AC</GUID>
+      <GUID>D436E208E0BBEF448BFD0A4CC17A5749</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -824,7 +875,7 @@
         <Path>..\src\SweepControl\subVIs\Sweep Control Inner Loop.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>20A8E12C1CD1EA1EBDAC0B1D9F29B973</GUID>
+      <GUID>2E9366EE698B63A78852E64200117013</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>3</Parent_Palette_Index>
@@ -957,7 +1008,7 @@
         <Path>..\src\Transport\subVI\Voltage Update.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>37291E5CF9A2AF2778846D69D63E53B1</GUID>
+      <GUID>2F71EF92370A3BDD9A4D5B93BB02FEF3</GUID>
     </Functions_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>-1</Parent_Palette_Index>
@@ -1006,7 +1057,7 @@
         <Path>..\src\subVI</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>53FA4158A0DCA594DE55E7738A21B6E6</GUID>
+      <GUID>49D299398165A778C7291BB41C793893</GUID>
     </Controls_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1041,7 +1092,7 @@
         <Path>..\src\SMOs\SweepControl</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>D37FBB1F9D99220ACFBBBFF3507336FB</GUID>
+      <GUID>587D62A95727CBDACE6CD9C8C517E98E</GUID>
     </Controls_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1076,7 +1127,7 @@
         <Path>..\src\Transport\subVI\Control Experiment FGV-cluster.ctl</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>85431AD8C7DDE43076A6B4E541969528</GUID>
+      <GUID>B66E384925FDAE84EC825ED37AE9E74F</GUID>
     </Controls_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1111,7 +1162,7 @@
         <Path>..\src\SMOs\SweepControl\Typedefs</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>703B37FD32E6581B8E2BDD005462EF2C</GUID>
+      <GUID>5D685193241C2795F28ACE1372588A95</GUID>
     </Controls_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>3</Parent_Palette_Index>
@@ -1244,7 +1295,7 @@
         <Path>..\src\SweepControl\Typedefs\ScanParamters.ctl</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>8FCF5A3B172A01E396D1687EE39BEDA0</GUID>
+      <GUID>193157FF2F656BD2D7E38F6D81803349</GUID>
     </Controls_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
