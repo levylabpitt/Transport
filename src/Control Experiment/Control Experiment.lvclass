@@ -72,7 +72,7 @@
 			<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
 			<Property Name="NI.ClassItem.State" Type="Int">1342710290</Property>
 		</Item>
-		<Item Name="Generate Lockin Comments.vi" Type="VI" URL="../subVIs/Generate Lockin Comments.vi">
+		<Item Name="Add Lockin Comments.vi" Type="VI" URL="../subVIs/Add Lockin Comments.vi">
 			<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">&amp;A#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!+V!!!!&amp;A!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!71&amp;!!!Q!!!!%!!AFF=H*P=C"P&gt;81!"!!!!"*!-0````])1W^N&lt;76O&gt;(-!!#"!5!!$!!!!!1!#%W6S=G^S)'FO)#BO&lt;S"F=H*P=CE!$5!+!!:"4S""&lt;8!!!$5!]&gt;?_X41!!!!"%%&amp;08U&amp;N=#VB=H*B?3ZD&gt;'Q!(%"!!!(`````!!=+15]A97VQ)#B7+1!!#U!+!!6"4S"%1Q!S!0(8PNP0!!!!!1^"4V^%1SVB=H*B?3ZD&gt;'Q!'E"!!!(`````!!E*15]A2%-A+&amp;9J!!N!#A!%15]A:A!!-1$RV\\9]!!!!!%/15^@:CVB=H*B?3ZD&gt;'Q!'E"!!!(`````!!M*15]A:C!I3(IJ!!V!#A!'15]A='BJ!!!V!0(8PNE%!!!!!2""4V^Q;'EN98*S98EO9X2M!"R!1!!"`````Q!.#E&amp;0)("I;3!IM#E!!%]!]&gt;?_X,I!!!!"%5:V&lt;G.U;7^O,76O&gt;7UO9X2M!$6!&amp;A!%"&amp;.J&lt;G5)6(*J97ZH&lt;'5'5X&amp;V98*F#&amp;.B&gt;X2P&lt;X2I!!N4;7&gt;O97QA6(FQ:1!V!0%!!!!!!!!!!2*'&gt;7ZD&gt;'FP&lt;CVB=H*B?3ZD&gt;'Q!'E"!!!(`````!!]):H6O9X2J&lt;WY!!!R!)1&gt;#&lt;W^M:7&amp;O!""!1!!"`````Q!2!EEL!!!\!0(8RQ4L!!!!!1Z"4SVD&lt;(6T&gt;'6S,G.U&lt;!!E1&amp;!!"A!)!!I!$!!/!"!!%AR$;'&amp;O&lt;G6M=TIA15]!!"2!-0````],1W^N&lt;76O&gt;(-A;7Y!4A$Q!!M!!Q!%!!1!"1!%!!1!"!!'!!1!%Q!5!Q!![!!!#1!!!!!!!!!!!!!!$1I!!!!!!!!!!!!!!!!!!!A!!!!!!!!!#!!!!1I!!!!!!1!6!!!!!!</Property>
 			<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
 			<Property Name="NI.ClassItem.Flags" Type="Int">0</Property>
@@ -98,6 +98,15 @@
 			<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
 			<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
 			<Property Name="NI.ClassItem.State" Type="Int">1082143232</Property>
+		</Item>
+		<Item Name="Add Experiment Description Comments.vi" Type="VI" URL="../subVIs/Add Experiment Description Comments.vi">
+			<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">&amp;A#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!$^!!!!#A!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!71&amp;!!!Q!!!!%!!AFF=H*P=C"P&gt;81!"!!!!"*!-0````])1W^N&lt;76O&gt;(-!!#"!5!!$!!!!!1!#%W6S=G^S)'FO)#BO&lt;S"F=H*P=CE!)%!Q`````R:&amp;?("F=GFN:7ZU)%2F=W.S;8"U;7^O!!!51$$`````#U.P&lt;7VF&lt;H2T)'FO!%Y!]!!,!!-!"!!%!!5!"!!%!!1!"A!%!!=!#!)!!/A!!!U(!!!!!!!!!!!!!!U+!!!!!!!!!!!!!!!!!!!+!!!!!!!!!AA!!!%+!!!!!!%!#1!!!!!</Property>
+			<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
+			<Property Name="NI.ClassItem.Flags" Type="Int">0</Property>
+			<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">true</Property>
+			<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
+			<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
+			<Property Name="NI.ClassItem.State" Type="Int">1107821056</Property>
 		</Item>
 	</Item>
 	<Item Name="Control Experiment.vi" Type="VI" URL="../Control Experiment.vi">
