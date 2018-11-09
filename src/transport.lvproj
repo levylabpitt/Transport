@@ -21,7 +21,7 @@
 			<Item Name="aws.vi" Type="VI" URL="../Sandbox/aws.vi"/>
 		</Item>
 		<Item Name="Transport.lvclass" Type="LVClass" URL="../Transport/Transport.lvclass"/>
-		<Item Name="SweepControl.lvclass" Type="LVClass" URL="../SMOs/SweepControl/SweepControl.lvclass"/>
+		<Item Name="SweepControl.lvclass" Type="LVClass" URL="../SweepControl/SweepControl.lvclass"/>
 		<Item Name="Control Experiment.lvclass" Type="LVClass" URL="../Control Experiment/Control Experiment.lvclass"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="user.lib" Type="Folder">
