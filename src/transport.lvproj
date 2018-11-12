@@ -232,6 +232,11 @@
 				<Item Name="Lockin-4461 IV mode trigger and wait.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/API/Lockin-4461 IV mode trigger and wait.vi"/>
 				<Item Name="FGV - IV mode.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/FGV/FGV - IV mode.vi"/>
 				<Item Name="FGV - Trigger.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/FGV/FGV - Trigger.vi"/>
+				<Item Name="Multi-line String to Array__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/string/string.llb/Multi-line String to Array__ogtk.vi"/>
+				<Item Name="Convert EOLs__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/string/string.llb/Convert EOLs__ogtk.vi"/>
+				<Item Name="Convert EOLs (String)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/string/string.llb/Convert EOLs (String)__ogtk.vi"/>
+				<Item Name="Convert EOLs (String Array)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/string/string.llb/Convert EOLs (String Array)__ogtk.vi"/>
+				<Item Name="String to 1D Array__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/string/string.llb/String to 1D Array__ogtk.vi"/>
 			</Item>
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Add State(s) to Queue__jki_lib_state_machine.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/State Machine/_JKI_lib_State_Machine.llb/Add State(s) to Queue__jki_lib_state_machine.vi"/>
