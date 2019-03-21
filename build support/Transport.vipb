@@ -1,4 +1,4 @@
-<VI_Package_Builder_Settings Version="2017" Created_Date="2018-09-18 13:12:29" Modified_Date="2019-03-14 15:51:00" Creator="Patrick" Comments="" ID="296829e29f21a62efa90030bd854ee3d">
+<VI_Package_Builder_Settings Version="2017" Created_Date="2018-09-18 13:12:29" Modified_Date="2019-03-21 14:57:58" Creator="Patrick" Comments="" ID="a209efc114b15923fe8bac763fe65eb7">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_Transport</Package_File_Name>
     <Library_Version>1.0.1.19</Library_Version>
@@ -25,7 +25,7 @@
       <External_Dependencies>levylab_lib_fileutilities &gt;= 1.2.1.7</External_Dependencies>
       <External_Dependencies>levylab_lib_krohn_hite_7008 &gt;= 1.4.3.18</External_Dependencies>
       <External_Dependencies>levylab_lib_leiden_tools &gt;= 1.1.1.10</External_Dependencies>
-      <External_Dependencies>levylab_lib_lockin_multichannel &gt;= 2.5.6.75</External_Dependencies>
+      <External_Dependencies>levylab_lib_lockin_multichannel &gt;= 2.5.7.77</External_Dependencies>
       <External_Dependencies>levylab_lib_lvtoitx &gt;= 2.6.5.21</External_Dependencies>
       <External_Dependencies>lvh_toolbox &gt;= 2.0.0.35</External_Dependencies>
       <External_Dependencies>mgi_lib_cluster &gt;= 1.1.0.1</External_Dependencies>
@@ -51,7 +51,7 @@
       <Direct_Dependencies>levylab_lib_fileutilities-1.2.1.7</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_krohn_hite_7008-1.4.3.18</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_leiden_tools-1.1.1.10</Direct_Dependencies>
-      <Direct_Dependencies>levylab_lib_lockin_multichannel-2.5.6.75</Direct_Dependencies>
+      <Direct_Dependencies>levylab_lib_lockin_multichannel-2.5.7.77</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_lvtoitx-2.6.5.21</Direct_Dependencies>
       <Direct_Dependencies>lvh_toolbox-2.0.0.35</Direct_Dependencies>
       <Direct_Dependencies>mgi_lib_cluster-1.1.0.1</Direct_Dependencies>
@@ -81,18 +81,35 @@
     <VI_Package_Configuration_File>Transport.vipc</VI_Package_Configuration_File>
     <Description>
       <One_Line_Description_Summary/>
-      <Description>VIs for scripting and performing transport measurments.</Description>
+      <Description>VIs for scripting and performing transport measurments.
+
+[ Control Experiment.lvclass]
+Control Experiment.vi provides a uniform way to record information about your sample &amp; device, how the lockin is connected to the device, configures the Krohn Hite amplifier (and Pickering switch if you have one), and sets the base path for saving data.
+
+[SweepControl.lvclass]
+Sequencer for stepping multiple parameters. Calls VIs in Transport.lvclass
+
+[Transport.lvclass]
+Basic transport measurments.
+- Continuous B sweep (1-Continuous B sweep.vi)
+- Lockin vs Vsg (or Vbg) (A-Lockin_Vsg.vi)
+- Lockin vs Time (B-Lockin_time.vi)
+- IV curves (C-IV.vi)
+</Description>
       <Copyright/>
       <Packager/>
       <URL/>
-      <Release_Notes>- Control Experiment.lvclass:
+      <Release_Notes>[ Control Experiment.lvclass]
 ---- Organize inside a class
 ---- More refinements to Control Experiment.vi
 ---- Save most recent used FP values as default
 ---- Sample &amp; Experiment Descriptions now supports multiple lines
-- SweepControl.lvclass
+---- Add documentation
+
+[SweepControl.lvclass]
 ---- some bug fixes with loop index priority (?)
-- Transport.lvclass
+
+[Transport.lvclass]
 ---- JKI State Machine version of A-Lockin_Vsg (experimental)
 ---- A-Lockin_Vsg-JKISM.vi should work as top level VI</Release_Notes>
     </Description>
@@ -306,7 +323,7 @@
         <Path>..\src\Transport</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>C266D0C5A94FC973F392E4015C0C7245</GUID>
+      <GUID>C4149D7237E43B0C9E8AB4E26005ED26</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -355,7 +372,7 @@
         <Path>..\src\Control Experiment\subVIs</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>D55C182411C758E1EC184CFA24E2A60C</GUID>
+      <GUID>C6EF90A4888313238C6ABFBF407AC171</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -502,7 +519,7 @@
         <Path>..\src\SweepControl\Sweep Control.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>C54E43B3EFCB44980F65630BB8E922AA</GUID>
+      <GUID>F3663CAC6BF678E44BEFF5E0ED7A7F19</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -607,7 +624,7 @@
         <Path>..\src\Transport\subVI</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>2F45E311969EF778B9AE8FE8F497103A</GUID>
+      <GUID>1B1CB38A96989ECED0767DF66B72C3BF</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -726,7 +743,7 @@
         <Path>..\src\Control Experiment\subVIs\GetTimeISO.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>C5ABCE2050AD52F846A69DC47AFACF3A</GUID>
+      <GUID>A5B38D5E7D54B64B78A14A617EB31E89</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>4</Parent_Palette_Index>
@@ -775,7 +792,7 @@
         <Path>..\src\Control Experiment\subVIs\legacy\ITX_Global.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>F3D7E61887126A212F926E1154100344</GUID>
+      <GUID>B3CF0BB6D24D75C3A3EA1BD36742BCF0</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -880,7 +897,7 @@
         <Path>..\src\SweepControl\subVIs\Sweep Control Inner Loop.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>91AE3D9B39BF69B54D50891E3BE82E44</GUID>
+      <GUID>DD7AC14A8FA435869CCAEC4FE5779BAF</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>3</Parent_Palette_Index>
@@ -1013,7 +1030,7 @@
         <Path>..\src\Transport\subVI\Voltage Update.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>194D880450E1A4185E41C7BED96B5A70</GUID>
+      <GUID>CD202201CEF9B5873B1A619F13CC6AB6</GUID>
     </Functions_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>-1</Parent_Palette_Index>
@@ -1062,7 +1079,7 @@
         <Path>..\src\subVI</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>B98CB6D7CF40ED9166D10D4BCF88A65E</GUID>
+      <GUID>8A0F9A5A2171034D08C327B6BF518E31</GUID>
     </Controls_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1097,7 +1114,7 @@
         <Path>..\src\SMOs\SweepControl</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>1EBD314D5FAF10B83B4DCC5AF8CDDAD1</GUID>
+      <GUID>95D6E566895BCCE9329445C879F7F9B8</GUID>
     </Controls_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1132,7 +1149,7 @@
         <Path>..\src\Transport\subVI\Control Experiment FGV-cluster.ctl</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>7D3C3C2F2645562005B81CB4838DC2C2</GUID>
+      <GUID>38319B2B107280C9230AEC76443B98D1</GUID>
     </Controls_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1167,7 +1184,7 @@
         <Path>..\src\SMOs\SweepControl\Typedefs</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>50CEC54C30FC54DD721BAC6EE68BB126</GUID>
+      <GUID>1735EADA5530CB59F368CF9E08DB3B9F</GUID>
     </Controls_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>3</Parent_Palette_Index>
@@ -1300,7 +1317,7 @@
         <Path>..\src\SweepControl\Typedefs\ScanParamters.ctl</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>A993D6D6F6B5E7DC27AB528C56173101</GUID>
+      <GUID>3F72B7258D7E38A035814F3E4A9CE4ED</GUID>
     </Controls_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
