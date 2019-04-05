@@ -12,17 +12,17 @@
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
 		<Item Name="build support" Type="Folder">
-			<Item Name="Transport.vipb" Type="Document" URL="../../build support/Transport.vipb"/>
+			<Item Name="Transport.vipb" Type="Document" URL="../build support/Transport.vipb"/>
 		</Item>
 		<Item Name="Sandbox" Type="Folder">
-			<Item Name="Cluster Typedef JSON Staging.vi" Type="VI" URL="../Sandbox/Cluster Typedef JSON Staging.vi"/>
-			<Item Name="ReadTDMSTest1.vi" Type="VI" URL="../Sandbox/ReadTDMSTest1.vi"/>
-			<Item Name="WriteTDMSTest1.vi" Type="VI" URL="../Sandbox/WriteTDMSTest1.vi"/>
-			<Item Name="aws.vi" Type="VI" URL="../Sandbox/aws.vi"/>
+			<Item Name="Cluster Typedef JSON Staging.vi" Type="VI" URL="../src/Sandbox/Cluster Typedef JSON Staging.vi"/>
+			<Item Name="ReadTDMSTest1.vi" Type="VI" URL="../src/Sandbox/ReadTDMSTest1.vi"/>
+			<Item Name="WriteTDMSTest1.vi" Type="VI" URL="../src/Sandbox/WriteTDMSTest1.vi"/>
+			<Item Name="aws.vi" Type="VI" URL="../src/Sandbox/aws.vi"/>
 		</Item>
-		<Item Name="Transport.lvclass" Type="LVClass" URL="../Transport/Transport.lvclass"/>
-		<Item Name="SweepControl.lvclass" Type="LVClass" URL="../SweepControl/SweepControl.lvclass"/>
-		<Item Name="Control Experiment.lvclass" Type="LVClass" URL="../Control Experiment/Control Experiment.lvclass"/>
+		<Item Name="Transport.lvclass" Type="LVClass" URL="../src/Transport/Transport.lvclass"/>
+		<Item Name="SweepControl.lvclass" Type="LVClass" URL="../src/SweepControl/SweepControl.lvclass"/>
+		<Item Name="Control Experiment.lvclass" Type="LVClass" URL="../src/Control Experiment/Control Experiment.lvclass"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="446xAI-enum.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Typedefs/446xAI-enum.ctl"/>
@@ -174,7 +174,6 @@
 				<Item Name="sfpCore Hue to RGB.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/ColorUtillities/sfpCore Hue to RGB.vi"/>
 				<Item Name="sgl-wordswap.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/IBWtoLV/utl/sgl-wordswap.vi"/>
 				<Item Name="Split Cluster TD__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Split Cluster TD__ogtk.vi"/>
-				<Item Name="STM_Client.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/RemoteControl/STM_Client.vi"/>
 				<Item Name="Strip Path - Arrays__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/file/file.llb/Strip Path - Arrays__ogtk.vi"/>
 				<Item Name="Strip Path - Traditional__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/file/file.llb/Strip Path - Traditional__ogtk.vi"/>
 				<Item Name="Strip Path__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/file/file.llb/Strip Path__ogtk.vi"/>
@@ -318,8 +317,14 @@
 				<Item Name="Periodic Trigger__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/time/time.llb/Periodic Trigger__ogtk.vi"/>
 				<Item Name="StateHistory.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/SubVIs/StateHistory.vi"/>
 				<Item Name="1D Array to String__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/string/string.llb/1D Array to String__ogtk.vi"/>
-				<Item Name="RemoteControl.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/RemoteControl/RemoteControl.lvclass"/>
 				<Item Name="RemoteControl.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Levylab Instruments/SMOs/RemoteControl/RemoteControl.lvclass"/>
+				<Item Name="Random Number Within Range__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/numeric/numeric.llb/Random Number Within Range__ogtk.vi"/>
+				<Item Name="Random Number Within Range - DBL__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/numeric/numeric.llb/Random Number Within Range - DBL__ogtk.vi"/>
+				<Item Name="Random Number - Within Range__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/numeric/numeric.llb/Random Number - Within Range__ogtk.vi"/>
+				<Item Name="Random Number Within Range - I32__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/numeric/numeric.llb/Random Number Within Range - I32__ogtk.vi"/>
+				<Item Name="LockinRemoteControl.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/RemoteControl/LockinRemoteControl.lvclass"/>
+				<Item Name="REF filter-cluster.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Typedefs/REF filter-cluster.ctl"/>
+				<Item Name="Sampling.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Typedefs/Sampling.ctl"/>
 			</Item>
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Add State(s) to Queue__jki_lib_state_machine.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/State Machine/_JKI_lib_State_Machine.llb/Add State(s) to Queue__jki_lib_state_machine.vi"/>
