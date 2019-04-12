@@ -284,6 +284,50 @@
 				<Item Name="readREFconfig.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/API/readREFconfig.vi"/>
 				<Item Name="readREFfilter.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/API/readREFfilter.vi"/>
 				<Item Name="readSampling.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/API/readSampling.vi"/>
+				<Item Name="Create Dir if Non-Existant__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/file/file.llb/Create Dir if Non-Existant__ogtk.vi"/>
+				<Item Name="Build Path__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/file/file.llb/Build Path__ogtk.vi"/>
+				<Item Name="Build Path - Traditional__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/file/file.llb/Build Path - Traditional__ogtk.vi"/>
+				<Item Name="Build Path - File Names Array__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/file/file.llb/Build Path - File Names Array__ogtk.vi"/>
+				<Item Name="Build Path - File Names and Paths Arrays__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/file/file.llb/Build Path - File Names and Paths Arrays__ogtk.vi"/>
+				<Item Name="Build Path - Traditional - path__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/file/file.llb/Build Path - Traditional - path__ogtk.vi"/>
+				<Item Name="Build Path - File Names Array - path__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/file/file.llb/Build Path - File Names Array - path__ogtk.vi"/>
+				<Item Name="Build Path - File Names and Paths Arrays - path__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/file/file.llb/Build Path - File Names and Paths Arrays - path__ogtk.vi"/>
+				<Item Name="MGI Append String to Error Source.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Error Handling/MGI Append String to Error Source.vi"/>
+				<Item Name="MGI Make String Filesafe.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/String/MGI Make String Filesafe.vi"/>
+				<Item Name="Read Key (Variant)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/variantconfig/variantconfig.llb/Read Key (Variant)__ogtk.vi"/>
+				<Item Name="Get Default Data from TD__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Get Default Data from TD__ogtk.vi"/>
+				<Item Name="Get Waveform Type Enum from TD__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Get Waveform Type Enum from TD__ogtk.vi"/>
+				<Item Name="Waveform Subtype Enum__ogtk.ctl" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Waveform Subtype Enum__ogtk.ctl"/>
+				<Item Name="Get Array Element TDEnum__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Get Array Element TDEnum__ogtk.vi"/>
+				<Item Name="Strip Units__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Strip Units__ogtk.vi"/>
+				<Item Name="Set Enum String Value__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Set Enum String Value__ogtk.vi"/>
+				<Item Name="Get Strings from Enum__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Get Strings from Enum__ogtk.vi"/>
+				<Item Name="Get Strings from Enum TD__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Get Strings from Enum TD__ogtk.vi"/>
+				<Item Name="Encode Section and Key Names__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/variantconfig/variantconfig.llb/Encode Section and Key Names__ogtk.vi"/>
+				<Item Name="Read Section Cluster__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/variantconfig/variantconfig.llb/Read Section Cluster__ogtk.vi"/>
+				<Item Name="Write Key (Variant)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/variantconfig/variantconfig.llb/Write Key (Variant)__ogtk.vi"/>
+				<Item Name="Format Numeric Array__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/variantconfig/variantconfig.llb/Format Numeric Array__ogtk.vi"/>
+				<Item Name="Format Variant Into String__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/string/string.llb/Format Variant Into String__ogtk.vi"/>
+				<Item Name="Get Refnum Type Enum from Data__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Get Refnum Type Enum from Data__ogtk.vi"/>
+				<Item Name="Refnum Subtype Enum__ogtk.ctl" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Refnum Subtype Enum__ogtk.ctl"/>
+				<Item Name="Get Refnum Type Enum from TD__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Get Refnum Type Enum from TD__ogtk.vi"/>
+				<Item Name="Get Waveform Type Enum from Data__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Get Waveform Type Enum from Data__ogtk.vi"/>
+				<Item Name="Resolve Timestamp Format__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/string/string.llb/Resolve Timestamp Format__ogtk.vi"/>
+				<Item Name="Trim Whitespace__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/string/string.llb/Trim Whitespace__ogtk.vi"/>
+				<Item Name="Trim Whitespace (String)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/string/string.llb/Trim Whitespace (String)__ogtk.vi"/>
+				<Item Name="Trim Whitespace (String Array)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/string/string.llb/Trim Whitespace (String Array)__ogtk.vi"/>
+				<Item Name="Write Section Cluster__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/variantconfig/variantconfig.llb/Write Section Cluster__ogtk.vi"/>
+				<Item Name="MD5 Message Digest__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/md5/md5.llb/MD5 Message Digest__ogtk.vi"/>
+				<Item Name="MD5 Message Digest (Binary String)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/md5/md5.llb/MD5 Message Digest (Binary String)__ogtk.vi"/>
+				<Item Name="MD5 ti__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/md5/md5.llb/MD5 ti__ogtk.vi"/>
+				<Item Name="MD5 Padding__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/md5/md5.llb/MD5 Padding__ogtk.vi"/>
+				<Item Name="MD5 Unrecoverable character padding__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/md5/md5.llb/MD5 Unrecoverable character padding__ogtk.vi"/>
+				<Item Name="MD5 FGHI functions__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/md5/md5.llb/MD5 FGHI functions__ogtk.vi"/>
+				<Item Name="MD5 F function__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/md5/md5.llb/MD5 F function__ogtk.vi"/>
+				<Item Name="MD5 G function__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/md5/md5.llb/MD5 G function__ogtk.vi"/>
+				<Item Name="MD5 H function__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/md5/md5.llb/MD5 H function__ogtk.vi"/>
+				<Item Name="MD5 I function__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/md5/md5.llb/MD5 I function__ogtk.vi"/>
+				<Item Name="MD5 Message Digest (Hexadecimal String)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/md5/md5.llb/MD5 Message Digest (Hexadecimal String)__ogtk.vi"/>
 			</Item>
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Add State(s) to Queue__jki_lib_state_machine.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/State Machine/_JKI_lib_State_Machine.llb/Add State(s) to Queue__jki_lib_state_machine.vi"/>
@@ -630,17 +674,16 @@
 				<Item Name="PRC_CreateVar.vi" Type="VI" URL="/&lt;vilib&gt;/lvdsc/process/internal/PRC_CreateVar.vi"/>
 				<Item Name="dscProc.dll" Type="Document" URL="/&lt;vilib&gt;/lvdsc/process/dscProc.dll"/>
 				<Item Name="Build State String with Arguments__jki_lib_state_machine.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/State Machine/_JKI_lib_State_Machine.llb/Build State String with Arguments__jki_lib_state_machine.vi"/>
-				<Item Name="AWS Credentials.ctl" Type="VI" URL="/&lt;vilib&gt;/AWS Toolkit/Core/HTTP Request/AWS Credentials.ctl"/>
-				<Item Name="DAQmx Rollback Channel If Error.vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Rollback Channel If Error.vi"/>
-				<Item Name="DAQmx Create AI Channel (sub).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create AI Channel (sub).vi"/>
-				<Item Name="DAQmx Set CJC Parameters (sub).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Set CJC Parameters (sub).vi"/>
-				<Item Name="DAQmx Create AO Channel (sub).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create AO Channel (sub).vi"/>
-				<Item Name="DAQmx Create DI Channel (sub).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create DI Channel (sub).vi"/>
-				<Item Name="DAQmx Create DO Channel (sub).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create DO Channel (sub).vi"/>
-				<Item Name="DAQmx Create CI Channel (sub).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create CI Channel (sub).vi"/>
-				<Item Name="DAQmx Create CO Channel (sub).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create CO Channel (sub).vi"/>
-				<Item Name="DAQmx Create AI Channel TEDS(sub).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create AI Channel TEDS(sub).vi"/>
-				<Item Name="DAQmx Create Strain Rosette AI Channels (sub).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Strain Rosette AI Channels (sub).vi"/>
+				<Item Name="NI_AWS_Core.lvlib" Type="Library" URL="/&lt;vilib&gt;/AWS Toolkit/Core/NI_AWS_Core.lvlib"/>
+				<Item Name="DAQmx Create Channel (AI-Acceleration-4 Wire DC Voltage).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (AI-Acceleration-4 Wire DC Voltage).vi"/>
+				<Item Name="DAQmx Create Channel (AI-Acceleration-Charge).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (AI-Acceleration-Charge).vi"/>
+				<Item Name="DAQmx Create Channel (AI-Charge).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (AI-Charge).vi"/>
+				<Item Name="IVI Error Message Builder.vi" Type="VI" URL="/&lt;vilib&gt;/errclust.llb/IVI Error Message Builder.vi"/>
+				<Item Name="NI_XML Parsing.lvlib" Type="Library" URL="/&lt;vilib&gt;/AWS Toolkit/XML Parsing/NI_XML Parsing.lvlib"/>
+				<Item Name="LabVIEWHTTPClient.lvlib" Type="Library" URL="/&lt;vilib&gt;/httpClient/LabVIEWHTTPClient.lvlib"/>
+				<Item Name="i3-external-encryption.lvlib" Type="Library" URL="/&lt;vilib&gt;/LVH/i3 External Encryption/i3-external-encryption.lvlib"/>
+				<Item Name="Path To Command Line String.vi" Type="VI" URL="/&lt;vilib&gt;/AdvancedString/Path To Command Line String.vi"/>
+				<Item Name="PathToUNIXPathString.vi" Type="VI" URL="/&lt;vilib&gt;/Platform/CFURL.llb/PathToUNIXPathString.vi"/>
 			</Item>
 			<Item Name="instr.lib" Type="Folder">
 				<Item Name="pi40iv Initialize With Options.vi" Type="VI" URL="/&lt;instrlib&gt;/pi40iv/pi40iv.llb/pi40iv Initialize With Options.vi"/>
@@ -648,6 +691,7 @@
 				<Item Name="pi40iv Connect Channels.vi" Type="VI" URL="/&lt;instrlib&gt;/pi40iv/pi40iv.llb/pi40iv Connect Channels.vi"/>
 				<Item Name="pi40iv Disconnect Channels.vi" Type="VI" URL="/&lt;instrlib&gt;/pi40iv/pi40iv.llb/pi40iv Disconnect Channels.vi"/>
 				<Item Name="pi40iv Close.vi" Type="VI" URL="/&lt;instrlib&gt;/pi40iv/pi40iv.llb/pi40iv Close.vi"/>
+				<Item Name="pi40iv IVI Error Converter.vi" Type="VI" URL="/&lt;instrlib&gt;/pi40iv/pi40iv.llb/pi40iv IVI Error Converter.vi"/>
 			</Item>
 			<Item Name="kernel32.dll" Type="Document" URL="kernel32.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
@@ -681,31 +725,9 @@
 			<Item Name="nitaglv.dll" Type="Document" URL="nitaglv.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
-			<Item Name="MGI Append String to Error Source.vi" Type="VI" URL="../../leiden-tc/1. Sources TC/lib/Lib.llb/MGI Append String to Error Source.vi"/>
-			<Item Name="MGI Make String Filesafe.vi" Type="VI" URL="../../leiden-tc/1. Sources TC/lib/Lib.llb/MGI Make String Filesafe.vi"/>
-			<Item Name="Create Dir if Non-Existant__ogtk.vi" Type="VI" URL="../../leiden-tc/1. Sources TC/lib/Lib.llb/Create Dir if Non-Existant__ogtk.vi"/>
-			<Item Name="Build Path - Traditional__ogtk.vi" Type="VI" URL="../../leiden-tc/1. Sources TC/lib/Lib.llb/Build Path - Traditional__ogtk.vi"/>
-			<Item Name="Read Key (Variant)__ogtk.vi" Type="VI" URL="../../leiden-tc/1. Sources TC/lib/Lib.llb/Read Key (Variant)__ogtk.vi"/>
-			<Item Name="Get Default Data from TD__ogtk.vi" Type="VI" URL="../../leiden-tc/1. Sources TC/lib/Lib.llb/Get Default Data from TD__ogtk.vi"/>
-			<Item Name="Get Waveform Type Enum from TD__ogtk.vi" Type="VI" URL="../../leiden-tc/1. Sources TC/lib/Lib.llb/Get Waveform Type Enum from TD__ogtk.vi"/>
-			<Item Name="Waveform Subtype Enum__ogtk.ctl" Type="VI" URL="../../leiden-tc/1. Sources TC/lib/Lib.llb/Waveform Subtype Enum__ogtk.ctl"/>
-			<Item Name="Get Array Element TDEnum__ogtk.vi" Type="VI" URL="../../leiden-tc/1. Sources TC/lib/Lib.llb/Get Array Element TDEnum__ogtk.vi"/>
-			<Item Name="Strip Units__ogtk.vi" Type="VI" URL="../../leiden-tc/1. Sources TC/lib/Lib.llb/Strip Units__ogtk.vi"/>
-			<Item Name="Set Enum String Value__ogtk.vi" Type="VI" URL="../../leiden-tc/1. Sources TC/lib/Lib.llb/Set Enum String Value__ogtk.vi"/>
-			<Item Name="Get Strings from Enum__ogtk.vi" Type="VI" URL="../../leiden-tc/1. Sources TC/lib/Lib.llb/Get Strings from Enum__ogtk.vi"/>
-			<Item Name="Get Strings from Enum TD__ogtk.vi" Type="VI" URL="../../leiden-tc/1. Sources TC/lib/Lib.llb/Get Strings from Enum TD__ogtk.vi"/>
-			<Item Name="Encode Section and Key Names__ogtk.vi" Type="VI" URL="../../leiden-tc/1. Sources TC/lib/Lib.llb/Encode Section and Key Names__ogtk.vi"/>
-			<Item Name="Read Section Cluster__ogtk.vi" Type="VI" URL="../../leiden-tc/1. Sources TC/lib/Lib.llb/Read Section Cluster__ogtk.vi"/>
-			<Item Name="Write Key (Variant)__ogtk.vi" Type="VI" URL="../../leiden-tc/1. Sources TC/lib/Lib.llb/Write Key (Variant)__ogtk.vi"/>
-			<Item Name="Format Numeric Array__ogtk.vi" Type="VI" URL="../../leiden-tc/1. Sources TC/lib/Lib.llb/Format Numeric Array__ogtk.vi"/>
-			<Item Name="Format Variant Into String__ogtk.vi" Type="VI" URL="../../leiden-tc/1. Sources TC/lib/Lib.llb/Format Variant Into String__ogtk.vi"/>
-			<Item Name="Get Refnum Type Enum from Data__ogtk.vi" Type="VI" URL="../../leiden-tc/1. Sources TC/lib/Lib.llb/Get Refnum Type Enum from Data__ogtk.vi"/>
-			<Item Name="Refnum Subtype Enum__ogtk.ctl" Type="VI" URL="../../leiden-tc/1. Sources TC/lib/Lib.llb/Refnum Subtype Enum__ogtk.ctl"/>
-			<Item Name="Get Refnum Type Enum from TD__ogtk.vi" Type="VI" URL="../../leiden-tc/1. Sources TC/lib/Lib.llb/Get Refnum Type Enum from TD__ogtk.vi"/>
-			<Item Name="Get Waveform Type Enum from Data__ogtk.vi" Type="VI" URL="../../leiden-tc/1. Sources TC/lib/Lib.llb/Get Waveform Type Enum from Data__ogtk.vi"/>
-			<Item Name="Resolve Timestamp Format__ogtk.vi" Type="VI" URL="../../leiden-tc/1. Sources TC/lib/Lib.llb/Resolve Timestamp Format__ogtk.vi"/>
-			<Item Name="Trim Whitespace (String)__ogtk.vi" Type="VI" URL="../../leiden-tc/1. Sources TC/lib/Lib.llb/Trim Whitespace (String)__ogtk.vi"/>
-			<Item Name="Write Section Cluster__ogtk.vi" Type="VI" URL="../../leiden-tc/1. Sources TC/lib/Lib.llb/Write Section Cluster__ogtk.vi"/>
+			<Item Name="pi40iv32.dll" Type="Document" URL="pi40iv32.dll">
+				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
+			</Item>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
