@@ -105,7 +105,7 @@
 			</Item>
 		</Item>
 		<Item Name="Initialize Experiment.vi" Type="VI" URL="../subVIs/Initialize Experiment.vi">
-			<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">&amp;A#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!%*!!!!#Q!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!71&amp;!!!Q!!!!%!!AFF=H*P=C"P&gt;81!%E!Q`````QB$&lt;WVN:7ZU=Q!!%%!Q`````Q:E:8:J9W5!!!Z!-P````]%='&amp;U;!!!"!!!!#"!5!!$!!!!!1!#%W6S=G^S)'FO)#BO&lt;S"F=H*P=CE!(%!Q`````R.&amp;?("F=GFN:7ZU)%.P&lt;7VF&lt;H2T!&amp;1!]!!-!!-!"!!&amp;!!9!"Q!(!!=!"Q!)!!=!"Q!*!Q!!?!!!#1!!!!E!!!!*!!!!#1!!!!!!!!!!!!!!!!!!!!!!!!!+!!!!!!!!!!!!!!!+!!!!!!%!#A!!!!!</Property>
+			<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">&amp;A#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!%B!!!!$!!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!71&amp;!!!Q!!!!%!!AFF=H*P=C"P&gt;81!%E!Q`````QB$&lt;WVN:7ZU=Q!!%%!Q`````Q:E:8:J9W5!!!Z!-P````]%='&amp;U;!!!"!!!!"B!-0````]/&lt;'^D;WFO)'&amp;E:(*F=X-!!#"!5!!$!!!!!1!#%W6S=G^S)'FO)#BO&lt;S"F=H*P=CE!(%!Q`````R.&amp;?("F=GFN:7ZU)%.P&lt;7VF&lt;H2T!&amp;1!]!!-!!-!"!!&amp;!!9!"Q!(!!=!#!!*!!=!"Q!+!Q!!?!!!#1!!!!E!!!!*!!!!#1!!!!!!!!!!!!!!!!!!!1I!!!!+!!!!!!!!!!!!!!!+!!!!!!%!#Q!!!!!</Property>
 			<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
 			<Property Name="NI.ClassItem.Flags" Type="Int">0</Property>
 			<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">true</Property>
