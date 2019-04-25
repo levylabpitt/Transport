@@ -12,17 +12,18 @@
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
 		<Item Name="build support" Type="Folder">
-			<Item Name="Transport.vipb" Type="Document" URL="../build support/Transport.vipb"/>
+			<Item Name="Transport.vipb" Type="Document" URL="../Transport.vipb"/>
+			<Item Name="Transport.vipc" Type="Document" URL="../Transport.vipc"/>
 		</Item>
 		<Item Name="Sandbox" Type="Folder">
-			<Item Name="Cluster Typedef JSON Staging.vi" Type="VI" URL="../src/Sandbox/Cluster Typedef JSON Staging.vi"/>
-			<Item Name="ReadTDMSTest1.vi" Type="VI" URL="../src/Sandbox/ReadTDMSTest1.vi"/>
-			<Item Name="WriteTDMSTest1.vi" Type="VI" URL="../src/Sandbox/WriteTDMSTest1.vi"/>
-			<Item Name="aws.vi" Type="VI" URL="../src/Sandbox/aws.vi"/>
+			<Item Name="Cluster Typedef JSON Staging.vi" Type="VI" URL="../Sandbox/Cluster Typedef JSON Staging.vi"/>
+			<Item Name="ReadTDMSTest1.vi" Type="VI" URL="../Sandbox/ReadTDMSTest1.vi"/>
+			<Item Name="WriteTDMSTest1.vi" Type="VI" URL="../Sandbox/WriteTDMSTest1.vi"/>
+			<Item Name="aws.vi" Type="VI" URL="../Sandbox/aws.vi"/>
 		</Item>
-		<Item Name="Transport.lvclass" Type="LVClass" URL="../src/Transport/Transport.lvclass"/>
-		<Item Name="SweepControl.lvclass" Type="LVClass" URL="../src/SweepControl/SweepControl.lvclass"/>
-		<Item Name="Control Experiment.lvclass" Type="LVClass" URL="../src/Control Experiment/Control Experiment.lvclass"/>
+		<Item Name="Transport.lvclass" Type="LVClass" URL="../Transport/Transport.lvclass"/>
+		<Item Name="SweepControl.lvclass" Type="LVClass" URL="../SweepControl/SweepControl.lvclass"/>
+		<Item Name="Control Experiment.lvclass" Type="LVClass" URL="../Control Experiment/Control Experiment.lvclass"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="446xAI-enum.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Typedefs/446xAI-enum.ctl"/>
@@ -100,7 +101,6 @@
 				<Item Name="Filter Error Codes__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/error/error.llb/Filter Error Codes__ogtk.vi"/>
 				<Item Name="Filtered Error Details - Cluster__ogtk.ctl" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/error/error.llb/Filtered Error Details - Cluster__ogtk.ctl"/>
 				<Item Name="Fit VI window to Largest Dec__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/appcontrol/appcontrol.llb/Fit VI window to Largest Dec__ogtk.vi"/>
-				<Item Name="Format number_123456.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/FileUtilities/Format number_123456.vi"/>
 				<Item Name="Function-array.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Typedefs/Function-array.ctl"/>
 				<Item Name="Function-enum.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Typedefs/Function-enum.ctl"/>
 				<Item Name="Get Array Element TD__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Get Array Element TD__ogtk.vi"/>
@@ -328,6 +328,7 @@
 				<Item Name="MD5 H function__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/md5/md5.llb/MD5 H function__ogtk.vi"/>
 				<Item Name="MD5 I function__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/md5/md5.llb/MD5 I function__ogtk.vi"/>
 				<Item Name="MD5 Message Digest (Hexadecimal String)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/md5/md5.llb/MD5 Message Digest (Hexadecimal String)__ogtk.vi"/>
+				<Item Name="Format number_1234567890.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/FileUtilities/Format number_1234567890.vi"/>
 			</Item>
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Add State(s) to Queue__jki_lib_state_machine.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/State Machine/_JKI_lib_State_Machine.llb/Add State(s) to Queue__jki_lib_state_machine.vi"/>
