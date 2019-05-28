@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2017" Created_Date="2018-09-18 13:12:29" Modified_Date="2019-05-28 15:32:04" Creator="Patrick" Comments="" ID="0be9afd4055957853279cc36c913e068">
+<VI_Package_Builder_Settings Version="2017" Created_Date="2018-09-18 13:12:29" Modified_Date="2019-05-28 16:09:05" Creator="Patrick" Comments="" ID="fda09b0dc82bf4c7e3effe2448f137b5">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_Transport</Package_File_Name>
-    <Library_Version>1.0.6.24</Library_Version>
+    <Library_Version>1.0.6.25</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>.</Library_Source_Folder>
     <Library_Output_Folder>..</Library_Output_Folder>
@@ -104,7 +104,8 @@ Basic transport measurments.
       <URL/>
       <Release_Notes>[Transport.lvclass &amp; SweepControl.lvclass
 ----update to latest lockin version
-----delete some legacy global variables</Release_Notes>
+----delete some legacy global variables
+----remove references to Voltage Update.vi</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
