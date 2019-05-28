@@ -26,10 +26,6 @@
 		<Item Name="Control Experiment.lvclass" Type="LVClass" URL="../Control Experiment/Control Experiment.lvclass"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="user.lib" Type="Folder">
-				<Item Name="446xAI-enum.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Typedefs/446xAI-enum.ctl"/>
-				<Item Name="AI.config-array.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Typedefs/AI.config-array.ctl"/>
-				<Item Name="AI.config-cluster.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Typedefs/AI.config-cluster.ctl"/>
-				<Item Name="AI.coupling-enum.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Typedefs/AI.coupling-enum.ctl"/>
 				<Item Name="AO-cluster.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Typedefs/AO-cluster.ctl"/>
 				<Item Name="AO_Amp-array.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Typedefs/AO_Amp-array.ctl"/>
 				<Item Name="AO_DC-array.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Typedefs/AO_DC-array.ctl"/>
@@ -90,11 +86,6 @@
 				<Item Name="Empty 2D Array (Variant)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/array/array.llb/Empty 2D Array (Variant)__ogtk.vi"/>
 				<Item Name="Empty Array (Variant)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/array/array.llb/Empty Array (Variant)__ogtk.vi"/>
 				<Item Name="Empty Array__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/array/array.llb/Empty Array__ogtk.vi"/>
-				<Item Name="FGV - Configuration - Output.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/FGV/FGV - Configuration - Output.vi"/>
-				<Item Name="FGV - Lockin Results.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/FGV/FGV - Lockin Results.vi"/>
-				<Item Name="FGV - Remote.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/FGV/FGV - Remote.vi"/>
-				<Item Name="FGV - Signals - Input.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/FGV/FGV - Signals - Input.vi"/>
-				<Item Name="FGV - Signals - Output.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/FGV/FGV - Signals - Output.vi"/>
 				<Item Name="FilePath.glb.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/FileUtilities/FilePath.glb.vi"/>
 				<Item Name="Filter Error Codes (Array)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/error/error.llb/Filter Error Codes (Array)__ogtk.vi"/>
 				<Item Name="Filter Error Codes (Scalar)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/error/error.llb/Filter Error Codes (Scalar)__ogtk.vi"/>
@@ -213,8 +204,6 @@
 				<Item Name="assertTrigger.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/API/assertTrigger.vi"/>
 				<Item Name="configIVmode.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/API/configIVmode.vi"/>
 				<Item Name="Lockin-4461 IV mode trigger and wait.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/API/Lockin-4461 IV mode trigger and wait.vi"/>
-				<Item Name="FGV - IV mode.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/FGV/FGV - IV mode.vi"/>
-				<Item Name="FGV - Trigger.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/FGV/FGV - Trigger.vi"/>
 				<Item Name="Multi-line String to Array__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/string/string.llb/Multi-line String to Array__ogtk.vi"/>
 				<Item Name="Convert EOLs__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/string/string.llb/Convert EOLs__ogtk.vi"/>
 				<Item Name="Convert EOLs (String)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/string/string.llb/Convert EOLs (String)__ogtk.vi"/>
@@ -329,6 +318,7 @@
 				<Item Name="MD5 Message Digest (Hexadecimal String)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/md5/md5.llb/MD5 Message Digest (Hexadecimal String)__ogtk.vi"/>
 				<Item Name="Format number_123456.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/FileUtilities/Format number_123456.vi"/>
 				<Item Name="Instrument.Cryostat.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Levylab Instruments/Instrument Types/Cryostat/Instrument.Cryostat.lvclass"/>
+				<Item Name="Spinner.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/RemoteControl/Spinner.vi"/>
 			</Item>
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Add State(s) to Queue__jki_lib_state_machine.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/State Machine/_JKI_lib_State_Machine.llb/Add State(s) to Queue__jki_lib_state_machine.vi"/>
@@ -1010,6 +1000,7 @@
 			<Item Name="pi40iv32.dll" Type="Document" URL="pi40iv32.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
+			<Item Name="Voltage Update.vi" Type="VI" URL="../Transport/subVI/Voltage Update.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
