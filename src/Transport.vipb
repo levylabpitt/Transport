@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2017" Created_Date="2018-09-18 13:12:29" Modified_Date="2019-05-28 16:09:05" Creator="Patrick" Comments="" ID="fda09b0dc82bf4c7e3effe2448f137b5">
+<VI_Package_Builder_Settings Version="2017" Created_Date="2018-09-18 13:12:29" Modified_Date="2019-05-28 17:03:09" Creator="Patrick" Comments="" ID="22ca5dfba98fc172a0af41fa9e4e5dc6">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_Transport</Package_File_Name>
-    <Library_Version>1.0.6.25</Library_Version>
+    <Library_Version>1.0.7.26</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>.</Library_Source_Folder>
     <Library_Output_Folder>..</Library_Output_Folder>
@@ -103,9 +103,7 @@ Basic transport measurments.
       <Packager/>
       <URL/>
       <Release_Notes>[Transport.lvclass &amp; SweepControl.lvclass
-----update to latest lockin version
-----delete some legacy global variables
-----remove references to Voltage Update.vi</Release_Notes>
+----Vbg actions now reference Voltage Update package</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
@@ -189,9 +187,6 @@ Basic transport measurments.
       </Exclusions>
       <Exclusions>
         <Path>Sandbox</Path>
-      </Exclusions>
-      <Exclusions>
-        <Path>These need to be their own instrument</Path>
       </Exclusions>
     </Source_Files>
     <License_Agreement_Filepath/>
@@ -320,7 +315,7 @@ Basic transport measurments.
         <Path>Transport</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>FCD6453229C1D0726A368F6CE9BBC4B7</GUID>
+      <GUID>8340920E22208A5DD3E1B7DBA21A12F3</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -369,7 +364,7 @@ Basic transport measurments.
         <Path>Control Experiment\Control Experiment.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>E66F06D43F5F981468125FF8A7E2E7BF</GUID>
+      <GUID>38363C44490ED0915820B77C7854781E</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -516,7 +511,7 @@ Basic transport measurments.
         <Path>SweepControl\Read Experiment folder name.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>3BEE942DF1607913392C6E076CD92E6D</GUID>
+      <GUID>01D24EFD55E8CCC844C2C979D616FF30</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -621,7 +616,7 @@ Basic transport measurments.
         <Path>Transport\subVI</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>1B3CB824CB849EEC3E8444054195D525</GUID>
+      <GUID>BE9A7DD3E8D56D0FF984D4C865D24F62</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -726,7 +721,7 @@ Basic transport measurments.
         <Path>Control Experiment\subVIs\Initialize Experiment.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>92D574BEA29F9F47AF7A7256A3FFA571</GUID>
+      <GUID>432348D5E10F2EEA41C41B0F300491CA</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>4</Parent_Palette_Index>
@@ -803,7 +798,7 @@ Basic transport measurments.
         <Path>Control Experiment\subVIs\comments\Generate Comments.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>9A0D7678A42F8FB91BA942BBDAF0A39F</GUID>
+      <GUID>75E5BD644D7C1FE810F309AB1EF893EA</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>4</Parent_Palette_Index>
@@ -852,7 +847,7 @@ Basic transport measurments.
         <Path>Control Experiment\subVIs\legacy\ITX_Global.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>B57F418436A98D098AEA74F44530F670</GUID>
+      <GUID>BE2561BBC5F5573C6E534A306634871A</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -957,7 +952,7 @@ Basic transport measurments.
         <Path>SweepControl\subVIs\Sweep Control Inner Loop.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>7B1ACECBC2A91FD2C8A6636B40F39B3E</GUID>
+      <GUID>A9E44929691B9DB14F7AAA2BF945D463</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>3</Parent_Palette_Index>
@@ -978,20 +973,6 @@ Basic transport measurments.
         <Synchronyze_with_Directory>false</Synchronyze_with_Directory>
         <Synchronize_Directory_Path>Transport\subVI</Synchronize_Directory_Path>
       </Synchronization_Info>
-      <Items_Data>
-        <Type>Item</Type>
-        <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Voltage - Finite Output.vi</NameSub_Menu_Name>
-        <Short_Name/>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>1</Row>
-          <Column>1</Column>
-        </Position>
-        <Icon>00000000</Icon>
-        <Path>These need to be their own instrument\4431 Voltage Update.vi</Path>
-        <VI_Title/>
-      </Items_Data>
       <Items_Data>
         <Type>Item</Type>
         <Sub_Palette_Index>-1</Sub_Palette_Index>
@@ -1076,7 +1057,7 @@ Basic transport measurments.
         <Path>old stuff\SubVI\Voltage Update.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>37C47316A479CA675141EA62AAC0533D</GUID>
+      <GUID>48F415E01701D4C104744A6ECA6C1CA8</GUID>
     </Functions_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>-1</Parent_Palette_Index>
@@ -1125,7 +1106,7 @@ Basic transport measurments.
         <Path>subVI</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>DE8DA0BE34575B82E21439657E03E2E4</GUID>
+      <GUID>5219C6C67E71F49E7407069B19B70F08</GUID>
     </Controls_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1160,7 +1141,7 @@ Basic transport measurments.
         <Path>SMOs\SweepControl</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>E81B6623F348498C926F67072F0E41C3</GUID>
+      <GUID>4405C6C71A281938581B590F17EC2A7F</GUID>
     </Controls_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1195,7 +1176,7 @@ Basic transport measurments.
         <Path>Transport\subVI\Control Experiment FGV-cluster.ctl</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>45E24585A94B18EEAD6A2F780DEEE1F0</GUID>
+      <GUID>941590E78AD224B3D00D86132368489B</GUID>
     </Controls_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1230,7 +1211,7 @@ Basic transport measurments.
         <Path>SMOs\SweepControl\Typedefs</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>23DE0988C6DB7346794C3C5CF35D2EAC</GUID>
+      <GUID>6E1A6E294C13C0B7DF90E1EAA0D3E226</GUID>
     </Controls_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>3</Parent_Palette_Index>
@@ -1363,7 +1344,7 @@ Basic transport measurments.
         <Path>SweepControl\Typedefs\ScanParamters.ctl</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>CA793FC5288B830CEE977F46192084E5</GUID>
+      <GUID>D3F38B0BBCF4657452B3E19DCA746AAE</GUID>
     </Controls_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
