@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2017" Created_Date="2018-09-18 13:12:29" Modified_Date="2019-05-28 17:03:09" Creator="Patrick" Comments="" ID="22ca5dfba98fc172a0af41fa9e4e5dc6">
+<VI_Package_Builder_Settings Version="2017" Created_Date="2018-09-18 13:12:29" Modified_Date="2019-05-28 21:05:33" Creator="Patrick" Comments="" ID="9a918b6bd254cc214dd3277f7e2d2a74">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_Transport</Package_File_Name>
-    <Library_Version>1.0.7.26</Library_Version>
+    <Library_Version>1.0.8.26</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>.</Library_Source_Folder>
     <Library_Output_Folder>..</Library_Output_Folder>
@@ -18,9 +18,7 @@
   <Advanced_Settings>
     <Package_Dependencies>
       <External_Dependencies>jki_lib_json_serialization &gt;= 1.1.10.37</External_Dependencies>
-      <External_Dependencies>jki_lib_state_machine &gt;= 2018.0.7.45</External_Dependencies>
       <External_Dependencies>jki_statemachineobjects &gt;= 1.3.0.56</External_Dependencies>
-      <External_Dependencies>levylab_lib_colorutillities &gt;= 1.0.0.2</External_Dependencies>
       <External_Dependencies>levylab_lib_control_vi &gt;= 1.3.0.11</External_Dependencies>
       <External_Dependencies>levylab_lib_fileutilities &gt;= 1.2.3.9</External_Dependencies>
       <External_Dependencies>levylab_lib_graph_utilities &gt;= 1.1.0.7</External_Dependencies>
@@ -44,11 +42,8 @@
       <External_Dependencies>oglib_file &gt;= 4.0.1.22</External_Dependencies>
       <External_Dependencies>oglib_string &gt;= 4.1.0.12</External_Dependencies>
       <External_Dependencies>oglib_time &gt;= 4.0.1.3</External_Dependencies>
-      <Additional_External_Dependencies>levylab_lib_pickering &gt;=4.0.1.8</Additional_External_Dependencies>
       <Direct_Dependencies>jki_lib_json_serialization-1.1.10.37</Direct_Dependencies>
-      <Direct_Dependencies>jki_lib_state_machine-2018.0.7.45</Direct_Dependencies>
       <Direct_Dependencies>jki_statemachineobjects-1.3.0.56</Direct_Dependencies>
-      <Direct_Dependencies>levylab_lib_colorutillities-1.0.0.2</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_control_vi-1.3.0.11</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_fileutilities-1.2.3.9</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_graph_utilities-1.1.0.7</Direct_Dependencies>
@@ -103,7 +98,7 @@ Basic transport measurments.
       <Packager/>
       <URL/>
       <Release_Notes>[Transport.lvclass &amp; SweepControl.lvclass
-----Vbg actions now reference Voltage Update package</Release_Notes>
+----Remove more unused files and update package dependencies</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
@@ -182,12 +177,6 @@ Basic transport measurments.
         <Namespace_Type>Prefix</Namespace_Type>
         <Namespace/>
       </Namespace_Overrides>
-      <Exclusions>
-        <Path>old stuff</Path>
-      </Exclusions>
-      <Exclusions>
-        <Path>Sandbox</Path>
-      </Exclusions>
     </Source_Files>
     <License_Agreement_Filepath/>
     <Licensing_and_Activation>
@@ -315,7 +304,7 @@ Basic transport measurments.
         <Path>Transport</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>8340920E22208A5DD3E1B7DBA21A12F3</GUID>
+      <GUID>3AE424F099E1CFA9BDA6169097475CA4</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -364,7 +353,7 @@ Basic transport measurments.
         <Path>Control Experiment\Control Experiment.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>38363C44490ED0915820B77C7854781E</GUID>
+      <GUID>54C1EFB2DB3B48AA3C34BE25548C6B63</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -511,7 +500,7 @@ Basic transport measurments.
         <Path>SweepControl\Read Experiment folder name.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>01D24EFD55E8CCC844C2C979D616FF30</GUID>
+      <GUID>B6F768107B3046FCC18C1AEBC324CE29</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -616,7 +605,7 @@ Basic transport measurments.
         <Path>Transport\subVI</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>BE9A7DD3E8D56D0FF984D4C865D24F62</GUID>
+      <GUID>B189B3B5A14E53E5B2A13E3563A8FC08</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -721,7 +710,7 @@ Basic transport measurments.
         <Path>Control Experiment\subVIs\Initialize Experiment.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>432348D5E10F2EEA41C41B0F300491CA</GUID>
+      <GUID>02716432085A2DC7CFB86D050C3FF60E</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>4</Parent_Palette_Index>
@@ -798,7 +787,7 @@ Basic transport measurments.
         <Path>Control Experiment\subVIs\comments\Generate Comments.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>75E5BD644D7C1FE810F309AB1EF893EA</GUID>
+      <GUID>8BB9A3DA5E34AD50FEE80CECC4A08501</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>4</Parent_Palette_Index>
@@ -847,7 +836,7 @@ Basic transport measurments.
         <Path>Control Experiment\subVIs\legacy\ITX_Global.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>BE2561BBC5F5573C6E534A306634871A</GUID>
+      <GUID>3E1756D4A62F98AF7B8E180B67B8C821</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -952,7 +941,7 @@ Basic transport measurments.
         <Path>SweepControl\subVIs\Sweep Control Inner Loop.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>A9E44929691B9DB14F7AAA2BF945D463</GUID>
+      <GUID>20D0ACC4B15E292D53BA8C9C965B9F9F</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>3</Parent_Palette_Index>
@@ -1043,21 +1032,7 @@ Basic transport measurments.
         <Path>Transport\subVI\LockinVsgGraphs.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <Items_Data>
-        <Type>Item</Type>
-        <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Voltage Update.vi</NameSub_Menu_Name>
-        <Short_Name/>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>2</Row>
-          <Column>3</Column>
-        </Position>
-        <Icon>00000000</Icon>
-        <Path>old stuff\SubVI\Voltage Update.vi</Path>
-        <VI_Title/>
-      </Items_Data>
-      <GUID>48F415E01701D4C104744A6ECA6C1CA8</GUID>
+      <GUID>6777259A4853A1DF1375F00A6EE56020</GUID>
     </Functions_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>-1</Parent_Palette_Index>
@@ -1106,7 +1081,7 @@ Basic transport measurments.
         <Path>subVI</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>5219C6C67E71F49E7407069B19B70F08</GUID>
+      <GUID>B5F44F3AD15BB94C5F9797464D43C5E2</GUID>
     </Controls_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1141,7 +1116,7 @@ Basic transport measurments.
         <Path>SMOs\SweepControl</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>4405C6C71A281938581B590F17EC2A7F</GUID>
+      <GUID>4291E9A3134AB166AF7152A1CE8094DE</GUID>
     </Controls_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1176,7 +1151,7 @@ Basic transport measurments.
         <Path>Transport\subVI\Control Experiment FGV-cluster.ctl</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>941590E78AD224B3D00D86132368489B</GUID>
+      <GUID>B8DCB5D91872C5B929FBECE26FB517A1</GUID>
     </Controls_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1211,7 +1186,7 @@ Basic transport measurments.
         <Path>SMOs\SweepControl\Typedefs</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>6E1A6E294C13C0B7DF90E1EAA0D3E226</GUID>
+      <GUID>3C7CCBA72D0DFD309D5A23C1327BB8EE</GUID>
     </Controls_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>3</Parent_Palette_Index>
@@ -1344,7 +1319,7 @@ Basic transport measurments.
         <Path>SweepControl\Typedefs\ScanParamters.ctl</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>D3F38B0BBCF4657452B3E19DCA746AAE</GUID>
+      <GUID>F15835E61FDA1B65EAECC4A2003CD5BE</GUID>
     </Controls_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
