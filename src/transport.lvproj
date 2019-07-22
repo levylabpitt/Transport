@@ -41,11 +41,6 @@
 				<Item Name="Build Error Cluster__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/error/error.llb/Build Error Cluster__ogtk.vi"/>
 				<Item Name="Clear All Errors__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/error/error.llb/Clear All Errors__ogtk.vi"/>
 				<Item Name="Cluster to Array of VData__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Cluster to Array of VData__ogtk.vi"/>
-				<Item Name="configAO.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/API/configAO.vi"/>
-				<Item Name="configAO_Amp.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/API/configAO_Amp.vi"/>
-				<Item Name="configAO_DC.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/API/configAO_DC.vi"/>
-				<Item Name="configAO_f.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/API/configAO_f.vi"/>
-				<Item Name="configRemote.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/API/configRemote.vi"/>
 				<Item Name="Current VIs Parent Directory__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/file/file.llb/Current VIs Parent Directory__ogtk.vi"/>
 				<Item Name="Current VIs Parents Ref__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/appcontrol/appcontrol.llb/Current VIs Parents Ref__ogtk.vi"/>
 				<Item Name="DirExists-NoThenCreate.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/FileUtilities/DirExists-NoThenCreate.vi"/>
@@ -109,7 +104,6 @@
 				<Item Name="IBW to Labview Array 2.2.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/IBWtoLV/IBW to Labview Array 2.2.vi"/>
 				<Item Name="increment filename.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/FileUtilities/increment filename.vi"/>
 				<Item Name="Instrument.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Levylab Instruments/SMOs/Instrument/Instrument.lvclass"/>
-				<Item Name="KH7008.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Krohn Hite 7008/KH7008.lvclass"/>
 				<Item Name="LVtoITX.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/LV to ITX/LVtoITX.lvclass"/>
 				<Item Name="Make Color Table.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Graph Utilities/Make Color Table.vi"/>
 				<Item Name="Max_Min_conversion.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Control VI/SubVIs/Max_Min_conversion.vi"/>
@@ -156,9 +150,6 @@
 				<Item Name="Parse String with TDs__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Parse String with TDs__ogtk.vi"/>
 				<Item Name="Ramp.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Control VI/Ramp.vi"/>
 				<Item Name="Ramp_SubVI.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Control VI/Other/Ramp_SubVI.vi"/>
-				<Item Name="readAI.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/API/readAI.vi"/>
-				<Item Name="readAO.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/API/readAO.vi"/>
-				<Item Name="readResults.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/API/readResults.vi"/>
 				<Item Name="REF-cluster.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Typedefs/REF-cluster.ctl"/>
 				<Item Name="REF_f-array.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Typedefs/REF_f-array.ctl"/>
 				<Item Name="REF_phi-array.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Typedefs/REF_phi-array.ctl"/>
@@ -176,7 +167,6 @@
 				<Item Name="Type Descriptor__ogtk.ctl" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Type Descriptor__ogtk.ctl"/>
 				<Item Name="Variant to Header Info__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Variant to Header Info__ogtk.vi"/>
 				<Item Name="Wait (ms)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/time/time.llb/Wait (ms)__ogtk.vi"/>
-				<Item Name="waitForNewWaveforms.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/API/waitForNewWaveforms.vi"/>
 				<Item Name="pickering.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Pickering/pickering.lvclass"/>
 				<Item Name="GetLocalComputerName.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Leiden Tools/subVIs/GetLocalComputerName.vi"/>
 				<Item Name="Computer Info.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Leiden Tools/subVIs/Computer Info.vi"/>
@@ -200,12 +190,7 @@
 				<Item Name="Dictionary Get Data__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/dictionary/dictionary.llb/Dictionary Get Data__ogtk.vi"/>
 				<Item Name="MGI String Pattern Match Exists.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/String/MGI String Pattern Match Exists.vi"/>
 				<Item Name="MGI Search Sorted.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/String/MGI Search Sorted.vi"/>
-				<Item Name="readAOconfig.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/API/readAOconfig.vi"/>
-				<Item Name="readTrigger.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/API/readTrigger.vi"/>
 				<Item Name="getTimeWithError.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/SubVIs/getTimeWithError.vi"/>
-				<Item Name="assertTrigger.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/API/assertTrigger.vi"/>
-				<Item Name="configIVmode.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/API/configIVmode.vi"/>
-				<Item Name="Lockin-4461 IV mode trigger and wait.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/API/Lockin-4461 IV mode trigger and wait.vi"/>
 				<Item Name="Multi-line String to Array__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/string/string.llb/Multi-line String to Array__ogtk.vi"/>
 				<Item Name="Convert EOLs__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/string/string.llb/Convert EOLs__ogtk.vi"/>
 				<Item Name="Convert EOLs (String)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/string/string.llb/Convert EOLs (String)__ogtk.vi"/>
@@ -264,10 +249,6 @@
 				<Item Name="Random Number Within Range - DBL__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/numeric/numeric.llb/Random Number Within Range - DBL__ogtk.vi"/>
 				<Item Name="Random Number - Within Range__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/numeric/numeric.llb/Random Number - Within Range__ogtk.vi"/>
 				<Item Name="Random Number Within Range - I32__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/numeric/numeric.llb/Random Number Within Range - I32__ogtk.vi"/>
-				<Item Name="LockinRemoteControl.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/RemoteControl/LockinRemoteControl.lvclass"/>
-				<Item Name="readREFconfig.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/API/readREFconfig.vi"/>
-				<Item Name="readREFfilter.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/API/readREFfilter.vi"/>
-				<Item Name="readSampling.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/API/readSampling.vi"/>
 				<Item Name="Create Dir if Non-Existant__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/file/file.llb/Create Dir if Non-Existant__ogtk.vi"/>
 				<Item Name="Build Path__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/file/file.llb/Build Path__ogtk.vi"/>
 				<Item Name="Build Path - Traditional__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/file/file.llb/Build Path - Traditional__ogtk.vi"/>
@@ -303,7 +284,6 @@
 				<Item Name="Write Section Cluster__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/variantconfig/variantconfig.llb/Write Section Cluster__ogtk.vi"/>
 				<Item Name="Format number_123456.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/FileUtilities/Format number_123456.vi"/>
 				<Item Name="Instrument.Cryostat.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Levylab Instruments/Instrument Types/Cryostat/Instrument.Cryostat.lvclass"/>
-				<Item Name="Spinner.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/RemoteControl/Spinner.vi"/>
 				<Item Name="MD5 I function__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/md5/md5.llb/MD5 I function__ogtk.vi"/>
 				<Item Name="MD5 H function__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/md5/md5.llb/MD5 H function__ogtk.vi"/>
 				<Item Name="MD5 G function__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/md5/md5.llb/MD5 G function__ogtk.vi"/>
@@ -376,6 +356,21 @@
 				<Item Name="FPDAQtoDAQstrings.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/SubVIs/FPDAQtoDAQstrings.vi"/>
 				<Item Name="read_lockin_FP_DSC.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/SubVIs/read_lockin_FP_DSC.vi"/>
 				<Item Name="User Library__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/file/file.llb/User Library__ogtk.vi"/>
+				<Item Name="Spinner.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/SubVIs/Spinner.vi"/>
+				<Item Name="Instrument.KH7008.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Krohn Hite 7008/Instrument.KH7008.lvclass"/>
+				<Item Name="instrument.PPMS2.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/PPMS2 Instrument/instrument.PPMS2/instrument.PPMS2.lvclass"/>
+				<Item Name="QDInstrumentExceptionHandler.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/PPMS2 Instrument/QDInstrument_LabView/QDInstrument/QDInstrumentExceptionHandler.vi"/>
+				<Item Name="OpenQDInstrument.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/PPMS2 Instrument/QDInstrument_LabView/QDInstrument/OpenQDInstrument.vi"/>
+				<Item Name="GetTemperature.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/PPMS2 Instrument/QDInstrument_LabView/QDInstrument/GetTemperature.vi"/>
+				<Item Name="GetPPMSItem.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/PPMS2 Instrument/QDInstrument_LabView/PPMS/GetPPMSItem.vi"/>
+				<Item Name="SendPPMSCommand.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/PPMS2 Instrument/QDInstrument_LabView/PPMS/SendPPMSCommand.vi"/>
+				<Item Name="SetField.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/PPMS2 Instrument/QDInstrument_LabView/QDInstrument/SetField.vi"/>
+				<Item Name="GetField.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/PPMS2 Instrument/QDInstrument_LabView/QDInstrument/GetField.vi"/>
+				<Item Name="GetHelium.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/PPMS2 Instrument/QDInstrument_LabView/QDInstrument/GetHelium.vi"/>
+				<Item Name="SetTemperature.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/PPMS2 Instrument/QDInstrument_LabView/QDInstrument/SetTemperature.vi"/>
+				<Item Name="Instrument.PPMS2 UI.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/PPMS2 Instrument/instrument.PPMS2 UI/Instrument.PPMS2 UI.lvclass"/>
+				<Item Name="QDInstrument.dll" Type="Document" URL="/&lt;userlib&gt;/LevyLab/PPMS2 Instrument/QDInstrument_LabView/QDInstrument.dll"/>
+				<Item Name="Read Configuration.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Levylab Instruments/SMOs/Instrument/Read Configuration.vi"/>
 			</Item>
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Add State(s) to Queue__jki_lib_state_machine.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/State Machine/_JKI_lib_State_Machine.llb/Add State(s) to Queue__jki_lib_state_machine.vi"/>
