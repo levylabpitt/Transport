@@ -24,9 +24,9 @@
 			<Item Name="ReadTDMSTest1.vi" Type="VI" URL="../../Sandbox/ReadTDMSTest1.vi"/>
 			<Item Name="WriteTDMSTest1.vi" Type="VI" URL="../../Sandbox/WriteTDMSTest1.vi"/>
 		</Item>
-		<Item Name="Transport.lvclass" Type="LVClass" URL="../Transport/Transport.lvclass"/>
-		<Item Name="SweepControl.lvclass" Type="LVClass" URL="../SweepControl/SweepControl.lvclass"/>
 		<Item Name="Control Experiment.lvclass" Type="LVClass" URL="../Control Experiment/Control Experiment.lvclass"/>
+		<Item Name="SweepControl.lvclass" Type="LVClass" URL="../SweepControl/SweepControl.lvclass"/>
+		<Item Name="Transport.lvclass" Type="LVClass" URL="../Transport/Transport.lvclass"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="AO-cluster.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Typedefs/AO-cluster.ctl"/>
@@ -355,7 +355,6 @@
 				<Item Name="write_lockin_FP_DSC.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/SubVIs/write_lockin_FP_DSC.vi"/>
 				<Item Name="FPDAQtoDAQstrings.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/SubVIs/FPDAQtoDAQstrings.vi"/>
 				<Item Name="read_lockin_FP_DSC.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/SubVIs/read_lockin_FP_DSC.vi"/>
-				<Item Name="User Library__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/file/file.llb/User Library__ogtk.vi"/>
 				<Item Name="Spinner.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/SubVIs/Spinner.vi"/>
 				<Item Name="Instrument.KH7008.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Krohn Hite 7008/Instrument.KH7008.lvclass"/>
 				<Item Name="instrument.PPMS2.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/PPMS2 Instrument/instrument.PPMS2/instrument.PPMS2.lvclass"/>
