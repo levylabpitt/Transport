@@ -369,6 +369,7 @@
 				<Item Name="SetTemperature.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/PPMS2 Instrument/QDInstrument_LabView/QDInstrument/SetTemperature.vi"/>
 				<Item Name="Instrument.PPMS2 UI.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/PPMS2 Instrument/instrument.PPMS2 UI/Instrument.PPMS2 UI.lvclass"/>
 				<Item Name="QDInstrument.dll" Type="Document" URL="/&lt;userlib&gt;/LevyLab/PPMS2 Instrument/QDInstrument_LabView/QDInstrument.dll"/>
+				<Item Name="User Library__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/file/file.llb/User Library__ogtk.vi"/>
 			</Item>
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Add State(s) to Queue__jki_lib_state_machine.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/State Machine/_JKI_lib_State_Machine.llb/Add State(s) to Queue__jki_lib_state_machine.vi"/>
