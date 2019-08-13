@@ -357,19 +357,27 @@
 				<Item Name="read_lockin_FP_DSC.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/SubVIs/read_lockin_FP_DSC.vi"/>
 				<Item Name="Spinner.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/SubVIs/Spinner.vi"/>
 				<Item Name="Instrument.KH7008.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Krohn Hite 7008/Instrument.KH7008.lvclass"/>
-				<Item Name="instrument.PPMS2.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/PPMS2 Instrument/instrument.PPMS2/instrument.PPMS2.lvclass"/>
-				<Item Name="QDInstrumentExceptionHandler.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/PPMS2 Instrument/QDInstrument_LabView/QDInstrument/QDInstrumentExceptionHandler.vi"/>
-				<Item Name="OpenQDInstrument.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/PPMS2 Instrument/QDInstrument_LabView/QDInstrument/OpenQDInstrument.vi"/>
-				<Item Name="GetTemperature.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/PPMS2 Instrument/QDInstrument_LabView/QDInstrument/GetTemperature.vi"/>
-				<Item Name="GetPPMSItem.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/PPMS2 Instrument/QDInstrument_LabView/PPMS/GetPPMSItem.vi"/>
-				<Item Name="SendPPMSCommand.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/PPMS2 Instrument/QDInstrument_LabView/PPMS/SendPPMSCommand.vi"/>
-				<Item Name="SetField.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/PPMS2 Instrument/QDInstrument_LabView/QDInstrument/SetField.vi"/>
-				<Item Name="GetField.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/PPMS2 Instrument/QDInstrument_LabView/QDInstrument/GetField.vi"/>
-				<Item Name="GetHelium.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/PPMS2 Instrument/QDInstrument_LabView/QDInstrument/GetHelium.vi"/>
-				<Item Name="SetTemperature.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/PPMS2 Instrument/QDInstrument_LabView/QDInstrument/SetTemperature.vi"/>
-				<Item Name="Instrument.PPMS2 UI.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/PPMS2 Instrument/instrument.PPMS2 UI/Instrument.PPMS2 UI.lvclass"/>
-				<Item Name="QDInstrument.dll" Type="Document" URL="/&lt;userlib&gt;/LevyLab/PPMS2 Instrument/QDInstrument_LabView/QDInstrument.dll"/>
 				<Item Name="User Library__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/file/file.llb/User Library__ogtk.vi"/>
+				<Item Name="Instrument.MNK_TC.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Leiden Tools/Instrument.MNK_TC/Instrument.MNK_TC.lvclass"/>
+				<Item Name="Instrument.Oxford1820.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Oxford 1820 API/Instrument.Oxford1820/Instrument.Oxford1820.lvclass"/>
+				<Item Name="FGV_PSP - Mercury Action Status.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Oxford 1820 API/FGV/FGV_PSP - Mercury Action Status.vi"/>
+				<Item Name="Status.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Oxford 1820 API/Typedefs/Status.ctl"/>
+				<Item Name="FGV_PSP - Mercury Status.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Oxford 1820 API/FGV/FGV_PSP - Mercury Status.vi"/>
+				<Item Name="Actions.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Oxford 1820 API/Typedefs/Actions.ctl"/>
+				<Item Name="FGV_PSP - Mercury Actions.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Oxford 1820 API/FGV/FGV_PSP - Mercury Actions.vi"/>
+				<Item Name="wait HOLD.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Oxford 1820 API/private/wait HOLD.vi"/>
+				<Item Name="check RTOS and resend.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Oxford 1820 API/private/check RTOS and resend.vi"/>
+				<Item Name="check HOLD and resend.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Oxford 1820 API/private/check HOLD and resend.vi"/>
+				<Item Name="1820FloatApprox.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Oxford 1820 API/public/1820FloatApprox.vi"/>
+				<Item Name="Targets.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Oxford 1820 API/Typedefs/Targets.ctl"/>
+				<Item Name="wait Targets match.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Oxford 1820 API/private/wait Targets match.vi"/>
+				<Item Name="FGV_PSP - Mercury Targets.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Oxford 1820 API/FGV/FGV_PSP - Mercury Targets.vi"/>
+				<Item Name="FGV_PSP - Mercury Remote.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Oxford 1820 API/FGV/FGV_PSP - Mercury Remote.vi"/>
+				<Item Name="Mercury_GoToField_SubVI.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Oxford 1820 API/private/Mercury_GoToField_SubVI.vi"/>
+				<Item Name="Mercury_GoToField.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Oxford 1820 API/Mercury_GoToField.vi"/>
+				<Item Name="Instrument.Oxford1820 UI.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Oxford 1820 API/Instrument.Oxford1820 UI.lvclass"/>
+				<Item Name="Current VI&apos;s Path__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/file/file.llb/Current VI&apos;s Path__ogtk.vi"/>
+				<Item Name="Read_MNK_B_Field.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Oxford 1820 API/Read_MNK_B_Field.vi"/>
 			</Item>
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Add State(s) to Queue__jki_lib_state_machine.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/State Machine/_JKI_lib_State_Machine.llb/Add State(s) to Queue__jki_lib_state_machine.vi"/>
