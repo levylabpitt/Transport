@@ -215,7 +215,7 @@
 		</Item>
 	</Item>
 	<Item Name="API" Type="Folder">
-		<Item Name="Read Sorted scan parameters.vi" Type="VI" URL="../Read Sorted scan parameters.vi">
+		<Item Name="Read Sorted scan parameters.vi" Type="VI" URL="../API/Read Sorted scan parameters.vi">
 			<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">&amp;A#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!)Z!!!!&amp;!!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!71&amp;!!!Q!!!!%!!AFF=H*P=C"P&gt;81!"!!!!!N!#A!&amp;5X2B=H1!#5!+!!.&amp;&lt;G1!#U!+!!24&gt;'6Q!!!,1!I!"&amp;*B&gt;'5!!!^!"Q!*&gt;W&amp;J&gt;#!I&lt;8-J!""!-0````](172E=G6T=Q!.1!-!"W.I97ZO:7Q!71$RW4";NQ!!!!)55X&gt;F:8"$&lt;WZU=G^M,GRW9WRB=X-&lt;1WRV=X2F=C!N)&amp;.D97Z198*B&lt;82F=H-O9X2M!#"!5!!(!!5!"A!(!!A!#1!+!!M(1WRV=X2F=A!`!0(8CF_;!!!!!B24&gt;W6F=%.P&lt;H2S&lt;WQO&lt;(:D&lt;'&amp;T=R&amp;49W&amp;O5'&amp;S97VU:8*T,G.U&lt;!!1!%!!!@````]!$!!)!&amp;!!!1!.!#2!1!!"`````Q!/&amp;F.P=H2F:#"T9W&amp;O)("B=G&amp;N:82F=H-!!$*!=!!?!!!7&amp;&amp;.X:76Q1W^O&gt;(*P&lt;#ZM&gt;G.M98.T!!!15X&gt;F:8"$&lt;WZU=G^M)'^V&gt;!!!)%"1!!-!!!!"!!)4:8*S&lt;X)A;7YA+'ZP)'6S=G^S+1!Q1(!!(A!!&amp;B24&gt;W6F=%.P&lt;H2S&lt;WQO&lt;(:D&lt;'&amp;T=Q!!$V.X:76Q1W^O&gt;(*P&lt;#"J&lt;A"5!0!!$!!$!!1!$Q!1!!1!"!!%!!1!%1!%!!1!%A)!!(A!!!U)!!!!!!!!#1!!!)U,!!!!!!!!!!!!!!!!!!!!!!!!#!!!!!!!!!!!!!!!E!!!!!!"!"-!!!!!</Property>
 			<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
 			<Property Name="NI.ClassItem.Flags" Type="Int">0</Property>
@@ -224,7 +224,7 @@
 			<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
 			<Property Name="NI.ClassItem.State" Type="Int">1350574592</Property>
 		</Item>
-		<Item Name="ReadSweepConfigurationFile.vi" Type="VI" URL="../ReadSweepConfigurationFile.vi">
+		<Item Name="Read Sweep Configuration File.vi" Type="VI" URL="../API/Read Sweep Configuration File.vi">
 			<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">&amp;A#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!&amp;%!!!!#Q!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!71&amp;!!!Q!!!!%!!AFF=H*P=C"P&gt;81!"!!!!!J!5Q2%982B!!!S1(!!(A!!&amp;B24&gt;W6F=%.P&lt;H2S&lt;WQO&lt;(:D&lt;'&amp;T=Q!!%&amp;.X:76Q1W^O&gt;(*P&lt;#"P&gt;81!!#"!5!!$!!!!!1!#%W6S=G^S)'FO)#BO&lt;S"F=H*P=CE!$E!S`````Q21982I!!!Q1(!!(A!!&amp;B24&gt;W6F=%.P&lt;H2S&lt;WQO&lt;(:D&lt;'&amp;T=Q!!$V.X:76Q1W^O&gt;(*P&lt;#"J&lt;A"B!0!!$!!$!!1!"1!'!!1!"!!%!!1!"Q!%!!A!#1-!!(A!!!U)!!!!!!!!#1!!!!U,!!!!!!!!!!!!!!!!!!!!!!!!#A!!!!!!!!!)!!!!#!!!$1!!!!Q!!!!!!!!!!!!!!1!+!!!!!!</Property>
 			<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
 			<Property Name="NI.ClassItem.Flags" Type="Int">0</Property>
@@ -233,7 +233,7 @@
 			<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
 			<Property Name="NI.ClassItem.State" Type="Int">1342710288</Property>
 		</Item>
-		<Item Name="ReadSweepConfigurationExample.vi" Type="VI" URL="../ReadSweepConfigurationExample.vi">
+		<Item Name="Read Sweep Configuration Example.vi" Type="VI" URL="../API/Read Sweep Configuration Example.vi">
 			<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">&amp;A#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!"A!!!!!A!%!!!!6!$Q!!Q!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"Y!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1!"!!!!!!</Property>
 			<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
 			<Property Name="NI.ClassItem.Flags" Type="Int">0</Property>
@@ -242,7 +242,7 @@
 			<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
 			<Property Name="NI.ClassItem.State" Type="Int">1074278912</Property>
 		</Item>
-		<Item Name="Read Control Experiment.vi" Type="VI" URL="../Read Control Experiment.vi">
+		<Item Name="Read Control Experiment.vi" Type="VI" URL="../API/Read Control Experiment.vi">
 			<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">&amp;A#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!&amp;G!!!!#A!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!71&amp;!!!Q!!!!%!!AFF=H*P=C"P&gt;81!"!!!!$J!=!!?!!!='E.P&lt;H2S&lt;WQA28BQ:8*J&lt;76O&gt;#ZM&gt;G.M98.T!!!31W^O&gt;(*P&lt;#"&amp;?("F=GFN:7ZU!!!S1(!!(A!!&amp;B24&gt;W6F=%.P&lt;H2S&lt;WQO&lt;(:D&lt;'&amp;T=Q!!%&amp;.X:76Q1W^O&gt;(*P&lt;#"P&gt;81!!#"!5!!$!!!!!1!#%W6S=G^S)'FO)#BO&lt;S"F=H*P=CE!-%"Q!"Y!!"955X&gt;F:8"$&lt;WZU=G^M,GRW9WRB=X-!!!^4&gt;W6F=%.P&lt;H2S&lt;WQA;7Y!91$Q!!Q!!Q!%!!5!"A!%!!1!"!!%!!=!"!!%!!A#!!"Y!!!.#!!!!!!!!!E!!!!.#Q!!!!!!!!!!!!!!!!!!!!!!!!A!!!!!!!!!!!!!!"!!!!U!!!!-!!!!!!!!!!!!!!%!#1!!!!!</Property>
 			<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
 			<Property Name="NI.ClassItem.Flags" Type="Int">16777216</Property>
@@ -250,6 +250,15 @@
 			<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
 			<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
 			<Property Name="NI.ClassItem.State" Type="Int">268967936</Property>
+		</Item>
+		<Item Name="Take Measurement.vi" Type="VI" URL="../API/Take Measurement.vi">
+			<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">&amp;A#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!%8!!!!#1!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!71&amp;!!!Q!!!!%!!AFF=H*P=C"P&gt;81!"!!!!#"!5!!$!!!!!1!#%W6S=G^S)'FO)#BO&lt;S"F=H*P=CE!+E"Q!"Y!!"-26(*B&lt;H.Q&lt;X*U,GRW9WRB=X-!$&amp;2S97ZT='^S&gt;#"J&lt;A!!-%"Q!"Y!!"955X&gt;F:8"$&lt;WZU=G^M,GRW9WRB=X-!!!^4&gt;W6F=%.P&lt;H2S&lt;WQA;7Y!6!$Q!!Q!!Q!%!!1!"!!%!!1!"!!%!!5!"!!'!!=$!!"Y!!!.#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!I!!!!!!!!!#A!!!!A!!!!!!1!)!!!!!!</Property>
+			<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
+			<Property Name="NI.ClassItem.Flags" Type="Int">1073741824</Property>
+			<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">true</Property>
+			<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
+			<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
+			<Property Name="NI.ClassItem.State" Type="Int">1107821072</Property>
 		</Item>
 	</Item>
 	<Item Name="Sweep Control.vi" Type="VI" URL="../Sweep Control.vi">
@@ -288,14 +297,5 @@
 		<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
 		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
 		<Property Name="NI.ClassItem.State" Type="Int">1082143248</Property>
-	</Item>
-	<Item Name="Take Measurement.vi" Type="VI" URL="../Take Measurement.vi">
-		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">&amp;A#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!$N!!!!#!!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!71&amp;!!!Q!!!!%!!AFF=H*P=C"P&gt;81!"!!!!#"!5!!$!!!!!1!#%W6S=G^S)'FO)#BO&lt;S"F=H*P=CE!-%"Q!"Y!!"955X&gt;F:8"$&lt;WZU=G^M,GRW9WRB=X-!!!^4&gt;W6F=%.P&lt;H2S&lt;WQA;7Y!6!$Q!!Q!!Q!%!!1!"!!%!!1!"!!%!!5!"!!%!!9$!!"Y!!!.#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!I!!!!!!!!!!!!!!!A!!!!!!1!(!!!!!!</Property>
-		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
-		<Property Name="NI.ClassItem.Flags" Type="Int">1073741824</Property>
-		<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">true</Property>
-		<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
-		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
-		<Property Name="NI.ClassItem.State" Type="Int">1107821072</Property>
 	</Item>
 </LVClass>
