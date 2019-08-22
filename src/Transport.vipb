@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2017" Created_Date="2018-09-18 13:12:29" Modified_Date="2019-08-16 10:25:15" Creator="Patrick" Comments="" ID="1e7b64ee2fdf842ad6a0caa4110880f8">
+<VI_Package_Builder_Settings Version="2017" Created_Date="2018-09-18 13:12:29" Modified_Date="2019-08-22 12:32:43" Creator="Patrick" Comments="" ID="5a98effd306da5353c03a446e2c12af2">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_Transport</Package_File_Name>
-    <Library_Version>1.1.1.32</Library_Version>
+    <Library_Version>1.1.2.33</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>.</Library_Source_Folder>
     <Library_Output_Folder>..</Library_Output_Folder>
@@ -100,20 +100,8 @@ Basic transport measurments.
       <Copyright/>
       <Packager/>
       <URL/>
-      <Release_Notes>[1.1.1.31]
-Bug fixes:
-- Remove all references to Pickering from Control Experiment.vi. (Will add functionality back in a future version.)
-- Fix bug in Control Experiment.vi that would not set Krohn Hite to be the proper configuration
-- Clear error 4000 after reading get B and get T in Sweep Control etc. Important when using on an AFM
-- Fix folder check bug  in Save JSON File.vi
-- Fix bug in Scan Parameter.vi
-
-New Features:
-- Add option to disable filter and decimate when taking IV curves
-- Save Lockin  and Krohn Hite Settings to *.JSON files
-
-- Add Voltage Update.vip as package dependency
-- Add Instruments.vip as package dependency</Release_Notes>
+      <Release_Notes>[1.1.2.32]
+- Add control for Krohn-Hite address to front panel of Control Experiment.vi</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
@@ -319,7 +307,7 @@ New Features:
         <Path>Transport</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>F452460623E193019A174A0AE885BBD7</GUID>
+      <GUID>D4D81FC1C4F8F35802390B0A07E152A4</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -480,7 +468,7 @@ New Features:
         <Path>Control Experiment\Comments</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>0D7BC046A447D4B4BF43443D8AE736C0</GUID>
+      <GUID>CE216D7E54A1D1E846E6667F9D532611</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -557,7 +545,7 @@ New Features:
         <Path>SweepControl\Continuous B sweep.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>A18543ABFAD2AB674F2E5D106616B840</GUID>
+      <GUID>E260B83080573DADAABA888C60C1EFBC</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -676,7 +664,7 @@ New Features:
         <Path>Transport\subVI</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>CE731CB0BB6D17D90573F106846049B3</GUID>
+      <GUID>FE399DB46A312089C191B8FC56E5720D</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -823,7 +811,7 @@ New Features:
         <Path>Control Experiment\API\Write Sweep Element.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>C2A3937F44D60C6C9A9E91EA820CDDC9</GUID>
+      <GUID>D21C2C3F3920929C2E00EFA772F4AD95</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -998,7 +986,7 @@ New Features:
         <Path>Control Experiment\Comments\Generate Comments.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>5E0683A4FC9EC2C2AD8B12372776F9F2</GUID>
+      <GUID>8CF87CB84E4F74AD1EE7E74BA63A0A6E</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1075,7 +1063,7 @@ New Features:
         <Path>Control Experiment\subVIs\Load Instrument.Cryostat Classes.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>9D566F2306B84C9594F89F3BB273B0FB</GUID>
+      <GUID>6B6B300B06BEC157727B9A415D85F370</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>5</Parent_Palette_Index>
@@ -1166,7 +1154,7 @@ New Features:
         <Path>Control Experiment\Comments\YAML\YAML.Scaler.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>40F0265B6694E3EDCFD2C86ECFA51C29</GUID>
+      <GUID>31AC43CAB0758E6EBB074D4A952DE77E</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -1257,7 +1245,7 @@ New Features:
         <Path>SweepControl\API\Take Measurement.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>3E68D3927B08C93DA35A60954B0669D1</GUID>
+      <GUID>4FE09C1158674C0F48F51517B4508B19</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -1376,7 +1364,7 @@ New Features:
         <Path>SweepControl\subVIs\Sort Scan Parameters.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>13878E53841C580B1E9D0AA9D9E58E20</GUID>
+      <GUID>B4A4D107D4F97A59E0262368FE7794C8</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>3</Parent_Palette_Index>
@@ -1495,7 +1483,7 @@ New Features:
         <Path>Transport\subVI\GraphLockin_vs_Parameter.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>47ECDECF9CE88DDA908737E52932F40D</GUID>
+      <GUID>6B434DD3755C804696FC42320C083C1D</GUID>
     </Functions_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>-1</Parent_Palette_Index>
@@ -1558,7 +1546,7 @@ New Features:
         <Path>Transport</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>AD539B735488D77FFEFF7D28BD59AA75</GUID>
+      <GUID>B44A761A1591202A46E06E00337859F3</GUID>
     </Controls_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1593,7 +1581,7 @@ New Features:
         <Path>Control Experiment\Typedefs</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>1DC66F9052B8439312BD72A5A1AC16B5</GUID>
+      <GUID>F8F0908D3E34F62AC397ABBCE990CC8F</GUID>
     </Controls_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1628,7 +1616,7 @@ New Features:
         <Path>SweepControl\Typedefs</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>7AB28E1ED2DF442B55EDC52626501D8F</GUID>
+      <GUID>6580F8D0C27CF16CB93F8EB3BFEA96AF</GUID>
     </Controls_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1663,7 +1651,7 @@ New Features:
         <Path>Transport\subVI</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>7D61DD26D41A76CC3BC2CD7B5118E872</GUID>
+      <GUID>6844DE986B47E714DDF9A4DDACE374BD</GUID>
     </Controls_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1698,7 +1686,7 @@ New Features:
         <Path>Control Experiment\Typedefs\KH Mode-enum.ctl</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>CC0B862B9DEA590A63B191AAF9180AE2</GUID>
+      <GUID>ADB90D9FCB2C5FD8CD2F80953E329082</GUID>
     </Controls_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -1887,7 +1875,7 @@ New Features:
         <Path>SweepControl\Typedefs\XP Style VISA Control.ctl</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>442E642951644AE4203BBD20AEE42438</GUID>
+      <GUID>90D8FEB721C873033342D99D110DE1C9</GUID>
     </Controls_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>3</Parent_Palette_Index>
@@ -1936,7 +1924,7 @@ New Features:
         <Path>Transport\subVI\LockinVsg Configuration--Cluster.ctl</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>30CF8C666DC710A5959BDF3F9588AD34</GUID>
+      <GUID>60759CDBC7407DA6244ED528F598D413</GUID>
     </Controls_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
