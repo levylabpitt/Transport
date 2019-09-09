@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2017" Created_Date="2018-09-18 13:12:29" Modified_Date="2019-08-22 12:32:43" Creator="Patrick" Comments="" ID="5a98effd306da5353c03a446e2c12af2">
+<VI_Package_Builder_Settings Version="2017" Created_Date="2018-09-18 13:12:29" Modified_Date="2019-09-09 11:12:02" Creator="Patrick" Comments="" ID="143a1434def98fc7acd3504196eb4afa">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_Transport</Package_File_Name>
-    <Library_Version>1.1.2.33</Library_Version>
+    <Library_Version>1.1.3.34</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>.</Library_Source_Folder>
     <Library_Output_Folder>..</Library_Output_Folder>
@@ -100,8 +100,8 @@ Basic transport measurments.
       <Copyright/>
       <Packager/>
       <URL/>
-      <Release_Notes>[1.1.2.32]
-- Add control for Krohn-Hite address to front panel of Control Experiment.vi</Release_Notes>
+      <Release_Notes>[1.1.3.33]
+- Miscellaneous bug fixes in Control Experiment.vi and Lockin_Vsg.vi</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
@@ -307,7 +307,7 @@ Basic transport measurments.
         <Path>Transport</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>D4D81FC1C4F8F35802390B0A07E152A4</GUID>
+      <GUID>76159D226DB9C26379F24311019E9478</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -468,7 +468,7 @@ Basic transport measurments.
         <Path>Control Experiment\Comments</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>CE216D7E54A1D1E846E6667F9D532611</GUID>
+      <GUID>260C1320510EE8B27974D9C549C09B7D</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -545,7 +545,7 @@ Basic transport measurments.
         <Path>SweepControl\Continuous B sweep.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>E260B83080573DADAABA888C60C1EFBC</GUID>
+      <GUID>4FABC76ACA61A733B1A05A67E4376164</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -664,7 +664,7 @@ Basic transport measurments.
         <Path>Transport\subVI</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>FE399DB46A312089C191B8FC56E5720D</GUID>
+      <GUID>9CDF7A40C2A93E70732DD35B14207954</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -811,7 +811,7 @@ Basic transport measurments.
         <Path>Control Experiment\API\Write Sweep Element.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>D21C2C3F3920929C2E00EFA772F4AD95</GUID>
+      <GUID>B5E537F7D3D680E359FF3A8E042178B2</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -986,7 +986,7 @@ Basic transport measurments.
         <Path>Control Experiment\Comments\Generate Comments.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>8CF87CB84E4F74AD1EE7E74BA63A0A6E</GUID>
+      <GUID>CEE62ECAFB3BAE27B8AF9E36D54E483E</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1063,7 +1063,7 @@ Basic transport measurments.
         <Path>Control Experiment\subVIs\Load Instrument.Cryostat Classes.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>6B6B300B06BEC157727B9A415D85F370</GUID>
+      <GUID>2DB10142F75F070EBCD4EF1AFFC4818C</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>5</Parent_Palette_Index>
@@ -1154,7 +1154,7 @@ Basic transport measurments.
         <Path>Control Experiment\Comments\YAML\YAML.Scaler.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>31AC43CAB0758E6EBB074D4A952DE77E</GUID>
+      <GUID>AB91B59D3DB0048C8C619E1A1F42AAE0</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -1245,7 +1245,7 @@ Basic transport measurments.
         <Path>SweepControl\API\Take Measurement.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>4FE09C1158674C0F48F51517B4508B19</GUID>
+      <GUID>D2C56CB0624AFDC7219A4CB4A872739E</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -1364,7 +1364,7 @@ Basic transport measurments.
         <Path>SweepControl\subVIs\Sort Scan Parameters.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>B4A4D107D4F97A59E0262368FE7794C8</GUID>
+      <GUID>998F876F323FFBBA22B9CAD3475EB6B2</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>3</Parent_Palette_Index>
@@ -1483,7 +1483,7 @@ Basic transport measurments.
         <Path>Transport\subVI\GraphLockin_vs_Parameter.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>6B434DD3755C804696FC42320C083C1D</GUID>
+      <GUID>1D260A993C2FF057D385444BCA7CE505</GUID>
     </Functions_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>-1</Parent_Palette_Index>
@@ -1546,7 +1546,7 @@ Basic transport measurments.
         <Path>Transport</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>B44A761A1591202A46E06E00337859F3</GUID>
+      <GUID>FF0E779B96573BA8365BC4605749B45E</GUID>
     </Controls_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1581,7 +1581,7 @@ Basic transport measurments.
         <Path>Control Experiment\Typedefs</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>F8F0908D3E34F62AC397ABBCE990CC8F</GUID>
+      <GUID>1CAE99ECDC39E16B277009995DD88CA4</GUID>
     </Controls_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1616,7 +1616,7 @@ Basic transport measurments.
         <Path>SweepControl\Typedefs</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>6580F8D0C27CF16CB93F8EB3BFEA96AF</GUID>
+      <GUID>C47AAEC6C22A9259C2392BA2F0228D87</GUID>
     </Controls_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1651,7 +1651,7 @@ Basic transport measurments.
         <Path>Transport\subVI</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>6844DE986B47E714DDF9A4DDACE374BD</GUID>
+      <GUID>EEA2D5A622DA349F47EEAABE8FB0BBD5</GUID>
     </Controls_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1686,7 +1686,7 @@ Basic transport measurments.
         <Path>Control Experiment\Typedefs\KH Mode-enum.ctl</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>ADB90D9FCB2C5FD8CD2F80953E329082</GUID>
+      <GUID>040B11C27A58800622BA6CDE6A876798</GUID>
     </Controls_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -1875,7 +1875,7 @@ Basic transport measurments.
         <Path>SweepControl\Typedefs\XP Style VISA Control.ctl</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>90D8FEB721C873033342D99D110DE1C9</GUID>
+      <GUID>A8E11448708F8EBD8CCA12B5DFAFF3FD</GUID>
     </Controls_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>3</Parent_Palette_Index>
@@ -1924,7 +1924,7 @@ Basic transport measurments.
         <Path>Transport\subVI\LockinVsg Configuration--Cluster.ctl</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>60759CDBC7407DA6244ED528F598D413</GUID>
+      <GUID>42DEDF0D8144A0D921D6EF9BA9D374DF</GUID>
     </Controls_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
