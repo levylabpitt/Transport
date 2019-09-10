@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2017" Created_Date="2018-09-18 13:12:29" Modified_Date="2019-09-10 12:17:47" Creator="Patrick" Comments="" ID="e235d5b891c5dfaad6062f3b63597de4">
+<VI_Package_Builder_Settings Version="2017" Created_Date="2018-09-18 13:12:29" Modified_Date="2019-09-10 12:38:43" Creator="Patrick" Comments="" ID="026537a29a515c0d5c966cbd2b8e133e">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_Transport</Package_File_Name>
-    <Library_Version>1.1.3.34</Library_Version>
+    <Library_Version>1.1.3.35</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>.</Library_Source_Folder>
     <Library_Output_Folder>..</Library_Output_Folder>
@@ -23,7 +23,7 @@
       <External_Dependencies>levylab_lib_fileutilities &gt;= 1.2.3.9</External_Dependencies>
       <External_Dependencies>levylab_lib_graph_utilities &gt;= 1.1.0.7</External_Dependencies>
       <External_Dependencies>levylab_lib_krohn_hite_7008 &gt;= 1.4.9.26</External_Dependencies>
-      <External_Dependencies>levylab_lib_leiden_tools &gt;= 1.2.0.12</External_Dependencies>
+      <External_Dependencies>levylab_lib_leiden_tools &gt;= 1.2.0.13</External_Dependencies>
       <External_Dependencies>levylab_lib_lockin_multichannel &gt;= 2.6.1.3</External_Dependencies>
       <External_Dependencies>levylab_lib_lvtoitx &gt;= 2.6.11.28</External_Dependencies>
       <External_Dependencies>lvh_toolbox &gt;= 2.0.0.35</External_Dependencies>
@@ -51,7 +51,7 @@
       <Direct_Dependencies>levylab_lib_fileutilities-1.2.3.9</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_graph_utilities-1.1.0.7</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_krohn_hite_7008-1.4.9.26</Direct_Dependencies>
-      <Direct_Dependencies>levylab_lib_leiden_tools-1.2.0.12</Direct_Dependencies>
+      <Direct_Dependencies>levylab_lib_leiden_tools-1.2.0.13</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_lockin_multichannel-2.6.1.3</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_lvtoitx-2.6.11.28</Direct_Dependencies>
       <Direct_Dependencies>lvh_toolbox-2.0.0.35</Direct_Dependencies>
