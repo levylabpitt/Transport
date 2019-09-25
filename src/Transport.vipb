@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2017" Created_Date="2018-09-18 13:12:29" Modified_Date="2019-09-17 22:21:46" Creator="Patrick" Comments="" ID="72c1279e56bac9eead61d9e34bdb0d10">
+<VI_Package_Builder_Settings Version="2017" Created_Date="2018-09-18 13:12:29" Modified_Date="2019-09-25 13:56:30" Creator="Patrick" Comments="" ID="26a55d8f33a8c0f58c1a335a5788a320">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_Transport</Package_File_Name>
-    <Library_Version>1.1.7.39</Library_Version>
+    <Library_Version>1.1.8.40</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>.</Library_Source_Folder>
     <Library_Output_Folder>..</Library_Output_Folder>
@@ -24,8 +24,8 @@
       <External_Dependencies>levylab_lib_graph_utilities &gt;= 1.1.0.7</External_Dependencies>
       <External_Dependencies>levylab_lib_krohn_hite_7008 &gt;= 1.4.9.26</External_Dependencies>
       <External_Dependencies>levylab_lib_leiden_tools &gt;= 1.2.2.16</External_Dependencies>
-      <External_Dependencies>levylab_lib_lockin_multichannel &gt;= 2.7.3.8</External_Dependencies>
-      <External_Dependencies>levylab_lib_lvtoitx &gt;= 2.6.11.28</External_Dependencies>
+      <External_Dependencies>levylab_lib_lockin_multichannel &gt;= 2.7.5.10</External_Dependencies>
+      <External_Dependencies>levylab_lib_lvtoitx &gt;= 2.6.13.30</External_Dependencies>
       <External_Dependencies>lvh_toolbox &gt;= 2.0.0.35</External_Dependencies>
       <External_Dependencies>mgi_lib_cluster &gt;= 1.1.0.1</External_Dependencies>
       <External_Dependencies>mgi_lib_error_handling &gt;= 1.1.1.3</External_Dependencies>
@@ -51,8 +51,8 @@
       <Direct_Dependencies>levylab_lib_graph_utilities-1.1.0.7</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_krohn_hite_7008-1.4.9.26</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_leiden_tools-1.2.2.16</Direct_Dependencies>
-      <Direct_Dependencies>levylab_lib_lockin_multichannel-2.7.3.8</Direct_Dependencies>
-      <Direct_Dependencies>levylab_lib_lvtoitx-2.6.11.28</Direct_Dependencies>
+      <Direct_Dependencies>levylab_lib_lockin_multichannel-2.7.5.10</Direct_Dependencies>
+      <Direct_Dependencies>levylab_lib_lvtoitx-2.6.13.30</Direct_Dependencies>
       <Direct_Dependencies>lvh_toolbox-2.0.0.35</Direct_Dependencies>
       <Direct_Dependencies>mgi_lib_cluster-1.1.0.1</Direct_Dependencies>
       <Direct_Dependencies>mgi_lib_error_handling-1.1.1.3</Direct_Dependencies>
@@ -100,10 +100,11 @@ Basic transport measurments.
       <Copyright/>
       <Packager/>
       <URL/>
-      <Release_Notes>[1.1.7.38]
-- bug fixes in measure AI Waveforms vs time.
-- new experimental release of Experiment Control that supports multiple Krohn Hite amplifiers
-- </Release_Notes>
+      <Release_Notes>[1.1.8.39]
+- fix bug  in Control Experiment that would send the wrong channel &amp; settings to the KH
+- fix notifier bug in Continuous B sweep
+- fix missing index array in Lockin_Vsg
+- update to Lockin API 2.7.5</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
@@ -309,7 +310,7 @@ Basic transport measurments.
         <Path>Transport</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>4F158C69DBC107A7576163E10937F9D1</GUID>
+      <GUID>DCB65D03AF465EF2E9129FD2EDA797D5</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -414,7 +415,7 @@ Basic transport measurments.
         <Path>Control Experiment\Control Experiment.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>4560BDFCFE2CCB3A9B8DC615B0D5BB3D</GUID>
+      <GUID>58E2C985908A5F58E522FAEACAAC0003</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -519,7 +520,7 @@ Basic transport measurments.
         <Path>SweepControl\SweepControl.TestLauncher.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>5C696206CEAB28F3B26687DAA7D27A4F</GUID>
+      <GUID>5EBB17CFF2F2FB8C4951230F70829E92</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -666,7 +667,7 @@ Basic transport measurments.
         <Path>Transport\Write notifier.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>74565AC81A80007EC497765C81ED673C</GUID>
+      <GUID>EBA0574B92108859C892C8710356B8A2</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -841,7 +842,7 @@ Basic transport measurments.
         <Path>Control Experiment\API\Write Sweep Element.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>21BC1EED477A2D576297C6B3D5834E41</GUID>
+      <GUID>1947F902EADE7C30DBB833881D701AC0</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -946,7 +947,7 @@ Basic transport measurments.
         <Path>Control Experiment\API (File)\Save Transport DAT File.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>2391D81E65D5D7F52FE812385D652B14</GUID>
+      <GUID>D22D98AB409EF5DA933CD5D6F4BDC46A</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1054,48 +1055,6 @@ Basic transport measurments.
       <Items_Data>
         <Type>Item</Type>
         <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Comments.Create Lockin AO Description.vi</NameSub_Menu_Name>
-        <Short_Name/>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>2</Row>
-          <Column>1</Column>
-        </Position>
-        <Icon>00000000</Icon>
-        <Path>Control Experiment\Comments\Comments.Create Lockin AO Description.vi</Path>
-        <VI_Title/>
-      </Items_Data>
-      <Items_Data>
-        <Type>Item</Type>
-        <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Comments.Create Lockin Filter Description.vi</NameSub_Menu_Name>
-        <Short_Name/>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>2</Row>
-          <Column>2</Column>
-        </Position>
-        <Icon>00000000</Icon>
-        <Path>Control Experiment\Comments\Comments.Create Lockin Filter Description.vi</Path>
-        <VI_Title/>
-      </Items_Data>
-      <Items_Data>
-        <Type>Item</Type>
-        <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Comments.Create Lockin REF Description.vi</NameSub_Menu_Name>
-        <Short_Name/>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>2</Row>
-          <Column>3</Column>
-        </Position>
-        <Icon>00000000</Icon>
-        <Path>Control Experiment\Comments\Comments.Create Lockin REF Description.vi</Path>
-        <VI_Title/>
-      </Items_Data>
-      <Items_Data>
-        <Type>Item</Type>
-        <Sub_Palette_Index>-1</Sub_Palette_Index>
         <NameSub_Menu_Name>Comments.Create Lockin Sampling Description.vi</NameSub_Menu_Name>
         <Short_Name/>
         <is_Merge_VI>false</is_Merge_VI>
@@ -1115,13 +1074,27 @@ Basic transport measurments.
         <is_Merge_VI>false</is_Merge_VI>
         <Position>
           <Row>2</Row>
-          <Column>5</Column>
+          <Column>2</Column>
         </Position>
         <Icon>00000000</Icon>
         <Path>Control Experiment\Comments\Generate Comments.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>7D8A8A71CA37DB81BE170C753F48C42A</GUID>
+      <Items_Data>
+        <Type>Item</Type>
+        <Sub_Palette_Index>-1</Sub_Palette_Index>
+        <NameSub_Menu_Name>Comments.Create Lockin AO Description.vi</NameSub_Menu_Name>
+        <Short_Name/>
+        <is_Merge_VI>false</is_Merge_VI>
+        <Position>
+          <Row>2</Row>
+          <Column>3</Column>
+        </Position>
+        <Icon>00000000</Icon>
+        <Path>Control Experiment\Comments\Comments.Create Lockin AO Description.vi</Path>
+        <VI_Title/>
+      </Items_Data>
+      <GUID>BE3435A3C1C65914F623C560770239C1</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1198,7 +1171,7 @@ Basic transport measurments.
         <Path>Control Experiment\subVIs\Load Instrument.Cryostat Classes.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>D5DEBA06914CEAD6F68D37AC156D2FB7</GUID>
+      <GUID>E09B5123941A45FA9B78E5E30BC51EB2</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>6</Parent_Palette_Index>
@@ -1289,7 +1262,7 @@ Basic transport measurments.
         <Path>Control Experiment\Comments\YAML\YAML.Scaler.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>59A9B5CF999131B3A147572EA0872C2B</GUID>
+      <GUID>7A5A6209634A69E05670B30F7075E062</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -1380,7 +1353,7 @@ Basic transport measurments.
         <Path>SweepControl\API\Take Measurement.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>CE5283C05AA00C6D2B6EFBB78B935A18</GUID>
+      <GUID>DC22BB1847B6CE9D07B628CB64204922</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -1513,7 +1486,7 @@ Basic transport measurments.
         <Path>SweepControl\subVIs\Sweep Control Loop.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>335CF18FA17D699A60BCFCBA08AC1A38</GUID>
+      <GUID>1AFCE06F131E61B1AB1CE896BF6B228F</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>3</Parent_Palette_Index>
@@ -1674,7 +1647,7 @@ Basic transport measurments.
         <Path>Transport\subVI\Waveforms To XY.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>71F9928F787ACE6FC4C6E590369ADE26</GUID>
+      <GUID>ED9ABF4196634B3F20C603599196B07A</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
