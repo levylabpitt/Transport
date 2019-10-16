@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2017" Created_Date="2018-09-18 13:12:29" Modified_Date="2019-09-26 17:14:47" Creator="Patrick" Comments="" ID="4665a3d227430393b6b6984cbfe79d70">
+<VI_Package_Builder_Settings Version="2017" Created_Date="2018-09-18 13:12:29" Modified_Date="2019-10-16 10:58:45" Creator="Patrick" Comments="" ID="7a89d8d7d0bd7a7fec87caf02620335f">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_Transport</Package_File_Name>
-    <Library_Version>1.1.9.41</Library_Version>
+    <Library_Version>1.1.10.41</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>.</Library_Source_Folder>
     <Library_Output_Folder>..</Library_Output_Folder>
@@ -24,7 +24,7 @@
       <External_Dependencies>levylab_lib_graph_utilities &gt;= 1.1.0.7</External_Dependencies>
       <External_Dependencies>levylab_lib_krohn_hite_7008 &gt;= 1.4.9.26</External_Dependencies>
       <External_Dependencies>levylab_lib_leiden_tools &gt;= 1.2.2.16</External_Dependencies>
-      <External_Dependencies>levylab_lib_lockin_multichannel &gt;= 2.7.6.11</External_Dependencies>
+      <External_Dependencies>levylab_lib_lockin_multichannel &gt;= 2.8.2.6</External_Dependencies>
       <External_Dependencies>levylab_lib_lvtoitx &gt;= 2.6.13.30</External_Dependencies>
       <External_Dependencies>lvh_toolbox &gt;= 2.0.0.35</External_Dependencies>
       <External_Dependencies>mgi_lib_cluster &gt;= 1.1.0.1</External_Dependencies>
@@ -51,7 +51,7 @@
       <Direct_Dependencies>levylab_lib_graph_utilities-1.1.0.7</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_krohn_hite_7008-1.4.9.26</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_leiden_tools-1.2.2.16</Direct_Dependencies>
-      <Direct_Dependencies>levylab_lib_lockin_multichannel-2.7.6.11</Direct_Dependencies>
+      <Direct_Dependencies>levylab_lib_lockin_multichannel-2.8.2.6</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_lvtoitx-2.6.13.30</Direct_Dependencies>
       <Direct_Dependencies>lvh_toolbox-2.0.0.35</Direct_Dependencies>
       <Direct_Dependencies>mgi_lib_cluster-1.1.0.1</Direct_Dependencies>
@@ -100,15 +100,16 @@ Basic transport measurments.
       <Copyright/>
       <Packager/>
       <URL/>
-      <Release_Notes>[1.1.9.40]
-Control Experiment:
-- UI improvements
-- add "Additional Gain". Can be additional amplifier. Or amplifier other than KH
-- initialize KH array to match Lockin Ch Array
+      <Release_Notes>[1.1.10.41]
+Lockin_Vsg
+- Fix issue where initial wait time would not be set properly
+- Update front panel controls for Experiment Folder and Experiment when called as subVI of Sweep Control
 
-Lockin_Vsg:
-- fix bug graph update 
-- Lockin_Vsg now calls setAUX Lockin API</Release_Notes>
+Continuous B Sweep.vi
+- Fix issue where notifier was not added to data cluster
+
+Control Experiment.lvclass
+- Add accessor Read Experiment Description.vi</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
@@ -314,7 +315,7 @@ Lockin_Vsg:
         <Path>Transport</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>CF1C753EE3F385D59B889E94541E4CF9</GUID>
+      <GUID>281EB28032B842780E71407B6C4EFCFE</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -419,7 +420,7 @@ Lockin_Vsg:
         <Path>Control Experiment\Control Experiment.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>3408BDA6489DDA6986E5DF9AB3B30269</GUID>
+      <GUID>99ABEEE15B25E4C5E7B89121017FC428</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -524,7 +525,7 @@ Lockin_Vsg:
         <Path>SweepControl\SweepControl.TestLauncher.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>40198266F09154E2679705CB59647426</GUID>
+      <GUID>646D718993329E08875F4EB9A05F3BC5</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -671,7 +672,7 @@ Lockin_Vsg:
         <Path>Transport\Write notifier.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>4A2359A59909F748F9EF2E9A4B7F14BF</GUID>
+      <GUID>9460A15CD6CA76D69E95AB09D0AA89A8</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -846,7 +847,7 @@ Lockin_Vsg:
         <Path>Control Experiment\API\Write Sweep Element.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>626DB6457F24D5409F2D59A3C42904AA</GUID>
+      <GUID>DF5E88686116AB3905ECC013713C4828</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -951,7 +952,7 @@ Lockin_Vsg:
         <Path>Control Experiment\API (File)\Save Transport DAT File.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>17BE4B4C9153F4D332BAA8C97B33D2C5</GUID>
+      <GUID>136E654F2D3B95541A234C89BDC3DEEF</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1098,7 +1099,7 @@ Lockin_Vsg:
         <Path>Control Experiment\Comments\Comments.Create Lockin AO Description.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>55AE733DBD38D8031EAB7A1664B1E7EA</GUID>
+      <GUID>69DDA9F19A6B7D9D861755003945C292</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1175,7 +1176,7 @@ Lockin_Vsg:
         <Path>Control Experiment\subVIs\Load Instrument.Cryostat Classes.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>0ACE8D5103D7F697B39794C26AF7FFFB</GUID>
+      <GUID>354822AC88470FAA29C8F71C64D3062A</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>6</Parent_Palette_Index>
@@ -1266,7 +1267,7 @@ Lockin_Vsg:
         <Path>Control Experiment\Comments\YAML\YAML.Scaler.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>FC0AA36763B63E6B9D46B43AD938256C</GUID>
+      <GUID>4E034E809EAAB8838FE69674589EABEC</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -1357,7 +1358,7 @@ Lockin_Vsg:
         <Path>SweepControl\API\Take Measurement.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>F63E6FD16299F837F7E2B18950DD8797</GUID>
+      <GUID>5C300DADC3D7D80715073D5335E11BF8</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -1490,7 +1491,7 @@ Lockin_Vsg:
         <Path>SweepControl\subVIs\Sweep Control Loop.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>E0A563E0DBD1CF24148D81336E8AF1DF</GUID>
+      <GUID>497CE615F5228DE3C64028AC38F9571B</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>3</Parent_Palette_Index>
@@ -1651,7 +1652,7 @@ Lockin_Vsg:
         <Path>Transport\subVI\Waveforms To XY.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>D8106296DA7903A33E629C6ABF4E46BB</GUID>
+      <GUID>899A8BF7AEFADE7C49E55370412ABD65</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
