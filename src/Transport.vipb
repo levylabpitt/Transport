@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2017" Created_Date="2018-09-18 13:12:29" Modified_Date="2019-10-16 10:58:45" Creator="Patrick" Comments="" ID="7a89d8d7d0bd7a7fec87caf02620335f">
+<VI_Package_Builder_Settings Version="2017" Created_Date="2018-09-18 13:12:29" Modified_Date="2019-10-16 11:34:13" Creator="Patrick" Comments="" ID="48df253152acfe7312ca89012284f6ac">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_Transport</Package_File_Name>
-    <Library_Version>1.1.10.41</Library_Version>
+    <Library_Version>1.1.10.42</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>.</Library_Source_Folder>
     <Library_Output_Folder>..</Library_Output_Folder>
@@ -101,9 +101,14 @@ Basic transport measurments.
       <Packager/>
       <URL/>
       <Release_Notes>[1.1.10.41]
+- add APIs to read *experiment*.json descriptor files
+
 Lockin_Vsg
 - Fix issue where initial wait time would not be set properly
 - Update front panel controls for Experiment Folder and Experiment when called as subVI of Sweep Control
+
+Lockin_Sweep
+- Modify to support newest Lockin sweep mode (sweeps multiple channels)
 
 Continuous B Sweep.vi
 - Fix issue where notifier was not added to data cluster
@@ -189,7 +194,7 @@ Control Experiment.lvclass
         <Namespace/>
       </Namespace_Overrides>
     </Source_Files>
-    <License_Agreement_Filepath>LICENSE.md</License_Agreement_Filepath>
+    <License_Agreement_Filepath>LICENSE</License_Agreement_Filepath>
     <Licensing_and_Activation>
       <License_LF_file_path/>
       <Licensed_library_file_path/>
@@ -315,7 +320,7 @@ Control Experiment.lvclass
         <Path>Transport</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>281EB28032B842780E71407B6C4EFCFE</GUID>
+      <GUID>32C65736148877D9CB556A6A1C76F676</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -420,7 +425,7 @@ Control Experiment.lvclass
         <Path>Control Experiment\Control Experiment.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>99ABEEE15B25E4C5E7B89121017FC428</GUID>
+      <GUID>881620241DEC0497D7A460364847E612</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -525,7 +530,7 @@ Control Experiment.lvclass
         <Path>SweepControl\SweepControl.TestLauncher.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>646D718993329E08875F4EB9A05F3BC5</GUID>
+      <GUID>B884407F46DE329302F6AB49AC004438</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -672,7 +677,7 @@ Control Experiment.lvclass
         <Path>Transport\Write notifier.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>9460A15CD6CA76D69E95AB09D0AA89A8</GUID>
+      <GUID>A4BD9A7BC1A6AC41562BCC94438CC6DB</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -847,7 +852,7 @@ Control Experiment.lvclass
         <Path>Control Experiment\API\Write Sweep Element.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>DF5E88686116AB3905ECC013713C4828</GUID>
+      <GUID>DA2F51D7E3344B82A0A7574C1C6491A3</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -952,7 +957,7 @@ Control Experiment.lvclass
         <Path>Control Experiment\API (File)\Save Transport DAT File.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>136E654F2D3B95541A234C89BDC3DEEF</GUID>
+      <GUID>D2C9FB48C017E5A070B802D0DFFA708E</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1099,7 +1104,7 @@ Control Experiment.lvclass
         <Path>Control Experiment\Comments\Comments.Create Lockin AO Description.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>69DDA9F19A6B7D9D861755003945C292</GUID>
+      <GUID>419862E0F179745C51B1DDA4D24EA750</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1176,7 +1181,7 @@ Control Experiment.lvclass
         <Path>Control Experiment\subVIs\Load Instrument.Cryostat Classes.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>354822AC88470FAA29C8F71C64D3062A</GUID>
+      <GUID>6964B4E689719D5BDC33D5391ACBF4C9</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>6</Parent_Palette_Index>
@@ -1267,7 +1272,7 @@ Control Experiment.lvclass
         <Path>Control Experiment\Comments\YAML\YAML.Scaler.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>4E034E809EAAB8838FE69674589EABEC</GUID>
+      <GUID>218CF3A1D68D3F13708ED6807C7AB35B</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -1358,7 +1363,7 @@ Control Experiment.lvclass
         <Path>SweepControl\API\Take Measurement.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>5C300DADC3D7D80715073D5335E11BF8</GUID>
+      <GUID>E134189B3156BA27F3148590A342E99E</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -1491,7 +1496,7 @@ Control Experiment.lvclass
         <Path>SweepControl\subVIs\Sweep Control Loop.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>497CE615F5228DE3C64028AC38F9571B</GUID>
+      <GUID>8D50C9290CDA3ADB6D8471216D5E9F80</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>3</Parent_Palette_Index>
@@ -1652,7 +1657,7 @@ Control Experiment.lvclass
         <Path>Transport\subVI\Waveforms To XY.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>899A8BF7AEFADE7C49E55370412ABD65</GUID>
+      <GUID>811A64F1C192D0B66CF41DE0B4ADA976</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
