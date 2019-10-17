@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2017" Created_Date="2018-09-18 13:12:29" Modified_Date="2019-10-16 11:34:13" Creator="Patrick" Comments="" ID="48df253152acfe7312ca89012284f6ac">
+<VI_Package_Builder_Settings Version="2017" Created_Date="2018-09-18 13:12:29" Modified_Date="2019-10-17 10:41:39" Creator="Patrick" Comments="" ID="d9747aded6e7fde1db2759ea1231e423">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_Transport</Package_File_Name>
-    <Library_Version>1.1.10.42</Library_Version>
+    <Library_Version>1.1.11.42</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>.</Library_Source_Folder>
     <Library_Output_Folder>..</Library_Output_Folder>
@@ -100,21 +100,16 @@ Basic transport measurments.
       <Copyright/>
       <Packager/>
       <URL/>
-      <Release_Notes>[1.1.10.41]
-- add APIs to read *experiment*.json descriptor files
-
-Lockin_Vsg
-- Fix issue where initial wait time would not be set properly
-- Update front panel controls for Experiment Folder and Experiment when called as subVI of Sweep Control
+      <Release_Notes>[1.1.11.42]
+Continuous B Sweep.vi and Sweep Control.vi
+- Add calls to Lockin_Sweep
 
 Lockin_Sweep
-- Modify to support newest Lockin sweep mode (sweeps multiple channels)
+- Fix issue that would not properly reset graphs
+- Update the way final sweep results are calculated and displayed
 
-Continuous B Sweep.vi
-- Fix issue where notifier was not added to data cluster
-
-Control Experiment.lvclass
-- Add accessor Read Experiment Description.vi</Release_Notes>
+Control Experiment.vi
+- Change fonts to (hopefully) be more uniform across operating systems</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
@@ -320,7 +315,7 @@ Control Experiment.lvclass
         <Path>Transport</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>32C65736148877D9CB556A6A1C76F676</GUID>
+      <GUID>ACDFC9F42DCC21D62BF5437B67C14D2D</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -425,7 +420,7 @@ Control Experiment.lvclass
         <Path>Control Experiment\Control Experiment.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>881620241DEC0497D7A460364847E612</GUID>
+      <GUID>23078706A67C664DE05B23E4C9E12486</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -530,7 +525,7 @@ Control Experiment.lvclass
         <Path>SweepControl\SweepControl.TestLauncher.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>B884407F46DE329302F6AB49AC004438</GUID>
+      <GUID>EDF0C2DB628BF996553438222C455C73</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -677,7 +672,7 @@ Control Experiment.lvclass
         <Path>Transport\Write notifier.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>A4BD9A7BC1A6AC41562BCC94438CC6DB</GUID>
+      <GUID>C5B2011CB26A39760943165E76E0F71F</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -852,7 +847,7 @@ Control Experiment.lvclass
         <Path>Control Experiment\API\Write Sweep Element.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>DA2F51D7E3344B82A0A7574C1C6491A3</GUID>
+      <GUID>B21FA897CE3A988861BA260E29A31E80</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -957,7 +952,7 @@ Control Experiment.lvclass
         <Path>Control Experiment\API (File)\Save Transport DAT File.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>D2C9FB48C017E5A070B802D0DFFA708E</GUID>
+      <GUID>63EAAD80054FFA0B233F3B39E4B9DE90</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1104,7 +1099,7 @@ Control Experiment.lvclass
         <Path>Control Experiment\Comments\Comments.Create Lockin AO Description.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>419862E0F179745C51B1DDA4D24EA750</GUID>
+      <GUID>3DABE92F630DA7A6A56E503B05FF5642</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1181,7 +1176,7 @@ Control Experiment.lvclass
         <Path>Control Experiment\subVIs\Load Instrument.Cryostat Classes.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>6964B4E689719D5BDC33D5391ACBF4C9</GUID>
+      <GUID>1927C64A8AC7EB23271C5F5A2EA6C23B</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>6</Parent_Palette_Index>
@@ -1272,7 +1267,7 @@ Control Experiment.lvclass
         <Path>Control Experiment\Comments\YAML\YAML.Scaler.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>218CF3A1D68D3F13708ED6807C7AB35B</GUID>
+      <GUID>E312D412AF2E4BB7EFD0B96E6621DA74</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -1363,7 +1358,7 @@ Control Experiment.lvclass
         <Path>SweepControl\API\Take Measurement.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>E134189B3156BA27F3148590A342E99E</GUID>
+      <GUID>B573A486187AAB6F3ABF5013D1127C8A</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -1496,7 +1491,7 @@ Control Experiment.lvclass
         <Path>SweepControl\subVIs\Sweep Control Loop.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>8D50C9290CDA3ADB6D8471216D5E9F80</GUID>
+      <GUID>4C18612D2C3462F14F02A3BD5378A391</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>3</Parent_Palette_Index>
@@ -1657,7 +1652,7 @@ Control Experiment.lvclass
         <Path>Transport\subVI\Waveforms To XY.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>811A64F1C192D0B66CF41DE0B4ADA976</GUID>
+      <GUID>15BEEF56F3ED93C72343850614E52FFF</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
