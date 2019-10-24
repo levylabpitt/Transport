@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2017" Created_Date="2018-09-18 13:12:29" Modified_Date="2019-10-23 22:30:38" Creator="Patrick" Comments="" ID="32a4a25e3dee8599d7b1a1960f389455">
+<VI_Package_Builder_Settings Version="2017" Created_Date="2018-09-18 13:12:29" Modified_Date="2019-10-23 22:38:05" Creator="Patrick" Comments="" ID="5d3dba5f00a769262a38ab957937049a">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_Transport</Package_File_Name>
-    <Library_Version>1.1.13.46</Library_Version>
+    <Library_Version>1.1.13.47</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>.</Library_Source_Folder>
     <Library_Output_Folder>..</Library_Output_Folder>
@@ -100,7 +100,7 @@ Basic transport measurments.
       <Copyright/>
       <Packager/>
       <URL/>
-      <Release_Notes>[1.1.13.45]
+      <Release_Notes>[1.1.13.46]
 - Update to support PPMS</Release_Notes>
     </Description>
     <Destinations>
@@ -307,7 +307,7 @@ Basic transport measurments.
         <Path>Transport</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>E2BF01D1B7963D4CFCEA40078DFAB8CA</GUID>
+      <GUID>FB0D12464A052892A30ECC4B2BD09AC8</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -412,7 +412,7 @@ Basic transport measurments.
         <Path>Control Experiment\Control Experiment.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>03D691CD60ED28CD4D92B85748A07C7B</GUID>
+      <GUID>473719DF45BC11C290F0E480B92EE18B</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -517,7 +517,7 @@ Basic transport measurments.
         <Path>SweepControl\SweepControl.TestLauncher.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>00D7A981D73D33D37C86A148E1C9A732</GUID>
+      <GUID>A7F841F96FC05C279207E22DCB9E46EB</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -664,7 +664,7 @@ Basic transport measurments.
         <Path>Transport\Write notifier.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>15018C48CE47446501495A8BB3E188DF</GUID>
+      <GUID>D6FCD67FF30C378466C9826F8774957C</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -839,7 +839,7 @@ Basic transport measurments.
         <Path>Control Experiment\API\Write Sweep Element.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>E74FD36B488C35373FF6059F68A4ECFC</GUID>
+      <GUID>CFA18F1AF3206EF9250FCE0656274A0F</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -944,7 +944,7 @@ Basic transport measurments.
         <Path>Control Experiment\API (File)\Save Transport DAT File.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>C64B7ED0E17B1B62D511E6A44018FB3A</GUID>
+      <GUID>CE4FE6B0699A134D3A56AF4E8D0872C0</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1091,7 +1091,7 @@ Basic transport measurments.
         <Path>Control Experiment\Comments\Comments.Create Lockin AO Description.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>CD88CADF9B027C248B45BDCB2AC2CAFC</GUID>
+      <GUID>30CBDF5124C35E98881CE7E0B1B62085</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1168,7 +1168,7 @@ Basic transport measurments.
         <Path>Control Experiment\subVIs\Load Instrument.Cryostat Classes.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>29B3DEFEE2932479D1A8AD68F705DAFB</GUID>
+      <GUID>7EE4C14463EA5F69D7D01F79C7562C8B</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>6</Parent_Palette_Index>
@@ -1259,7 +1259,7 @@ Basic transport measurments.
         <Path>Control Experiment\Comments\YAML\YAML.Scaler.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>88889FA928EB1A5ED0D3D3F816B5C178</GUID>
+      <GUID>B41DAF78764DBA99707F87DDD6CAE6BA</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -1350,7 +1350,7 @@ Basic transport measurments.
         <Path>SweepControl\API\Take Measurement.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>E7DE43DCF47FA54CD2C953860C09AEBF</GUID>
+      <GUID>71BD0EA5EB87B9C6270C8D52EF75D9F9</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -1483,7 +1483,7 @@ Basic transport measurments.
         <Path>SweepControl\subVIs\Sweep Control Loop.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>B7627950438412D768FFCEE91F28C1D1</GUID>
+      <GUID>7976FA6FE66437C1AB10E7F45EE7E761</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>3</Parent_Palette_Index>
@@ -1644,7 +1644,7 @@ Basic transport measurments.
         <Path>Transport\subVI\Waveforms To XY.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>E3D850292C7B6A40A53A2583CA9B33CA</GUID>
+      <GUID>2B48D41AB5ECFFE2D43EC1AF23B31BCE</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
