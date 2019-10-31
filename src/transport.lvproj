@@ -380,9 +380,7 @@
 				<Item Name="PickeringYConfig-Cluster.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Pickering/Typedefs/PickeringYConfig-Cluster.ctl"/>
 				<Item Name="PickeringXConfig-Cluster.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Pickering/Typedefs/PickeringXConfig-Cluster.ctl"/>
 				<Item Name="PickeringConfig-Cluster.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Pickering/Typedefs/PickeringConfig-Cluster.ctl"/>
-				<Item Name="WritePickeringConfig.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Pickering/subVI/WritePickeringConfig.vi"/>
 				<Item Name="ReadPickeringConfig.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Pickering/subVI/ReadPickeringConfig.vi"/>
-				<Item Name="Pickering 4 wire.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Pickering/Pickering 4 wire.vi"/>
 			</Item>
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Add State(s) to Queue__jki_lib_state_machine.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/State Machine/_JKI_lib_State_Machine.llb/Add State(s) to Queue__jki_lib_state_machine.vi"/>
