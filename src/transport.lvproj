@@ -377,10 +377,6 @@
 				<Item Name="Reorder 2D Array2 (LVObject)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/array/array.llb/Reorder 2D Array2 (LVObject)__ogtk.vi"/>
 				<Item Name="Voltage Update.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Voltage Update/Voltage Update.vi"/>
 				<Item Name="MGI Milliseconds Since Last Reset.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Timing/MGI Milliseconds Since Last Reset.vi"/>
-				<Item Name="PickeringYConfig-Cluster.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Pickering/Typedefs/PickeringYConfig-Cluster.ctl"/>
-				<Item Name="PickeringXConfig-Cluster.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Pickering/Typedefs/PickeringXConfig-Cluster.ctl"/>
-				<Item Name="PickeringConfig-Cluster.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Pickering/Typedefs/PickeringConfig-Cluster.ctl"/>
-				<Item Name="ReadPickeringConfig.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Pickering/subVI/ReadPickeringConfig.vi"/>
 			</Item>
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Add State(s) to Queue__jki_lib_state_machine.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/State Machine/_JKI_lib_State_Machine.llb/Add State(s) to Queue__jki_lib_state_machine.vi"/>
@@ -795,7 +791,6 @@
 				<Item Name="DAQmx Start Trigger (Time).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/configure/trigger.llb/DAQmx Start Trigger (Time).vi"/>
 				<Item Name="DAQmx Start Trigger (Analog Multi Edge).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/configure/trigger.llb/DAQmx Start Trigger (Analog Multi Edge).vi"/>
 				<Item Name="DAQmx Reference Trigger (Analog Multi Edge).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/configure/trigger.llb/DAQmx Reference Trigger (Analog Multi Edge).vi"/>
-				<Item Name="AWS Credentials.ctl" Type="VI" URL="/&lt;vilib&gt;/AWS Toolkit/Core/HTTP Request/AWS Credentials.ctl"/>
 			</Item>
 			<Item Name="kernel32.dll" Type="Document" URL="kernel32.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
@@ -817,7 +812,6 @@
 			<Item Name="System.Management" Type="Document" URL="System.Management">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
-			<Item Name="ElectrodesLabelsToPickeringChannels.vi" Type="VI" URL="../../../levylab_expt_transport-2/src/Control Experiment/subVIs/ElectrodesLabelsToPickeringChannels.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
