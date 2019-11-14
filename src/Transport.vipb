@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2017" Created_Date="2018-09-18 13:12:29" Modified_Date="2019-11-13 14:42:53" Creator="Patrick" Comments="" ID="7c79aa0fa5045e795ac116b0b9155218">
+<VI_Package_Builder_Settings Version="2017" Created_Date="2018-09-18 13:12:29" Modified_Date="2019-11-14 14:02:07" Creator="Patrick" Comments="" ID="c764504b5feff656239bd0fb5634751c">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_Transport</Package_File_Name>
-    <Library_Version>1.2.1.2</Library_Version>
+    <Library_Version>1.2.1.3</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>.</Library_Source_Folder>
     <Library_Output_Folder>..</Library_Output_Folder>
@@ -25,7 +25,7 @@
       <External_Dependencies>levylab_lib_krohn_hite_7008 &gt;= 1.4.9.26</External_Dependencies>
       <External_Dependencies>levylab_lib_leiden_tools &gt;= 1.2.2.16</External_Dependencies>
       <External_Dependencies>levylab_lib_lockin_multichannel &gt;= 2.8.11.22</External_Dependencies>
-      <External_Dependencies>levylab_lib_lvtoitx &gt;= 2.7.0.3</External_Dependencies>
+      <External_Dependencies>levylab_lib_lvtoitx &gt;= 2.7.1.5</External_Dependencies>
       <External_Dependencies>lvh_toolbox &gt;= 2.0.0.35</External_Dependencies>
       <External_Dependencies>mgi_lib_cluster &gt;= 1.1.0.1</External_Dependencies>
       <External_Dependencies>mgi_lib_error_handling &gt;= 1.1.1.3</External_Dependencies>
@@ -52,7 +52,7 @@
       <Direct_Dependencies>levylab_lib_krohn_hite_7008-1.4.9.26</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_leiden_tools-1.2.2.16</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_lockin_multichannel-2.8.11.22</Direct_Dependencies>
-      <Direct_Dependencies>levylab_lib_lvtoitx-2.7.0.3</Direct_Dependencies>
+      <Direct_Dependencies>levylab_lib_lvtoitx-2.7.1.5</Direct_Dependencies>
       <Direct_Dependencies>lvh_toolbox-2.0.0.35</Direct_Dependencies>
       <Direct_Dependencies>mgi_lib_cluster-1.1.0.1</Direct_Dependencies>
       <Direct_Dependencies>mgi_lib_error_handling-1.1.1.3</Direct_Dependencies>
@@ -102,7 +102,9 @@ Basic transport measurments.
       <URL/>
       <Release_Notes>[1.2.1.2]
 Bug fixes:
-- save data in Lockin_time</Release_Notes>
+- save in Lockin_time
+- TDMS save
+- wiring comments in Control Experiment.vi</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
@@ -308,7 +310,7 @@ Bug fixes:
         <Path>Transport</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>6DDA1F865AEA0965A7A7B021F9741987</GUID>
+      <GUID>168604652E756A31CCD5C6ED7C31D741</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -413,7 +415,7 @@ Bug fixes:
         <Path>Control Experiment\Control Experiment.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>BB47F6569D1EC10195499A60EE73BBBD</GUID>
+      <GUID>FDEAED4E0838EE1BE1C7C1F1F6543407</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -518,7 +520,7 @@ Bug fixes:
         <Path>SweepControl\SweepControl.TestLauncher.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>032297940348B2F71A358AD41C9E7433</GUID>
+      <GUID>30C4432DE10441DE5849414954B35C20</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -679,7 +681,7 @@ Bug fixes:
         <Path>Transport\subVI</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>0452C8FA15ADAA273294585EC6899CF9</GUID>
+      <GUID>DA38BC8F006105D5DE5FA6AD07DA3B2A</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -854,7 +856,7 @@ Bug fixes:
         <Path>Control Experiment\API\Write Sweep Element.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>16045ABCB75C2CA70817C2D89557BE30</GUID>
+      <GUID>B8CD16FDC1F4FE10F10BB0028FF1B199</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -959,7 +961,7 @@ Bug fixes:
         <Path>Control Experiment\API (File)\Save Transport DAT File.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>C7D91C76242DDCE527C7F156E6DC4E0A</GUID>
+      <GUID>A8A7C2ED536776D8FAC0220250EE7C59</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1106,7 +1108,7 @@ Bug fixes:
         <Path>Control Experiment\Comments\Comments.Create Lockin AO Description.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>83C4972303F08B14DA99927F0F46022C</GUID>
+      <GUID>5FBA10E0FEF4583BDB2FB400231E8C0E</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1183,7 +1185,7 @@ Bug fixes:
         <Path>Control Experiment\subVIs\Load Instrument.Cryostat Classes.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>302E77014B0230C5177F6C94AAC45BB4</GUID>
+      <GUID>F8FD335638542BB16147C51ECEBAE559</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>6</Parent_Palette_Index>
@@ -1274,7 +1276,7 @@ Bug fixes:
         <Path>Control Experiment\Comments\YAML\YAML.Scaler.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>DFDCEA77A3EAFA5F03CF3A9C72A5410B</GUID>
+      <GUID>436B4F4F55B5AC097EE2509DDE7041FD</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -1365,7 +1367,7 @@ Bug fixes:
         <Path>SweepControl\API\Take Measurement.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>44483489DC5512524D8937D09A86D4FA</GUID>
+      <GUID>FC59C79C30E971B7230E66FBD8003919</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -1498,7 +1500,7 @@ Bug fixes:
         <Path>SweepControl\subVIs\Sweep Control Loop.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>479CDD290DC1552F65F1B4920B6667E2</GUID>
+      <GUID>333B30DD1F877E81DF54A4CE0CAD3EF2</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>3</Parent_Palette_Index>
@@ -1659,7 +1661,7 @@ Bug fixes:
         <Path>Transport\subVI\Waveforms To XY.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>6ABCFC348B7836D11558FC60D206D4D7</GUID>
+      <GUID>1649E3685104F295E0F29031608B31BA</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
