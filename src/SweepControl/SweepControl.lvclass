@@ -286,7 +286,7 @@
 		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
 		<Property Name="NI.ClassItem.State" Type="Int">1342710288</Property>
 	</Item>
-	<Item Name="Continuous B sweep.vi" Type="VI" URL="../Continuous B sweep.vi">
+	<Item Name="Continuous B Sweep.vi" Type="VI" URL="../Continuous B Sweep.vi">
 		<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">&amp;A#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!%D!!!!#Q!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!71&amp;!!!Q!!!!%!!AFF=H*P=C"P&gt;81!"!!!!"F!#A!35X&gt;F:8!A=G&amp;U:3!I6#^N;7YJ!!!A1&amp;!!!Q!!!!%!!B.F=H*P=C"J&lt;C!I&lt;G]A:8*S&lt;X)J!#V!&amp;A!#$8.J&lt;86M982F)'VP:'5)=H6O)'VP:'5!!!R4;7VV&lt;'&amp;U:3^3&gt;7Y!!"&amp;!#A!,47FO)#BT&gt;'&amp;S&gt;#E!$U!+!!F.98AA+'6O:#E!6!$Q!!Q!!Q!%!!1!"!!%!!1!"!!&amp;!!9!"Q!)!!E$!!"Y!!!.#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!#A!!!!I!!!!+!!!!#A!!!!I!!!!!!1!+!!!!!!</Property>
 		<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
 		<Property Name="NI.ClassItem.Flags" Type="Int">256</Property>
