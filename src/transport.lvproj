@@ -404,6 +404,7 @@
 				<Item Name="AH2500A.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/AH2500A/SMOs/AH2500A/AH2500A.lvclass"/>
 				<Item Name="Dictionary Has Key__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/dictionary/dictionary.llb/Dictionary Has Key__ogtk.vi"/>
 				<Item Name="Create Task.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Asana API/Create Task.vi"/>
+				<Item Name="Cartesian_Experiment.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Control VI/Cartesian_Experiment.vi"/>
 			</Item>
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Add State(s) to Queue__jki_lib_state_machine.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/State Machine/_JKI_lib_State_Machine.llb/Add State(s) to Queue__jki_lib_state_machine.vi"/>
