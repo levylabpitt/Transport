@@ -406,6 +406,26 @@
 				<Item Name="Create Task.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Asana API/Create Task.vi"/>
 				<Item Name="Cartesian_Experiment.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Control VI/Cartesian_Experiment.vi"/>
 				<Item Name="xy_utilities.lvlib" Type="Library" URL="/&lt;userlib&gt;/LevyLab/XY Uilities/xy_utilities.lvlib"/>
+				<Item Name="Instrument.Aerotech.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Cryostation/Instrument.Aerotech/Instrument.Aerotech.lvclass"/>
+				<Item Name="EnableSingle.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Cryostation/Aerotech-Ensemble-LabVIEW/8.2/Motion/EnableSingle.vi"/>
+				<Item Name="EnableMultiple.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Cryostation/Aerotech-Ensemble-LabVIEW/8.2/Motion/EnableMultiple.vi"/>
+				<Item Name="Enable.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Cryostation/Aerotech-Ensemble-LabVIEW/8.2/Motion/Enable.vi"/>
+				<Item Name="Connect.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Cryostation/Aerotech-Ensemble-LabVIEW/8.2/Initialize/Connect.vi"/>
+				<Item Name="Disconnect.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Cryostation/Aerotech-Ensemble-LabVIEW/8.2/Initialize/Disconnect.vi"/>
+				<Item Name="DisableSingle.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Cryostation/Aerotech-Ensemble-LabVIEW/8.2/Motion/DisableSingle.vi"/>
+				<Item Name="DisableMultiple.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Cryostation/Aerotech-Ensemble-LabVIEW/8.2/Motion/DisableMultiple.vi"/>
+				<Item Name="Disable.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Cryostation/Aerotech-Ensemble-LabVIEW/8.2/Motion/Disable.vi"/>
+				<Item Name="GetAxisIndex.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Cryostation/Aerotech-Ensemble-LabVIEW/8.2/Utility/GetAxisIndex.vi"/>
+				<Item Name="AxisDiagPacket.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Cryostation/Aerotech-Ensemble-LabVIEW/8.2/Status/AxisDiagPacket.ctl"/>
+				<Item Name="ControllerDiagPacket.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Cryostation/Aerotech-Ensemble-LabVIEW/8.2/Status/ControllerDiagPacket.ctl"/>
+				<Item Name="ConvertDiagPacket.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Cryostation/Aerotech-Ensemble-LabVIEW/8.2/Status/ConvertDiagPacket.vi"/>
+				<Item Name="RetrieveDiagPacket.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Cryostation/Aerotech-Ensemble-LabVIEW/8.2/Status/RetrieveDiagPacket.vi"/>
+				<Item Name="Instrument.Aerotech UI.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Cryostation/Instrument.Aerotech UI/Instrument.Aerotech UI.lvclass"/>
+				<Item Name="MoveAbsSingle.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Cryostation/Aerotech-Ensemble-LabVIEW/8.2/Motion/MoveAbsSingle.vi"/>
+				<Item Name="MoveAbsMultiple.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Cryostation/Aerotech-Ensemble-LabVIEW/8.2/Motion/MoveAbsMultiple.vi"/>
+				<Item Name="MoveAbs.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Cryostation/Aerotech-Ensemble-LabVIEW/8.2/Motion/MoveAbs.vi"/>
+				<Item Name="Aerotech.Ensemble.dll" Type="Document" URL="/&lt;userlib&gt;/LevyLab/Cryostation/Aerotech-Ensemble-LabVIEW/8.2/Bin/Aerotech.Ensemble.dll"/>
+				<Item Name="Aerotech.Ensemble.LabVIEW.dll" Type="Document" URL="/&lt;userlib&gt;/LevyLab/Cryostation/Aerotech-Ensemble-LabVIEW/8.2/Bin/Aerotech.Ensemble.LabVIEW.dll"/>
 			</Item>
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Add State(s) to Queue__jki_lib_state_machine.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/State Machine/_JKI_lib_State_Machine.llb/Add State(s) to Queue__jki_lib_state_machine.vi"/>
