@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2020-02-18 12:21:53" Creator="Patrick" Comments="" ID="54703a0da8b9d4a05c2dfcaeba7beb4a">
+<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2020-02-18 18:32:41" Creator="Patrick" Comments="" ID="899c36ffd5de50154f7bf72999641195">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_Transport</Package_File_Name>
-    <Library_Version>1.3.3.11</Library_Version>
+    <Library_Version>1.3.4.13</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\src</Library_Source_Folder>
     <Library_Output_Folder>..\builds\Package</Library_Output_Folder>
@@ -26,7 +26,7 @@
       <External_Dependencies>levylab_lib_graph_utilities &gt;= 2.0.1.2</External_Dependencies>
       <External_Dependencies>levylab_lib_krohn_hite_7008 &gt;= 1.4.9.26</External_Dependencies>
       <External_Dependencies>levylab_lib_leiden_tools &gt;= 1.2.2.16</External_Dependencies>
-      <External_Dependencies>levylab_lib_lockin_multichannel &gt;= 2.9.5.9</External_Dependencies>
+      <External_Dependencies>levylab_lib_lockin_multichannel &gt;= 2.9.6.10</External_Dependencies>
       <External_Dependencies>levylab_lib_lvtoitx &gt;= 2.8.0.9</External_Dependencies>
       <External_Dependencies>levylab_lib_voltage_update &gt;= 1.0.3.5</External_Dependencies>
       <External_Dependencies>lvh_toolbox &gt;= 2.0.0.35</External_Dependencies>
@@ -56,7 +56,7 @@
       <Direct_Dependencies>levylab_lib_graph_utilities-2.0.1.2</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_krohn_hite_7008-1.4.9.26</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_leiden_tools-1.2.2.16</Direct_Dependencies>
-      <Direct_Dependencies>levylab_lib_lockin_multichannel-2.9.5.9</Direct_Dependencies>
+      <Direct_Dependencies>levylab_lib_lockin_multichannel-2.9.6.10</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_lvtoitx-2.8.0.9</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_voltage_update-1.0.3.5</Direct_Dependencies>
       <Direct_Dependencies>lvh_toolbox-2.0.0.35</Direct_Dependencies>
@@ -106,12 +106,9 @@ Basic transport measurments.
       <Copyright/>
       <Packager/>
       <URL/>
-      <Release_Notes>[1.3.3.10]
-- update to work with latest Instrument (v1.5.7.68)
-- new method of loading classes from disk (slightly more manageable if
-class types change - still room for improvement)
-- UI improvements in Control Experiment.vi
-- improvements to THz_TimeDelay.vi experiment</Release_Notes>
+      <Release_Notes>[1.3.4.12]
+- update to work with latest Instrument (v1.5.8.60)
+- update to latest lockin (v2.9.6.10)</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
@@ -317,7 +314,7 @@ class types change - still room for improvement)
         <Path>..\src\Transport</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>801A48580B51895CFC980D80260020DC</GUID>
+      <GUID>0278A09EA8254B86C4B1D46685040B5C</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -422,7 +419,7 @@ class types change - still room for improvement)
         <Path>..\src\Control Experiment\Tree.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>3BB868D8C4D2E71FF42953DAC8C751AD</GUID>
+      <GUID>F95FAD38EB7A168D34FC26A18E979754</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -569,7 +566,7 @@ class types change - still room for improvement)
         <Path>..\src\SweepControl\subVIs</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>B449F26BA0B7990C012D3F31B670CF50</GUID>
+      <GUID>75619BE455C0C45A27AAA0E1F8CCA65E</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -786,7 +783,7 @@ class types change - still room for improvement)
         <Path>..\src\Transport\Lockin.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>0CA102DED5BB2517589FB6AD17C16134</GUID>
+      <GUID>D51C7976B98E1E578D4DAA2600557D5C</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -989,7 +986,7 @@ class types change - still room for improvement)
         <Path>..\src\Control Experiment\API\Write Sweep Element.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>CA19D14A6829782281C4011A0F06B266</GUID>
+      <GUID>3309321FEBFD893A373678945CAE7A62</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1108,7 +1105,7 @@ class types change - still room for improvement)
         <Path>..\src\Control Experiment\API (File)\Save Transport TDMS File.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>EBBECDF66572E83B3D072A8319B04950</GUID>
+      <GUID>41277AB1C9EB91EA23EDDBA8DE64C9A9</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1269,7 +1266,7 @@ class types change - still room for improvement)
         <Path>..\src\Control Experiment\Comments\Generate Comments.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>4AC1B19BDCCF5DA5DB1A6CDE44BA97BA</GUID>
+      <GUID>C82ACEDBD9A079F85CEC9E9EE2D1FDD1</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1444,7 +1441,7 @@ class types change - still room for improvement)
         <Path>..\src\Control Experiment\subVIs\Multiply Gains.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>116E6C421B8608231585129A32229336</GUID>
+      <GUID>82B870A35FE76FEFD9FE1F2B5491CBAB</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>4</Parent_Palette_Index>
@@ -1521,7 +1518,7 @@ class types change - still room for improvement)
         <Path>..\src\Control Experiment\API\Dictionary\Write Dictionary Element.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>1116C79F03CFB37FBCD7D6DB02D2B660</GUID>
+      <GUID>38B1A31DFA6A09D13CC2F73ED4AFC214</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>6</Parent_Palette_Index>
@@ -1612,7 +1609,7 @@ class types change - still room for improvement)
         <Path>..\src\Control Experiment\Comments\YAML\YAML.Scaler.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>B4051AD732AC685FF575B181BF104C54</GUID>
+      <GUID>27AA429755F30A710BBAD0CB962150B6</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>7</Parent_Palette_Index>
@@ -1661,7 +1658,7 @@ class types change - still room for improvement)
         <Path>..\src\Control Experiment\subVIs\Asana\Asana Dictionary Tasks Get Value.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>EC0FEA7D6F6D279D22C1E544AFF83F94</GUID>
+      <GUID>D9E20E8315F1B176AB84CC92D2066614</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>7</Parent_Palette_Index>
@@ -1738,7 +1735,7 @@ class types change - still room for improvement)
         <Path>..\src\Control Experiment\subVIs\Pickering\PickeringWriteConfig Asynchronous.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>25A6B977B73266AE727DA98AC1F57D41</GUID>
+      <GUID>4F41452E033B8E354872DAFEA1009A99</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -1843,7 +1840,7 @@ class types change - still room for improvement)
         <Path>..\src\SweepControl\API\Take Measurement.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>11808EABF74E240F1F754578E3E8444B</GUID>
+      <GUID>FC50E253B5C7BECF4953317A27E4D12D</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -1892,7 +1889,7 @@ class types change - still room for improvement)
         <Path>..\src\SweepControl\API (file)\Read Sweep Control.json.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>75FD229DF02B294B8B4E0A110BAE5004</GUID>
+      <GUID>D805D2DF1446A486192A6BE12D42A843</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -2025,7 +2022,7 @@ class types change - still room for improvement)
         <Path>..\src\SweepControl\subVIs\Sweep Control Loop.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>E2E3DDBE7F653CF38760FC7300626607</GUID>
+      <GUID>E8366C8BDEF66D1F7EDDE9459DC8DFAB</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>3</Parent_Palette_Index>
@@ -2074,7 +2071,7 @@ class types change - still room for improvement)
         <Path>..\src\Transport\API (file)\Read Lockin_Vsg.json.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>12FA2FBA09E16A7CBA494295BD7BEDE3</GUID>
+      <GUID>6B114E5CC861774893274A58A3417C93</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>3</Parent_Palette_Index>
@@ -2249,7 +2246,7 @@ class types change - still room for improvement)
         <Path>..\src\Transport\subVI\Waveforms To XY.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>956591EB4BD01CF1CF6A374E304FA75D</GUID>
+      <GUID>7D7CB2736435FC8DD6A58DDBF68C903D</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
