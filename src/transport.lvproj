@@ -401,31 +401,10 @@
 				<Item Name="Dictionary Update (by reference)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/dictionary/dictionary.llb/Dictionary Update (by reference)__ogtk.vi"/>
 				<Item Name="Dictionary Update__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/dictionary/dictionary.llb/Dictionary Update__ogtk.vi"/>
 				<Item Name="Dictionary Not a Dictionary__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/dictionary/dictionary.llb/Dictionary Not a Dictionary__ogtk.vi"/>
-				<Item Name="AH2500A.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/AH2500A/SMOs/AH2500A/AH2500A.lvclass"/>
 				<Item Name="Dictionary Has Key__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/dictionary/dictionary.llb/Dictionary Has Key__ogtk.vi"/>
 				<Item Name="Create Task.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Asana API/Create Task.vi"/>
 				<Item Name="Cartesian_Experiment.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Control VI/Cartesian_Experiment.vi"/>
 				<Item Name="xy_utilities.lvlib" Type="Library" URL="/&lt;userlib&gt;/LevyLab/XY Uilities/xy_utilities.lvlib"/>
-				<Item Name="Instrument.Aerotech.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Cryostation/Instrument.Aerotech/Instrument.Aerotech.lvclass"/>
-				<Item Name="EnableSingle.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Cryostation/Aerotech-Ensemble-LabVIEW/8.2/Motion/EnableSingle.vi"/>
-				<Item Name="EnableMultiple.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Cryostation/Aerotech-Ensemble-LabVIEW/8.2/Motion/EnableMultiple.vi"/>
-				<Item Name="Enable.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Cryostation/Aerotech-Ensemble-LabVIEW/8.2/Motion/Enable.vi"/>
-				<Item Name="Connect.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Cryostation/Aerotech-Ensemble-LabVIEW/8.2/Initialize/Connect.vi"/>
-				<Item Name="Disconnect.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Cryostation/Aerotech-Ensemble-LabVIEW/8.2/Initialize/Disconnect.vi"/>
-				<Item Name="DisableSingle.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Cryostation/Aerotech-Ensemble-LabVIEW/8.2/Motion/DisableSingle.vi"/>
-				<Item Name="DisableMultiple.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Cryostation/Aerotech-Ensemble-LabVIEW/8.2/Motion/DisableMultiple.vi"/>
-				<Item Name="Disable.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Cryostation/Aerotech-Ensemble-LabVIEW/8.2/Motion/Disable.vi"/>
-				<Item Name="GetAxisIndex.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Cryostation/Aerotech-Ensemble-LabVIEW/8.2/Utility/GetAxisIndex.vi"/>
-				<Item Name="AxisDiagPacket.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Cryostation/Aerotech-Ensemble-LabVIEW/8.2/Status/AxisDiagPacket.ctl"/>
-				<Item Name="ControllerDiagPacket.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Cryostation/Aerotech-Ensemble-LabVIEW/8.2/Status/ControllerDiagPacket.ctl"/>
-				<Item Name="ConvertDiagPacket.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Cryostation/Aerotech-Ensemble-LabVIEW/8.2/Status/ConvertDiagPacket.vi"/>
-				<Item Name="RetrieveDiagPacket.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Cryostation/Aerotech-Ensemble-LabVIEW/8.2/Status/RetrieveDiagPacket.vi"/>
-				<Item Name="Instrument.Aerotech UI.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Cryostation/Instrument.Aerotech UI/Instrument.Aerotech UI.lvclass"/>
-				<Item Name="MoveAbsSingle.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Cryostation/Aerotech-Ensemble-LabVIEW/8.2/Motion/MoveAbsSingle.vi"/>
-				<Item Name="MoveAbsMultiple.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Cryostation/Aerotech-Ensemble-LabVIEW/8.2/Motion/MoveAbsMultiple.vi"/>
-				<Item Name="MoveAbs.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Cryostation/Aerotech-Ensemble-LabVIEW/8.2/Motion/MoveAbs.vi"/>
-				<Item Name="Aerotech.Ensemble.dll" Type="Document" URL="/&lt;userlib&gt;/LevyLab/Cryostation/Aerotech-Ensemble-LabVIEW/8.2/Bin/Aerotech.Ensemble.dll"/>
-				<Item Name="Aerotech.Ensemble.LabVIEW.dll" Type="Document" URL="/&lt;userlib&gt;/LevyLab/Cryostation/Aerotech-Ensemble-LabVIEW/8.2/Bin/Aerotech.Ensemble.LabVIEW.dll"/>
 			</Item>
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Add State(s) to Queue__jki_lib_state_machine.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/State Machine/_JKI_lib_State_Machine.llb/Add State(s) to Queue__jki_lib_state_machine.vi"/>
@@ -844,11 +823,9 @@
 				<Item Name="LVPointDoubleTypeDef.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/miscctls.llb/LVPointDoubleTypeDef.ctl"/>
 				<Item Name="Color to RGB.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/colorconv.llb/Color to RGB.vi"/>
 				<Item Name="RGB to Color.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/colorconv.llb/RGB to Color.vi"/>
-				<Item Name="DFD IIR Notch Peak Design.vi" Type="VI" URL="/&lt;vilib&gt;/addons/Digital Filter Design/Design.llb/DFD IIR Notch Peak Design.vi"/>
-				<Item Name="DFD IIR Notch Peak Design by Q.vi" Type="VI" URL="/&lt;vilib&gt;/addons/Digital Filter Design/Design.llb/DFD IIR Notch Peak Design by Q.vi"/>
-				<Item Name="DFD Filtering.vi" Type="VI" URL="/&lt;vilib&gt;/addons/Digital Filter Design/Process.llb/DFD Filtering.vi"/>
-				<Item Name="DFD Filtering (Wfm NChan).vi" Type="VI" URL="/&lt;vilib&gt;/addons/Digital Filter Design/Process.llb/DFD Filtering (Wfm NChan).vi"/>
-				<Item Name="DFD Butterworth Design.vi" Type="VI" URL="/&lt;vilib&gt;/addons/Digital Filter Design/Design.llb/DFD Butterworth Design.vi"/>
+				<Item Name="NI_DigFilterLicensed.lvlib" Type="Library" URL="/&lt;vilib&gt;/addons/Digital Filter Design/NI_DigFilterLicensed.lvlib"/>
+				<Item Name="NI_DigFilter_Design.lvlib" Type="Library" URL="/&lt;vilib&gt;/addons/Digital Filter Design/NI_DigFilter_Design.lvlib"/>
+				<Item Name="NI_DigFilter_Process.lvlib" Type="Library" URL="/&lt;vilib&gt;/addons/Digital Filter Design/NI_DigFilter_Process.lvlib"/>
 			</Item>
 			<Item Name="kernel32.dll" Type="Document" URL="kernel32.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
@@ -869,6 +846,7 @@
 			<Item Name="System.Management" Type="Document" URL="System.Management">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
+			<Item Name="LVDFD.dll" Type="Document" URL="/&lt;resource&gt;/LVDFD.dll"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
