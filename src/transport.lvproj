@@ -407,28 +407,32 @@
 				<Item Name="To Proper Case (String Array)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/string/string.llb/To Proper Case (String Array)__ogtk.vi"/>
 				<Item Name="To Proper Case__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/string/string.llb/To Proper Case__ogtk.vi"/>
 				<Item Name="instrument.Cryostation.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Cryostation/instrument.Cryostation/instrument.Cryostation.lvclass"/>
-				<Item Name="Instrument.Aerotech.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Instrument.Aerotech/Instrument.Aerotech.lvclass"/>
-				<Item Name="EnableSingle.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Aerotech-Ensemble-LabVIEW/8.2/Motion/EnableSingle.vi"/>
-				<Item Name="EnableMultiple.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Aerotech-Ensemble-LabVIEW/8.2/Motion/EnableMultiple.vi"/>
-				<Item Name="Enable.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Aerotech-Ensemble-LabVIEW/8.2/Motion/Enable.vi"/>
-				<Item Name="Connect.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Aerotech-Ensemble-LabVIEW/8.2/Initialize/Connect.vi"/>
-				<Item Name="Disconnect.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Aerotech-Ensemble-LabVIEW/8.2/Initialize/Disconnect.vi"/>
-				<Item Name="DisableSingle.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Aerotech-Ensemble-LabVIEW/8.2/Motion/DisableSingle.vi"/>
-				<Item Name="DisableMultiple.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Aerotech-Ensemble-LabVIEW/8.2/Motion/DisableMultiple.vi"/>
-				<Item Name="Disable.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Aerotech-Ensemble-LabVIEW/8.2/Motion/Disable.vi"/>
-				<Item Name="GetAxisIndex.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Aerotech-Ensemble-LabVIEW/8.2/Utility/GetAxisIndex.vi"/>
-				<Item Name="AxisDiagPacket.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Aerotech-Ensemble-LabVIEW/8.2/Status/AxisDiagPacket.ctl"/>
-				<Item Name="ControllerDiagPacket.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Aerotech-Ensemble-LabVIEW/8.2/Status/ControllerDiagPacket.ctl"/>
-				<Item Name="ConvertDiagPacket.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Aerotech-Ensemble-LabVIEW/8.2/Status/ConvertDiagPacket.vi"/>
-				<Item Name="RetrieveDiagPacket.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Aerotech-Ensemble-LabVIEW/8.2/Status/RetrieveDiagPacket.vi"/>
-				<Item Name="MoveAbsSingle.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Aerotech-Ensemble-LabVIEW/8.2/Motion/MoveAbsSingle.vi"/>
-				<Item Name="MoveAbsMultiple.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Aerotech-Ensemble-LabVIEW/8.2/Motion/MoveAbsMultiple.vi"/>
-				<Item Name="MoveAbs.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Aerotech-Ensemble-LabVIEW/8.2/Motion/MoveAbs.vi"/>
+				<Item Name="Instrument.Aerotech.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Aerotech/Instrument.Aerotech/Instrument.Aerotech.lvclass"/>
+				<Item Name="KH_control_array.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Krohn Hite 7008/typedefs/KH_control_array.ctl"/>
+				<Item Name="KH_control.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Krohn Hite 7008/typedefs/KH_control.ctl"/>
+				<Item Name="Aerotech.Ensemble.dll" Type="Document" URL="/&lt;userlib&gt;/LevyLab/Aerotech/Aerotech-Ensemble-LabVIEW/8.2/Bin/Aerotech.Ensemble.dll"/>
+				<Item Name="Connect.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Aerotech/Aerotech-Ensemble-LabVIEW/8.2/Initialize/Connect.vi"/>
+				<Item Name="Aerotech.Ensemble.LabVIEW.dll" Type="Document" URL="/&lt;userlib&gt;/LevyLab/Aerotech/Aerotech-Ensemble-LabVIEW/8.2/Bin/Aerotech.Ensemble.LabVIEW.dll"/>
+				<Item Name="Enable.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Aerotech/Aerotech-Ensemble-LabVIEW/8.2/Motion/Enable.vi"/>
+				<Item Name="EnableMultiple.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Aerotech/Aerotech-Ensemble-LabVIEW/8.2/Motion/EnableMultiple.vi"/>
+				<Item Name="EnableSingle.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Aerotech/Aerotech-Ensemble-LabVIEW/8.2/Motion/EnableSingle.vi"/>
+				<Item Name="RetrieveDiagPacket.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Aerotech/Aerotech-Ensemble-LabVIEW/8.2/Status/RetrieveDiagPacket.vi"/>
+				<Item Name="ConvertDiagPacket.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Aerotech/Aerotech-Ensemble-LabVIEW/8.2/Status/ConvertDiagPacket.vi"/>
+				<Item Name="AxisDiagPacket.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Aerotech/Aerotech-Ensemble-LabVIEW/8.2/Status/AxisDiagPacket.ctl"/>
+				<Item Name="ControllerDiagPacket.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Aerotech/Aerotech-Ensemble-LabVIEW/8.2/Status/ControllerDiagPacket.ctl"/>
+				<Item Name="GetAxisIndex.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Aerotech/Aerotech-Ensemble-LabVIEW/8.2/Utility/GetAxisIndex.vi"/>
+				<Item Name="Abort.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Aerotech/Aerotech-Ensemble-LabVIEW/8.2/Motion/Abort.vi"/>
+				<Item Name="AbortSingle.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Aerotech/Aerotech-Ensemble-LabVIEW/8.2/Motion/AbortSingle.vi"/>
+				<Item Name="AbortMultiple.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Aerotech/Aerotech-Ensemble-LabVIEW/8.2/Motion/AbortMultiple.vi"/>
+				<Item Name="Disable.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Aerotech/Aerotech-Ensemble-LabVIEW/8.2/Motion/Disable.vi"/>
+				<Item Name="DisableSingle.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Aerotech/Aerotech-Ensemble-LabVIEW/8.2/Motion/DisableSingle.vi"/>
+				<Item Name="DisableMultiple.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Aerotech/Aerotech-Ensemble-LabVIEW/8.2/Motion/DisableMultiple.vi"/>
+				<Item Name="Disconnect.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Aerotech/Aerotech-Ensemble-LabVIEW/8.2/Initialize/Disconnect.vi"/>
+				<Item Name="MoveAbs.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Aerotech/Aerotech-Ensemble-LabVIEW/8.2/Motion/MoveAbs.vi"/>
+				<Item Name="MoveAbsSingle.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Aerotech/Aerotech-Ensemble-LabVIEW/8.2/Motion/MoveAbsSingle.vi"/>
+				<Item Name="MoveAbsMultiple.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Aerotech/Aerotech-Ensemble-LabVIEW/8.2/Motion/MoveAbsMultiple.vi"/>
+				<Item Name="Instrument.Aerotech UI.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Aerotech/Instrument.Aerotech UI/Instrument.Aerotech UI.lvclass"/>
 				<Item Name="Instrument UI.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Levylab Instruments/SMOs/Instrument UI/Instrument UI.lvclass"/>
-				<Item Name="Instrument.Aerotech UI.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Instrument.Aerotech UI/Instrument.Aerotech UI.lvclass"/>
-				<Item Name="AbortMultiple.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Aerotech-Ensemble-LabVIEW/8.2/Motion/AbortMultiple.vi"/>
-				<Item Name="AbortSingle.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Aerotech-Ensemble-LabVIEW/8.2/Motion/AbortSingle.vi"/>
-				<Item Name="Abort.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Aerotech-Ensemble-LabVIEW/8.2/Motion/Abort.vi"/>
 			</Item>
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Add State(s) to Queue__jki_lib_state_machine.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/State Machine/_JKI_lib_State_Machine.llb/Add State(s) to Queue__jki_lib_state_machine.vi"/>
@@ -861,16 +865,6 @@
 				<Item Name="Read From XML File(string).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/xml.llb/Read From XML File(string).vi"/>
 				<Item Name="Read From XML File(array).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/xml.llb/Read From XML File(array).vi"/>
 				<Item Name="Read From XML File.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/xml.llb/Read From XML File.vi"/>
-				<Item Name="DAQmx Rollback Channel If Error.vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Rollback Channel If Error.vi"/>
-				<Item Name="DAQmx Create AI Channel (sub).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create AI Channel (sub).vi"/>
-				<Item Name="DAQmx Set CJC Parameters (sub).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Set CJC Parameters (sub).vi"/>
-				<Item Name="DAQmx Create AO Channel (sub).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create AO Channel (sub).vi"/>
-				<Item Name="DAQmx Create DI Channel (sub).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create DI Channel (sub).vi"/>
-				<Item Name="DAQmx Create DO Channel (sub).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create DO Channel (sub).vi"/>
-				<Item Name="DAQmx Create CI Channel (sub).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create CI Channel (sub).vi"/>
-				<Item Name="DAQmx Create CO Channel (sub).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create CO Channel (sub).vi"/>
-				<Item Name="DAQmx Create AI Channel TEDS(sub).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create AI Channel TEDS(sub).vi"/>
-				<Item Name="DAQmx Create Strain Rosette AI Channels (sub).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Strain Rosette AI Channels (sub).vi"/>
 				<Item Name="Caraya.lvlib" Type="Library" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/Caraya/Caraya.lvlib"/>
 				<Item Name="4822C501820BB5A8313EAE4F8D4B529FBuild Error Cluster__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/4822C501820BB5A8313EAE4F8D4B529FBuild Error Cluster__ogtk.vi"/>
 				<Item Name="4822C501820BB5A8313EAE4F8D4B529FType Descriptor Enumeration__ogtk.ctl" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/4822C501820BB5A8313EAE4F8D4B529FType Descriptor Enumeration__ogtk.ctl"/>
@@ -1147,6 +1141,16 @@
 				<Item Name="imagedata.ctl" Type="VI" URL="/&lt;vilib&gt;/picture/picture.llb/imagedata.ctl"/>
 				<Item Name="subFile Dialog.vi" Type="VI" URL="/&lt;vilib&gt;/express/express input/FileDialogBlock.llb/subFile Dialog.vi"/>
 				<Item Name="Application Menu.rtm" Type="Document" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/Caraya/menu/Application Menu.rtm"/>
+				<Item Name="DAQmx Create Channel (AI-Acceleration-4 Wire DC Voltage).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (AI-Acceleration-4 Wire DC Voltage).vi"/>
+				<Item Name="DAQmx Create Channel (AI-Acceleration-Charge).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (AI-Acceleration-Charge).vi"/>
+				<Item Name="DAQmx Create Channel (AI-Charge).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (AI-Charge).vi"/>
+				<Item Name="DAQmx Read (Analog Wfm 1Chan NSamp Duration).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/read.llb/DAQmx Read (Analog Wfm 1Chan NSamp Duration).vi"/>
+				<Item Name="DAQmx Read (Analog 1D Wfm NChan NSamp Duration).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/read.llb/DAQmx Read (Analog 1D Wfm NChan NSamp Duration).vi"/>
+				<Item Name="DAQmx Read (Digital Wfm 1Chan NSamp Duration).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/read.llb/DAQmx Read (Digital Wfm 1Chan NSamp Duration).vi"/>
+				<Item Name="DAQmx Read (Digital 1D Wfm NChan NSamp Duration).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/read.llb/DAQmx Read (Digital 1D Wfm NChan NSamp Duration).vi"/>
+				<Item Name="DAQmx Start Trigger (Time).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/configure/trigger.llb/DAQmx Start Trigger (Time).vi"/>
+				<Item Name="DAQmx Start Trigger (Analog Multi Edge).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/configure/trigger.llb/DAQmx Start Trigger (Analog Multi Edge).vi"/>
+				<Item Name="DAQmx Reference Trigger (Analog Multi Edge).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/configure/trigger.llb/DAQmx Reference Trigger (Analog Multi Edge).vi"/>
 			</Item>
 			<Item Name="kernel32.dll" Type="Document" URL="kernel32.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
@@ -1168,8 +1172,6 @@
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 			<Item Name="LVDFD.dll" Type="Document" URL="/&lt;resource&gt;/LVDFD.dll"/>
-			<Item Name="Aerotech.Ensemble.dll" Type="Document" URL="../../../../../Program Files (x86)/Aerotech/Ensemble/LabVIEW/8.2/Bin/Aerotech.Ensemble.dll"/>
-			<Item Name="Aerotech.Ensemble.LabVIEW.dll" Type="Document" URL="../../../../../Program Files (x86)/Aerotech/Ensemble/LabVIEW/8.2/Bin/Aerotech.Ensemble.LabVIEW.dll"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
