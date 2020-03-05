@@ -436,6 +436,9 @@
 				<Item Name="MoveAbsMultiple.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Aerotech/Aerotech-Ensemble-LabVIEW/8.2/Motion/MoveAbsMultiple.vi"/>
 				<Item Name="Instrument.Aerotech UI.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Aerotech/Instrument.Aerotech UI/Instrument.Aerotech UI.lvclass"/>
 				<Item Name="Instrument UI.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Levylab Instruments/SMOs/Instrument UI/Instrument UI.lvclass"/>
+				<Item Name="MGI Wait (Double).vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Timing/MGI Wait/MGI Wait (Double).vi"/>
+				<Item Name="MGI Wait (U32).vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Timing/MGI Wait/MGI Wait (U32).vi"/>
+				<Item Name="MGI Wait.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Timing/MGI Wait.vi"/>
 			</Item>
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Add State(s) to Queue__jki_lib_state_machine.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/State Machine/_JKI_lib_State_Machine.llb/Add State(s) to Queue__jki_lib_state_machine.vi"/>
