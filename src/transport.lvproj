@@ -28,6 +28,7 @@
 		<Item Name="Control Experiment.lvclass" Type="LVClass" URL="../Control Experiment/Control Experiment.lvclass"/>
 		<Item Name="SweepControl.lvclass" Type="LVClass" URL="../SweepControl/SweepControl.lvclass"/>
 		<Item Name="Transport.lvclass" Type="LVClass" URL="../Transport/Transport.lvclass"/>
+		<Item Name="Open Me.vi" Type="VI" URL="../Open Me.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="Array of VData to VArray__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Array of VData to VArray__ogtk.vi"/>
