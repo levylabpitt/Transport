@@ -1,0 +1,10 @@
+<?xml version='1.0' standalone='yes' ?>
+<LVData xmlns="http://www.ni.com/LVData">
+<Version>16.0f7</Version>
+<Object>
+<Name>Control Experiment.lvclass</Name>
+<NumLevels>1</NumLevels>
+<Class>Control Experiment.lvclass</Class>
+<Version>0.0.0.0</Version>
+</Object>
+</LVData>
