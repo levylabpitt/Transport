@@ -1083,7 +1083,6 @@
 			<Item Name="shell32.dll" Type="Document" URL="shell32.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
-			<Item Name="Save JSON File.vi" Type="VI" URL="../Control Experiment/API (File)/Save JSON File.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
