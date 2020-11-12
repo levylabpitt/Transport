@@ -5,10 +5,10 @@
 <Name>Control Experiment.lvclass</Name>
 <NumLevels>1</NumLevels>
 <Class>Control Experiment.lvclass</Class>
-<Version>1.0.0.29</Version>
+<Version>1.0.0.30</Version>
 <Cluster>
 <Name>Control Experiment.lvclass</Name>
-<NumElts>6</NumElts>
+<NumElts>7</NumElts>
 <Cluster>
 <Name>Experiment</Name>
 <NumElts>8</NumElts>
@@ -291,7 +291,7 @@
 </Cluster>
 <String>
 <Name>Comments</Name>
-<Val></Val>
+<Val>Device:   Device Name: SA999.20201110  Computer: DESKTOP-7SGMDLJ  User:   Instrument: AGILENT  Description: |Experiment:   Time: 2020-11-12T16:11:31  Description: |Sweep: - Loop1: [OFF, 0.000000]- Loop2: [OFF, 0.000000]- Loop3: [OFF, 0.000000]- Loop4: [OFF, 0.000000]Wiring: Lockin:   AO:   - AO 1: amp = 0.000 mV, DC = 0.000 mV, f = 13.00 Hz, phi = 0.00°, Sine  - AO 2: amp = 0.000 mV, DC = 0.000 mV, f = 13.00 Hz, phi = 0.00°, Sine  REF:   - Lockin 1: f = 13.00 Hz, phi = 0.00°, TC = 0.10 s, order = 2   Sampling:   - Fs: 65000.000000  - N: 5000</Val>
 </String>
 <Path>
 <Name>DAT Path</Name>
@@ -302,6 +302,10 @@
 <RefKind>Data Log File</RefKind>
 <Val>0x00000000</Val>
 </Refnum>
+<Path>
+<Name>AWS Credentials</Name>
+<Val></Val>
+</Path>
 </Cluster>
 </Object>
 </LVData>
