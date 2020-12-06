@@ -5,24 +5,24 @@
 <Name>Control Experiment.lvclass</Name>
 <NumLevels>1</NumLevels>
 <Class>Control Experiment.lvclass</Class>
-<Version>1.0.0.30</Version>
+<Version>1.0.0.31</Version>
 <Cluster>
 <Name>Control Experiment.lvclass</Name>
-<NumElts>7</NumElts>
+<NumElts>8</NumElts>
 <Cluster>
 <Name>Experiment</Name>
 <NumElts>8</NumElts>
 <String>
 <Name>User</Name>
-<Val></Val>
+<Val>patrick</Val>
 </String>
 <String>
 <Name>Device</Name>
-<Val>SA999.20201110</Val>
+<Val>test.20201206</Val>
 </String>
 <Path>
 <Name>Device Path</Name>
-<Val>C:\temp\AGILENT\SA999.20201110</Val>
+<Val>C:\Users\patrick\Data\MNK\test.20201206</Val>
 </Path>
 <String>
 <Name>Device Description</Name>
@@ -54,7 +54,7 @@
 <Choice>----- Optics -----</Choice>
 <Choice>THz 1 (Element 2/Montana)</Choice>
 <Choice>THz 2 (Tsunami/Janis)</Choice>
-<Val>1</Val>
+<Val>9</Val>
 </EW>
 <Array>
 <Name>Sweep</Name>
@@ -199,7 +199,7 @@
 <Name>Lockin</Name>
 <NumLevels>4</NumLevels>
 <Class>Instrument.Lockin.lvclass</Class>
-<Version>1.0.0.36</Version>
+<Version>1.0.0.37</Version>
 <Version>1.0.0.37</Version>
 <Version>1.0.0.0</Version>
 <Version>1.0.0.7</Version>
@@ -215,13 +215,13 @@
 <Object>
 <Name>Temperature</Name>
 <NumLevels>1</NumLevels>
-<Class>Instrument.Cryostat.lvclass</Class>
+<Class>Instrument.MNK_TC.lvclass</Class>
 <Version>0.0.0.0</Version>
 </Object>
 <Object>
 <Name>Magnet</Name>
 <NumLevels>1</NumLevels>
-<Class>Instrument.Cryostat.lvclass</Class>
+<Class>Instrument.Oxford1820.lvclass</Class>
 <Version>0.0.0.0</Version>
 </Object>
 <Object>
@@ -291,7 +291,7 @@
 </Cluster>
 <String>
 <Name>Comments</Name>
-<Val>Device:   Device Name: SA999.20201110  Computer: DESKTOP-7SGMDLJ  User:   Instrument: AGILENT  Description: |Experiment:   Time: 2020-11-12T16:11:31  Description: |Sweep: - Loop1: [OFF, 0.000000]- Loop2: [OFF, 0.000000]- Loop3: [OFF, 0.000000]- Loop4: [OFF, 0.000000]Wiring: Lockin:   AO:   - AO 1: amp = 0.000 mV, DC = 0.000 mV, f = 13.00 Hz, phi = 0.00°, Sine  - AO 2: amp = 0.000 mV, DC = 0.000 mV, f = 13.00 Hz, phi = 0.00°, Sine  REF:   - Lockin 1: f = 13.00 Hz, phi = 0.00°, TC = 0.10 s, order = 2   Sampling:   - Fs: 65000.000000  - N: 5000</Val>
+<Val>Device:   Device Name: test.20201206  Computer: DESKTOP-7SGMDLJ  User: patrick  Instrument: MNK  Description: |Experiment:   Time: 2020-12-06T09:12:26  Description: |Sweep: - Loop1: [OFF, 0.000000]- Loop2: [OFF, 0.000000]- Loop3: [OFF, 0.000000]- Loop4: [OFF, 0.000000]Wiring: Lockin:   AO:   - AO 1: amp = 100.000 mV, DC = 1.000 mV, f = 13.00 Hz, phi = 0.00°, Sine  - AO 2: amp = 0.000 mV, DC = 0.000 mV, f = 13.00 Hz, phi = 0.00°, Sine  - AO 3: amp = 0.000 mV, DC = 0.000 mV, f = 13.00 Hz, phi = 0.00°, Sine  - AO 4: amp = 0.000 mV, DC = 0.000 mV, f = 13.00 Hz, phi = 0.00°, Sine  - AO 5: amp = 0.000 mV, DC = -10.000 mV, f = 13.00 Hz, phi = 0.00°, Sine  - AO 6: amp = 0.000 mV, DC = 0.000 mV, f = 13.00 Hz, phi = 0.00°, Sine  - AO 7: amp = 0.000 mV, DC = 0.000 mV, f = 13.00 Hz, phi = 0.00°, Sine  - AO 8: amp = 0.000 mV, DC = 0.000 mV, f = 13.00 Hz, phi = 0.00°, Sine  - AO 9: amp = 0.000 mV, DC = 0.000 mV, f = 13.00 Hz, phi = 0.00°, Sine  - AO 10: amp = 0.000 mV, DC = 0.000 mV, f = 13.00 Hz, phi = 0.00°, Sine  - AO 11: amp = 0.000 mV, DC = 0.000 mV, f = 13.00 Hz, phi = 0.00°, Sine  - AO 12: amp = 0.000 mV, DC = 0.000 mV, f = 13.00 Hz, phi = 0.00°, Sine  - AO 13: amp = 0.000 mV, DC = 0.000 mV, f = 13.00 Hz, phi = 0.00°, Sine  - AO 14: amp = 0.000 mV, DC = 0.000 mV, f = 13.00 Hz, phi = 0.00°, Sine  - AO 15: amp = 0.000 mV, DC = 0.000 mV, f = 13.00 Hz, phi = 0.00°, Sine  - AO 16: amp = 0.000 mV, DC = 0.000 mV, f = 13.00 Hz, phi = 0.00°, Sine  - AO 17: amp = 0.000 mV, DC = 0.000 mV, f = 13.00 Hz, phi = 0.00°, Sine  - AO 18: amp = 0.000 mV, DC = 0.000 mV, f = 13.00 Hz, phi = 0.00°, Sine  - AO 19: amp = 0.000 mV, DC = 0.000 mV, f = 13.00 Hz, phi = 0.00°, Sine  - AO 20: amp = 0.000 mV, DC = 0.000 mV, f = 13.00 Hz, phi = 0.00°, Sine  - AO 21: amp = 0.000 mV, DC = 0.000 mV, f = 13.00 Hz, phi = 0.00°, Sine  - AO 22: amp = 0.000 mV, DC = 0.000 mV, f = 13.00 Hz, phi = 0.00°, Sine  - AO 23: amp = 0.000 mV, DC = 0.000 mV, f = 13.00 Hz, phi = 0.00°, Sine  REF:   - Lockin 1: f = 13.00 Hz, phi = 0.00°, TC = 0.10 s, order = 1   Sampling:   - Fs: 65000.000000  - N: 5000</Val>
 </String>
 <Path>
 <Name>DAT Path</Name>
@@ -304,6 +304,10 @@
 </Refnum>
 <Path>
 <Name>AWS Credentials</Name>
+<Val>C:\Users\patrick\.aws\credentials</Val>
+</Path>
+<Path>
+<Name>File Path</Name>
 <Val></Val>
 </Path>
 </Cluster>
