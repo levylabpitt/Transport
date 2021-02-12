@@ -27,6 +27,34 @@
 			<Item Name="Test GraphLockin_vs_Parameter.vi" Type="VI" URL="../../Tests/Test GraphLockin_vs_Parameter.vi"/>
 			<Item Name="Test Control Experiment Dictionary.vi" Type="VI" URL="../../Tests/Test Control Experiment Dictionary.vi"/>
 		</Item>
+		<Item Name="Sequence Experiment" Type="Folder">
+			<Item Name="py-lv-comm-master" Type="Folder">
+				<Item Name="py-server_lv-client" Type="Folder">
+					<Item Name="py-lv-comm_callFunction.vi" Type="VI" URL="../Sequence Experiment/py-lv-comm-master/py-server_lv-client/py-lv-comm_callFunction.vi"/>
+					<Item Name="py-lv-comm_closeConnection.vi" Type="VI" URL="../Sequence Experiment/py-lv-comm-master/py-server_lv-client/py-lv-comm_closeConnection.vi"/>
+					<Item Name="py-lv-comm_labview-client.vi" Type="VI" URL="../Sequence Experiment/py-lv-comm-master/py-server_lv-client/py-lv-comm_labview-client.vi"/>
+					<Item Name="py-lv-comm_openConnection.vi" Type="VI" URL="../Sequence Experiment/py-lv-comm-master/py-server_lv-client/py-lv-comm_openConnection.vi"/>
+					<Item Name="py-lv-comm_python-server.py" Type="Document" URL="../Sequence Experiment/py-lv-comm-master/py-server_lv-client/py-lv-comm_python-server.py"/>
+					<Item Name="py-lv-comm_readBool.vi" Type="VI" URL="../Sequence Experiment/py-lv-comm-master/py-server_lv-client/py-lv-comm_readBool.vi"/>
+					<Item Name="py-lv-comm_readDouble.vi" Type="VI" URL="../Sequence Experiment/py-lv-comm-master/py-server_lv-client/py-lv-comm_readDouble.vi"/>
+					<Item Name="py-lv-comm_readInt.vi" Type="VI" URL="../Sequence Experiment/py-lv-comm-master/py-server_lv-client/py-lv-comm_readInt.vi"/>
+					<Item Name="py-lv-comm_readNumpyArray.vi" Type="VI" URL="../Sequence Experiment/py-lv-comm-master/py-server_lv-client/py-lv-comm_readNumpyArray.vi"/>
+					<Item Name="py-lv-comm_readString.vi" Type="VI" URL="../Sequence Experiment/py-lv-comm-master/py-server_lv-client/py-lv-comm_readString.vi"/>
+					<Item Name="py-lv-comm_sendCommand.vi" Type="VI" URL="../Sequence Experiment/py-lv-comm-master/py-server_lv-client/py-lv-comm_sendCommand.vi"/>
+				</Item>
+				<Item Name="py-server_lv-client_simple" Type="Folder">
+					<Item Name="labview-client.png" Type="Document" URL="../Sequence Experiment/py-lv-comm-master/py-server_lv-client_simple/labview-client.png"/>
+					<Item Name="labview-client.vi" Type="VI" URL="../Sequence Experiment/py-lv-comm-master/py-server_lv-client_simple/labview-client.vi"/>
+					<Item Name="labview-server.vi" Type="VI" URL="../Sequence Experiment/py-lv-comm-master/py-server_lv-client_simple/labview-server.vi"/>
+					<Item Name="python-client.py" Type="Document" URL="../Sequence Experiment/py-lv-comm-master/py-server_lv-client_simple/python-client.py"/>
+					<Item Name="python-server.py" Type="Document" URL="../Sequence Experiment/py-lv-comm-master/py-server_lv-client_simple/python-server.py"/>
+				</Item>
+				<Item Name="README.md" Type="Document" URL="../Sequence Experiment/py-lv-comm-master/README.md"/>
+			</Item>
+			<Item Name="Sequence Experiment.lvclass" Type="LVClass" URL="../Sequence Experiment/Sequence Experiment/Sequence Experiment.lvclass"/>
+			<Item Name="Sequence Experiment UI.lvclass" Type="LVClass" URL="../Sequence Experiment UI/Sequence Experiment UI/Sequence Experiment UI.lvclass"/>
+			<Item Name="Sequence Experiment SM.lvclass" Type="LVClass" URL="../Sequence Experiment SM/Sequence Experiment SM.lvclass"/>
+		</Item>
 		<Item Name="Control Experiment.lvclass" Type="LVClass" URL="../Control Experiment/Control Experiment.lvclass"/>
 		<Item Name="SweepControl.lvclass" Type="LVClass" URL="../SweepControl/SweepControl.lvclass"/>
 		<Item Name="Transport.lvclass" Type="LVClass" URL="../Transport/Transport.lvclass"/>
@@ -379,7 +407,6 @@
 				<Item Name="Dictionary Object RefNum__ogtk.ctl" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/dictionary/dictionary.llb/Dictionary Object RefNum__ogtk.ctl"/>
 				<Item Name="Dictionary Object RefNum - Enum__ogtk.ctl" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/dictionary/dictionary.llb/Dictionary Object RefNum - Enum__ogtk.ctl"/>
 				<Item Name="MGI String Pattern Match Exists.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/String/MGI String Pattern Match Exists.vi"/>
-				<Item Name="Logger.DSC.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Levylab Instruments/SMOs/Logger.DSC/Logger.DSC.lvclass"/>
 				<Item Name="Configuration.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Levylab Instruments/SMOs/Configuration/Configuration.lvclass"/>
 				<Item Name="Random Number Within Range__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/numeric/numeric.llb/Random Number Within Range__ogtk.vi"/>
 				<Item Name="Random Number Within Range - I32__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/numeric/numeric.llb/Random Number Within Range - I32__ogtk.vi"/>
@@ -581,15 +608,17 @@
 				<Item Name="Index 2D Array Elements (U64)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/array/array.llb/Index 2D Array Elements (U64)__ogtk.vi"/>
 				<Item Name="Index 1D Array Elements (LVObject)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/array/array.llb/Index 1D Array Elements (LVObject)__ogtk.vi"/>
 				<Item Name="Index 2D Array Elements (LVObject)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/array/array.llb/Index 2D Array Elements (LVObject)__ogtk.vi"/>
-				<Item Name="AO-cluster.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/LockinDAQ/Typedefs/AO-cluster.ctl"/>
-				<Item Name="Function-enum.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/LockinDAQ/Typedefs/Function-enum.ctl"/>
-				<Item Name="REF-cluster.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/LockinDAQ/Typedefs/REF-cluster.ctl"/>
 				<Item Name="Lockin.DAQ.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Lockin.DAQ/Lockin.DAQ.lvclass"/>
 				<Item Name="PrivateEvents--LockinDAQ.Calibrate.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Lockin.DAQ/Typedefs/PrivateEvents--LockinDAQ.Calibrate.ctl"/>
 				<Item Name="Waveform Circular Buffer.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Lockin.DAQ/DAQ/Waveform Circular Buffer.vi"/>
 				<Item Name="Instrument.MNK_TC.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Leiden Tools/Instrument.MNK_TC/Instrument.MNK_TC.lvclass"/>
-				<Item Name="Instrument.Oxford1820.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/SMOs/Instrument.Oxford1820/Instrument.Oxford1820.lvclass"/>
-				<Item Name="Instrument.Oxford1820 UI.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/SMOs/Instrument.Oxford1820 UI/Instrument.Oxford1820 UI.lvclass"/>
+				<Item Name="Array to VCluster__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Array to VCluster__ogtk.vi"/>
+				<Item Name="End of Line Constant (bug fix).vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/string/string.llb/End of Line Constant (bug fix).vi"/>
+				<Item Name="MGI Threshold 1D Array Extended.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/1D Array/MGI Threshold 1D Array Extended.vi"/>
+				<Item Name="MGI Interpolate 1D Array Extended.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/1D Array/MGI Interpolate 1D Array Extended.vi"/>
+				<Item Name="Sweep Back and Forth.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Control VI/Other/Sweep Back and Forth.vi"/>
+				<Item Name="Instrument.Oxford1820.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Oxford-1820/SMOs/Instrument.Oxford1820/Instrument.Oxford1820.lvclass"/>
+				<Item Name="Instrument UI.Oxford1820.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Oxford-1820/SMOs/Instrument.Oxford1820 UI/Instrument UI.Oxford1820.lvclass"/>
 				<Item Name="Current VI&apos;s Path__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/file/file.llb/Current VI&apos;s Path__ogtk.vi"/>
 			</Item>
 			<Item Name="vi.lib" Type="Folder">
@@ -1332,6 +1361,7 @@
 			<Item Name="lvStorage.dll" Type="Document" URL="lvStorage.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
+			<Item Name="LevyLab Instrument.lvclass" Type="LVClass" URL="../../../../../../../Program Files (x86)/National Instruments/LabVIEW 2016/templates/JKI/JKI SMO/LevyLab Instrument/LevyLab Instrument/LevyLab Instrument.lvclass"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
