@@ -1178,7 +1178,6 @@
 			<Item Name="lvStorage.dll" Type="Document" URL="lvStorage.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
-			<Item Name="LevyLab Instrument.lvclass" Type="LVClass" URL="../../../../../../../Program Files (x86)/National Instruments/LabVIEW 2016/templates/JKI/JKI SMO/LevyLab Instrument/LevyLab Instrument/LevyLab Instrument.lvclass"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
