@@ -1,0 +1,2607 @@
+= Transport
+Patrick Irvin <p.irvin@levylab.org>
+:doctype: book
+:toc: left
+:imagesdir: Images
+:sectnums: 
+:toclevels: 2
+:sectanchors: 
+:sectlinks: 
+:chapter-label: Section
+
+== Project description
+
+No description found (add content in project description)
+
+== Classes
+
+This section describes the classes contained in the project.
+
+=== Classes overview
+
+This project contains 8 classes and 0 interface.
+
+.Classes list
+[cols="<.<1d,<.<1d", %autowidth, frame=all, grid=all, stripes=none]
+|===
+|Classes|Interfaces
+
+|<<Sequence Experiment.lvclass>>
+|
+
+|<<Sequence Experiment UI.lvclass>>
+|
+
+|<<Sequence Experiment SM.lvclass>>
+|
+
+|<<Control Experiment.lvclass>>
+|
+
+|<<Control Experiment UI.lvclass>>
+|
+
+|<<Control Experiment SM.lvclass>>
+|
+
+|<<SweepControl.lvclass>>
+|
+
+|<<Transport.lvclass>>
+|
+|===
+
+[plantuml, format="svg", align="center"]
+....
+@startuml
+set namespaceSeparator :
+skinparam ClassBackgroundColor #FFFFFF
+skinparam ClassBorderColor #555555
+skinparam ClassFontColor #000000
+skinparam ClassHeaderBackgroundColor #808080
+
+skinparam top to bottom direction
+class "Sequence Experiment" {
+{field} -Configuration : Cluster
+{static} {method} +Sequence Experiment.getAll()
+{static} {method} -Sequence Experiment.Command Enum to String()
+{static} {method} -Sequence Experiment.Configuration Window()
+{static} {method} #Sequence Experiment.Client()
+{static} {method} +Sequence Experiment.AppLauncher()
+{method} +Open()
+{method} +Close()
+{method} #Configure Instrument()
+{method} #Handle Command()
+{method} #getAll()
+{method} #Get SMO Name()
+{method} #Get SMO Public API()
+{method} #Get SMO Port()
+{method} #Get SMO RC Type()
+{method} #Process()
+
+}
+"Instrument" <|-- "Sequence Experiment"
+
+
+class "Sequence Experiment UI" {
+{field} -Instrument : LV Class
+{static} {method} +Sequence Experiment UI.TestLauncher()
+{method} #Process()
+
+}
+"Instrument UI" <|-- "Sequence Experiment UI"
+"Sequence Experiment UI" *-- "Instrument"
+
+
+class "Sequence Experiment SM" {
+{static} {method} +Main()
+
+}
+
+
+class "Control Experiment" {
+{field} -Configuration : Cluster
+{static} {method} +Control Experiment.getAll()
+{static} {method} -Control Experiment.Command Enum to String()
+{static} {method} -Control Experiment.Configuration Window()
+{static} {method} #Control Experiment.Client()
+{static} {method} +Control Experiment.AppLauncher()
+{method} +Open()
+{method} +Close()
+{method} #Configure Instrument()
+{method} #Handle Command()
+{method} #getAll()
+{method} #Get SMO Name()
+{method} #Get SMO Public API()
+{method} #Get SMO Port()
+{method} #Get SMO RC Type()
+{method} #Process()
+
+}
+"Instrument" <|-- "Control Experiment"
+
+
+class "Control Experiment UI" {
+{field} -Instrument : LV Class
+{static} {method} +Control Experiment UI.TestLauncher()
+{method} #Process()
+
+}
+"Instrument UI" <|-- "Control Experiment UI"
+"Control Experiment UI" *-- "Instrument"
+
+
+class "Control Experiment SM" {
+{field} -Experiment : Cluster
+{field} +Wiring Configuration : Cluster
+{field} +Instruments : Cluster
+{field} +Comments : String
+{field} -DAT Path : Path
+{field} -dictionary : Datalog
+{field} -AWS Credentials : Path
+{field} -File Path : Path
+{field} -Device Description : String
+{static} {method} +Generate Comments()
+{static} {method} +Comments.Add D()
+{static} {method} +Comments.Add Wiring Description()
+{static} {method} +Comments.Add Experiment Description()
+{static} {method} +Comments.Add Sweep Description()
+{static} {method} +Comments.Add Lockin Description()
+{static} {method} +Comments.Create Lockin AO Description()
+{static} {method} +Comments.Create Lockin REF Description()
+{static} {method} +Comments.Create Lockin Sampling Description()
+{static} {method} +D()
+{static} {method} +Instrument Class Paths()
+{static} {method} +Get Date Time ISO()
+{static} {method} +Get Date Time For Filename()
+{static} {method} +Find File()
+{static} {method} +Load Instrument Classes()
+{static} {method} +Multiply Gains()
+{static} {method} +ElectrodesLabelsToPickeringChannels()
+{static} {method} +Number to Letter()
+{static} {method} +Letter to Number()
+{static} {method} +DBL Variant or Array Variant to Array()
+{static} {method} +D()
+{static} {method} +Compare With Pr()
+{static} {method} +Reset Counter()
+{static} {method} +Open Experiment VI()
+{static} {method} +Open Lockin()
+{static} {method} +GetLocalComputerName()
+{static} {method} +Initialize KH Array()
+{static} {method} +Append Dictionary Element()
+{static} {method} +Close Dictionary()
+{static} {method} +Erase Comments()
+{static} {method} +Get Channel Indices()
+{static} {method} +Move Existing Config Files()
+{static} {method} +Class XML FGV()
+{static} {method} +Control Experiment FGV()
+{static} {method} +Create Transport DAT File()
+{static} {method} +Save Transport DAT File()
+{static} {method} +Save Transport DAT File 2D()
+{static} {method} +Save Transport ITX File()
+{static} {method} +Save Transport TDMS File()
+{static} {method} +Upload to S3()
+{static} {method} +Save JSON File()
+{static} {method} +Pickering 4 Wire PPMS DR Asynchronous()
+{static} {method} +Pickering 4 Wire Asynchronous()
+{static} {method} +PickeringReadConfig Asynchronous()
+{static} {method} +PickeringWriteConfig Asynchronous()
+{static} {method} +Asana Dictionary Get Value()
+{static} {method} +Asana Dictionary Tasks Get Value()
+{static} {method} +Test Upload to S3()
+{static} {method} +Test Write()
+{static} {method} +Control Experiment SM()
+{static} {method} +Tree()
+
+}
+"Control Experiment SM" *-- "Instrument.KH7008"
+"Control Experiment SM" *-- "Instrument.Lockin"
+"Control Experiment SM" *-- "Instrument.Cryostat"
+"Control Experiment SM" *-- "Instrument.CBridge"
+"Control Experiment SM" *-- "Instrument.OpticalDelayLine"
+"Control Experiment SM" *-- "Instrument.Strain"
+"Control Experiment SM" *-- "Instrument.VNA"
+
+
+class "SweepControl" {
+{field} -Scan control : Array of Cluster
+{field} -Scan parameters : Array of Cluster
+{field} -Post action (indexing priority) : Array of Enum {}
+{field} -Experiment : Enum {}
+{field} -Sorted scan control : Array of Cluster
+{field} +Sorted scan parameters : Array of Cluster
+{field} +Parameter (Now) : Double Float
+{field} +Control Experiment : LV Class
+{field} -Scan parameters 2 : Array of Cluster
+{field} -Sorted scan parameters 2 : Array of Cluster
+{field} -Scan Parameters (now) : Cluster
+{field} -Indices : Cluster
+{field} -Stop? : Boolean
+{field} -Sweep Lockin Array : Array of Cluster
+{static} {method} +AppendDBLtoComments()
+{static} {method} +Post action()
+{static} {method} +Scan action()
+{static} {method} +Sort Scan Parameters()
+{static} {method} +Create Scan()
+{static} {method} +Sweep Control Inner Loop()
+{static} {method} +D-Lockin()
+{static} {method} +Take Measurement()
+{static} {method} +Sweep Control()
+{static} {method} +Continuous B sweep()
+{static} {method} +Sweep Control Cartesian()
+{static} {method} +Sweep Control Loop()
+{static} {method} +SweepControl.TestLauncher()
+{method} #Process()
+
+}
+"SMO" <|-- "SweepControl"
+"SweepControl" *-- "Control Experiment SM"
+
+
+class "Transport" {
+{field} +Dependencies : Cluster
+{field} -Notifier : Notifier
+{static} {method} +Add Braces String()
+{static} {method} +Add Braces Array()
+{static} {method} +Add Braces()
+{static} {method} +Calculate R and G - Four Terminal()
+{static} {method} +Calculate R and G - Two Terminal()
+{static} {method} +Decimate and Filter()
+{static} {method} +GraphLockin_vs_Parameter()
+{static} {method} +2D Results to X and Y Arrays()
+{static} {method} +Create Keys (AI)()
+{static} {method} +Create Keys (AO)()
+{static} {method} +Exec State to Append()
+{static} {method} +Append Waveform if new()
+{static} {method} +IV()
+{static} {method} +IV_Sweep()
+{static} {method} +Lockin_time()
+{static} {method} +Lockin_Vsg()
+{static} {method} +Lockin_sweep()
+{static} {method} +Lockin_AIWFM_time()
+{static} {method} +Lockin()
+{static} {method} +THz_TimeDelay()
+{static} {method} +Sweep_AIWFM_time()
+{static} {method} +Temp Sweep Control()
+
+}
+"Transport" *-- "SweepControl"
+"Transport" *-- "Control Experiment SM"
+
+
+
+@enduml
+....
+
+=== Sequence Experiment.lvclass
+
+*Responsibility:*
++++LevyLab Instrument based on JKI SMO (by val).+++
+
+
+*Version:* 1.0.0.0
+
+[plantuml, format="svg", align="center"]
+....
+@startuml
+set namespaceSeparator :
+skinparam ClassBackgroundColor #FFFFFF
+skinparam ClassBorderColor #555555
+skinparam ClassFontColor #000000
+skinparam ClassHeaderBackgroundColor #808080
+
+skinparam top to bottom direction
+class "Sequence Experiment" {
+{field} -Configuration : Cluster
+{static} {method} +Sequence Experiment.getAll()
+{static} {method} -Sequence Experiment.Command Enum to String()
+{static} {method} -Sequence Experiment.Configuration Window()
+{static} {method} #Sequence Experiment.Client()
+{static} {method} +Sequence Experiment.AppLauncher()
+{method} +Open()
+{method} +Close()
+{method} #Configure Instrument()
+{method} #Handle Command()
+{method} #getAll()
+{method} #Get SMO Name()
+{method} #Get SMO Public API()
+{method} #Get SMO Port()
+{method} #Get SMO RC Type()
+{method} #Process()
+
+}
+"Instrument" <|-- "Sequence Experiment"
+
+
+
+@enduml
+....
+
+.Functions (non private scope only)
+[cols="<.<4d,<.<8a,<.<12d,<.<1a,<.<1a,<.<1a", %autowidth, frame=all, grid=all, stripes=none]
+|===
+|Name|Connector pane|Description|S.|R.|I.
+
+|Open
+|:imgpath: Sequence_Experiment.lvclass_Open.vi__.png
+image:{imgpath}[Sequence Experiment.lvclass:Open.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Close
+|:imgpath: Sequence_Experiment.lvclass_Close.vi__.png
+image:{imgpath}[Sequence Experiment.lvclass:Close.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Sequence Experiment.getAll
+|:imgpath: Sequence_Experiment.lvclass_Sequence_Experiment.getAll.vi__.png
+image:{imgpath}[Sequence Experiment.lvclass:Sequence Experiment.getAll.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Configure Instrument
+|:imgpath: Sequence_Experiment.lvclass_Configure_Instrument.vi__.png
+image:{imgpath}[Sequence Experiment.lvclass:Configure Instrument.vi]
+|No description found (add content in vi description)
+|:imgpath: scope-protected.png
+image:{imgpath}[scope-protected.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Handle Command
+|:imgpath: Sequence_Experiment.lvclass_Handle_Command.vi__.png
+image:{imgpath}[Sequence Experiment.lvclass:Handle Command.vi]
+|No description found (add content in vi description)
+|:imgpath: scope-protected.png
+image:{imgpath}[scope-protected.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|getAll
+|:imgpath: Sequence_Experiment.lvclass_getAll.vi__.png
+image:{imgpath}[Sequence Experiment.lvclass:getAll.vi]
+|No description found (add content in vi description)
+|:imgpath: scope-protected.png
+image:{imgpath}[scope-protected.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Get SMO Name
+|:imgpath: Sequence_Experiment.lvclass_Get_SMO_Name.vi__.png
+image:{imgpath}[Sequence Experiment.lvclass:Get SMO Name.vi]
+|No description found (add content in vi description)
+|:imgpath: scope-protected.png
+image:{imgpath}[scope-protected.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Get SMO Public API
+|:imgpath: Sequence_Experiment.lvclass_Get_SMO_Public_API.vi__.png
+image:{imgpath}[Sequence Experiment.lvclass:Get SMO Public API.vi]
+|No description found (add content in vi description)
+|:imgpath: scope-protected.png
+image:{imgpath}[scope-protected.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Get SMO Port
+|:imgpath: Sequence_Experiment.lvclass_Get_SMO_Port.vi__.png
+image:{imgpath}[Sequence Experiment.lvclass:Get SMO Port.vi]
+|No description found (add content in vi description)
+|:imgpath: scope-protected.png
+image:{imgpath}[scope-protected.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Get SMO RC Type
+|:imgpath: Sequence_Experiment.lvclass_Get_SMO_RC_Type.vi__.png
+image:{imgpath}[Sequence Experiment.lvclass:Get SMO RC Type.vi]
+|No description found (add content in vi description)
+|:imgpath: scope-protected.png
+image:{imgpath}[scope-protected.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Read Configuration File
+|:imgpath: Sequence_Experiment.lvclass_Read_Configuration_File.vi__.png
+image:{imgpath}[Sequence Experiment.lvclass:Read Configuration File.vi]
+|No description found (add content in vi description)
+|:imgpath: scope-protected.png
+image:{imgpath}[scope-protected.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Write Configuration File
+|:imgpath: Sequence_Experiment.lvclass_Write_Configuration_File.vi__.png
+image:{imgpath}[Sequence Experiment.lvclass:Write Configuration File.vi]
+|No description found (add content in vi description)
+|:imgpath: scope-protected.png
+image:{imgpath}[scope-protected.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Sequence Experiment.Client
+|:imgpath: Sequence_Experiment.lvclass_Sequence_Experiment.Client.vi__.png
+image:{imgpath}[Sequence Experiment.lvclass:Sequence Experiment.Client.vi]
+|No description found (add content in vi description)
+|:imgpath: scope-protected.png
+image:{imgpath}[scope-protected.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Process
+|:imgpath: Sequence_Experiment.lvclass_Process.vi__.png
+image:{imgpath}[Sequence Experiment.lvclass:Process.vi]
+|
++++---------------------------------------------------------------+++
++++JKI State Machine Objects™+++
++++http://jki.net/state-machine-objects/+++
++++Copyright (C) 2005-2015, JKI <info@jki.net>+++
++++ALL RIGHTS RESERVED+++
+
+|:imgpath: scope-protected.png
+image:{imgpath}[scope-protected.png]
+|:imgpath: reentrancy-shared.png
+image:{imgpath}[reentrancy-shared.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Sequence Experiment.AppLauncher
+|:imgpath: Sequence_Experiment.lvclass_Sequence_Experiment.AppLauncher.vi__.png
+image:{imgpath}[Sequence Experiment.lvclass:Sequence Experiment.AppLauncher.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|===
+
+**S**cope: image:scope-protected.png[] -> Protected | image:scope-community.png[] -> Community
+
+**R**eentrancy: image:reentrancy-preallocated.png[] -> Preallocated reentrancy | image:reentrancy-shared.png[] -> Shared reentrancy
+
+**I**nlining: image:inlined.png[] -> Inlined
+
+=== Sequence Experiment UI.lvclass
+
+*Responsibility:*
++++LevyLab Instrument UI class that inherits from SMO.UI.+++
+
+
+*Version:* 1.0.0.0
+
+[plantuml, format="svg", align="center"]
+....
+@startuml
+set namespaceSeparator :
+skinparam ClassBackgroundColor #FFFFFF
+skinparam ClassBorderColor #555555
+skinparam ClassFontColor #000000
+skinparam ClassHeaderBackgroundColor #808080
+
+skinparam top to bottom direction
+class "Sequence Experiment UI" {
+{field} -Instrument : LV Class
+{static} {method} +Sequence Experiment UI.TestLauncher()
+{method} #Process()
+
+}
+"Instrument UI" <|-- "Sequence Experiment UI"
+"Sequence Experiment UI" *-- "Instrument"
+
+
+
+@enduml
+....
+
+.Functions (non private scope only)
+[cols="<.<4d,<.<8a,<.<12d,<.<1a,<.<1a,<.<1a", %autowidth, frame=all, grid=all, stripes=none]
+|===
+|Name|Connector pane|Description|S.|R.|I.
+
+|Process
+|:imgpath: Sequence_Experiment_UI.lvclass_Process.vi__.png
+image:{imgpath}[Sequence Experiment UI.lvclass:Process.vi]
+|
++++---------------------------------------------------------------+++
++++JKI State Machine Objects™+++
++++http://jki.net/state-machine-objects/+++
++++Copyright (C) 2005-2015, JKI <info@jki.net>+++
++++ALL RIGHTS RESERVEDJKI State Machine Objects (SMO) 1.0.0.5+++
+
++++JKI - JKI+++
+
++++Copyright (c) 2016, JKI+++
+
+|:imgpath: scope-protected.png
+image:{imgpath}[scope-protected.png]
+|:imgpath: reentrancy-shared.png
+image:{imgpath}[reentrancy-shared.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Sequence Experiment UI.TestLauncher
+|:imgpath: Sequence_Experiment_UI.lvclass_Sequence_Experiment_UI.TestLauncher.vi__.png
+image:{imgpath}[Sequence Experiment UI.lvclass:Sequence Experiment UI.TestLauncher.vi]
+|+++JKI State Machine Objects (SMO) 1.0.0.5+++
+
++++JKI - JKI+++
+
++++Copyright (c) 2016, JKI+++
+
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|===
+
+**S**cope: image:scope-protected.png[] -> Protected | image:scope-community.png[] -> Community
+
+**R**eentrancy: image:reentrancy-preallocated.png[] -> Preallocated reentrancy | image:reentrancy-shared.png[] -> Shared reentrancy
+
+**I**nlining: image:inlined.png[] -> Inlined
+
+=== Sequence Experiment SM.lvclass
+
+*Responsibility:*
+No description found (add content in lvclass description)
+
+*Version:* 1.0.0.0
+
+[plantuml, format="svg", align="center"]
+....
+@startuml
+set namespaceSeparator :
+skinparam ClassBackgroundColor #FFFFFF
+skinparam ClassBorderColor #555555
+skinparam ClassFontColor #000000
+skinparam ClassHeaderBackgroundColor #808080
+
+skinparam top to bottom direction
+class "Sequence Experiment SM" {
+{static} {method} +Main()
+
+}
+
+
+
+@enduml
+....
+
+.Functions (non private scope only)
+[cols="<.<4d,<.<8a,<.<12d,<.<1a,<.<1a,<.<1a", %autowidth, frame=all, grid=all, stripes=none]
+|===
+|Name|Connector pane|Description|S.|R.|I.
+
+|Main
+|:imgpath: Sequence_Experiment_SM.lvclass_Main.vi__.png
+image:{imgpath}[Sequence Experiment SM.lvclass:Main.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|===
+
+**S**cope: image:scope-protected.png[] -> Protected | image:scope-community.png[] -> Community
+
+**R**eentrancy: image:reentrancy-preallocated.png[] -> Preallocated reentrancy | image:reentrancy-shared.png[] -> Shared reentrancy
+
+**I**nlining: image:inlined.png[] -> Inlined
+
+=== Control Experiment.lvclass
+
+*Responsibility:*
++++LevyLab Instrument based on JKI SMO (by val).+++
+
+
+*Version:* 1.0.0.0
+
+[plantuml, format="svg", align="center"]
+....
+@startuml
+set namespaceSeparator :
+skinparam ClassBackgroundColor #FFFFFF
+skinparam ClassBorderColor #555555
+skinparam ClassFontColor #000000
+skinparam ClassHeaderBackgroundColor #808080
+
+skinparam top to bottom direction
+class "Control Experiment" {
+{field} -Configuration : Cluster
+{static} {method} +Control Experiment.getAll()
+{static} {method} -Control Experiment.Command Enum to String()
+{static} {method} -Control Experiment.Configuration Window()
+{static} {method} #Control Experiment.Client()
+{static} {method} +Control Experiment.AppLauncher()
+{method} +Open()
+{method} +Close()
+{method} #Configure Instrument()
+{method} #Handle Command()
+{method} #getAll()
+{method} #Get SMO Name()
+{method} #Get SMO Public API()
+{method} #Get SMO Port()
+{method} #Get SMO RC Type()
+{method} #Process()
+
+}
+"Instrument" <|-- "Control Experiment"
+
+
+
+@enduml
+....
+
+.Functions (non private scope only)
+[cols="<.<4d,<.<8a,<.<12d,<.<1a,<.<1a,<.<1a", %autowidth, frame=all, grid=all, stripes=none]
+|===
+|Name|Connector pane|Description|S.|R.|I.
+
+|Open
+|:imgpath: Control_Experiment.lvclass_Open.vi__.png
+image:{imgpath}[Control Experiment.lvclass:Open.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Close
+|:imgpath: Control_Experiment.lvclass_Close.vi__.png
+image:{imgpath}[Control Experiment.lvclass:Close.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Control Experiment.getAll
+|:imgpath: Control_Experiment.lvclass_Control_Experiment.getAll.vi__.png
+image:{imgpath}[Control Experiment.lvclass:Control Experiment.getAll.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Configure Instrument
+|:imgpath: Control_Experiment.lvclass_Configure_Instrument.vi__.png
+image:{imgpath}[Control Experiment.lvclass:Configure Instrument.vi]
+|No description found (add content in vi description)
+|:imgpath: scope-protected.png
+image:{imgpath}[scope-protected.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Handle Command
+|:imgpath: Control_Experiment.lvclass_Handle_Command.vi__.png
+image:{imgpath}[Control Experiment.lvclass:Handle Command.vi]
+|No description found (add content in vi description)
+|:imgpath: scope-protected.png
+image:{imgpath}[scope-protected.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|getAll
+|:imgpath: Control_Experiment.lvclass_getAll.vi__.png
+image:{imgpath}[Control Experiment.lvclass:getAll.vi]
+|No description found (add content in vi description)
+|:imgpath: scope-protected.png
+image:{imgpath}[scope-protected.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Get SMO Name
+|:imgpath: Control_Experiment.lvclass_Get_SMO_Name.vi__.png
+image:{imgpath}[Control Experiment.lvclass:Get SMO Name.vi]
+|No description found (add content in vi description)
+|:imgpath: scope-protected.png
+image:{imgpath}[scope-protected.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Get SMO Public API
+|:imgpath: Control_Experiment.lvclass_Get_SMO_Public_API.vi__.png
+image:{imgpath}[Control Experiment.lvclass:Get SMO Public API.vi]
+|No description found (add content in vi description)
+|:imgpath: scope-protected.png
+image:{imgpath}[scope-protected.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Get SMO Port
+|:imgpath: Control_Experiment.lvclass_Get_SMO_Port.vi__.png
+image:{imgpath}[Control Experiment.lvclass:Get SMO Port.vi]
+|No description found (add content in vi description)
+|:imgpath: scope-protected.png
+image:{imgpath}[scope-protected.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Get SMO RC Type
+|:imgpath: Control_Experiment.lvclass_Get_SMO_RC_Type.vi__.png
+image:{imgpath}[Control Experiment.lvclass:Get SMO RC Type.vi]
+|No description found (add content in vi description)
+|:imgpath: scope-protected.png
+image:{imgpath}[scope-protected.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Read Configuration File
+|:imgpath: Control_Experiment.lvclass_Read_Configuration_File.vi__.png
+image:{imgpath}[Control Experiment.lvclass:Read Configuration File.vi]
+|No description found (add content in vi description)
+|:imgpath: scope-protected.png
+image:{imgpath}[scope-protected.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Write Configuration File
+|:imgpath: Control_Experiment.lvclass_Write_Configuration_File.vi__.png
+image:{imgpath}[Control Experiment.lvclass:Write Configuration File.vi]
+|No description found (add content in vi description)
+|:imgpath: scope-protected.png
+image:{imgpath}[scope-protected.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Control Experiment.Client
+|:imgpath: Control_Experiment.lvclass_Control_Experiment.Client.vi__.png
+image:{imgpath}[Control Experiment.lvclass:Control Experiment.Client.vi]
+|No description found (add content in vi description)
+|:imgpath: scope-protected.png
+image:{imgpath}[scope-protected.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Process
+|:imgpath: Control_Experiment.lvclass_Process.vi__.png
+image:{imgpath}[Control Experiment.lvclass:Process.vi]
+|
++++---------------------------------------------------------------+++
++++JKI State Machine Objects™+++
++++http://jki.net/state-machine-objects/+++
++++Copyright (C) 2005-2015, JKI <info@jki.net>+++
++++ALL RIGHTS RESERVED+++
+
+|:imgpath: scope-protected.png
+image:{imgpath}[scope-protected.png]
+|:imgpath: reentrancy-shared.png
+image:{imgpath}[reentrancy-shared.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Control Experiment.AppLauncher
+|:imgpath: Control_Experiment.lvclass_Control_Experiment.AppLauncher.vi__.png
+image:{imgpath}[Control Experiment.lvclass:Control Experiment.AppLauncher.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|===
+
+**S**cope: image:scope-protected.png[] -> Protected | image:scope-community.png[] -> Community
+
+**R**eentrancy: image:reentrancy-preallocated.png[] -> Preallocated reentrancy | image:reentrancy-shared.png[] -> Shared reentrancy
+
+**I**nlining: image:inlined.png[] -> Inlined
+
+=== Control Experiment UI.lvclass
+
+*Responsibility:*
++++LevyLab Instrument UI class that inherits from SMO.UI.+++
+
+
+*Version:* 1.0.0.0
+
+[plantuml, format="svg", align="center"]
+....
+@startuml
+set namespaceSeparator :
+skinparam ClassBackgroundColor #FFFFFF
+skinparam ClassBorderColor #555555
+skinparam ClassFontColor #000000
+skinparam ClassHeaderBackgroundColor #808080
+
+skinparam top to bottom direction
+class "Control Experiment UI" {
+{field} -Instrument : LV Class
+{static} {method} +Control Experiment UI.TestLauncher()
+{method} #Process()
+
+}
+"Instrument UI" <|-- "Control Experiment UI"
+"Control Experiment UI" *-- "Instrument"
+
+
+
+@enduml
+....
+
+.Functions (non private scope only)
+[cols="<.<4d,<.<8a,<.<12d,<.<1a,<.<1a,<.<1a", %autowidth, frame=all, grid=all, stripes=none]
+|===
+|Name|Connector pane|Description|S.|R.|I.
+
+|Process
+|:imgpath: Control_Experiment_UI.lvclass_Process.vi__.png
+image:{imgpath}[Control Experiment UI.lvclass:Process.vi]
+|
++++---------------------------------------------------------------+++
++++JKI State Machine Objects™+++
++++http://jki.net/state-machine-objects/+++
++++Copyright (C) 2005-2015, JKI <info@jki.net>+++
++++ALL RIGHTS RESERVEDJKI State Machine Objects (SMO) 1.0.0.5+++
+
++++JKI - JKI+++
+
++++Copyright (c) 2016, JKI+++
+
+|:imgpath: scope-protected.png
+image:{imgpath}[scope-protected.png]
+|:imgpath: reentrancy-shared.png
+image:{imgpath}[reentrancy-shared.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Control Experiment UI.TestLauncher
+|:imgpath: Control_Experiment_UI.lvclass_Control_Experiment_UI.TestLauncher.vi__.png
+image:{imgpath}[Control Experiment UI.lvclass:Control Experiment UI.TestLauncher.vi]
+|+++JKI State Machine Objects (SMO) 1.0.0.5+++
+
++++JKI - JKI+++
+
++++Copyright (c) 2016, JKI+++
+
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|===
+
+**S**cope: image:scope-protected.png[] -> Protected | image:scope-community.png[] -> Community
+
+**R**eentrancy: image:reentrancy-preallocated.png[] -> Preallocated reentrancy | image:reentrancy-shared.png[] -> Shared reentrancy
+
+**I**nlining: image:inlined.png[] -> Inlined
+
+=== Control Experiment SM.lvclass
+
+*Responsibility:*
+No description found (add content in lvclass description)
+
+*Version:* 1.0.0.0
+
+[plantuml, format="svg", align="center"]
+....
+@startuml
+set namespaceSeparator :
+skinparam ClassBackgroundColor #FFFFFF
+skinparam ClassBorderColor #555555
+skinparam ClassFontColor #000000
+skinparam ClassHeaderBackgroundColor #808080
+
+skinparam top to bottom direction
+class "Control Experiment SM" {
+{field} -Experiment : Cluster
+{field} +Wiring Configuration : Cluster
+{field} +Instruments : Cluster
+{field} +Comments : String
+{field} -DAT Path : Path
+{field} -dictionary : Datalog
+{field} -AWS Credentials : Path
+{field} -File Path : Path
+{field} -Device Description : String
+{static} {method} +Generate Comments()
+{static} {method} +Comments.Add D()
+{static} {method} +Comments.Add Wiring Description()
+{static} {method} +Comments.Add Experiment Description()
+{static} {method} +Comments.Add Sweep Description()
+{static} {method} +Comments.Add Lockin Description()
+{static} {method} +Comments.Create Lockin AO Description()
+{static} {method} +Comments.Create Lockin REF Description()
+{static} {method} +Comments.Create Lockin Sampling Description()
+{static} {method} +D()
+{static} {method} +Instrument Class Paths()
+{static} {method} +Get Date Time ISO()
+{static} {method} +Get Date Time For Filename()
+{static} {method} +Find File()
+{static} {method} +Load Instrument Classes()
+{static} {method} +Multiply Gains()
+{static} {method} +ElectrodesLabelsToPickeringChannels()
+{static} {method} +Number to Letter()
+{static} {method} +Letter to Number()
+{static} {method} +DBL Variant or Array Variant to Array()
+{static} {method} +D()
+{static} {method} +Compare With Pr()
+{static} {method} +Reset Counter()
+{static} {method} +Open Experiment VI()
+{static} {method} +Open Lockin()
+{static} {method} +GetLocalComputerName()
+{static} {method} +Initialize KH Array()
+{static} {method} +Append Dictionary Element()
+{static} {method} +Close Dictionary()
+{static} {method} +Erase Comments()
+{static} {method} +Get Channel Indices()
+{static} {method} +Move Existing Config Files()
+{static} {method} +Class XML FGV()
+{static} {method} +Control Experiment FGV()
+{static} {method} +Create Transport DAT File()
+{static} {method} +Save Transport DAT File()
+{static} {method} +Save Transport DAT File 2D()
+{static} {method} +Save Transport ITX File()
+{static} {method} +Save Transport TDMS File()
+{static} {method} +Upload to S3()
+{static} {method} +Save JSON File()
+{static} {method} +Pickering 4 Wire PPMS DR Asynchronous()
+{static} {method} +Pickering 4 Wire Asynchronous()
+{static} {method} +PickeringReadConfig Asynchronous()
+{static} {method} +PickeringWriteConfig Asynchronous()
+{static} {method} +Asana Dictionary Get Value()
+{static} {method} +Asana Dictionary Tasks Get Value()
+{static} {method} +Test Upload to S3()
+{static} {method} +Test Write()
+{static} {method} +Control Experiment SM()
+{static} {method} +Tree()
+
+}
+"Control Experiment SM" *-- "Instrument.KH7008"
+"Control Experiment SM" *-- "Instrument.Lockin"
+"Control Experiment SM" *-- "Instrument.Cryostat"
+"Control Experiment SM" *-- "Instrument.CBridge"
+"Control Experiment SM" *-- "Instrument.OpticalDelayLine"
+"Control Experiment SM" *-- "Instrument.Strain"
+"Control Experiment SM" *-- "Instrument.VNA"
+
+
+
+@enduml
+....
+
+.Functions (non private scope only)
+[cols="<.<4d,<.<8a,<.<12d,<.<1a,<.<1a,<.<1a", %autowidth, frame=all, grid=all, stripes=none]
+|===
+|Name|Connector pane|Description|S.|R.|I.
+
+|Generate Comments
+|:imgpath: Control_Experiment_SM.lvclass_Generate_Comments.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Generate Comments.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Comments.Add Device Description
+|:imgpath: Control_Experiment_SM.lvclass_Comments.Add_Device_Description.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Comments.Add Device Description.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Comments.Add Wiring Description
+|:imgpath: Control_Experiment_SM.lvclass_Comments.Add_Wiring_Description.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Comments.Add Wiring Description.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Comments.Add Experiment Description
+|:imgpath: Control_Experiment_SM.lvclass_Comments.Add_Experiment_Description.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Comments.Add Experiment Description.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Comments.Add Sweep Description
+|:imgpath: Control_Experiment_SM.lvclass_Comments.Add_Sweep_Description.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Comments.Add Sweep Description.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Comments.Add Lockin Description
+|:imgpath: Control_Experiment_SM.lvclass_Comments.Add_Lockin_Description.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Comments.Add Lockin Description.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Comments.Create Lockin AO Description
+|:imgpath: Control_Experiment_SM.lvclass_Comments.Create_Lockin_AO_Description.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Comments.Create Lockin AO Description.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Comments.Create Lockin REF Description
+|:imgpath: Control_Experiment_SM.lvclass_Comments.Create_Lockin_REF_Description.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Comments.Create Lockin REF Description.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Comments.Create Lockin Sampling Description
+|:imgpath: Control_Experiment_SM.lvclass_Comments.Create_Lockin_Sampling_Description.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Comments.Create Lockin Sampling Description.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Device and User DSC Paths
+|:imgpath: Control_Experiment_SM.lvclass_Device_and_User_DSC_Paths.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Device and User DSC Paths.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Instrument Class Paths
+|:imgpath: Control_Experiment_SM.lvclass_Instrument_Class_Paths.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Instrument Class Paths.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Get Date Time ISO
+|:imgpath: Control_Experiment_SM.lvclass_Get_Date_Time_ISO.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Get Date Time ISO.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Get Date Time For Filename
+|:imgpath: Control_Experiment_SM.lvclass_Get_Date_Time_For_Filename.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Get Date Time For Filename.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Find File
+|:imgpath: Control_Experiment_SM.lvclass_Find_File.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Find File.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Load Instrument Classes
+|:imgpath: Control_Experiment_SM.lvclass_Load_Instrument_Classes.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Load Instrument Classes.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Multiply Gains
+|:imgpath: Control_Experiment_SM.lvclass_Multiply_Gains.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Multiply Gains.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|ElectrodesLabelsToPickeringChannels
+|:imgpath: Control_Experiment_SM.lvclass_ElectrodesLabelsToPickeringChannels.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:ElectrodesLabelsToPickeringChannels.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Number to Letter
+|:imgpath: Control_Experiment_SM.lvclass_Number_to_Letter.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Number to Letter.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Letter to Number
+|:imgpath: Control_Experiment_SM.lvclass_Letter_to_Number.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Letter to Number.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|DBL Variant or Array Variant to Array
+|:imgpath: Control_Experiment_SM.lvclass_DBL_Variant_or_Array_Variant_to_Array.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:DBL Variant or Array Variant to Array.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Device and User PGSQL Paths
+|:imgpath: Control_Experiment_SM.lvclass_Device_and_User_PGSQL_Paths.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Device and User PGSQL Paths.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Compare With Previous
+|:imgpath: Control_Experiment_SM.lvclass_Compare_With_Previous.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Compare With Previous.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: reentrancy-preallocated.png
+image:{imgpath}[reentrancy-preallocated.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Reset Counter
+|:imgpath: Control_Experiment_SM.lvclass_Reset_Counter.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Reset Counter.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Open Experiment VI
+|:imgpath: Control_Experiment_SM.lvclass_Open_Experiment_VI.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Open Experiment VI.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Open Lockin
+|:imgpath: Control_Experiment_SM.lvclass_Open_Lockin.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Open Lockin.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|GetLocalComputerName
+|:imgpath: Control_Experiment_SM.lvclass_GetLocalComputerName.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:GetLocalComputerName.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Initialize KH Array
+|:imgpath: Control_Experiment_SM.lvclass_Initialize_KH_Array.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Initialize KH Array.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Write Dictionary Element
+|:imgpath: Control_Experiment_SM.lvclass_Write_Dictionary_Element.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Write Dictionary Element.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Write Dictionary Elements (Loop)
+|:imgpath: Control_Experiment_SM.lvclass_Write_Dictionary_Elements_(Loop).vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Write Dictionary Elements (Loop).vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Append Dictionary Element
+|:imgpath: Control_Experiment_SM.lvclass_Append_Dictionary_Element.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Append Dictionary Element.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Read All Dictionary Elements
+|:imgpath: Control_Experiment_SM.lvclass_Read_All_Dictionary_Elements.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Read All Dictionary Elements.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Close Dictionary
+|:imgpath: Control_Experiment_SM.lvclass_Close_Dictionary.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Close Dictionary.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Write Experiment Description
+|:imgpath: Control_Experiment_SM.lvclass_Write_Experiment_Description.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Write Experiment Description.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: reentrancy-preallocated.png
+image:{imgpath}[reentrancy-preallocated.png]
+|:imgpath: inlined.png
+image:{imgpath}[inlined.png]
+
+|Write Experiment Folder
+|:imgpath: Control_Experiment_SM.lvclass_Write_Experiment_Folder.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Write Experiment Folder.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Write Sweep Element
+|:imgpath: Control_Experiment_SM.lvclass_Write_Sweep_Element.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Write Sweep Element.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Read Device
+|:imgpath: Control_Experiment_SM.lvclass_Read_Device.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Read Device.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: reentrancy-preallocated.png
+image:{imgpath}[reentrancy-preallocated.png]
+|:imgpath: inlined.png
+image:{imgpath}[inlined.png]
+
+|Read Experiment Path
+|:imgpath: Control_Experiment_SM.lvclass_Read_Experiment_Path.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Read Experiment Path.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: reentrancy-preallocated.png
+image:{imgpath}[reentrancy-preallocated.png]
+|:imgpath: inlined.png
+image:{imgpath}[inlined.png]
+
+|Read Experiment Description
+|:imgpath: Control_Experiment_SM.lvclass_Read_Experiment_Description.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Read Experiment Description.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: reentrancy-preallocated.png
+image:{imgpath}[reentrancy-preallocated.png]
+|:imgpath: inlined.png
+image:{imgpath}[inlined.png]
+
+|Erase Comments
+|:imgpath: Control_Experiment_SM.lvclass_Erase_Comments.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Erase Comments.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: reentrancy-preallocated.png
+image:{imgpath}[reentrancy-preallocated.png]
+|:imgpath: inlined.png
+image:{imgpath}[inlined.png]
+
+|Read Comments
+|:imgpath: Control_Experiment_SM.lvclass_Read_Comments.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Read Comments.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: reentrancy-preallocated.png
+image:{imgpath}[reentrancy-preallocated.png]
+|:imgpath: inlined.png
+image:{imgpath}[inlined.png]
+
+|Read Instruments
+|:imgpath: Control_Experiment_SM.lvclass_Read_Instruments.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Read Instruments.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Get Channel Indices
+|:imgpath: Control_Experiment_SM.lvclass_Get_Channel_Indices.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Get Channel Indices.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Read Experiment Configuration
+|:imgpath: Control_Experiment_SM.lvclass_Read_Experiment_Configuration.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Read Experiment Configuration.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: reentrancy-preallocated.png
+image:{imgpath}[reentrancy-preallocated.png]
+|:imgpath: inlined.png
+image:{imgpath}[inlined.png]
+
+|Read Wiring Configuration
+|:imgpath: Control_Experiment_SM.lvclass_Read_Wiring_Configuration.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Read Wiring Configuration.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: reentrancy-preallocated.png
+image:{imgpath}[reentrancy-preallocated.png]
+|:imgpath: inlined.png
+image:{imgpath}[inlined.png]
+
+|Write Device Description JSON
+|:imgpath: Control_Experiment_SM.lvclass_Write_Device_Description_JSON.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Write Device Description JSON.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: reentrancy-preallocated.png
+image:{imgpath}[reentrancy-preallocated.png]
+|:imgpath: inlined.png
+image:{imgpath}[inlined.png]
+
+|Write Experiment Description JSON
+|:imgpath: Control_Experiment_SM.lvclass_Write_Experiment_Description_JSON.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Write Experiment Description JSON.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: reentrancy-preallocated.png
+image:{imgpath}[reentrancy-preallocated.png]
+|:imgpath: inlined.png
+image:{imgpath}[inlined.png]
+
+|Move Existing Config Files
+|:imgpath: Control_Experiment_SM.lvclass_Move_Existing_Config_Files.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Move Existing Config Files.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Class XML FGV
+|:imgpath: Control_Experiment_SM.lvclass_Class_XML_FGV.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Class XML FGV.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Control Experiment FGV
+|:imgpath: Control_Experiment_SM.lvclass_Control_Experiment_FGV.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Control Experiment FGV.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Read Control Experiment.json
+|:imgpath: Control_Experiment_SM.lvclass_Read_Control_Experiment.json.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Read Control Experiment.json.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Create Transport DAT File
+|:imgpath: Control_Experiment_SM.lvclass_Create_Transport_DAT_File.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Create Transport DAT File.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Save Transport DAT File
+|:imgpath: Control_Experiment_SM.lvclass_Save_Transport_DAT_File.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Save Transport DAT File.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Save Transport DAT File 2D
+|:imgpath: Control_Experiment_SM.lvclass_Save_Transport_DAT_File_2D.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Save Transport DAT File 2D.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Save Transport ITX File
+|:imgpath: Control_Experiment_SM.lvclass_Save_Transport_ITX_File.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Save Transport ITX File.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Save Transport TDMS File
+|:imgpath: Control_Experiment_SM.lvclass_Save_Transport_TDMS_File.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Save Transport TDMS File.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Upload to S3
+|:imgpath: Control_Experiment_SM.lvclass_Upload_to_S3.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Upload to S3.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Save JSON File
+|:imgpath: Control_Experiment_SM.lvclass_Save_JSON_File.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Save JSON File.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Pickering 4 Wire PPMS DR Asynchronous
+|:imgpath: Control_Experiment_SM.lvclass_Pickering_4_Wire_PPMS_DR_Asynchronous.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Pickering 4 Wire PPMS DR Asynchronous.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Pickering 4 Wire Asynchronous
+|:imgpath: Control_Experiment_SM.lvclass_Pickering_4_Wire_Asynchronous.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Pickering 4 Wire Asynchronous.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|PickeringReadConfig Asynchronous
+|:imgpath: Control_Experiment_SM.lvclass_PickeringReadConfig_Asynchronous.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:PickeringReadConfig Asynchronous.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|PickeringWriteConfig Asynchronous
+|:imgpath: Control_Experiment_SM.lvclass_PickeringWriteConfig_Asynchronous.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:PickeringWriteConfig Asynchronous.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Asana Dictionary Get Value
+|:imgpath: Control_Experiment_SM.lvclass_Asana_Dictionary_Get_Value.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Asana Dictionary Get Value.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Asana Dictionary Tasks Get Value
+|:imgpath: Control_Experiment_SM.lvclass_Asana_Dictionary_Tasks_Get_Value.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Asana Dictionary Tasks Get Value.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Test Upload to S3
+|:imgpath: Control_Experiment_SM.lvclass_Test_Upload_to_S3.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Test Upload to S3.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Test Write
+|:imgpath: Control_Experiment_SM.lvclass_Test_Write.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Test Write.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Control Experiment SM
+|:imgpath: Control_Experiment_SM.lvclass_Control_Experiment_SM.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Control Experiment SM.vi]
+|+++Use this VI to help configure your experiment.+++
++++1. Choose Pickering or Not Pickering+++
++++2. Configure the Electrode control to show which electrode is connected to which lockin+++
++++3. Choose a Label for each electrode to configure Krohn Hite amplifier automatically+++
++++4. Easily set all Krohn Hite channels to be "all ground" or "all differential" mode+++
++++5. Fill out information about you and your device in the lower left corner+++
++++6. When you are finished, or when you want to update the amplifiers, click the "CREATE OUTPUT" button located in upper right. Clicking this button will set the amplifiers, Pickering switch (if you have one), and write information to a functional global variable that you can easily read from elsewhere in your program+++
+
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Tree
+|:imgpath: Control_Experiment_SM.lvclass_Tree.vi__.png
+image:{imgpath}[Control Experiment SM.lvclass:Tree.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|===
+
+**S**cope: image:scope-protected.png[] -> Protected | image:scope-community.png[] -> Community
+
+**R**eentrancy: image:reentrancy-preallocated.png[] -> Preallocated reentrancy | image:reentrancy-shared.png[] -> Shared reentrancy
+
+**I**nlining: image:inlined.png[] -> Inlined
+
+=== SweepControl.lvclass
+
+*Responsibility:*
++++By value SMO class with very small footprint. It includes a process and a launcher.+++
+
+
+*Version:* 1.0.0.47
+
+[plantuml, format="svg", align="center"]
+....
+@startuml
+set namespaceSeparator :
+skinparam ClassBackgroundColor #FFFFFF
+skinparam ClassBorderColor #555555
+skinparam ClassFontColor #000000
+skinparam ClassHeaderBackgroundColor #808080
+
+skinparam top to bottom direction
+class "SweepControl" {
+{field} -Scan control : Array of Cluster
+{field} -Scan parameters : Array of Cluster
+{field} -Post action (indexing priority) : Array of Enum {}
+{field} -Experiment : Enum {}
+{field} -Sorted scan control : Array of Cluster
+{field} +Sorted scan parameters : Array of Cluster
+{field} +Parameter (Now) : Double Float
+{field} +Control Experiment : LV Class
+{field} -Scan parameters 2 : Array of Cluster
+{field} -Sorted scan parameters 2 : Array of Cluster
+{field} -Scan Parameters (now) : Cluster
+{field} -Indices : Cluster
+{field} -Stop? : Boolean
+{field} -Sweep Lockin Array : Array of Cluster
+{static} {method} +AppendDBLtoComments()
+{static} {method} +Post action()
+{static} {method} +Scan action()
+{static} {method} +Sort Scan Parameters()
+{static} {method} +Create Scan()
+{static} {method} +Sweep Control Inner Loop()
+{static} {method} +D-Lockin()
+{static} {method} +Take Measurement()
+{static} {method} +Sweep Control()
+{static} {method} +Continuous B sweep()
+{static} {method} +Sweep Control Cartesian()
+{static} {method} +Sweep Control Loop()
+{static} {method} +SweepControl.TestLauncher()
+{method} #Process()
+
+}
+"SMO" <|-- "SweepControl"
+"SweepControl" *-- "Control Experiment SM"
+
+
+
+@enduml
+....
+
+.Functions (non private scope only)
+[cols="<.<4d,<.<8a,<.<12d,<.<1a,<.<1a,<.<1a", %autowidth, frame=all, grid=all, stripes=none]
+|===
+|Name|Connector pane|Description|S.|R.|I.
+
+|AppendDBLtoComments
+|:imgpath: SweepControl.lvclass_AppendDBLtoComments.vi__.png
+image:{imgpath}[SweepControl.lvclass:AppendDBLtoComments.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Post action
+|:imgpath: SweepControl.lvclass_Post_action.vi__.png
+image:{imgpath}[SweepControl.lvclass:Post action.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Scan action
+|:imgpath: SweepControl.lvclass_Scan_action.vi__.png
+image:{imgpath}[SweepControl.lvclass:Scan action.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Sort Scan Parameters
+|:imgpath: SweepControl.lvclass_Sort_Scan_Parameters.vi__.png
+image:{imgpath}[SweepControl.lvclass:Sort Scan Parameters.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Create Scan
+|:imgpath: SweepControl.lvclass_Create_Scan.vi__.png
+image:{imgpath}[SweepControl.lvclass:Create Scan.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Sweep Control Inner Loop
+|:imgpath: SweepControl.lvclass_Sweep_Control_Inner_Loop.vi__.png
+image:{imgpath}[SweepControl.lvclass:Sweep Control Inner Loop.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|D-Lockin
+|:imgpath: SweepControl.lvclass_D_Lockin.vi__.png
+image:{imgpath}[SweepControl.lvclass:D-Lockin.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Read Sorted scan parameters
+|:imgpath: SweepControl.lvclass_Read_Sorted_scan_parameters.vi__.png
+image:{imgpath}[SweepControl.lvclass:Read Sorted scan parameters.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Read Sweep Configuration File
+|:imgpath: SweepControl.lvclass_Read_Sweep_Configuration_File.vi__.png
+image:{imgpath}[SweepControl.lvclass:Read Sweep Configuration File.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Read Sweep Configuration Example
+|:imgpath: SweepControl.lvclass_Read_Sweep_Configuration_Example.vi__.png
+image:{imgpath}[SweepControl.lvclass:Read Sweep Configuration Example.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Read Control Experiment
+|:imgpath: SweepControl.lvclass_Read_Control_Experiment.vi__.png
+image:{imgpath}[SweepControl.lvclass:Read Control Experiment.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: reentrancy-preallocated.png
+image:{imgpath}[reentrancy-preallocated.png]
+|:imgpath: inlined.png
+image:{imgpath}[inlined.png]
+
+|Take Measurement
+|:imgpath: SweepControl.lvclass_Take_Measurement.vi__.png
+image:{imgpath}[SweepControl.lvclass:Take Measurement.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Read Parameter (Now)
+|:imgpath: SweepControl.lvclass_Read_Parameter_(Now).vi__.png
+image:{imgpath}[SweepControl.lvclass:Read Parameter (Now).vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: reentrancy-preallocated.png
+image:{imgpath}[reentrancy-preallocated.png]
+|:imgpath: inlined.png
+image:{imgpath}[inlined.png]
+
+|Read Sweep Control.json
+|:imgpath: SweepControl.lvclass_Read_Sweep_Control.json.vi__.png
+image:{imgpath}[SweepControl.lvclass:Read Sweep Control.json.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Read Continuous B Sweep.json
+|:imgpath: SweepControl.lvclass_Read_Continuous_B_Sweep.json.vi__.png
+image:{imgpath}[SweepControl.lvclass:Read Continuous B Sweep.json.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Sweep Control
+|:imgpath: SweepControl.lvclass_Sweep_Control.vi__.png
+image:{imgpath}[SweepControl.lvclass:Sweep Control.vi]
+|+++- Priority 0 is the fastest loop+++
++++- You can put multiple scan names in one priority.+++
++++- OFF has to be the last priority+++
++++- Choose an Experiment (Lockin_Sweep, IV, etc) to run at each Scan Setting+++
++++- Open the Exeriment subVIs to choose settings+++
+
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Continuous B sweep
+|:imgpath: SweepControl.lvclass_Continuous_B_sweep.vi__.png
+image:{imgpath}[SweepControl.lvclass:Continuous B sweep.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Sweep Control Cartesian
+|:imgpath: SweepControl.lvclass_Sweep_Control_Cartesian.vi__.png
+image:{imgpath}[SweepControl.lvclass:Sweep Control Cartesian.vi]
+|+++- Priority 0 is the fastest loop+++
++++- You can put multiple scan names in one priority.+++
++++- OFF has to be the last priority+++
++++- Choose an Experiment (Lockin_Sweep, IV, etc) to run at each Scan Setting+++
++++- Open the Exeriment subVIs to choose settings+++
+
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Sweep Control Loop
+|:imgpath: SweepControl.lvclass_Sweep_Control_Loop.vi__.png
+image:{imgpath}[SweepControl.lvclass:Sweep Control Loop.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|SweepControl.TestLauncher
+|:imgpath: SweepControl.lvclass_SweepControl.TestLauncher.vi__.png
+image:{imgpath}[SweepControl.lvclass:SweepControl.TestLauncher.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Process
+|:imgpath: SweepControl.lvclass_Process.vi__.png
+image:{imgpath}[SweepControl.lvclass:Process.vi]
+|
++++---------------------------------------------------------------+++
++++JKI State Machine Objects™+++
++++http://jki.net/state-machine-objects/+++
++++Copyright (C) 2005-2015, JKI <info@jki.net>+++
++++ALL RIGHTS RESERVED+++
+
+|:imgpath: scope-protected.png
+image:{imgpath}[scope-protected.png]
+|:imgpath: reentrancy-shared.png
+image:{imgpath}[reentrancy-shared.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|===
+
+**S**cope: image:scope-protected.png[] -> Protected | image:scope-community.png[] -> Community
+
+**R**eentrancy: image:reentrancy-preallocated.png[] -> Preallocated reentrancy | image:reentrancy-shared.png[] -> Shared reentrancy
+
+**I**nlining: image:inlined.png[] -> Inlined
+
+=== Transport.lvclass
+
+*Responsibility:*
+No description found (add content in lvclass description)
+
+*Version:* 1.0.0.7
+
+[plantuml, format="svg", align="center"]
+....
+@startuml
+set namespaceSeparator :
+skinparam ClassBackgroundColor #FFFFFF
+skinparam ClassBorderColor #555555
+skinparam ClassFontColor #000000
+skinparam ClassHeaderBackgroundColor #808080
+
+skinparam top to bottom direction
+class "Transport" {
+{field} +Dependencies : Cluster
+{field} -Notifier : Notifier
+{static} {method} +Add Braces String()
+{static} {method} +Add Braces Array()
+{static} {method} +Add Braces()
+{static} {method} +Calculate R and G - Four Terminal()
+{static} {method} +Calculate R and G - Two Terminal()
+{static} {method} +Decimate and Filter()
+{static} {method} +GraphLockin_vs_Parameter()
+{static} {method} +2D Results to X and Y Arrays()
+{static} {method} +Create Keys (AI)()
+{static} {method} +Create Keys (AO)()
+{static} {method} +Exec State to Append()
+{static} {method} +Append Waveform if new()
+{static} {method} +IV()
+{static} {method} +IV_Sweep()
+{static} {method} +Lockin_time()
+{static} {method} +Lockin_Vsg()
+{static} {method} +Lockin_sweep()
+{static} {method} +Lockin_AIWFM_time()
+{static} {method} +Lockin()
+{static} {method} +THz_TimeDelay()
+{static} {method} +Sweep_AIWFM_time()
+{static} {method} +Temp Sweep Control()
+
+}
+"Transport" *-- "SweepControl"
+"Transport" *-- "Control Experiment SM"
+
+
+
+@enduml
+....
+
+.Functions (non private scope only)
+[cols="<.<4d,<.<8a,<.<12d,<.<1a,<.<1a,<.<1a", %autowidth, frame=all, grid=all, stripes=none]
+|===
+|Name|Connector pane|Description|S.|R.|I.
+
+|Add Braces String
+|:imgpath: Transport.lvclass_Add_Braces_String.vi__.png
+image:{imgpath}[Transport.lvclass:Add Braces String.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Add Braces Array
+|:imgpath: Transport.lvclass_Add_Braces_Array.vi__.png
+image:{imgpath}[Transport.lvclass:Add Braces Array.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Calculate R and G - Four Terminal
+|:imgpath: Transport.lvclass_Calculate_R_and_G___Four_Terminal.vi__.png
+image:{imgpath}[Transport.lvclass:Calculate R and G - Four Terminal.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Calculate R and G - Two Terminal
+|:imgpath: Transport.lvclass_Calculate_R_and_G___Two_Terminal.vi__.png
+image:{imgpath}[Transport.lvclass:Calculate R and G - Two Terminal.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Decimate and Filter
+|:imgpath: Transport.lvclass_Decimate_and_Filter.vi__.png
+image:{imgpath}[Transport.lvclass:Decimate and Filter.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|GraphLockin_vs_Parameter
+|:imgpath: Transport.lvclass_GraphLockin_vs_Parameter.vi__.png
+image:{imgpath}[Transport.lvclass:GraphLockin_vs_Parameter.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|2D Results to X and Y Arrays
+|:imgpath: Transport.lvclass_2D_Results_to_X_and_Y_Arrays.vi__.png
+image:{imgpath}[Transport.lvclass:2D Results to X and Y Arrays.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Create Keys (AI)
+|:imgpath: Transport.lvclass_Create_Keys_(AI).vi__.png
+image:{imgpath}[Transport.lvclass:Create Keys (AI).vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Create Keys (AO)
+|:imgpath: Transport.lvclass_Create_Keys_(AO).vi__.png
+image:{imgpath}[Transport.lvclass:Create Keys (AO).vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Exec State to Append
+|:imgpath: Transport.lvclass_Exec_State_to_Append.vi__.png
+image:{imgpath}[Transport.lvclass:Exec State to Append.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Append Waveform if new
+|:imgpath: Transport.lvclass_Append_Waveform_if_new.vi__.png
+image:{imgpath}[Transport.lvclass:Append Waveform if new.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Read Dependencies
+|:imgpath: Transport.lvclass_Read_Dependencies.vi__.png
+image:{imgpath}[Transport.lvclass:Read Dependencies.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: reentrancy-preallocated.png
+image:{imgpath}[reentrancy-preallocated.png]
+|:imgpath: inlined.png
+image:{imgpath}[inlined.png]
+
+|Write Dependencies
+|:imgpath: Transport.lvclass_Write_Dependencies.vi__.png
+image:{imgpath}[Transport.lvclass:Write Dependencies.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: reentrancy-preallocated.png
+image:{imgpath}[reentrancy-preallocated.png]
+|:imgpath: inlined.png
+image:{imgpath}[inlined.png]
+
+|Write notifier
+|:imgpath: Transport.lvclass_Write_notifier.vi__.png
+image:{imgpath}[Transport.lvclass:Write notifier.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: reentrancy-preallocated.png
+image:{imgpath}[reentrancy-preallocated.png]
+|:imgpath: inlined.png
+image:{imgpath}[inlined.png]
+
+|Read Lockin_Vsg.json
+|:imgpath: Transport.lvclass_Read_Lockin_Vsg.json.vi__.png
+image:{imgpath}[Transport.lvclass:Read Lockin_Vsg.json.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Read Lockin_Sweep.json
+|:imgpath: Transport.lvclass_Read_Lockin_Sweep.json.vi__.png
+image:{imgpath}[Transport.lvclass:Read Lockin_Sweep.json.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|IV
+|:imgpath: Transport.lvclass_IV.vi__.png
+image:{imgpath}[Transport.lvclass:IV.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|IV_Sweep
+|:imgpath: Transport.lvclass_IV_Sweep.vi__.png
+image:{imgpath}[Transport.lvclass:IV_Sweep.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Lockin_time
+|:imgpath: Transport.lvclass_Lockin_time.vi__.png
+image:{imgpath}[Transport.lvclass:Lockin_time.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Lockin_Vsg
+|:imgpath: Transport.lvclass_Lockin_Vsg.vi__.png
+image:{imgpath}[Transport.lvclass:Lockin_Vsg.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Lockin_sweep
+|:imgpath: Transport.lvclass_Lockin_sweep.vi__.png
+image:{imgpath}[Transport.lvclass:Lockin_sweep.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Lockin_AIWFM_time
+|:imgpath: Transport.lvclass_Lockin_AIWFM_time.vi__.png
+image:{imgpath}[Transport.lvclass:Lockin_AIWFM_time.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Lockin
+|:imgpath: Transport.lvclass_Lockin.vi__.png
+image:{imgpath}[Transport.lvclass:Lockin.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|THz_TimeDelay
+|:imgpath: Transport.lvclass_THz_TimeDelay.vi__.png
+image:{imgpath}[Transport.lvclass:THz_TimeDelay.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Sweep_AIWFM_time
+|:imgpath: Transport.lvclass_Sweep_AIWFM_time.vi__.png
+image:{imgpath}[Transport.lvclass:Sweep_AIWFM_time.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+
+|Temp Sweep Control
+|:imgpath: Transport.lvclass_Temp_Sweep_Control.vi__.png
+image:{imgpath}[Transport.lvclass:Temp Sweep Control.vi]
+|No description found (add content in vi description)
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|:imgpath: empty.png
+image:{imgpath}[empty.png]
+|===
+
+**S**cope: image:scope-protected.png[] -> Protected | image:scope-community.png[] -> Community
+
+**R**eentrancy: image:reentrancy-preallocated.png[] -> Preallocated reentrancy | image:reentrancy-shared.png[] -> Shared reentrancy
+
+**I**nlining: image:inlined.png[] -> Inlined
+
+== Legal Information
+
+=== Document creation
+
+This document has been generated using the following tools.
+
+==== Antidoc
+
+Project website: https://wovalab.gitlab.io/open-source/labview-doc-generator/[Antidoc] 
+
+Maintainer website: https://wovalab.com[Wovalab] 
+
+BSD 3-Clause License
+
+Copyright (C) 2019, Wovalab,
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this
+  list of conditions and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+  and/or other materials provided with the distribution.
+
+* Neither the name of the copyright holder nor the names of its
+  contributors may be used to endorse or promote products derived from
+  this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+==== Asciidoc for LabVIEW(TM)
+
+Project website: https://wovalab.gitlab.io/open-source/asciidoc-toolkit/[Asciidoc toolkit] 
+
+Maintainer website: https://wovalab.com[Wovalab] 
+
+BSD 3-Clause License
+
+Copyright (C) 2019, Wovalab,
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this
+  list of conditions and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+  and/or other materials provided with the distribution.
+
+* Neither the name of the copyright holder nor the names of its
+  contributors may be used to endorse or promote products derived from
+  this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+==== Graph Builder
+
+Project website: https://gitlab.com/cgambini/graph-builder[Graph Builder]
+
+BSD 3-Clause License
+
+Copyright (c) 2020, Cyril GAMBINI
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this
+  list of conditions and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+  and/or other materials provided with the distribution.
+
+* Neither the name of the copyright holder nor the names of its
+  contributors may be used to endorse or promote products derived from
+  this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+==== classy Diagram Viewer
+
+Project website: https://gitlab.com/tatiana.boye/classy-diagram-viewer[classy Diagram Viewer]
+
+BSD 3-Clause License
+
+Copyright (c) 2021, Tatiana Boyé
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this
+  list of conditions and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+  and/or other materials provided with the distribution.
+
+* Neither the name of the copyright holder nor the names of its
+  contributors may be used to endorse or promote products derived from
+  this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+=== Product used in the project
+
+Antidoc hasn't been able to detect third party products in the project.
+This is the author's responsibility to list any of the missing product used.
