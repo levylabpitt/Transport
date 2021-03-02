@@ -55,7 +55,11 @@
 			<Item Name="Sequence Experiment UI.lvclass" Type="LVClass" URL="../Sequence Experiment UI/Sequence Experiment UI/Sequence Experiment UI.lvclass"/>
 			<Item Name="Sequence Experiment SM.lvclass" Type="LVClass" URL="../Sequence Experiment SM/Sequence Experiment SM.lvclass"/>
 		</Item>
-		<Item Name="Control Experiment SM.lvclass" Type="LVClass" URL="../Control Experiment SM/Control Experiment SM.lvclass"/>
+		<Item Name="Control Experiment" Type="Folder">
+			<Item Name="Control Experiment.lvclass" Type="LVClass" URL="../Control Experiment/Control Experiment.lvclass"/>
+			<Item Name="Control Experiment UI.lvclass" Type="LVClass" URL="../Control Experimentf UI/Control Experiment UI.lvclass"/>
+			<Item Name="Control Experiment SM.lvclass" Type="LVClass" URL="../Control Experiment SM/Control Experiment SM.lvclass"/>
+		</Item>
 		<Item Name="SweepControl.lvclass" Type="LVClass" URL="../SweepControl/SweepControl.lvclass"/>
 		<Item Name="Transport.lvclass" Type="LVClass" URL="../Transport/Transport.lvclass"/>
 		<Item Name="Open Me.vi" Type="VI" URL="../Open Me.vi"/>
