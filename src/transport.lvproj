@@ -57,7 +57,7 @@
 		</Item>
 		<Item Name="Control Experiment" Type="Folder">
 			<Item Name="Control Experiment.lvclass" Type="LVClass" URL="../Control Experiment/Control Experiment.lvclass"/>
-			<Item Name="Control Experiment UI.lvclass" Type="LVClass" URL="../Control Experimentf UI/Control Experiment UI.lvclass"/>
+			<Item Name="Control Experiment UI.lvclass" Type="LVClass" URL="../Control Experiment UI/Control Experiment UI.lvclass"/>
 			<Item Name="Control Experiment SM.lvclass" Type="LVClass" URL="../Control Experiment SM/Control Experiment SM.lvclass"/>
 		</Item>
 		<Item Name="SweepControl.lvclass" Type="LVClass" URL="../SweepControl/SweepControl.lvclass"/>
