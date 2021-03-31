@@ -2,6 +2,7 @@ import zmq
 import json
 import numpy as np
 
+
 class NumpyEncoder(json.JSONEncoder):
     """ Extends JSONEncoder to serialize numpy arrays.
     To use this encoder: json.dumps(<numpy_array>, cls=NumpyEncoder)
@@ -28,6 +29,7 @@ class NumpyEncoder(json.JSONEncoder):
         # Let the base class default method raise the TypeError
         return json.JSONEncoder(self, obj)
 
+
 class Test:
     def __init__(self):
         self.var_int = 42
@@ -44,19 +46,19 @@ class Test:
     def my_sum(a, b):
         return a+b
 
+
 # create test object
 test = Test()
 
 # open socket for TCP communication
 context = zmq.Context()
 socket = context.socket(zmq.REP)
-socket.bind("tcp://127.0.0.1:5555")
+socket.bind("tcp://127.0.0.1:15213")
 
 while True:
     #  Wait for request from client
     message = socket.recv()
     print("Received request: %s" % message)
-
     try:
         r = eval(message)
         print("Return value: ", r)
