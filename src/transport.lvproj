@@ -59,6 +59,8 @@
 		<Item Name="SweepControl.lvclass" Type="LVClass" URL="../SweepControl/SweepControl.lvclass"/>
 		<Item Name="Transport.lvclass" Type="LVClass" URL="../Transport/Transport.lvclass"/>
 		<Item Name="Open Me.vi" Type="VI" URL="../Open Me.vi"/>
+		<Item Name="JSON Test.vi" Type="VI" URL="../../Tests/JSON Test.vi"/>
+		<Item Name="Icons.vi" Type="VI" URL="../../documentation/Icons.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="Array of VData to VArray__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Array of VData to VArray__ogtk.vi"/>
@@ -1083,6 +1085,7 @@
 				<Item Name="DAQmx Start Trigger (Time).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/configure/trigger.llb/DAQmx Start Trigger (Time).vi"/>
 				<Item Name="DAQmx Start Trigger (Analog Multi Edge).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/configure/trigger.llb/DAQmx Start Trigger (Analog Multi Edge).vi"/>
 				<Item Name="DAQmx Reference Trigger (Analog Multi Edge).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/configure/trigger.llb/DAQmx Reference Trigger (Analog Multi Edge).vi"/>
+<<<<<<< Updated upstream
 				<Item Name="NI_Matrix.lvlib" Type="Library" URL="/&lt;vilib&gt;/Analysis/Matrix/NI_Matrix.lvlib"/>
 				<Item Name="LVPointDoubleTypeDef.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/miscctls.llb/LVPointDoubleTypeDef.ctl"/>
 				<Item Name="LVOffsetAndMultiplierTypeDef.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/miscctls.llb/LVOffsetAndMultiplierTypeDef.ctl"/>
@@ -1334,6 +1337,10 @@
 			<Item Name="instr.lib" Type="Folder">
 				<Item Name="Mercury iXX.lvlib" Type="Library" URL="/&lt;instrlib&gt;/Mercury iXX/Mercury iXX.lvlib"/>
 				<Item Name="Ch_Selector.vi" Type="VI" URL="/&lt;instrlib&gt;/Mercury iXX/Examples/Ch_Selector.vi"/>
+=======
+				<Item Name="Get LV Class Default Value.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/LVClass/Get LV Class Default Value.vi"/>
+				<Item Name="NI_AAL_SigProc.lvlib" Type="Library" URL="/&lt;vilib&gt;/Analysis/NI_AAL_SigProc.lvlib"/>
+>>>>>>> Stashed changes
 			</Item>
 			<Item Name="lvanlys.dll" Type="Document" URL="/&lt;resource&gt;/lvanlys.dll"/>
 			<Item Name="mscorlib" Type="VI" URL="mscorlib">
@@ -1361,7 +1368,25 @@
 			<Item Name="lvStorage.dll" Type="Document" URL="lvStorage.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
+<<<<<<< Updated upstream
 			<Item Name="LevyLab Instrument.lvclass" Type="LVClass" URL="../../../../../../../Program Files (x86)/National Instruments/LabVIEW 2016/templates/JKI/JKI SMO/LevyLab Instrument/LevyLab Instrument/LevyLab Instrument.lvclass"/>
+=======
+			<Item Name="instrument.PPMS.lvclass" Type="LVClass" URL="../../../PPMS-Monitor-and-Control/lvsrc/instrument.PPMS/instrument.PPMS.lvclass"/>
+			<Item Name="instrument.PPMS3.lvclass" Type="LVClass" URL="../../../PPMS-Monitor-and-Control/lvsrc/instrument.PPMS3/instrument.PPMS3.lvclass"/>
+			<Item Name="SendPPMSCommand.vi" Type="VI" URL="../../../PPMS-Monitor-and-Control/lvsrc/drivers/QDInstrument_LabView/PPMS/SendPPMSCommand.vi"/>
+			<Item Name="GetHelium.vi" Type="VI" URL="../../../PPMS-Monitor-and-Control/lvsrc/drivers/QDInstrument_LabView/QDInstrument/GetHelium.vi"/>
+			<Item Name="QDInstrumentExceptionHandler.vi" Type="VI" URL="../../../PPMS-Monitor-and-Control/lvsrc/drivers/QDInstrument_LabView/QDInstrument/QDInstrumentExceptionHandler.vi"/>
+			<Item Name="GetField.vi" Type="VI" URL="../../../PPMS-Monitor-and-Control/lvsrc/drivers/QDInstrument_LabView/QDInstrument/GetField.vi"/>
+			<Item Name="GetTemperature.vi" Type="VI" URL="../../../PPMS-Monitor-and-Control/lvsrc/drivers/QDInstrument_LabView/QDInstrument/GetTemperature.vi"/>
+			<Item Name="instrument.PPMS2.lvclass" Type="LVClass" URL="../../../PPMS-Monitor-and-Control/lvsrc/instrument.PPMS2/instrument.PPMS2.lvclass"/>
+			<Item Name="GetPPMSItem.vi" Type="VI" URL="../../../PPMS-Monitor-and-Control/lvsrc/drivers/QDInstrument_LabView/PPMS/GetPPMSItem.vi"/>
+			<Item Name="instrument.PPMS1.lvclass" Type="LVClass" URL="../../../PPMS-Monitor-and-Control/lvsrc/instrument.PPMS1/instrument.PPMS1.lvclass"/>
+			<Item Name="OpenQDInstrument.vi" Type="VI" URL="../../../PPMS-Monitor-and-Control/lvsrc/drivers/QDInstrument_LabView/QDInstrument/OpenQDInstrument.vi"/>
+			<Item Name="SetField.vi" Type="VI" URL="../../../PPMS-Monitor-and-Control/lvsrc/drivers/QDInstrument_LabView/QDInstrument/SetField.vi"/>
+			<Item Name="SetTemperature.vi" Type="VI" URL="../../../PPMS-Monitor-and-Control/lvsrc/drivers/QDInstrument_LabView/QDInstrument/SetTemperature.vi"/>
+			<Item Name="QDInstrument.dll" Type="Document" URL="../../../PPMS-Monitor-and-Control/lvsrc/drivers/QDInstrument_LabView/QDInstrument.dll"/>
+			<Item Name="Instrument UI.PPMS.lvclass" Type="LVClass" URL="../../../PPMS-Monitor-and-Control/lvsrc/instrument.PPMS UI/Instrument UI.PPMS.lvclass"/>
+>>>>>>> Stashed changes
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
