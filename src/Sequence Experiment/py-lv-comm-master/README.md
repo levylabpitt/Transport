@@ -29,3 +29,6 @@ A very simple example, demonstrating the communication between Python and LabVIE
  * You can either send a command directly from LabVIEW or read various data types using the corresponding buttons.
    * The Python script creates an object called *test*. Type e.g. `test.var_int` and hit *Read Int* in LabVIEW to read the value of the variable *test.var_int*.
    * Look into the Python scripts for more variables and methods. It is self-explaining.
+   
+### GitHub Repository
+[](https://github.com/rddaz2013/py-lv-comm)
