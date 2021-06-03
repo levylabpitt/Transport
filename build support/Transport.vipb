@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2021-03-02 12:22:10" Creator="Patrick" Comments="" ID="0afeeedf36719ed49503ee23bae8dcfb">
+<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2021-06-02 18:19:15" Creator="Patrick" Comments="" ID="bc46d602efba3e739489310651fa6ae9">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_Transport</Package_File_Name>
-    <Library_Version>1.4.4.22</Library_Version>
+    <Library_Version>1.4.5.22</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\src</Library_Source_Folder>
     <Library_Output_Folder>..\builds\Package</Library_Output_Folder>
@@ -18,8 +18,8 @@
   <Advanced_Settings>
     <Package_Dependencies>
       <External_Dependencies>i3_external_encryption &gt;= 1.0.0.8</External_Dependencies>
-      <External_Dependencies>jdp_science_lib_common_utilities &gt;= 1.2.2.13</External_Dependencies>
-      <External_Dependencies>jdp_science_postgresql &gt;= 0.1.1.10</External_Dependencies>
+      <External_Dependencies>jdp_science_lib_common_utilities &gt;= 1.3.0.14</External_Dependencies>
+      <External_Dependencies>jdp_science_postgresql &gt;= 0.3.4.22</External_Dependencies>
       <External_Dependencies>jki_lib_json_serialization &gt;= 1.1.10.37</External_Dependencies>
       <External_Dependencies>jki_lib_rest_client &gt;= 1.3.3.25</External_Dependencies>
       <External_Dependencies>jki_lib_serialization &gt;= 1.0.1.14</External_Dependencies>
@@ -30,15 +30,17 @@
       <External_Dependencies>lava_lib_ui_tools &gt;= 1.4.1.74</External_Dependencies>
       <External_Dependencies>levylab_lib_control_vi &gt;= 1.3.0.11</External_Dependencies>
       <External_Dependencies>levylab_lib_fileutilities &gt;= 1.2.6.13</External_Dependencies>
-      <External_Dependencies>levylab_lib_graph_utilities &gt;= 2.1.2.4</External_Dependencies>
+      <External_Dependencies>levylab_lib_graph_utilities &gt;= 2.1.7.10</External_Dependencies>
       <External_Dependencies>levylab_lib_krohn_hite_7008 &gt;= 1.6.0.27</External_Dependencies>
       <External_Dependencies>levylab_lib_leiden_tools &gt;= 1.2.3.17</External_Dependencies>
-      <External_Dependencies>levylab_lib_lvtoitx &gt;= 3.0.5.13</External_Dependencies>
+      <External_Dependencies>levylab_lib_lockin_multichannel &gt;= 2.14.1.64</External_Dependencies>
+      <External_Dependencies>levylab_lib_lvtoitx &gt;= 3.0.6.14</External_Dependencies>
       <External_Dependencies>levylab_lib_plym &gt;= 1.0.1.3</External_Dependencies>
-      <External_Dependencies>levylab_lib_postgresql &gt;= 1.3.0.18</External_Dependencies>
+      <External_Dependencies>levylab_lib_postgresql &gt;= 1.4.0.22</External_Dependencies>
       <External_Dependencies>levylab_lib_voltage_update &gt;= 1.0.3.5</External_Dependencies>
-      <External_Dependencies>levylab_lib_xy_utilities &gt;= 1.3.2.16</External_Dependencies>
+      <External_Dependencies>levylab_lib_xy_utilities &gt;= 1.4.0.17</External_Dependencies>
       <External_Dependencies>lvh_toolbox &gt;= 2.0.0.35</External_Dependencies>
+      <External_Dependencies>mgi_lib_1d_array &gt;= 1.0.2.3</External_Dependencies>
       <External_Dependencies>mgi_lib_application_control &gt;= 1.1.1.10</External_Dependencies>
       <External_Dependencies>mgi_lib_cluster &gt;= 1.1.0.1</External_Dependencies>
       <External_Dependencies>mgi_lib_error_handling &gt;= 1.1.1.3</External_Dependencies>
@@ -67,8 +69,8 @@
       <External_Dependencies>wireflow_ab_lib_wf_progressbar &gt;= 1.0.2.56</External_Dependencies>
       <Additional_External_Dependencies>levylab_lib_asana_api &gt;=1.4.1.2</Additional_External_Dependencies>
       <Direct_Dependencies>i3_external_encryption-1.0.0.8</Direct_Dependencies>
-      <Direct_Dependencies>jdp_science_lib_common_utilities-1.2.2.13</Direct_Dependencies>
-      <Direct_Dependencies>jdp_science_postgresql-0.1.1.10</Direct_Dependencies>
+      <Direct_Dependencies>jdp_science_lib_common_utilities-1.3.0.14</Direct_Dependencies>
+      <Direct_Dependencies>jdp_science_postgresql-0.3.4.22</Direct_Dependencies>
       <Direct_Dependencies>jki_lib_json_serialization-1.1.10.37</Direct_Dependencies>
       <Direct_Dependencies>jki_lib_rest_client-1.3.3.25</Direct_Dependencies>
       <Direct_Dependencies>jki_lib_serialization-1.0.1.14</Direct_Dependencies>
@@ -79,15 +81,17 @@
       <Direct_Dependencies>lava_lib_ui_tools-1.4.1.74</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_control_vi-1.3.0.11</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_fileutilities-1.2.6.13</Direct_Dependencies>
-      <Direct_Dependencies>levylab_lib_graph_utilities-2.1.2.4</Direct_Dependencies>
+      <Direct_Dependencies>levylab_lib_graph_utilities-2.1.7.10</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_krohn_hite_7008-1.6.0.27</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_leiden_tools-1.2.3.17</Direct_Dependencies>
-      <Direct_Dependencies>levylab_lib_lvtoitx-3.0.5.13</Direct_Dependencies>
+      <Direct_Dependencies>levylab_lib_lockin_multichannel-2.14.1.64</Direct_Dependencies>
+      <Direct_Dependencies>levylab_lib_lvtoitx-3.0.6.14</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_plym-1.0.1.3</Direct_Dependencies>
-      <Direct_Dependencies>levylab_lib_postgresql-1.3.0.18</Direct_Dependencies>
+      <Direct_Dependencies>levylab_lib_postgresql-1.4.0.22</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_voltage_update-1.0.3.5</Direct_Dependencies>
-      <Direct_Dependencies>levylab_lib_xy_utilities-1.3.2.16</Direct_Dependencies>
+      <Direct_Dependencies>levylab_lib_xy_utilities-1.4.0.17</Direct_Dependencies>
       <Direct_Dependencies>lvh_toolbox-2.0.0.35</Direct_Dependencies>
+      <Direct_Dependencies>mgi_lib_1d_array-1.0.2.3</Direct_Dependencies>
       <Direct_Dependencies>mgi_lib_application_control-1.1.1.10</Direct_Dependencies>
       <Direct_Dependencies>mgi_lib_cluster-1.1.0.1</Direct_Dependencies>
       <Direct_Dependencies>mgi_lib_error_handling-1.1.1.3</Direct_Dependencies>
@@ -144,9 +148,10 @@ Basic transport measurments.
       <Copyright/>
       <Packager/>
       <URL/>
-      <Release_Notes>[1.4.4]
-- Issue #14: Add upload to S3
-- Add Open VI feature to Control Experiment.vi</Release_Notes>
+      <Release_Notes>[1.4.5]
+- Hotfix for latest lockin version
+- updated dependencies
+- includes some changes from MNK</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
@@ -281,6 +286,7 @@ Basic transport measurments.
       <close_labview_before_install>false</close_labview_before_install>
       <restart_labview_after_install>false</restart_labview_after_install>
       <skip_mass_compile_after_install>false</skip_mass_compile_after_install>
+      <install_into_global_environment>false</install_into_global_environment>
     </LabVIEW>
     <VI_Docs>
       <Edit_VI_Description>false</Edit_VI_Description>
@@ -366,7 +372,7 @@ Basic transport measurments.
         <Path>..\src\Open Me.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>72E7E2AC404283350E7ECC60677D2D51</GUID>
+      <GUID>6747BA24581EBC9D61C7EF017C3270BD</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -457,7 +463,7 @@ Basic transport measurments.
         <Path>..\src\Control Experiment\Tree.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>540E2A2FCC8550FEA0C9CE868C9451FE</GUID>
+      <GUID>DD64CE99CE07A335D59958FFDE83C43B</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -480,7 +486,7 @@ Basic transport measurments.
       </Synchronization_Info>
       <Items_Data>
         <Type>Sub Palette</Type>
-        <Sub_Palette_Index>11</Sub_Palette_Index>
+        <Sub_Palette_Index>10</Sub_Palette_Index>
         <NameSub_Menu_Name>API</NameSub_Menu_Name>
         <Short_Name>API</Short_Name>
         <is_Merge_VI>false</is_Merge_VI>
@@ -494,7 +500,7 @@ Basic transport measurments.
       </Items_Data>
       <Items_Data>
         <Type>Sub Palette</Type>
-        <Sub_Palette_Index>12</Sub_Palette_Index>
+        <Sub_Palette_Index>11</Sub_Palette_Index>
         <NameSub_Menu_Name>API (file)</NameSub_Menu_Name>
         <Short_Name>API (file)</Short_Name>
         <is_Merge_VI>false</is_Merge_VI>
@@ -508,7 +514,7 @@ Basic transport measurments.
       </Items_Data>
       <Items_Data>
         <Type>Sub Palette</Type>
-        <Sub_Palette_Index>13</Sub_Palette_Index>
+        <Sub_Palette_Index>12</Sub_Palette_Index>
         <NameSub_Menu_Name>subVIs</NameSub_Menu_Name>
         <Short_Name>subVIs</Short_Name>
         <is_Merge_VI>false</is_Merge_VI>
@@ -590,7 +596,7 @@ Basic transport measurments.
         <Path>..\src\SweepControl\SweepControl.TestLauncher.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>10FB547E0A57543D516C9281A79CC6F9</GUID>
+      <GUID>D510F388A8F04CC873E362AE1AD0992C</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -613,7 +619,7 @@ Basic transport measurments.
       </Synchronization_Info>
       <Items_Data>
         <Type>Sub Palette</Type>
-        <Sub_Palette_Index>14</Sub_Palette_Index>
+        <Sub_Palette_Index>13</Sub_Palette_Index>
         <NameSub_Menu_Name>API (class)</NameSub_Menu_Name>
         <Short_Name>API (class)</Short_Name>
         <is_Merge_VI>false</is_Merge_VI>
@@ -627,7 +633,7 @@ Basic transport measurments.
       </Items_Data>
       <Items_Data>
         <Type>Sub Palette</Type>
-        <Sub_Palette_Index>15</Sub_Palette_Index>
+        <Sub_Palette_Index>14</Sub_Palette_Index>
         <NameSub_Menu_Name>API (file)</NameSub_Menu_Name>
         <Short_Name>API (file)</Short_Name>
         <is_Merge_VI>false</is_Merge_VI>
@@ -641,7 +647,7 @@ Basic transport measurments.
       </Items_Data>
       <Items_Data>
         <Type>Sub Palette</Type>
-        <Sub_Palette_Index>16</Sub_Palette_Index>
+        <Sub_Palette_Index>15</Sub_Palette_Index>
         <NameSub_Menu_Name>subVI</NameSub_Menu_Name>
         <Short_Name>subVI</Short_Name>
         <is_Merge_VI>false</is_Merge_VI>
@@ -779,7 +785,7 @@ Basic transport measurments.
         <Path>..\src\Transport\THz_TimeDelay.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>89DC81C5977603845C81CF12F548DDF9</GUID>
+      <GUID>4DECA9DEB7CCFC536D477011B952BD6B</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -825,7 +831,7 @@ Basic transport measurments.
           <Column>2</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\API\Erase Comments.vi</Path>
+        <Path>..\src\Control Experiment\API\Erase Comments.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -839,7 +845,7 @@ Basic transport measurments.
           <Column>3</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\API\Get Channel Indices.vi</Path>
+        <Path>..\src\Control Experiment\API\Get Channel Indices.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -853,7 +859,7 @@ Basic transport measurments.
           <Column>4</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\API\Read Comments.vi</Path>
+        <Path>..\src\Control Experiment\API\Read Comments.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -867,7 +873,7 @@ Basic transport measurments.
           <Column>5</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\API\Read Device.vi</Path>
+        <Path>..\src\Control Experiment\API\Read Device.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -881,7 +887,7 @@ Basic transport measurments.
           <Column>6</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\API\Read Experiment Configuration.vi</Path>
+        <Path>..\src\Control Experiment\API\Read Experiment Configuration.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -895,7 +901,7 @@ Basic transport measurments.
           <Column>1</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\API\Read Experiment Description.vi</Path>
+        <Path>..\src\Control Experiment\API\Read Experiment Description.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -909,7 +915,7 @@ Basic transport measurments.
           <Column>2</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\API\Read Experiment Path.vi</Path>
+        <Path>..\src\Control Experiment\API\Read Experiment Path.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -923,7 +929,7 @@ Basic transport measurments.
           <Column>3</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\API\Read Instruments.vi</Path>
+        <Path>..\src\Control Experiment\API\Read Instruments.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -937,7 +943,7 @@ Basic transport measurments.
           <Column>4</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\API\Read Wiring Configuration.vi</Path>
+        <Path>..\src\Control Experiment\API\Read Wiring Configuration.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -951,7 +957,7 @@ Basic transport measurments.
           <Column>5</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\API\Write Experiment Description.vi</Path>
+        <Path>..\src\Control Experiment\API\Write Experiment Description.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -965,7 +971,7 @@ Basic transport measurments.
           <Column>6</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\API\Write Experiment Folder.vi</Path>
+        <Path>..\src\Control Experiment\API\Write Experiment Folder.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -979,10 +985,10 @@ Basic transport measurments.
           <Column>1</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\API\Write Sweep Element.vi</Path>
+        <Path>..\src\Control Experiment\API\Write Sweep Element.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>A3332DB675CA36159445093D43459CBF</GUID>
+      <GUID>D5F9AB6BDF4BEC57065E9152473786B1</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1014,7 +1020,7 @@ Basic transport measurments.
           <Column>1</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\API (File)\Control Experiment FGV.vi</Path>
+        <Path>..\src\Control Experiment\API (File)\Control Experiment FGV.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -1028,7 +1034,7 @@ Basic transport measurments.
           <Column>2</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\API (File)\Create Transport DAT File.vi</Path>
+        <Path>..\src\Control Experiment\API (File)\Create Transport DAT File.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -1042,7 +1048,7 @@ Basic transport measurments.
           <Column>3</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\API (File)\Save JSON File.vi</Path>
+        <Path>..\src\Control Experiment\API (File)\Save JSON File.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -1056,7 +1062,7 @@ Basic transport measurments.
           <Column>4</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\API (File)\Save Transport DAT File 2D.vi</Path>
+        <Path>..\src\Control Experiment\API (File)\Save Transport DAT File 2D.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -1070,7 +1076,7 @@ Basic transport measurments.
           <Column>5</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\API (File)\Save Transport DAT File.vi</Path>
+        <Path>..\src\Control Experiment\API (File)\Save Transport DAT File.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -1084,7 +1090,7 @@ Basic transport measurments.
           <Column>6</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\API (File)\Save Transport ITX File.vi</Path>
+        <Path>..\src\Control Experiment\API (File)\Save Transport ITX File.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -1098,10 +1104,10 @@ Basic transport measurments.
           <Column>1</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\API (File)\Save Transport TDMS File.vi</Path>
+        <Path>..\src\Control Experiment\API (File)\Save Transport TDMS File.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>CF58C958ED85C324E82C31A328BDEB73</GUID>
+      <GUID>36A06E69FE2A71BCE02B39023CB03D54</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1133,7 +1139,7 @@ Basic transport measurments.
           <Column>1</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\Comments\Comments.Add Device Description.vi</Path>
+        <Path>..\src\Control Experiment\Comments\Comments.Add Device Description.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -1147,7 +1153,7 @@ Basic transport measurments.
           <Column>2</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\Comments\Comments.Add Experiment Description.vi</Path>
+        <Path>..\src\Control Experiment\Comments\Comments.Add Experiment Description.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -1161,7 +1167,7 @@ Basic transport measurments.
           <Column>3</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\Comments\Comments.Add Lockin Description.vi</Path>
+        <Path>..\src\Control Experiment\Comments\Comments.Add Lockin Description.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -1175,7 +1181,7 @@ Basic transport measurments.
           <Column>4</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\Comments\Comments.Add Sweep Description.vi</Path>
+        <Path>..\src\Control Experiment\Comments\Comments.Add Sweep Description.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -1189,7 +1195,7 @@ Basic transport measurments.
           <Column>5</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\Comments\Comments.Add Wiring Description.vi</Path>
+        <Path>..\src\Control Experiment\Comments\Comments.Add Wiring Description.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -1203,7 +1209,7 @@ Basic transport measurments.
           <Column>6</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\Comments\Comments.Create Lockin AO Description.vi</Path>
+        <Path>..\src\Control Experiment\Comments\Comments.Create Lockin AO Description.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -1217,7 +1223,7 @@ Basic transport measurments.
           <Column>1</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\Comments\Comments.Create Lockin REF Description.vi</Path>
+        <Path>..\src\Control Experiment\Comments\Comments.Create Lockin REF Description.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -1231,7 +1237,7 @@ Basic transport measurments.
           <Column>2</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\Comments\Comments.Create Lockin Sampling Description.vi</Path>
+        <Path>..\src\Control Experiment\Comments\Comments.Create Lockin Sampling Description.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -1245,10 +1251,10 @@ Basic transport measurments.
           <Column>3</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\Comments\Generate Comments.vi</Path>
+        <Path>..\src\Control Experiment\Comments\Generate Comments.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>E9B18530407AF494255E8D283FF7E614</GUID>
+      <GUID>75B65C4AB6181FCE34CA4CF636B2833E</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1284,20 +1290,6 @@ Basic transport measurments.
         <VI_Title/>
       </Items_Data>
       <Items_Data>
-        <Type>Sub Palette</Type>
-        <Sub_Palette_Index>10</Sub_Palette_Index>
-        <NameSub_Menu_Name>Pickering</NameSub_Menu_Name>
-        <Short_Name>Pickering</Short_Name>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>1</Row>
-          <Column>2</Column>
-        </Position>
-        <Icon>00000519002900000012000000020000000D00FFFFFF000100000000000A00000008000000000020002000280000029500000261000000020007001F00180000000000FFFFFF0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000000000FFFFFFFFFFFF000000FFFFFFFFFFFFFFFFFFFFFFFF000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000FFFFFF000000FFFFFF000000FFFFFFFFFFFFFFFFFFFFFFFF000000FFFFFF000000FFFFFF000000FFFFFFFFFFFF000000FFFFFFFFFFFF000000000000FFFFFFFFFFFFFFFFFF000000000000FFFFFFFFFFFF000000FFFFFF000000000000000000FFFFFFFFFFFF000000FFFFFF000000FFFFFFFFFFFF000000000000FFFFFFFFFFFF000000000000000000FFFFFF000000FFFFFFFFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000000000000000000000FFFFFFFFFFFFFFFFFF000000FFFFFF000000FFFFFFFFFFFF000000FFFFFF000000FFFFFF000000FFFFFFFFFFFFFFFFFF000000FFFFFFFFFFFF000000FFFFFF000000FFFFFF000000FFFFFFFFFFFFFFFFFF000000000000FFFFFFFFFFFFFFFFFF000000FFFFFFFFFFFF000000FFFFFF000000FFFFFF000000FFFFFFFFFFFF000000000000FFFFFF000000FFFFFFFFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00000007C8400817A152632FCA674ABF8A544A8F89534AB700000007002900000012000000020000000D00CCCCFF000100000000000A00000008001900000020002000280000022C000001F8001900040020001C00180000000000FFFFFF0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF6C0000FFFFFFFFFFFF6C00006C0000FFFFFF6C0000FFFFFF6C0000FFFFFF6C0000FFFFFF6C0000FFFFFF6C0000FFFFFFFFFFFFFFFFFF6C0000FFFFFFFFFFFF6C00006C0000FFFFFF6C0000FFFFFFFFFFFF6C0000FFFFFFFFFFFF6C0000FFFFFF6C0000FFFFFF6C0000FFFFFF6C0000FFFFFF6C0000FFFFFFFFFFFF6C0000FFFFFF6C0000FFFFFF6C0000FFFFFF6C00006C0000FFFFFFFFFFFF6C00006C0000FFFFFF6C0000FFFFFF6C0000FFFFFF6C00006C00006C0000FFFFFF6C0000FFFFFFFFFFFF6C00006C00006C0000FFFFFF6C00006C0000FFFFFF6C0000FFFFFFFFFFFF6C0000FFFFFFFFFFFF6C00006C00006C0000FFFFFFFFFFFF6C0000FFFFFFFFFFFF6C0000FFFFFFFFFFFF6C0000FFFFFF6C0000FFFFFF6C0000FFFFFF6C00006C00006C0000FFFFFF6C00006C0000FFFFFFFFFFFF6C0000FFFFFFFFFFFFFFFFFF6C0000FFFFFFFFFFFF6C00006C0000FFFFFF6C0000FFFFFF6C0000FFFFFF6C00006C0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000FF9AAA26FF92AA55FF9ABA76FF939255FFD91356FF000000FF</Icon>
-        <Path>..\src\Control Experiment\subVIs\Pickering</Path>
-        <VI_Title/>
-      </Items_Data>
-      <Items_Data>
         <Type>Item</Type>
         <Sub_Palette_Index>-1</Sub_Palette_Index>
         <NameSub_Menu_Name>DBL Variant or Array Variant to Array.vi</NameSub_Menu_Name>
@@ -1308,7 +1300,7 @@ Basic transport measurments.
           <Column>3</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\subVIs\DBL Variant or Array Variant to Array.vi</Path>
+        <Path>..\src\Control Experiment\subVIs\DBL Variant or Array Variant to Array.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -1322,7 +1314,7 @@ Basic transport measurments.
           <Column>6</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\subVIs\Find File.vi</Path>
+        <Path>..\src\Control Experiment\subVIs\Find File.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -1336,7 +1328,7 @@ Basic transport measurments.
           <Column>1</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\subVIs\Get Date Time For Filename.vi</Path>
+        <Path>..\src\Control Experiment\subVIs\Get Date Time For Filename.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -1350,35 +1342,7 @@ Basic transport measurments.
           <Column>2</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\subVIs\Get Date Time ISO.vi</Path>
-        <VI_Title/>
-      </Items_Data>
-      <Items_Data>
-        <Type>Item</Type>
-        <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Instrument Class Paths.vi</NameSub_Menu_Name>
-        <Short_Name/>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>2</Row>
-          <Column>3</Column>
-        </Position>
-        <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\subVIs\Instrument Class Paths.vi</Path>
-        <VI_Title/>
-      </Items_Data>
-      <Items_Data>
-        <Type>Item</Type>
-        <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Letter to Number.vi</NameSub_Menu_Name>
-        <Short_Name/>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>2</Row>
-          <Column>4</Column>
-        </Position>
-        <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\subVIs\Letter to Number.vi</Path>
+        <Path>..\src\Control Experiment\subVIs\Get Date Time ISO.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -1392,7 +1356,7 @@ Basic transport measurments.
           <Column>5</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\subVIs\Load Instrument Classes.vi</Path>
+        <Path>..\src\Control Experiment\subVIs\Load Instrument Classes.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -1406,7 +1370,7 @@ Basic transport measurments.
           <Column>6</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\subVIs\Multiply Gains.vi</Path>
+        <Path>..\src\Control Experiment\subVIs\Multiply Gains.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -1420,10 +1384,10 @@ Basic transport measurments.
           <Column>1</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\subVIs\Number to Letter.vi</Path>
+        <Path>..\src\Control Experiment\subVIs\Number to Letter.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>C5EB193DC45C7E776D19D155CB08145E</GUID>
+      <GUID>07EA362D3563098AAA86630F4B5F3685</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>4</Parent_Palette_Index>
@@ -1455,7 +1419,7 @@ Basic transport measurments.
           <Column>1</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\API\Dictionary\Append Dictionary Element.vi</Path>
+        <Path>..\src\Control Experiment\API\Dictionary\Append Dictionary Element.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -1469,7 +1433,7 @@ Basic transport measurments.
           <Column>2</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\API\Dictionary\Close Dictionary.vi</Path>
+        <Path>..\src\Control Experiment\API\Dictionary\Close Dictionary.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -1483,7 +1447,7 @@ Basic transport measurments.
           <Column>3</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\API\Dictionary\Read All Dictionary Elements.vi</Path>
+        <Path>..\src\Control Experiment\API\Dictionary\Read All Dictionary Elements.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -1497,7 +1461,7 @@ Basic transport measurments.
           <Column>4</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\API\Dictionary\Write Dictionary Element.vi</Path>
+        <Path>..\src\Control Experiment\API\Dictionary\Write Dictionary Element.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -1511,10 +1475,10 @@ Basic transport measurments.
           <Column>5</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\API\Dictionary\Write Dictionary Elements (Loop).vi</Path>
+        <Path>..\src\Control Experiment\API\Dictionary\Write Dictionary Elements (Loop).vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>64CF076D02A77EE6489A2996F58C7608</GUID>
+      <GUID>21BADAFC3B7A016D5718908F25DF9401</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>7</Parent_Palette_Index>
@@ -1546,7 +1510,7 @@ Basic transport measurments.
           <Column>1</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\subVIs\Asana\Asana Dictionary Get Value.vi</Path>
+        <Path>..\src\Control Experiment\subVIs\Asana\Asana Dictionary Get Value.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -1560,87 +1524,10 @@ Basic transport measurments.
           <Column>2</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\subVIs\Asana\Asana Dictionary Tasks Get Value.vi</Path>
+        <Path>..\src\Control Experiment\subVIs\Asana\Asana Dictionary Tasks Get Value.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>CBF2595961B5D3BAD77FA71DB699D1E6</GUID>
-    </Functions_Palette_Data>
-    <Functions_Palette_Data>
-      <Parent_Palette_Index>7</Parent_Palette_Index>
-      <Name>Pickering</Name>
-      <View_Format>Icons</View_Format>
-      <Size>
-        <Height_Row>1</Height_Row>
-        <Width_Col.>4</Width_Col.>
-      </Size>
-      <_256_Color_Icon>00000519002900000012000000020000000D00FFFFFF000100000000000A00000008000000000020002000280000029500000261000000020007001F00180000000000FFFFFF0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000000000FFFFFFFFFFFF000000FFFFFFFFFFFFFFFFFFFFFFFF000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000FFFFFF000000FFFFFF000000FFFFFFFFFFFFFFFFFFFFFFFF000000FFFFFF000000FFFFFF000000FFFFFFFFFFFF000000FFFFFFFFFFFF000000000000FFFFFFFFFFFFFFFFFF000000000000FFFFFFFFFFFF000000FFFFFF000000000000000000FFFFFFFFFFFF000000FFFFFF000000FFFFFFFFFFFF000000000000FFFFFFFFFFFF000000000000000000FFFFFF000000FFFFFFFFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000000000000000000000FFFFFFFFFFFFFFFFFF000000FFFFFF000000FFFFFFFFFFFF000000FFFFFF000000FFFFFF000000FFFFFFFFFFFFFFFFFF000000FFFFFFFFFFFF000000FFFFFF000000FFFFFF000000FFFFFFFFFFFFFFFFFF000000000000FFFFFFFFFFFFFFFFFF000000FFFFFFFFFFFF000000FFFFFF000000FFFFFF000000FFFFFFFFFFFF000000000000FFFFFF000000FFFFFFFFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00000007C8400817A152632FCA674ABF8A544A8F89534AB700000007002900000012000000020000000D00CCCCFF000100000000000A00000008001900000020002000280000022C000001F8001900040020001C00180000000000FFFFFF0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF6C0000FFFFFFFFFFFF6C00006C0000FFFFFF6C0000FFFFFF6C0000FFFFFF6C0000FFFFFF6C0000FFFFFF6C0000FFFFFFFFFFFFFFFFFF6C0000FFFFFFFFFFFF6C00006C0000FFFFFF6C0000FFFFFFFFFFFF6C0000FFFFFFFFFFFF6C0000FFFFFF6C0000FFFFFF6C0000FFFFFF6C0000FFFFFF6C0000FFFFFFFFFFFF6C0000FFFFFF6C0000FFFFFF6C0000FFFFFF6C00006C0000FFFFFFFFFFFF6C00006C0000FFFFFF6C0000FFFFFF6C0000FFFFFF6C00006C00006C0000FFFFFF6C0000FFFFFFFFFFFF6C00006C00006C0000FFFFFF6C00006C0000FFFFFF6C0000FFFFFFFFFFFF6C0000FFFFFFFFFFFF6C00006C00006C0000FFFFFFFFFFFF6C0000FFFFFFFFFFFF6C0000FFFFFFFFFFFF6C0000FFFFFF6C0000FFFFFF6C0000FFFFFF6C00006C00006C0000FFFFFF6C00006C0000FFFFFFFFFFFF6C0000FFFFFFFFFFFFFFFFFF6C0000FFFFFFFFFFFF6C00006C0000FFFFFF6C0000FFFFFF6C0000FFFFFF6C00006C0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000FF9AAA26FF92AA55FF9ABA76FF939255FFD91356FF000000FF</_256_Color_Icon>
-      <BW_Color_Icon>00000000</BW_Color_Icon>
-      <Help_Info>
-        <Help_Tag/>
-        <Help_File_Path/>
-      </Help_Info>
-      <Description/>
-      <Synchronization_Info>
-        <Synchronyze_with_Directory>false</Synchronyze_with_Directory>
-        <Synchronize_Directory_Path>Control Experiment\subVIs\Pickering</Synchronize_Directory_Path>
-      </Synchronization_Info>
-      <Items_Data>
-        <Type>Item</Type>
-        <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Pickering 4 Wire Asynchronous.vi</NameSub_Menu_Name>
-        <Short_Name/>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>1</Row>
-          <Column>1</Column>
-        </Position>
-        <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\subVIs\Pickering\Pickering 4 Wire Asynchronous.vi</Path>
-        <VI_Title/>
-      </Items_Data>
-      <Items_Data>
-        <Type>Item</Type>
-        <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Pickering 4 Wire PPMS DR Asynchronous.vi</NameSub_Menu_Name>
-        <Short_Name/>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>1</Row>
-          <Column>2</Column>
-        </Position>
-        <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\subVIs\Pickering\Pickering 4 Wire PPMS DR Asynchronous.vi</Path>
-        <VI_Title/>
-      </Items_Data>
-      <Items_Data>
-        <Type>Item</Type>
-        <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>PickeringReadConfig Asynchronous.vi</NameSub_Menu_Name>
-        <Short_Name/>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>1</Row>
-          <Column>3</Column>
-        </Position>
-        <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\subVIs\Pickering\PickeringReadConfig Asynchronous.vi</Path>
-        <VI_Title/>
-      </Items_Data>
-      <Items_Data>
-        <Type>Item</Type>
-        <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>PickeringWriteConfig Asynchronous.vi</NameSub_Menu_Name>
-        <Short_Name/>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>1</Row>
-          <Column>4</Column>
-        </Position>
-        <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment SM\subVIs\Pickering\PickeringWriteConfig Asynchronous.vi</Path>
-        <VI_Title/>
-      </Items_Data>
-      <GUID>00B4D4CA9D578AAAD40FDBAA4D2C6D2F</GUID>
+      <GUID>7C0D0FF8ABFD08296E3A2BA7E9730428</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -1745,7 +1632,7 @@ Basic transport measurments.
         <Path>..\src\SweepControl\API\Take Measurement.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>2CE139B23729FE4C929B7B499C1D6049</GUID>
+      <GUID>15823E3F7DC440865C0BAA0DD35B0FBD</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -1794,7 +1681,7 @@ Basic transport measurments.
         <Path>..\src\SweepControl\API (file)\Read Sweep Control.json.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>59C868F0417F40E3DE4F1E613BA1DE47</GUID>
+      <GUID>E5867FAD1DF86EAD3C64550BCA9E24C9</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -1927,7 +1814,7 @@ Basic transport measurments.
         <Path>..\src\SweepControl\subVIs\Sweep Control Loop.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>44E4EFE1F51CAAF3F8662FDDCF753EB0</GUID>
+      <GUID>DFE4DBCBD5D128CEE317DB2B0B4FA493</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>3</Parent_Palette_Index>
@@ -1990,7 +1877,7 @@ Basic transport measurments.
         <Path>..\src\Transport\API (class)\Write notifier.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>84CCFC165F777F177C9806FB1172B142</GUID>
+      <GUID>F1115135251EF087495F3752F1647C46</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>3</Parent_Palette_Index>
@@ -2039,7 +1926,7 @@ Basic transport measurments.
         <Path>..\src\Transport\API (file)\Read Lockin_Vsg.json.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>C3D9D1FB25E4B9F01E1686E813551505</GUID>
+      <GUID>B91D6F233A5E4C5E581CCB4D89610084</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>3</Parent_Palette_Index>
@@ -2060,34 +1947,6 @@ Basic transport measurments.
         <Synchronyze_with_Directory>false</Synchronyze_with_Directory>
         <Synchronize_Directory_Path>Transport\subVI</Synchronize_Directory_Path>
       </Synchronization_Info>
-      <Items_Data>
-        <Type>Item</Type>
-        <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>2D Results to X and Y Arrays.vi</NameSub_Menu_Name>
-        <Short_Name/>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>1</Row>
-          <Column>1</Column>
-        </Position>
-        <Icon>00000000</Icon>
-        <Path>..\src\Transport\subVI\2D Results to X and Y Arrays.vi</Path>
-        <VI_Title/>
-      </Items_Data>
-      <Items_Data>
-        <Type>Item</Type>
-        <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Add Braces Array.vi</NameSub_Menu_Name>
-        <Short_Name/>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>1</Row>
-          <Column>2</Column>
-        </Position>
-        <Icon>00000000</Icon>
-        <Path>..\src\Transport\subVI\Add Braces Array.vi</Path>
-        <VI_Title/>
-      </Items_Data>
       <Items_Data>
         <Type>Item</Type>
         <Sub_Palette_Index>-1</Sub_Palette_Index>
@@ -2172,7 +2031,7 @@ Basic transport measurments.
         <Path>..\src\Transport\subVI\GraphLockin_vs_Parameter.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>39566D8E899200537D827B15326EFD48</GUID>
+      <GUID>16421416C1C840C37664502B4C4F5CF4</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>

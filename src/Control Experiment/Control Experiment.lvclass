@@ -186,15 +186,6 @@
 				<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
 				<Property Name="NI.ClassItem.State" Type="Int">1350574592</Property>
 			</Item>
-			<Item Name="Instrument Class Paths.vi" Type="VI" URL="../subVIs/Instrument Class Paths.vi">
-				<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">&amp;A#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!&amp;\!!!!"1!%!!!!&amp;%!S`````QJ-:8:F&lt;#"1982I!!!=1%!!!@````]!!1^*&lt;H.U=H6N:7ZU)&amp;"B&gt;'A"!Q$RW]]6TA!!!!);1W^O&gt;(*P&lt;#"&amp;?("F=GFN:7ZU,GRW9WRB=X-537ZT&gt;(*V&lt;76O&gt;#UN:7ZV&lt;3ZD&gt;'Q!SU!7!"!4,3UN,3UA15:.,U6#4#!N,3UN,1&gt;"2UF-25Z5"E.:5%B&amp;5A&gt;(:7VJ&lt;GES"%J&amp;4UQ&amp;45:1-U15,3UN,3UA1X*Z&lt;X.U981A,3UN,3U&amp;1U9Z-$!&amp;2&amp;)S-$!$45Z,"F"146-A-1:15%V4)$)'5&amp;".5S!T%CUN,3UN)%^Q&gt;'FD=S!N,3UN,2F53(IA-3!I27RF&lt;76O&gt;#!S,UVP&lt;H2B&lt;G%J&amp;62)?C!S)#B5=X6O97VJ,UJB&lt;GFT+1!!#GFO=X2S&gt;7VF&lt;H1!!$Q!]!!)!!!!!!!!!!)!!!!!!!!!!Q)!!'!!!!!!!!!!!!!!!!!!!!E!!!!!!!!!!!!!!!!!!!!)!!!!!!%!"!!!!!!</Property>
-				<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
-				<Property Name="NI.ClassItem.Flags" Type="Int">0</Property>
-				<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">true</Property>
-				<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
-				<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
-				<Property Name="NI.ClassItem.State" Type="Int">1350574592</Property>
-			</Item>
 		</Item>
 		<Item Name="Get Date Time ISO.vi" Type="VI" URL="../subVIs/Get Date Time ISO.vi">
 			<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">&amp;A#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!$T!!!!#1!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!71&amp;!!!Q!!!!%!!AFF=H*P=C"P&gt;81!)E!Q`````RF*5U]A/$9Q-3"E982F,82J&lt;75A=X2S;7ZH!"2!6!!'$'.V=H*F&lt;H1A&gt;'FN:1!!"!!!!#"!5!!$!!!!!1!#%W6S=G^S)'FO)#BO&lt;S"F=H*P=CE!6!$Q!!Q!!Q!%!!5!"A!'!!9!"A!'!!=!"A!'!!9#!!"Y!!!.#!!!#1!!!!E!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!A!!!!!!!!!!!!!!!!!!!!!!1!)!!!!!!</Property>
@@ -584,44 +575,6 @@
 		</Item>
 	</Item>
 	<Item Name="API (Class)" Type="Folder"/>
-	<Item Name="Pickering" Type="Folder">
-		<Item Name="Pickering 4 Wire PPMS DR Asynchronous.vi" Type="VI" URL="../subVIs/Pickering/Pickering 4 Wire PPMS DR Asynchronous.vi">
-			<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">&amp;A#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!(M!!!!%Q!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!71&amp;!!!Q!!!!%!!AFF=H*P=C"P&gt;81!"!!!!$Z!=!!?!!!='E.P&lt;H2S&lt;WQA28BQ:8*J&lt;76O&gt;#ZM&gt;G.M98.T!!!71W^O&gt;(*P&lt;#"&amp;?("F=GFN:7ZU)'^V&gt;!!!)%"1!!-!!!!"!!)4:8*S&lt;X)A;7YA+'ZP)'6S=G^S+1!-1$$`````!D)W!!!11%!!!@````]!"Q)S.A!!%%"!!!(`````!!=#-D=!!""!1!!"`````Q!(!D)Y!!!/1%!!!@````]!"Q%R!!Z!1!!"`````Q!(!4)!$E"!!!(`````!!="-Q!/1%!!!@````]!"Q%U!!Z!1!!"`````Q!(!45!*E"1!!A!#!!*!!I!#Q!-!!U!$A!0$U.I97ZO:7QA1WRV=X2F=A!]1(!!(A!!("J$&lt;WZU=G^M)%6Y='6S;7VF&lt;H1O&lt;(:D&lt;'&amp;T=Q!!&amp;5.P&lt;H2S&lt;WQA28BQ:8*J&lt;76O&gt;#"J&lt;A"B!0!!$!!$!!1!"!!&amp;!!1!"!!%!!1!"A!%!"!!%1-!!(A!!!U)!!!!!!!!!!!!!!U,!!!!!!!!!!!!!!!!!!!!!!!!#A!!!!!!!!!)!!!!%!!!$1!!!!Q!!!!!!!!!!!!!!1!3!!!!!!</Property>
-			<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
-			<Property Name="NI.ClassItem.Flags" Type="Int">0</Property>
-			<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">true</Property>
-			<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
-			<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
-			<Property Name="NI.ClassItem.State" Type="Int">1342710288</Property>
-		</Item>
-		<Item Name="Pickering 4 Wire Asynchronous.vi" Type="VI" URL="../subVIs/Pickering/Pickering 4 Wire Asynchronous.vi">
-			<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">&amp;A#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!';!!!!$1!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!71&amp;!!!Q!!!!%!!AFF=H*P=C"P&gt;81!"!!!!$Z!=!!?!!!='E.P&lt;H2S&lt;WQA28BQ:8*J&lt;76O&gt;#ZM&gt;G.M98.T!!!71W^O&gt;(*P&lt;#"&amp;?("F=GFN:7ZU)'^V&gt;!!!)%"1!!-!!!!"!!)4:8*S&lt;X)A;7YA+'ZP)'6S=G^S+1!)!$$`````!#"!1!!#``````````]!"Q^:)%.I97ZO:7QA18*S98E!%E!Q`````QF$;'&amp;O&lt;G6M)(A!(%"!!!(`````!!E07#"$;'&amp;O&lt;G6M)%&amp;S=G&amp;Z!$R!=!!?!!!='E.P&lt;H2S&lt;WQA28BQ:8*J&lt;76O&gt;#ZM&gt;G.M98.T!!!61W^O&gt;(*P&lt;#"&amp;?("F=GFN:7ZU)'FO!'%!]!!-!!-!"!!%!!5!"!!%!!1!"!!'!!A!#A!,!Q!!?!!!$1A!!!!!!!!!!!!!$1M!!!!!!!!!!!!!!!!!!!!!!!!+!!!##!!!!AA!!!!1!!!.!!!!$!!!!!!!!!!!!!!"!!Q!!!!!</Property>
-			<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
-			<Property Name="NI.ClassItem.Flags" Type="Int">0</Property>
-			<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">true</Property>
-			<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
-			<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
-			<Property Name="NI.ClassItem.State" Type="Int">1107821072</Property>
-		</Item>
-		<Item Name="PickeringReadConfig Asynchronous.vi" Type="VI" URL="../subVIs/Pickering/PickeringReadConfig Asynchronous.vi">
-			<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">&amp;A#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!*O!!!!&amp;!!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!71&amp;!!!Q!!!!%!!AFF=H*P=C"P&gt;81!"!!!!&amp;N!&amp;A!&gt;!EZ$!D)W!D)X!D)Y!4%"-A%T!41".1%W!4="/!%Z!D%Q!D%R!D%S!D%T!D%U!D%V!D%W!D%X!D%Y!D%Z!D)Q!D)R!D)S!D)T!D)U!D)V!!2&amp;&lt;H6N!!!71%!!!@````]!"1F&amp;&lt;'6D&gt;(*P:'5!%E!Q`````QF$;'&amp;O&lt;G6M)(A!'%"!!!(`````!!=+7#"$;'&amp;O&lt;G6M=Q!!&amp;%"1!!)!"A!)#(AA9W^O:GFH!!!,1!9!"&amp;*J&lt;G=!!"*!1!!"`````Q!+"5RB9G6M!"*!-0````]*1WBB&lt;GZF&lt;#"Z!"R!1!!#``````````]!$!J:)%.I97ZO:7RT!!!51&amp;!!!A!,!!U)?3"D&lt;WZG;7=!!"R!5!!#!!E!$B"1;7.L:8*J&lt;G=A1W^O:GFH!!!_1(!!(A!!("J$&lt;WZU=G^M)%6Y='6S;7VF&lt;H1O&lt;(:D&lt;'&amp;T=Q!!&amp;E.P&lt;H2S&lt;WQA28BQ:8*J&lt;76O&gt;#"P&gt;81!!#"!5!!$!!!!!1!#%W6S=G^S)'FO)#BO&lt;S"F=H*P=CE!0%"Q!"Y!!"Q;1W^O&gt;(*P&lt;#"&amp;?("F=GFN:7ZU,GRW9WRB=X-!!"6$&lt;WZU=G^M)%6Y='6S;7VF&lt;H1A;7Y!91$Q!!Q!!Q!%!!]!%!!%!!1!"!!%!"%!"!!%!")$!!"Y!!!.#!!!!!!!!!E!!!!.#Q!!!!!!!!!!!!!!!!!!!!!!!!I!!!!!!!!!!!!!!"!!!!U!!!!-!!!!!!!!!!!!!!%!%Q!!!!!</Property>
-			<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
-			<Property Name="NI.ClassItem.Flags" Type="Int">0</Property>
-			<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">true</Property>
-			<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
-			<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
-			<Property Name="NI.ClassItem.State" Type="Int">1342710288</Property>
-		</Item>
-		<Item Name="PickeringWriteConfig Asynchronous.vi" Type="VI" URL="../subVIs/Pickering/PickeringWriteConfig Asynchronous.vi">
-			<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">&amp;A#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!*O!!!!&amp;!!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!71&amp;!!!Q!!!!%!!AFF=H*P=C"P&gt;81!"!!!!$Z!=!!?!!!='E.P&lt;H2S&lt;WQA28BQ:8*J&lt;76O&gt;#ZM&gt;G.M98.T!!!71W^O&gt;(*P&lt;#"&amp;?("F=GFN:7ZU)'^V&gt;!!!)%"1!!-!!!!"!!)4:8*S&lt;X)A;7YA+'ZP)'6S=G^S+1"&lt;1"9!(1*/1Q)S.A)S.Q)S/!%R!4)"-Q%U!45".A%X!4A"/1)R-!)R-1)R-A)R-Q)R.!)R.1)R.A)R.Q)R/!)R/1)S-!)S-1)S-A)S-Q)S.!)S.1!%27ZV&lt;1!!&amp;E"!!!(`````!!=*27RF9X2S&lt;W2F!"*!-0````]*1WBB&lt;GZF&lt;#"Y!"B!1!!"`````Q!*#FAA1WBB&lt;GZF&lt;(-!!"2!5!!#!!A!#ABY)'.P&lt;G:J:Q!!#U!'!!23;7ZH!!!31%!!!@````]!$!6-97*F&lt;!!31$$`````#5.I97ZO:7QA?1!=1%!!!P``````````!!Y+73"$;'&amp;O&lt;G6M=Q!!&amp;%"1!!)!$1!0#(EA9W^O:GFH!!!=1&amp;!!!A!,!"!15'FD;W6S;7ZH)%.P&lt;G:J:Q!!0%"Q!"Y!!"Q;1W^O&gt;(*P&lt;#"&amp;?("F=GFN:7ZU,GRW9WRB=X-!!"6$&lt;WZU=G^M)%6Y='6S;7VF&lt;H1A;7Y!91$Q!!Q!!Q!%!!1!"1!%!!1!"!!%!!9!"!!2!")$!!"Y!!!.#!!!!!!!!!!!!!!.#Q!!!!!!!!!!!!!!!!!!!!!!!!I!!!!!!!!!#!!!!"!!!!U!!!!-!!!!!!!!!!!!!!%!%Q!!!!!</Property>
-			<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
-			<Property Name="NI.ClassItem.Flags" Type="Int">0</Property>
-			<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">true</Property>
-			<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
-			<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
-			<Property Name="NI.ClassItem.State" Type="Int">1342710288</Property>
-		</Item>
-	</Item>
 	<Item Name="Asana" Type="Folder">
 		<Item Name="Asana Dictionary Get Value.vi" Type="VI" URL="../subVIs/Asana/Asana Dictionary Get Value.vi">
 			<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">&amp;A#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!%N!!!!$A!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!71&amp;!!!Q!!!!%!!AFF=H*P=C"P&gt;81!"!!!!!Z!-0````]&amp;6G&amp;M&gt;75!)%"1!!-!!!!"!!)4:8*S&lt;X)A;7YA+'ZP)'6S=G^S+1!-1$$`````!UNF?1!-1$$`````!W&gt;J:!!/1$$`````"'ZB&lt;75!!":!-0````].=G6T&lt;X6S9W6@&gt;(FQ:1!51&amp;!!!Q!)!!E!#A&gt;$&lt;(6T&gt;'6S!"*!1!!"`````Q!,"%2B&gt;'%!!&amp;1!]!!-!!-!"!!%!!5!"!!%!!1!"!!'!!1!"Q!-!Q!!?!!!#1!!!!!!!!!!!!!!#1!!!!!!!!!!!!!!!!!!!!!!!!!+!!!!!!!!!AA!!!))!!!!!!%!$1!!!!!</Property>
