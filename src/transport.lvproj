@@ -29,6 +29,7 @@
 		<Item Name="Control Experiment.lvclass" Type="LVClass" URL="../Control Experiment/Control Experiment.lvclass"/>
 		<Item Name="SweepControl.lvclass" Type="LVClass" URL="../SweepControl/SweepControl.lvclass"/>
 		<Item Name="Transport.lvclass" Type="LVClass" URL="../Transport/Transport.lvclass"/>
+		<Item Name="Open Me.vi" Type="VI" URL="../Open Me.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="Array of VData to VArray__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Array of VData to VArray__ogtk.vi"/>
@@ -585,7 +586,6 @@
 				<Item Name="Instrument.Oxford1820.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Oxford-1820/SMOs/Instrument.Oxford1820/Instrument.Oxford1820.lvclass"/>
 				<Item Name="Instrument UI.Oxford1820.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Oxford-1820/SMOs/Instrument.Oxford1820 UI/Instrument UI.Oxford1820.lvclass"/>
 				<Item Name="Current VI&apos;s Path__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/file/file.llb/Current VI&apos;s Path__ogtk.vi"/>
-				<Item Name="PublicEvents--Lockin.DAQ.getIVSweepResults.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Lockin.DAQ/Typedefs/PublicEvents--Lockin.DAQ.getIVSweepResults.ctl"/>
 				<Item Name="Ramp.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Control VI/Ramp.vi"/>
 				<Item Name="Max_Min_conversion.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Control VI/SubVIs/Max_Min_conversion.vi"/>
 				<Item Name="MGI Wait.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Timing/MGI Wait.vi"/>
