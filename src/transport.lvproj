@@ -616,8 +616,6 @@
 				<Item Name="End of Line Constant (bug fix).vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/string/string.llb/End of Line Constant (bug fix).vi"/>
 				<Item Name="MGI Threshold 1D Array Extended.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/1D Array/MGI Threshold 1D Array Extended.vi"/>
 				<Item Name="MGI Interpolate 1D Array Extended.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/1D Array/MGI Interpolate 1D Array Extended.vi"/>
-				<Item Name="PublicEvents--Lockin.DAQ.getIVSweepResults.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Lockin.DAQ/Typedefs/PublicEvents--Lockin.DAQ.getIVSweepResults.ctl"/>
-				<Item Name="Write Dictionary Elements (Loop).vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Transport/Control Experiment/API/Dictionary/Write Dictionary Elements (Loop).vi"/>
 				<Item Name="Current VIs Reference__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/appcontrol/appcontrol.llb/Current VIs Reference__ogtk.vi"/>
 			</Item>
 			<Item Name="vi.lib" Type="Folder">
@@ -1170,7 +1168,6 @@
 			<Item Name="LV-Data.ITX.lvclass" Type="LVClass" URL="../../../LV-to-ITX/src/LV-Data.ITX/LV-Data.ITX.lvclass"/>
 			<Item Name="LV-Data.TDMS.lvclass" Type="LVClass" URL="../../../LV-to-ITX/src/LV-Data.TDMS/LV-Data.TDMS.lvclass"/>
 			<Item Name="ITX Commands.lvclass" Type="LVClass" URL="../../../LV-to-ITX/src/LV-Data.ITX/ITX Commands/ITX Commands.lvclass"/>
-			<Item Name="IV_Sweep.vi" Type="VI" URL="../Transport/IV_Sweep.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
