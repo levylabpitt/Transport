@@ -1170,6 +1170,7 @@
 			<Item Name="LV-Data.ITX.lvclass" Type="LVClass" URL="../../../LV-to-ITX/src/LV-Data.ITX/LV-Data.ITX.lvclass"/>
 			<Item Name="LV-Data.TDMS.lvclass" Type="LVClass" URL="../../../LV-to-ITX/src/LV-Data.TDMS/LV-Data.TDMS.lvclass"/>
 			<Item Name="ITX Commands.lvclass" Type="LVClass" URL="../../../LV-to-ITX/src/LV-Data.ITX/ITX Commands/ITX Commands.lvclass"/>
+			<Item Name="IV_Sweep.vi" Type="VI" URL="../Transport/IV_Sweep.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
