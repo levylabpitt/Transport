@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2021-06-03 21:26:56" Creator="Patrick" Comments="" ID="23866b1e7f4f7beb7e0b92721534fae0">
+<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2021-09-16 10:21:08" Creator="Patrick" Comments="" ID="8b3e675f037760a0bae21cdc28a77282">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_Transport</Package_File_Name>
-    <Library_Version>1.4.5.23</Library_Version>
+    <Library_Version>1.4.6.23</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\src</Library_Source_Folder>
     <Library_Output_Folder>..\builds\Package</Library_Output_Folder>
@@ -25,8 +25,8 @@
       <External_Dependencies>jki_lib_serialization &gt;= 1.0.1.14</External_Dependencies>
       <External_Dependencies>jki_lib_state_machine &gt;= 2018.0.7.45</External_Dependencies>
       <External_Dependencies>jki_lib_unicode &gt;= 1.0.0.7</External_Dependencies>
-      <External_Dependencies>jki_statemachineobjects &gt;= 1.3.0.56</External_Dependencies>
-      <External_Dependencies>labview-zmq &gt;= 3.5.1.109</External_Dependencies>
+      <External_Dependencies>jki_statemachineobjects &gt;= 1.4.0.63</External_Dependencies>
+      <External_Dependencies>labview-zmq &gt;= 3.6.1.111</External_Dependencies>
       <External_Dependencies>lava_lib_ui_tools &gt;= 1.4.1.74</External_Dependencies>
       <External_Dependencies>levylab_lib_control_vi &gt;= 1.3.0.11</External_Dependencies>
       <External_Dependencies>levylab_lib_fileutilities &gt;= 1.2.6.13</External_Dependencies>
@@ -34,9 +34,8 @@
       <External_Dependencies>levylab_lib_krohn_hite_7008 &gt;= 1.6.0.27</External_Dependencies>
       <External_Dependencies>levylab_lib_leiden_tools &gt;= 1.2.3.17</External_Dependencies>
       <External_Dependencies>levylab_lib_lockin_multichannel &gt;= 2.14.1.64</External_Dependencies>
-      <External_Dependencies>levylab_lib_lvtoitx &gt;= 3.0.6.14</External_Dependencies>
+      <External_Dependencies>levylab_lib_lvtoitx &gt;= 3.1.0.1</External_Dependencies>
       <External_Dependencies>levylab_lib_plym &gt;= 1.0.1.3</External_Dependencies>
-      <External_Dependencies>levylab_lib_postgresql &gt;= 1.4.0.22</External_Dependencies>
       <External_Dependencies>levylab_lib_voltage_update &gt;= 1.0.3.5</External_Dependencies>
       <External_Dependencies>levylab_lib_xy_utilities &gt;= 1.4.0.17</External_Dependencies>
       <External_Dependencies>lvh_toolbox &gt;= 2.0.0.35</External_Dependencies>
@@ -76,8 +75,8 @@
       <Direct_Dependencies>jki_lib_serialization-1.0.1.14</Direct_Dependencies>
       <Direct_Dependencies>jki_lib_state_machine-2018.0.7.45</Direct_Dependencies>
       <Direct_Dependencies>jki_lib_unicode-1.0.0.7</Direct_Dependencies>
-      <Direct_Dependencies>jki_statemachineobjects-1.3.0.56</Direct_Dependencies>
-      <Direct_Dependencies>labview-zmq-3.5.1.109</Direct_Dependencies>
+      <Direct_Dependencies>jki_statemachineobjects-1.4.0.63</Direct_Dependencies>
+      <Direct_Dependencies>labview-zmq-3.6.1.111</Direct_Dependencies>
       <Direct_Dependencies>lava_lib_ui_tools-1.4.1.74</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_control_vi-1.3.0.11</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_fileutilities-1.2.6.13</Direct_Dependencies>
@@ -85,9 +84,8 @@
       <Direct_Dependencies>levylab_lib_krohn_hite_7008-1.6.0.27</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_leiden_tools-1.2.3.17</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_lockin_multichannel-2.14.1.64</Direct_Dependencies>
-      <Direct_Dependencies>levylab_lib_lvtoitx-3.0.6.14</Direct_Dependencies>
+      <Direct_Dependencies>levylab_lib_lvtoitx-3.1.0.1</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_plym-1.0.1.3</Direct_Dependencies>
-      <Direct_Dependencies>levylab_lib_postgresql-1.4.0.22</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_voltage_update-1.0.3.5</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_xy_utilities-1.4.0.17</Direct_Dependencies>
       <Direct_Dependencies>lvh_toolbox-2.0.0.35</Direct_Dependencies>
@@ -148,10 +146,8 @@ Basic transport measurments.
       <Copyright/>
       <Packager/>
       <URL/>
-      <Release_Notes>[1.4.5]
-- Hotfix for latest lockin version
-- updated dependencies
-- includes some changes from MNK</Release_Notes>
+      <Release_Notes>[1.4.6]
+- Hotfix for latest LV-Data package</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
@@ -371,7 +367,7 @@ Basic transport measurments.
         <Path>..\src\Open Me.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>0709068F7B926998C27AB6D983A0A84E</GUID>
+      <GUID>7EBD81996D1426C497616F71E40A107D</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -462,7 +458,7 @@ Basic transport measurments.
         <Path>..\src\Control Experiment\Tree.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>AB7AFEBAE8967D06614CEFE1458C9FD8</GUID>
+      <GUID>AD163F36D5BE1B517D8F7B9F313F6FBB</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -595,7 +591,7 @@ Basic transport measurments.
         <Path>..\src\SweepControl\SweepControl.TestLauncher.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>6B5BDAE13432CC5D8634C1500643F87B</GUID>
+      <GUID>A87605760748104B196834A9EFEA547E</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -756,7 +752,7 @@ Basic transport measurments.
         <Path>..\src\Transport\THz_TimeDelay.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>634DEFB10CB0FDD125FA10651F526997</GUID>
+      <GUID>35AD1952826624492F6169A9B9FE670D</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -959,7 +955,7 @@ Basic transport measurments.
         <Path>..\src\Control Experiment\API\Write Sweep Element.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>5A6E6321F9701AE36A73D9DEE51624D9</GUID>
+      <GUID>1CA53CA9E50FAD50B1C6C9DE40991CCE</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1078,7 +1074,7 @@ Basic transport measurments.
         <Path>..\src\Control Experiment\API (File)\Save Transport TDMS File.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>E0ADC96A3FD29038A4CEEEBA6E1D26C4</GUID>
+      <GUID>9165BDC4F5A9B486012CF519A99E41C9</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1225,7 +1221,7 @@ Basic transport measurments.
         <Path>..\src\Control Experiment\Comments\Generate Comments.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>CEB0CACF13E48E48EFE8327EFB510B4C</GUID>
+      <GUID>93DFC708420EBD3DA66FB5A3E1AB666E</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1358,7 +1354,7 @@ Basic transport measurments.
         <Path>..\src\Control Experiment\subVIs\Number to Letter.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>2C404147792A2A98C40D321EEEA949D5</GUID>
+      <GUID>153CB5CCA1AEB00CAE40B4462A73D812</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>4</Parent_Palette_Index>
@@ -1449,7 +1445,7 @@ Basic transport measurments.
         <Path>..\src\Control Experiment\API\Dictionary\Write Dictionary Elements (Loop).vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>50847DEB6EA1EF8296240040BB4F5720</GUID>
+      <GUID>1E6E8C557A355F7393BB6428378D0DF8</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>7</Parent_Palette_Index>
@@ -1498,7 +1494,7 @@ Basic transport measurments.
         <Path>..\src\Control Experiment\subVIs\Asana\Asana Dictionary Tasks Get Value.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>2AC78772F171EEA4E2E67AD73D79E339</GUID>
+      <GUID>830B77391850F607A8042453784D05E2</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -1603,7 +1599,7 @@ Basic transport measurments.
         <Path>..\src\SweepControl\API\Take Measurement.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>F6F3F2037F0A84CA6B1369D71F8A6CCD</GUID>
+      <GUID>AB0EDBDBFFCB5AC4D3F8795DBD38D583</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -1652,7 +1648,7 @@ Basic transport measurments.
         <Path>..\src\SweepControl\API (file)\Read Sweep Control.json.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>27525E3310B0D2704AC57EA498CC3594</GUID>
+      <GUID>C60117F0E708C1B4CD49E4EC4E3CB2E3</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -1785,7 +1781,7 @@ Basic transport measurments.
         <Path>..\src\SweepControl\subVIs\Sweep Control Loop.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>C0D6B4C0DB11F0BC1FF4596F047337DA</GUID>
+      <GUID>5FC0DE4E83D45528BFF67970B791CE87</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>3</Parent_Palette_Index>
@@ -1848,7 +1844,7 @@ Basic transport measurments.
         <Path>..\src\Transport\API (class)\Write notifier.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>7A0C69C15680EBCACC977F2337A52683</GUID>
+      <GUID>4A6B0E6E21E650313D77002B33B0AA8D</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>3</Parent_Palette_Index>
@@ -1897,7 +1893,7 @@ Basic transport measurments.
         <Path>..\src\Transport\API (file)\Read Lockin_Vsg.json.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>967F33F04837E02F9BF014352EE508D6</GUID>
+      <GUID>805F663D1BAD9BFF162B97C4A36BA044</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>3</Parent_Palette_Index>
@@ -2002,7 +1998,7 @@ Basic transport measurments.
         <Path>..\src\Transport\subVI\GraphLockin_vs_Parameter.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>B2D3DC7A9591DC9E8883119998C2D345</GUID>
+      <GUID>045E49552F2AEDE36E5E50FEA8D38F7C</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
