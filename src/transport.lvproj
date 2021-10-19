@@ -588,6 +588,7 @@
 				<Item Name="User_Get_Auth_Code.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Asana API/User_Get_Auth_Code.vi"/>
 				<Item Name="Input_Auth_Code.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Asana API/Input_Auth_Code.vi"/>
 				<Item Name="Authentication_Header_Handler.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Asana API/Authentication_Header_Handler.vi"/>
+				<Item Name="Log Error.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Levylab Instruments/SMOs/Logger.Error/Log Error.vi"/>
 			</Item>
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Check if File or Folder Exists.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/libraryn.llb/Check if File or Folder Exists.vi"/>
@@ -1117,6 +1118,7 @@
 				<Item Name="Path to URL inner.vi" Type="VI" URL="/&lt;vilib&gt;/printing/PathToURL.llb/Path to URL inner.vi"/>
 				<Item Name="REST Client.lvlib" Type="Library" URL="/&lt;vilib&gt;/addons/_JKI.lib/REST Client/REST Client.lvlib"/>
 				<Item Name="NI_WebServices.lvlib" Type="Library" URL="/&lt;vilib&gt;/wsapi/NI_WebServices.lvlib"/>
+				<Item Name="Assert Scalar Numeric Or Waveform Type.vim" Type="VI" URL="/&lt;vilib&gt;/Utility/TypeAssert/Assert Scalar Numeric Or Waveform Type.vim"/>
 			</Item>
 			<Item Name="mscorlib" Type="VI" URL="mscorlib">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
