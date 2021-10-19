@@ -580,7 +580,6 @@
 				<Item Name="MD5 Message Digest__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/md5/md5.llb/MD5 Message Digest__ogtk.vi"/>
 				<Item Name="JSON-RPC.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Levylab Instruments/SMOs/JSON-RPC/JSON-RPC/JSON-RPC.lvclass"/>
 				<Item Name="Choose Random Command.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Levylab Instruments/SMOs/RemoteControl/Tests/Choose Random Command.vi"/>
-				<Item Name="Instrument.DelayLine.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Levylab Instruments/Instrument Types/Optical Delay Line/Instrument.DelayLine.lvclass"/>
 				<Item Name="scope_needed.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Asana API/scope_needed.ctl"/>
 				<Item Name="Authenticate.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Asana API/Authenticate.vi"/>
 				<Item Name="OAuth.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Asana API/OAuth.lvclass"/>
@@ -589,6 +588,7 @@
 				<Item Name="Input_Auth_Code.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Asana API/Input_Auth_Code.vi"/>
 				<Item Name="Authentication_Header_Handler.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Asana API/Authentication_Header_Handler.vi"/>
 				<Item Name="Log Error.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Levylab Instruments/SMOs/Logger.Error/Log Error.vi"/>
+				<Item Name="Instrument.DelayLine.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Levylab Instruments/Instrument Types/Delay Line/Instrument.DelayLine.lvclass"/>
 			</Item>
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Check if File or Folder Exists.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/libraryn.llb/Check if File or Folder Exists.vi"/>
