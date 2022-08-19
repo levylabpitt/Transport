@@ -8,15 +8,15 @@ socket.bind("tcp://127.0.0.1:15213")
 
 #Experiment setup
 temperatures = [300,350,400]
-experiments = ["Command: Wait", "Command: Lockin_Vsg"]
+experiments = ["Wait >> 1000", "Lockin_Vsg"]
 command_list = ""
 
 for y in temperatures:
-    command = "Command: Set Temperature >> {}".format(y)
+    command = "Set Temperature >> {}".format(y)
     command_list = command_list + command + ',\n'
     # print(command)
-    for magnet in range(-9,9):
-        command = "Command: Set Magnet >> {}".format(magnet)
+    for magnet in range(-1,1):
+        command = "Set Magnet >> {}".format(magnet)
         # print(command)
         command_list = command_list + command + ',\n'
         for x in experiments:
@@ -28,6 +28,7 @@ for y in temperatures:
 print(command_list)
 
 # Send commands as a single csv string to REP socket (LabVIEW will parse the string)
+# To do: format as JSON RPC
 socket.send_string(command_list)
 
 

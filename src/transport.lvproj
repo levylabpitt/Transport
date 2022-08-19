@@ -17,15 +17,36 @@
 			<Item Name="Transport.vipb" Type="Document" URL="../../build support/Transport.vipb"/>
 			<Item Name="Transport.vipc" Type="Document" URL="../../build support/Transport.vipc"/>
 		</Item>
-		<Item Name="Tests" Type="Folder">
-			<Item Name="Sandbox" Type="Folder">
-				<Item Name="aws.vi" Type="VI" URL="../../Tests/Sandbox/aws.vi"/>
-				<Item Name="Cluster Typedef JSON Staging.vi" Type="VI" URL="../../Tests/Sandbox/Cluster Typedef JSON Staging.vi"/>
-				<Item Name="ReadTDMSTest1.vi" Type="VI" URL="../../Tests/Sandbox/ReadTDMSTest1.vi"/>
-				<Item Name="WriteTDMSTest1.vi" Type="VI" URL="../../Tests/Sandbox/WriteTDMSTest1.vi"/>
-			</Item>
-		</Item>
 		<Item Name="Sequence Experiment" Type="Folder">
+			<Item Name="State Machine Sequencer" Type="Folder">
+				<Item Name="io" Type="Folder">
+					<Item Name="AO.Write.vi" Type="VI" URL="../State Machine Sequencer/io/AO.Write.vi"/>
+					<Item Name="DO.Write.vi" Type="VI" URL="../State Machine Sequencer/io/DO.Write.vi"/>
+				</Item>
+				<Item Name="misc" Type="Folder">
+					<Item Name="string history.vi" Type="VI" URL="../State Machine Sequencer/misc/string history.vi"/>
+				</Item>
+				<Item Name="sequence file" Type="Folder">
+					<Item Name="sequence1.csv" Type="Document" URL="../State Machine Sequencer/sequence file/sequence1.csv"/>
+				</Item>
+				<Item Name="sequencer" Type="Folder">
+					<Item Name="Sequence.GetStep.vi" Type="VI" URL="../State Machine Sequencer/sequencer/Sequence.GetStep.vi"/>
+					<Item Name="Sequence.Load.vi" Type="VI" URL="../State Machine Sequencer/sequencer/Sequence.Load.vi"/>
+					<Item Name="Sequence.PopulateMCL.vi" Type="VI" URL="../State Machine Sequencer/sequencer/Sequence.PopulateMCL.vi"/>
+					<Item Name="Sequence.Read.vi" Type="VI" URL="../State Machine Sequencer/sequencer/Sequence.Read.vi"/>
+				</Item>
+				<Item Name="typedefs" Type="Folder">
+					<Item Name="IOType--Enum.ctl" Type="VI" URL="../State Machine Sequencer/typedefs/IOType--Enum.ctl"/>
+					<Item Name="step.data--Cluster.ctl" Type="VI" URL="../State Machine Sequencer/typedefs/step.data--Cluster.ctl"/>
+					<Item Name="step.IO.data--Cluster.ctl" Type="VI" URL="../State Machine Sequencer/typedefs/step.IO.data--Cluster.ctl"/>
+				</Item>
+				<Item Name="ui" Type="Folder">
+					<Item Name="Graph.UpdateAOs.vi" Type="VI" URL="../State Machine Sequencer/ui/Graph.UpdateAOs.vi"/>
+				</Item>
+				<Item Name="Sequencer UI - Start Here.vi" Type="VI" URL="../State Machine Sequencer/Sequencer UI - Start Here.vi"/>
+				<Item Name="Sequencer UI - User Event - Inbound&amp;Outbound (Solution).vi" Type="VI" URL="../State Machine Sequencer/Sequencer UI - User Event - Inbound&amp;Outbound (Solution).vi"/>
+				<Item Name="Sequencer Remote Control - Inbound&amp;Outbound (Solution).vi" Type="VI" URL="../State Machine Sequencer/Sequencer Remote Control - Inbound&amp;Outbound (Solution).vi"/>
+			</Item>
 			<Item Name="py-lv-comm-master" Type="Folder">
 				<Item Name="py-server_lv-client" Type="Folder">
 					<Item Name="py-lv-comm_callFunction.vi" Type="VI" URL="../Sequence Experiment/py-lv-comm-master/py-server_lv-client/py-lv-comm_callFunction.vi"/>
@@ -53,7 +74,6 @@
 			<Item Name="Sequence Experiment UI.lvclass" Type="LVClass" URL="../Sequence Experiment UI/Sequence Experiment UI/Sequence Experiment UI.lvclass"/>
 			<Item Name="Sequence Experiment SM.lvclass" Type="LVClass" URL="../Sequence Experiment SM/Sequence Experiment SM.lvclass"/>
 		</Item>
-		<Item Name="JSON Test.vi" Type="VI" URL="../../Tests/JSON Test.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="Array of VData to VArray__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Array of VData to VArray__ogtk.vi"/>
@@ -525,6 +545,7 @@
 				<Item Name="MGI Wait (Double).vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Timing/MGI Wait/MGI Wait (Double).vi"/>
 				<Item Name="Cartesian_Experiment.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Control VI/Cartesian_Experiment.vi"/>
 				<Item Name="Control Experiment.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Transport/Control Experiment/Control Experiment.lvclass"/>
+				<Item Name="Boolean Trigger__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/boolean/boolean.llb/Boolean Trigger__ogtk.vi"/>
 			</Item>
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Add State(s) to Queue__jki_lib_state_machine.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/State Machine/_JKI_lib_State_Machine.llb/Add State(s) to Queue__jki_lib_state_machine.vi"/>
@@ -602,8 +623,6 @@
 				<Item Name="Write Delimited Spreadsheet (string).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Write Delimited Spreadsheet (string).vi"/>
 				<Item Name="Write Delimited Spreadsheet.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Write Delimited Spreadsheet.vi"/>
 				<Item Name="Write Spreadsheet String.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Write Spreadsheet String.vi"/>
-				<Item Name="panelstate.ctl" Type="VI" URL="/&lt;vilib&gt;/event_ctls.llb/panelstate.ctl"/>
-				<Item Name="sizeaction.ctl" Type="VI" URL="/&lt;vilib&gt;/event_ctls.llb/sizeaction.ctl"/>
 				<Item Name="Guid Generator.vi" Type="VI" URL="/&lt;vilib&gt;/National Instruments/GUID Generator/Guid Generator.vi"/>
 				<Item Name="NI_Data Type.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/Data Type/NI_Data Type.lvlib"/>
 				<Item Name="System Directory Type.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/sysdir.llb/System Directory Type.ctl"/>
@@ -642,34 +661,6 @@
 				<Item Name="WDT Append Waveforms CDB.vi" Type="VI" URL="/&lt;vilib&gt;/Waveform/WDTOps.llb/WDT Append Waveforms CDB.vi"/>
 				<Item Name="Append Waveforms.vi" Type="VI" URL="/&lt;vilib&gt;/Waveform/WDTOps.llb/Append Waveforms.vi"/>
 				<Item Name="subFile Dialog.vi" Type="VI" URL="/&lt;vilib&gt;/express/express input/FileDialogBlock.llb/subFile Dialog.vi"/>
-				<Item Name="TDMS - File Viewer.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/tdmsutil.llb/TDMS - File Viewer.vi"/>
-				<Item Name="fileViewerConfigData.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/tdmsutil.llb/fileViewerConfigData.ctl"/>
-				<Item Name="status.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/tdmsutil.llb/status.vi"/>
-				<Item Name="TDMSFileViewerLocalizedText.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/tdmsutil.llb/TDMSFileViewerLocalizedText.vi"/>
-				<Item Name="initFileContentsTree.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/tdmsutil.llb/initFileContentsTree.vi"/>
-				<Item Name="ClearError.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/tdmsutil.llb/ClearError.vi"/>
-				<Item Name="Clear-68016.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/tdmsutil.llb/Clear-68016.vi"/>
-				<Item Name="initHelpButtonVisibility.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/tdmsutil.llb/initHelpButtonVisibility.vi"/>
-				<Item Name="initTabValues.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/tdmsutil.llb/initTabValues.vi"/>
-				<Item Name="LVRowAndColumnUnsignedTypeDef.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/miscctls.llb/LVRowAndColumnUnsignedTypeDef.ctl"/>
-				<Item Name="setListBoxColumnWidths.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/tdmsutil.llb/setListBoxColumnWidths.vi"/>
-				<Item Name="panelResize_tdms.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/tdmsutil.llb/panelResize_tdms.vi"/>
-				<Item Name="InitFromConfiguration.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/tdmsutil.llb/InitFromConfiguration.vi"/>
-				<Item Name="getNamesFromPath.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/tdmsutil.llb/getNamesFromPath.vi"/>
-				<Item Name="formatPropertyList.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/tdmsutil.llb/formatPropertyList.vi"/>
-				<Item Name="LogicalSort.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/tdmsutil.llb/LogicalSort.vi"/>
-				<Item Name="ExtractSubstring.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/tdmsutil.llb/ExtractSubstring.vi"/>
-				<Item Name="AsciiToInt.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/tdmsutil.llb/AsciiToInt.vi"/>
-				<Item Name="getChannelList.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/tdmsutil.llb/getChannelList.vi"/>
-				<Item Name="InitScrollbarAndListBox.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/tdmsutil.llb/InitScrollbarAndListBox.vi"/>
-				<Item Name="loadAndFormatValues.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/tdmsutil.llb/loadAndFormatValues.vi"/>
-				<Item Name="configureNumberOfValues.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/tdmsutil.llb/configureNumberOfValues.vi"/>
-				<Item Name="TDMSFileViewer_LaunchHelp.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/tdmsutil.llb/TDMSFileViewer_LaunchHelp.vi"/>
-				<Item Name="UpdateBufferForMultiListBoxIfNecessary.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/tdmsutil.llb/UpdateBufferForMultiListBoxIfNecessary.vi"/>
-				<Item Name="LoadBufferForMultiListBoxAndFormat.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/tdmsutil.llb/LoadBufferForMultiListBoxAndFormat.vi"/>
-				<Item Name="UpdateScrollbarBeforeKeyEvent.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/tdmsutil.llb/UpdateScrollbarBeforeKeyEvent.vi"/>
-				<Item Name="UpdateListBoxAfterKeyEvent.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/tdmsutil.llb/UpdateListBoxAfterKeyEvent.vi"/>
-				<Item Name="GoTo.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/tdmsutil.llb/GoTo.vi"/>
 				<Item Name="LMH-Toolbox.lvlib" Type="Library" URL="/&lt;vilib&gt;/MakerHub/Toolbox/LMH-Toolbox.lvlib"/>
 				<Item Name="NI STM.lvlib" Type="Library" URL="/&lt;vilib&gt;/NI/STM/NI STM.lvlib"/>
 				<Item Name="TCP Listen.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/tcp.llb/TCP Listen.vi"/>
@@ -1349,6 +1340,11 @@
 				<Item Name="PathToUNIXPathString.vi" Type="VI" URL="/&lt;vilib&gt;/Platform/CFURL.llb/PathToUNIXPathString.vi"/>
 				<Item Name="subBuildXYGraph.vi" Type="VI" URL="/&lt;vilib&gt;/express/express controls/BuildXYGraphBlock.llb/subBuildXYGraph.vi"/>
 				<Item Name="Dynamic To Waveform Array.vi" Type="VI" URL="/&lt;vilib&gt;/express/express shared/transition.llb/Dynamic To Waveform Array.vi"/>
+				<Item Name="Read From Spreadsheet File.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Read From Spreadsheet File.vi"/>
+				<Item Name="Read From Spreadsheet File (DBL).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Read From Spreadsheet File (DBL).vi"/>
+				<Item Name="Read Lines From File.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Read Lines From File.vi"/>
+				<Item Name="Read From Spreadsheet File (I64).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Read From Spreadsheet File (I64).vi"/>
+				<Item Name="Read From Spreadsheet File (string).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Read From Spreadsheet File (string).vi"/>
 			</Item>
 			<Item Name="lvanlys.dll" Type="Document" URL="/&lt;resource&gt;/lvanlys.dll"/>
 			<Item Name="mscorlib" Type="VI" URL="mscorlib">
