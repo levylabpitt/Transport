@@ -1,5 +1,5 @@
 ﻿<?xml version='1.0' encoding='UTF-8'?>
-<Project Type="Project" LVVersion="16008000">
+<Project Type="Project" LVVersion="19008000">
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
 	<Property Name="NI.Project.Description" Type="Str"></Property>
 	<Item Name="My Computer" Type="My Computer">
@@ -92,11 +92,8 @@
 				<Item Name="Type Descriptor Header__ogtk.ctl" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Type Descriptor Header__ogtk.ctl"/>
 				<Item Name="Type Descriptor__ogtk.ctl" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Type Descriptor__ogtk.ctl"/>
 				<Item Name="Variant to Header Info__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Variant to Header Info__ogtk.vi"/>
-				<Item Name="Logger.Error.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Levylab Instruments/SMOs/Logger.Error/Logger.Error.lvclass"/>
-				<Item Name="MGI Insert Reserved Error.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Error Handling/MGI Insert Reserved Error.vi"/>
-				<Item Name="MGI Append String to Error Source.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Error Handling/MGI Append String to Error Source.vi"/>
-				<Item Name="MGI Error Reporter Base.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/_MGI/Error Reporter/MGI Error Reporter Base/MGI Error Reporter Base.lvclass"/>
-				<Item Name="Logger.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Levylab Instruments/SMOs/Logger/Logger.lvclass"/>
+				<Item Name="Logger.Error.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Instrument Framework/SMOs/Logger.Error/Logger.Error.lvclass"/>
+				<Item Name="Logger.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Instrument Framework/SMOs/Logger/Logger.lvclass"/>
 				<Item Name="Strip Path__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/file/file.llb/Strip Path__ogtk.vi"/>
 				<Item Name="Strip Path - Arrays__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/file/file.llb/Strip Path - Arrays__ogtk.vi"/>
 				<Item Name="Strip Path - Traditional__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/file/file.llb/Strip Path - Traditional__ogtk.vi"/>
@@ -107,13 +104,9 @@
 				<Item Name="Build Path - Traditional - path__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/file/file.llb/Build Path - Traditional - path__ogtk.vi"/>
 				<Item Name="Build Path - File Names Array - path__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/file/file.llb/Build Path - File Names Array - path__ogtk.vi"/>
 				<Item Name="Build Path - File Names and Paths Arrays - path__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/file/file.llb/Build Path - File Names and Paths Arrays - path__ogtk.vi"/>
-				<Item Name="MGI Error Reporter Dialog.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/_MGI/Error Reporter/MGI Error Reporter Dialog/MGI Error Reporter Dialog.lvclass"/>
-				<Item Name="Instrument.Lockin.UI.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Instrument.Lockinl.UI/Instrument.Lockin.UI.lvclass"/>
-				<Item Name="Instrument.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Levylab Instruments/SMOs/Instrument/Instrument.lvclass"/>
-				<Item Name="RemoteControl.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Levylab Instruments/SMOs/RemoteControl/RemoteControl.lvclass"/>
 				<Item Name="Random Number Within Range - DBL__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/numeric/numeric.llb/Random Number Within Range - DBL__ogtk.vi"/>
 				<Item Name="Random Number - Within Range__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/numeric/numeric.llb/Random Number - Within Range__ogtk.vi"/>
-				<Item Name="RemoteControl.STM.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Levylab Instruments/SMOs/RemoteControl.STM/RemoteControl.STM.lvclass"/>
+				<Item Name="RemoteControl.STM.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Instrument Framework/SMOs/RemoteControl.STM/RemoteControl.STM.lvclass"/>
 				<Item Name="Filter Error Codes__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/error/error.llb/Filter Error Codes__ogtk.vi"/>
 				<Item Name="Filter Error Codes (Array)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/error/error.llb/Filter Error Codes (Array)__ogtk.vi"/>
 				<Item Name="Filtered Error Details - Cluster__ogtk.ctl" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/error/error.llb/Filtered Error Details - Cluster__ogtk.ctl"/>
@@ -144,42 +137,7 @@
 				<Item Name="Trim Whitespace (String Array)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/string/string.llb/Trim Whitespace (String Array)__ogtk.vi"/>
 				<Item Name="Current VIs Parents Ref__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/appcontrol/appcontrol.llb/Current VIs Parents Ref__ogtk.vi"/>
 				<Item Name="Periodic Trigger__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/time/time.llb/Periodic Trigger__ogtk.vi"/>
-				<Item Name="Instrument UI.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Levylab Instruments/SMOs/Instrument UI/Instrument UI.lvclass"/>
 				<Item Name="MGI Remove All Whitespace.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/String/MGI Remove All Whitespace.vi"/>
-				<Item Name="MGI Read Anything.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Read Write Anything/MGI Read Anything.vi"/>
-				<Item Name="MGI RWA Options Cluster.ctl" Type="VI" URL="/&lt;userlib&gt;/_MGI/Read Write Anything/MGI RWA Options Cluster.ctl"/>
-				<Item Name="MGI RWA Read Strings from File.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Read Write Anything/MGI RWA Read Strings from File.vi"/>
-				<Item Name="MGI Suppress Error Code.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Error Handling/MGI Suppress Error Code.vi"/>
-				<Item Name="MGI Suppress Error Code (Array).vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Error Handling/MGI Suppress Error Code/MGI Suppress Error Code (Array).vi"/>
-				<Item Name="MGI Suppress Error Code (Scalar).vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Error Handling/MGI Suppress Error Code/MGI Suppress Error Code (Scalar).vi"/>
-				<Item Name="MGI RWA String To Anything.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Read Write Anything/MGI RWA String To Anything.vi"/>
-				<Item Name="MGI RWA Convertion Direction Enum.ctl" Type="VI" URL="/&lt;userlib&gt;/_MGI/Read Write Anything/MGI RWA Convertion Direction Enum.ctl"/>
-				<Item Name="MGI RWA Enque Top Level Data.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Read Write Anything/MGI RWA Enque Top Level Data.vi"/>
-				<Item Name="MGI RWA Tag Lookup Cluster.ctl" Type="VI" URL="/&lt;userlib&gt;/_MGI/Read Write Anything/MGI RWA Tag Lookup Cluster.ctl"/>
-				<Item Name="MGI Windows Regional Ring.ctl" Type="VI" URL="/&lt;userlib&gt;/_MGI/String/MGI Windows Get Regional String/MGI Windows Regional Ring.ctl"/>
-				<Item Name="MGI RWA Remove EOLs and Slashes.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Read Write Anything/MGI RWA Remove EOLs and Slashes.vi"/>
-				<Item Name="MGI Windows Get Regional String.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/String/MGI Windows Get Regional String.vi"/>
-				<Item Name="MGI RWA Unreplace Characters.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Read Write Anything/MGI RWA Unreplace Characters.vi"/>
-				<Item Name="MGI Get Cluster Elements.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Cluster/MGI Get Cluster Elements.vi"/>
-				<Item Name="MGI RWA INI Tag Lookup.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Read Write Anything/MGI RWA INI Tag Lookup.vi"/>
-				<Item Name="MGI RWA Anything to String.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Read Write Anything/MGI RWA Anything to String.vi"/>
-				<Item Name="MGI RWA Replace Characters.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Read Write Anything/MGI RWA Replace Characters.vi"/>
-				<Item Name="MGI RWA Process Array Elements.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Read Write Anything/MGI RWA Process Array Elements.vi"/>
-				<Item Name="MGI RWA Get Type Info.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Read Write Anything/MGI RWA Get Type Info.vi"/>
-				<Item Name="MGI RWA Build Line.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Read Write Anything/MGI RWA Build Line.vi"/>
-				<Item Name="MGI U8 Data to Hex Str.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/String/MGI U8 Data to Hex Str.vi"/>
-				<Item Name="MGI RWA Handle Tag or Refnum.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Read Write Anything/MGI RWA Handle Tag or Refnum.vi"/>
-				<Item Name="MGI Scan From String.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/String/MGI Scan From String.vi"/>
-				<Item Name="MGI Scan From String (CDB).vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/String/MGI Scan From String/MGI Scan From String (CDB).vi"/>
-				<Item Name="MGI Scan From String (CDB[]).vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/String/MGI Scan From String/MGI Scan From String (CDB[]).vi"/>
-				<Item Name="MGI Scan From String (CSG).vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/String/MGI Scan From String/MGI Scan From String (CSG).vi"/>
-				<Item Name="MGI Scan From String (CSG[]).vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/String/MGI Scan From String/MGI Scan From String (CSG[]).vi"/>
-				<Item Name="MGI Scan From String (CXT).vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/String/MGI Scan From String/MGI Scan From String (CXT).vi"/>
-				<Item Name="MGI Scan From String (CXT[]).vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/String/MGI Scan From String/MGI Scan From String (CXT[]).vi"/>
-				<Item Name="MGI Scan From String (DBL[]).vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/String/MGI Scan From String/MGI Scan From String (DBL[]).vi"/>
-				<Item Name="MGI RWA Unprocess Array Elements.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Read Write Anything/MGI RWA Unprocess Array Elements.vi"/>
-				<Item Name="MGI RWA Build Array Name.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Read Write Anything/MGI RWA Build Array Name.vi"/>
-				<Item Name="MGI Hex Str to U8 Data.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/String/MGI Hex Str to U8 Data.vi"/>
 				<Item Name="Empty 1D Array (Boolean)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/array/array.llb/Empty 1D Array (Boolean)__ogtk.vi"/>
 				<Item Name="Empty 1D Array (CDB)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/array/array.llb/Empty 1D Array (CDB)__ogtk.vi"/>
 				<Item Name="Empty 1D Array (CXT)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/array/array.llb/Empty 1D Array (CXT)__ogtk.vi"/>
@@ -219,8 +177,6 @@
 				<Item Name="Empty 1D Array (LVObject)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/array/array.llb/Empty 1D Array (LVObject)__ogtk.vi"/>
 				<Item Name="Empty 2D Array (LVObject)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/array/array.llb/Empty 2D Array (LVObject)__ogtk.vi"/>
 				<Item Name="1D Array to String__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/string/string.llb/1D Array to String__ogtk.vi"/>
-				<Item Name="MGI Write Anything.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Read Write Anything/MGI Write Anything.vi"/>
-				<Item Name="MGI RWA Write Strings to File.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Read Write Anything/MGI RWA Write Strings to File.vi"/>
 				<Item Name="Remove Duplicates from 1D Array (Path)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/array/array.llb/Remove Duplicates from 1D Array (Path)__ogtk.vi"/>
 				<Item Name="Remove Duplicates from 1D Array (CDB)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/array/array.llb/Remove Duplicates from 1D Array (CDB)__ogtk.vi"/>
 				<Item Name="Remove Duplicates from 1D Array (CSG)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/array/array.llb/Remove Duplicates from 1D Array (CSG)__ogtk.vi"/>
@@ -375,12 +331,6 @@
 				<Item Name="Convert EOLs (String)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/string/string.llb/Convert EOLs (String)__ogtk.vi"/>
 				<Item Name="Convert EOLs (String Array)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/string/string.llb/Convert EOLs (String Array)__ogtk.vi"/>
 				<Item Name="String to 1D Array__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/string/string.llb/String to 1D Array__ogtk.vi"/>
-				<Item Name="MGI Defer Panel Updates.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Application Control/MGI Defer Panel Updates.vi"/>
-				<Item Name="MGI VI Reference.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Application Control/MGI VI Reference.vi"/>
-				<Item Name="MGI Caller&apos;s VI Reference.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Application Control/MGI VI Reference/MGI Caller&apos;s VI Reference.vi"/>
-				<Item Name="MGI Current VI&apos;s Reference.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Application Control/MGI VI Reference/MGI Current VI&apos;s Reference.vi"/>
-				<Item Name="MGI Top Level VI Reference.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Application Control/MGI VI Reference/MGI Top Level VI Reference.vi"/>
-				<Item Name="MGI Level&apos;s VI Reference.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Application Control/MGI VI Reference/MGI Level&apos;s VI Reference.vi"/>
 				<Item Name="MGI Get Executable Version.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Application Control/MGI Get Executable Version.vi"/>
 				<Item Name="Current VIs Parent Directory__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/file/file.llb/Current VIs Parent Directory__ogtk.vi"/>
 				<Item Name="YAML.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/PLYM/YAML.lvclass"/>
@@ -406,11 +356,11 @@
 				<Item Name="Dictionary Object RefNum__ogtk.ctl" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/dictionary/dictionary.llb/Dictionary Object RefNum__ogtk.ctl"/>
 				<Item Name="Dictionary Object RefNum - Enum__ogtk.ctl" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/dictionary/dictionary.llb/Dictionary Object RefNum - Enum__ogtk.ctl"/>
 				<Item Name="MGI String Pattern Match Exists.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/String/MGI String Pattern Match Exists.vi"/>
-				<Item Name="Configuration.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Levylab Instruments/SMOs/Configuration/Configuration.lvclass"/>
+				<Item Name="Configuration.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Instrument Framework/SMOs/Configuration/Configuration.lvclass"/>
 				<Item Name="Random Number Within Range__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/numeric/numeric.llb/Random Number Within Range__ogtk.vi"/>
 				<Item Name="Random Number Within Range - I32__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/numeric/numeric.llb/Random Number Within Range - I32__ogtk.vi"/>
 				<Item Name="Create Dir if Non-Existant__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/file/file.llb/Create Dir if Non-Existant__ogtk.vi"/>
-				<Item Name="Instrument.Cryostat.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Levylab Instruments/Instrument Types/Cryostat/Instrument.Cryostat.lvclass"/>
+				<Item Name="Instrument.Cryostat.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Instrument Framework/Instrument Types/Cryostat/Instrument.Cryostat.lvclass"/>
 				<Item Name="Instrument.Lockin.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Instrument.Lockin/Instrument.Lockin.lvclass"/>
 				<Item Name="Remove Duplicates from 1D Array__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/array/array.llb/Remove Duplicates from 1D Array__ogtk.vi"/>
 				<Item Name="Remove Duplicates from 1D Array (Variant)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/array/array.llb/Remove Duplicates from 1D Array (Variant)__ogtk.vi"/>
@@ -422,11 +372,10 @@
 				<Item Name="No of Elements in Cluster__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/No of Elements in Cluster__ogtk.vi"/>
 				<Item Name="Voltage Update.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Voltage Update/Voltage Update.vi"/>
 				<Item Name="MGI Milliseconds Since Last Reset.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Timing/MGI Milliseconds Since Last Reset.vi"/>
-				<Item Name="Instrument.CBridge.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Levylab Instruments/Instrument Types/CBridge/Instrument.CBridge.lvclass"/>
-				<Item Name="Instrument.OpticalDelayLine.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Levylab Instruments/Instrument Types/Optical Delay Line/Instrument.OpticalDelayLine.lvclass"/>
-				<Item Name="Instrument.Strain.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Levylab Instruments/Instrument Types/Strain/Instrument.Strain.lvclass"/>
-				<Item Name="Instrument.VNA.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Levylab Instruments/Instrument Types/VNA/Instrument.VNA.lvclass"/>
-				<Item Name="Instrument.VSource.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Levylab Instruments/Instrument Types/VSource/Instrument.VSource.lvclass"/>
+				<Item Name="Instrument.CBridge.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Instrument Framework/Instrument Types/CBridge/Instrument.CBridge.lvclass"/>
+				<Item Name="Instrument.Strain.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Instrument Framework/Instrument Types/Strain/Instrument.Strain.lvclass"/>
+				<Item Name="Instrument.VNA.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Instrument Framework/Instrument Types/VNA/Instrument.VNA.lvclass"/>
+				<Item Name="Instrument.VSource.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Instrument Framework/Instrument Types/VSource/Instrument.VSource.lvclass"/>
 				<Item Name="Dictionary Update (by scalar value)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/dictionary/dictionary.llb/Dictionary Update (by scalar value)__ogtk.vi"/>
 				<Item Name="Dictionary Get Items__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/dictionary/dictionary.llb/Dictionary Get Items__ogtk.vi"/>
 				<Item Name="Dictionary Update__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/dictionary/dictionary.llb/Dictionary Update__ogtk.vi"/>
@@ -438,44 +387,8 @@
 				<Item Name="MGI Wait (U32).vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Timing/MGI Wait/MGI Wait (U32).vi"/>
 				<Item Name="MGI Wait.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Timing/MGI Wait.vi"/>
 				<Item Name="Dictionary Get Value__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/dictionary/dictionary.llb/Dictionary Get Value__ogtk.vi"/>
-				<Item Name="MGI Windows Folder Enum.ctl" Type="VI" URL="/&lt;userlib&gt;/_MGI/File/MGI Windows Folder Enum.ctl"/>
-				<Item Name="MGI Make String Filesafe.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/String/MGI Make String Filesafe.vi"/>
-				<Item Name="MGI Windows Folder Path.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/File/MGI Windows Folder Path.vi"/>
-				<Item Name="MGI Mac Documents Path.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/File/MGI Mac Documents Path.vi"/>
-				<Item Name="MGI ERD LB Row Time and Count.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/_MGI/Error Reporter/MGI Error Reporter Dialog/MGI ERD LB Row Time and Count/MGI ERD LB Row Time and Count.lvclass"/>
-				<Item Name="MGI Is Runtime.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Application Control/MGI Is Runtime.vi"/>
-				<Item Name="MGI Open Explorer Window.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/File/MGI Open Explorer Window.vi"/>
-				<Item Name="MGI Gray if(PolyVI).vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Application Control/MGI Gray if(PolyVI).vi"/>
-				<Item Name="MGI Gray if False.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Application Control/MGI Gray if/MGI Gray if False.vi"/>
-				<Item Name="MGI Gray if Zero.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Application Control/MGI Gray if/MGI Gray if Zero.vi"/>
-				<Item Name="MGI Gray if Empty String.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Application Control/MGI Gray if/MGI Gray if Empty String.vi"/>
-				<Item Name="MGI Gray if Error.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Application Control/MGI Gray if/MGI Gray if Error.vi"/>
-				<Item Name="MGI Gray if True.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Application Control/MGI Gray if/MGI Gray if True.vi"/>
-				<Item Name="MGI Set Scrollbar.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Application Control/MGI Set Scrollbar.vi"/>
-				<Item Name="MGI Set Listbox Scrollbar.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Application Control/MGI Set Scrollbar/MGI Set Listbox Scrollbar.vi"/>
-				<Item Name="MGI Set Multicolumn Listbox Scrollbar.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Application Control/MGI Set Scrollbar/MGI Set Multicolumn Listbox Scrollbar.vi"/>
-				<Item Name="MGI Set Table Scrollbar.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Application Control/MGI Set Scrollbar/MGI Set Table Scrollbar.vi"/>
-				<Item Name="MGI Set String Scrollbar.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Application Control/MGI Set Scrollbar/MGI Set String Scrollbar.vi"/>
-				<Item Name="MGI SRS Command Enum.ctl" Type="VI" URL="/&lt;userlib&gt;/_MGI/Application Control/MGI Save &amp; Restore Settings/MGI SRS Command Enum.ctl"/>
-				<Item Name="MGI Default ini Path.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/File/MGI Default ini Path.vi"/>
-				<Item Name="MGI Origin at Top Left.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Application Control/MGI Origin at Top Left.vi"/>
-				<Item Name="MGI Save &amp; Restore Settings.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Application Control/MGI Save &amp; Restore Settings.vi"/>
-				<Item Name="MGI SRS Graph Setting Cluster.ctl" Type="VI" URL="/&lt;userlib&gt;/_MGI/Application Control/MGI Save &amp; Restore Settings/MGI SRS Graph Setting Cluster.ctl"/>
-				<Item Name="MGI SRS Graph Plot Cluster.ctl" Type="VI" URL="/&lt;userlib&gt;/_MGI/Application Control/MGI Save &amp; Restore Settings/MGI SRS Graph Plot Cluster.ctl"/>
-				<Item Name="MGI SRS Graph Cursor Cluster.ctl" Type="VI" URL="/&lt;userlib&gt;/_MGI/Application Control/MGI Save &amp; Restore Settings/MGI SRS Graph Cursor Cluster.ctl"/>
-				<Item Name="MGI SRS MCLB Setting Cluster.ctl" Type="VI" URL="/&lt;userlib&gt;/_MGI/Application Control/MGI Save &amp; Restore Settings/MGI SRS MCLB Setting Cluster.ctl"/>
-				<Item Name="Save Restore Settings.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/_MGI/Application Control/MGI Save Restore Settings/Save Restore Settings.lvclass"/>
-				<Item Name="MGI Coerce Panel Bounds to Viewable Area.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Application Control/MGI Coerce Panel Bounds to Viewable Area.vi"/>
-				<Item Name="MGI Coerce Rect into Bounds.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Picture &amp; Image/MGI Coerce Rect into Bounds.vi"/>
-				<Item Name="MGI SRS Graph Settings.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Application Control/MGI Save &amp; Restore Settings/MGI SRS Graph Settings.vi"/>
-				<Item Name="MGI SRS Table Settings.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Application Control/MGI Save &amp; Restore Settings/MGI SRS Table Settings.vi"/>
-				<Item Name="RemoteControl.ZMQ.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Levylab Instruments/SMOs/RemoteControl.ZMQ/RemoteControl.ZMQ.lvclass"/>
-				<Item Name="MGI ERD LB Row Base.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/_MGI/Error Reporter/MGI Error Reporter Dialog/MGI ERD LB Row Base/MGI ERD LB Row Base.lvclass"/>
-				<Item Name="Data.ITX.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/LV to ITX/Data.ITX/Data.ITX.lvclass"/>
+				<Item Name="RemoteControl.ZMQ.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Instrument Framework/SMOs/RemoteControl.ZMQ/RemoteControl.ZMQ.lvclass"/>
 				<Item Name="graph_utilities.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Graph Utilities/graph_utilities.lvclass"/>
-				<Item Name="Data.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/LV to ITX/Data/Data.lvclass"/>
-				<Item Name="Data.DAT.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/LV to ITX/Data.DAT/Data.DAT.lvclass"/>
-				<Item Name="Data.TDMS.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/LV to ITX/Data.TDMS/Data.TDMS.lvclass"/>
 				<Item Name="Number to String.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/FileUtilities/Number to String.vi"/>
 				<Item Name="Dictionary Get Keys__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/dictionary/dictionary.llb/Dictionary Get Keys__ogtk.vi"/>
 				<Item Name="ZLIB Zip Handle__ogtk.ctl" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvzip/lvzip.llb/ZLIB Zip Handle__ogtk.ctl"/>
@@ -522,8 +435,7 @@
 				<Item Name="ZLIB Close Write File__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvzip/lvzip.llb/ZLIB Close Write File__ogtk.vi"/>
 				<Item Name="ZLIB Store Stream__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvzip/lvzip.llb/ZLIB Store Stream__ogtk.vi"/>
 				<Item Name="ZLIB Write Stream__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvzip/lvzip.llb/ZLIB Write Stream__ogtk.vi"/>
-				<Item Name="Logger.PGSQL.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Levylab Instruments/SMOs/Logger.PGSQL/Logger.PGSQL.lvclass"/>
-				<Item Name="Data.PGSQL.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/postgreSQL-timescaleDB/Data.PG/Data.PGSQL.lvclass"/>
+				<Item Name="Logger.PGSQL.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Instrument Framework/SMOs/Logger.PGSQL/Logger.PGSQL.lvclass"/>
 				<Item Name="Search Array__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/array/array.llb/Search Array__ogtk.vi"/>
 				<Item Name="Search 1D Array (SGL)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/array/array.llb/Search 1D Array (SGL)__ogtk.vi"/>
 				<Item Name="Search 1D Array (DBL)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/array/array.llb/Search 1D Array (DBL)__ogtk.vi"/>
@@ -546,18 +458,6 @@
 				<Item Name="Search 1D Array (LVObject)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/array/array.llb/Search 1D Array (LVObject)__ogtk.vi"/>
 				<Item Name="Search or Split String__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/string/string.llb/Search or Split String__ogtk.vi"/>
 				<Item Name="MGI Approximately Equal.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Numeric/Comparison/MGI Approximately Equal.vi"/>
-				<Item Name="Data.S3.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/postgreSQL-timescaleDB/Data.S3/Data.S3.lvclass"/>
-				<Item Name="MD5 I function__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/md5/md5.llb/MD5 I function__ogtk.vi"/>
-				<Item Name="MD5 H function__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/md5/md5.llb/MD5 H function__ogtk.vi"/>
-				<Item Name="MD5 G function__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/md5/md5.llb/MD5 G function__ogtk.vi"/>
-				<Item Name="MD5 F function__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/md5/md5.llb/MD5 F function__ogtk.vi"/>
-				<Item Name="MD5 FGHI functions__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/md5/md5.llb/MD5 FGHI functions__ogtk.vi"/>
-				<Item Name="MD5 Unrecoverable character padding__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/md5/md5.llb/MD5 Unrecoverable character padding__ogtk.vi"/>
-				<Item Name="MD5 Padding__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/md5/md5.llb/MD5 Padding__ogtk.vi"/>
-				<Item Name="MD5 ti__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/md5/md5.llb/MD5 ti__ogtk.vi"/>
-				<Item Name="MD5 Message Digest (Binary String)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/md5/md5.llb/MD5 Message Digest (Binary String)__ogtk.vi"/>
-				<Item Name="MD5 Message Digest (Hexadecimal String)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/md5/md5.llb/MD5 Message Digest (Hexadecimal String)__ogtk.vi"/>
-				<Item Name="MD5 Message Digest__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/md5/md5.llb/MD5 Message Digest__ogtk.vi"/>
 				<Item Name="File Exists - Scalar__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/file/file.llb/File Exists - Scalar__ogtk.vi"/>
 				<Item Name="File Exists - Array__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/file/file.llb/File Exists - Array__ogtk.vi"/>
 				<Item Name="File Exists__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/file/file.llb/File Exists__ogtk.vi"/>
@@ -600,35 +500,45 @@
 				<Item Name="Index 2D Array Elements (U64)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/array/array.llb/Index 2D Array Elements (U64)__ogtk.vi"/>
 				<Item Name="Index 1D Array Elements (LVObject)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/array/array.llb/Index 1D Array Elements (LVObject)__ogtk.vi"/>
 				<Item Name="Index 2D Array Elements (LVObject)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/array/array.llb/Index 2D Array Elements (LVObject)__ogtk.vi"/>
-				<Item Name="Lockin.DAQ.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Lockin.DAQ/Lockin.DAQ.lvclass"/>
-				<Item Name="PrivateEvents--LockinDAQ.Calibrate.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Lockin.DAQ/Typedefs/PrivateEvents--LockinDAQ.Calibrate.ctl"/>
-				<Item Name="Waveform Circular Buffer.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Lockin.DAQ/DAQ/Waveform Circular Buffer.vi"/>
 				<Item Name="Array to VCluster__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Array to VCluster__ogtk.vi"/>
 				<Item Name="End of Line Constant (bug fix).vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/string/string.llb/End of Line Constant (bug fix).vi"/>
 				<Item Name="MGI Threshold 1D Array Extended.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/1D Array/MGI Threshold 1D Array Extended.vi"/>
 				<Item Name="MGI Interpolate 1D Array Extended.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/1D Array/MGI Interpolate 1D Array Extended.vi"/>
-				<Item Name="Current VIs Reference__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/appcontrol/appcontrol.llb/Current VIs Reference__ogtk.vi"/>
-				<Item Name="Conversion.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/LV to ITX/Macros/Conversion.lvclass"/>
-				<Item Name="ITX Commands.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/LV to ITX/Data.ITX/ITX Commands/ITX Commands.lvclass"/>
-				<Item Name="instrument.PPMS2.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/PPMS Instrument/instrument.PPMS2/instrument.PPMS2.lvclass"/>
-				<Item Name="instrument.PPMS.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/PPMS Instrument/instrument.PPMS/instrument.PPMS.lvclass"/>
-				<Item Name="instrument.PPMS3.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/PPMS Instrument/instrument.PPMS3/instrument.PPMS3.lvclass"/>
-				<Item Name="SendPPMSCommand.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/PPMS Instrument/drivers/QDInstrument_LabView/PPMS/SendPPMSCommand.vi"/>
-				<Item Name="GetHelium.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/PPMS Instrument/drivers/QDInstrument_LabView/QDInstrument/GetHelium.vi"/>
-				<Item Name="QDInstrumentExceptionHandler.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/PPMS Instrument/drivers/QDInstrument_LabView/QDInstrument/QDInstrumentExceptionHandler.vi"/>
-				<Item Name="GetField.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/PPMS Instrument/drivers/QDInstrument_LabView/QDInstrument/GetField.vi"/>
-				<Item Name="GetTemperature.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/PPMS Instrument/drivers/QDInstrument_LabView/QDInstrument/GetTemperature.vi"/>
-				<Item Name="instrument.PPMS1.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/PPMS Instrument/instrument.PPMS1/instrument.PPMS1.lvclass"/>
-				<Item Name="OpenQDInstrument.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/PPMS Instrument/drivers/QDInstrument_LabView/QDInstrument/OpenQDInstrument.vi"/>
-				<Item Name="GetPPMSItem.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/PPMS Instrument/drivers/QDInstrument_LabView/PPMS/GetPPMSItem.vi"/>
-				<Item Name="SetField.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/PPMS Instrument/drivers/QDInstrument_LabView/QDInstrument/SetField.vi"/>
-				<Item Name="SetTemperature.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/PPMS Instrument/drivers/QDInstrument_LabView/QDInstrument/SetTemperature.vi"/>
-				<Item Name="QDInstrument.dll" Type="Document" URL="/&lt;userlib&gt;/LevyLab/PPMS Instrument/drivers/QDInstrument_LabView/QDInstrument.dll"/>
+				<Item Name="ITX Commands.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/LV-Data/LV-Data.ITX/ITX Commands/ITX Commands.lvclass"/>
+				<Item Name="AO-cluster.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Lockin.DAQ/Typedefs/AO-cluster.ctl"/>
+				<Item Name="Function-enum.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Lockin.DAQ/Typedefs/Function-enum.ctl"/>
+				<Item Name="RemoteControl.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Instrument Framework/SMOs/RemoteControl/RemoteControl.lvclass"/>
+				<Item Name="JSON-RPC.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Instrument Framework/SMOs/JSON-RPC/JSON-RPC/JSON-RPC.lvclass"/>
+				<Item Name="Choose Random Command.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Instrument Framework/SMOs/RemoteControl/Tests/Choose Random Command.vi"/>
+				<Item Name="LV-Data.PGSQL.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/LV-Data/LV-Data.PG/LV-Data.PGSQL.lvclass"/>
+				<Item Name="LV-Data.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/LV-Data/LV-Data/LV-Data.lvclass"/>
+				<Item Name="LV-Data.DAT.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/LV-Data/LV-Data.DAT/LV-Data.DAT.lvclass"/>
+				<Item Name="LV-Data.ITX.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/LV-Data/LV-Data.ITX/LV-Data.ITX.lvclass"/>
+				<Item Name="LV-Data.TDMS.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/LV-Data/LV-Data.TDMS/LV-Data.TDMS.lvclass"/>
+				<Item Name="Conversion.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/LV-Data/Macros/Conversion.lvclass"/>
+				<Item Name="Instrument.DelayLine.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Instrument Framework/Instrument Types/Delay Line/Instrument.DelayLine.lvclass"/>
+				<Item Name="REF-cluster.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Lockin.DAQ/Typedefs/REF-cluster.ctl"/>
+				<Item Name="Instrument.DAQ.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Instrument.DAQ/Instrument.DAQ.lvclass"/>
+				<Item Name="Waveform Circular Buffer.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Instrument.DAQ/DAQ/Waveform Circular Buffer.vi"/>
+				<Item Name="Instrument UI.Lockin.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Instrument UI.Lockin/Instrument UI.Lockin.lvclass"/>
+				<Item Name="Instrument UI.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Instrument Framework/SMOs/Instrument UI/Instrument UI.lvclass"/>
+				<Item Name="getAOconfig.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Instrument.Lockin/API/getAOconfig.vi"/>
+				<Item Name="getREFconfig.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Instrument.Lockin/API/getREFconfig.vi"/>
+				<Item Name="Dictionary--cluster.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/LV to ITX/Data/Typedefs/Dictionary--cluster.ctl"/>
+				<Item Name="Read AWS Credentials File.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/postgreSQL-timescaleDB/Data.S3/API/Read AWS Credentials File.vi"/>
+				<Item Name="Set Bucket.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/postgreSQL-timescaleDB/Data.S3/API/Set Bucket.vi"/>
+				<Item Name="Upload File.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/postgreSQL-timescaleDB/Data.S3/API/Upload File.vi"/>
+				<Item Name="getAI.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Instrument.Lockin/API/getAI.vi"/>
+				<Item Name="Sweep Configuration--Cluster.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Lockin.DAQ/Typedefs/Sweep Configuration--Cluster.ctl"/>
+				<Item Name="State-enum.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Lockin.DAQ/Typedefs/State-enum.ctl"/>
+				<Item Name="setIVmodeConfig.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Instrument.Lockin/API/setIVmodeConfig.vi"/>
+				<Item Name="Instrument.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Instrument Framework/SMOs/Instrument/Instrument.lvclass"/>
+				<Item Name="Sweep Pattern--Enum.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Lockin.DAQ/Typedefs/Sweep Pattern--Enum.ctl"/>
+				<Item Name="Sweep Channel--Cluster.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Instrument.Lockinl.UI/Typedefs/Sweep Channel--Cluster.ctl"/>
 			</Item>
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Add State(s) to Queue__jki_lib_state_machine.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/State Machine/_JKI_lib_State_Machine.llb/Add State(s) to Queue__jki_lib_state_machine.vi"/>
 				<Item Name="ArrayToCluster.vi" Type="VI" URL="/&lt;vilib&gt;/JKI/JKI SMO/Utilities/ArrayToCluster.vi"/>
-				<Item Name="Attribute.Config.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/JKI/JKI SMO/Support/Attribute.Config/Attribute.Config.lvclass"/>
 				<Item Name="Attribute.Identity.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/JKI/JKI SMO/Support/Attribute.Identity/Attribute.Identity.lvclass"/>
 				<Item Name="Attribute.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/JKI/JKI SMO/Support/Attribute/Attribute.lvclass"/>
 				<Item Name="Attribute.Owner.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/JKI/JKI SMO/Support/Attribute.Owner/Attribute.Owner.lvclass"/>
@@ -734,9 +644,6 @@
 				<Item Name="I128 Timestamp.ctl" Type="VI" URL="/&lt;vilib&gt;/Waveform/TSOps.llb/I128 Timestamp.ctl"/>
 				<Item Name="DU64_U32SubtractWithBorrow.vi" Type="VI" URL="/&lt;vilib&gt;/Waveform/TSOps.llb/DU64_U32SubtractWithBorrow.vi"/>
 				<Item Name="Check for Equality.vi" Type="VI" URL="/&lt;vilib&gt;/Waveform/WDTOps.llb/Check for Equality.vi"/>
-				<Item Name="LabVIEWHTTPClient.lvlib" Type="Library" URL="/&lt;vilib&gt;/httpClient/LabVIEWHTTPClient.lvlib"/>
-				<Item Name="Path To Command Line String.vi" Type="VI" URL="/&lt;vilib&gt;/AdvancedString/Path To Command Line String.vi"/>
-				<Item Name="PathToUNIXPathString.vi" Type="VI" URL="/&lt;vilib&gt;/Platform/CFURL.llb/PathToUNIXPathString.vi"/>
 				<Item Name="DWDT Error Code.vi" Type="VI" URL="/&lt;vilib&gt;/Waveform/DWDTOps.llb/DWDT Error Code.vi"/>
 				<Item Name="WDT Append Waveforms I64.vi" Type="VI" URL="/&lt;vilib&gt;/Waveform/WDTOps.llb/WDT Append Waveforms I64.vi"/>
 				<Item Name="WDT Append Waveforms I32.vi" Type="VI" URL="/&lt;vilib&gt;/Waveform/WDTOps.llb/WDT Append Waveforms I32.vi"/>
@@ -792,9 +699,6 @@
 				<Item Name="UpdateScrollbarBeforeKeyEvent.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/tdmsutil.llb/UpdateScrollbarBeforeKeyEvent.vi"/>
 				<Item Name="UpdateListBoxAfterKeyEvent.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/tdmsutil.llb/UpdateListBoxAfterKeyEvent.vi"/>
 				<Item Name="GoTo.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/tdmsutil.llb/GoTo.vi"/>
-				<Item Name="Get Type of Variant.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/GetType.llb/Get Type of Variant.vi"/>
-				<Item Name="Type Enum.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/GetType.llb/Type Enum.ctl"/>
-				<Item Name="VariantType to Type Code.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/GetType.llb/VariantType to Type Code.vi"/>
 				<Item Name="LMH-Toolbox.lvlib" Type="Library" URL="/&lt;vilib&gt;/MakerHub/Toolbox/LMH-Toolbox.lvlib"/>
 				<Item Name="NI STM.lvlib" Type="Library" URL="/&lt;vilib&gt;/NI/STM/NI STM.lvlib"/>
 				<Item Name="TCP Listen.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/tcp.llb/TCP Listen.vi"/>
@@ -812,13 +716,10 @@
 				<Item Name="NI_DigFilter_Process.lvlib" Type="Library" URL="/&lt;vilib&gt;/addons/Digital Filter Design/NI_DigFilter_Process.lvlib"/>
 				<Item Name="System Exec.vi" Type="VI" URL="/&lt;vilib&gt;/Platform/system.llb/System Exec.vi"/>
 				<Item Name="LVNumericRepresentation.ctl" Type="VI" URL="/&lt;vilib&gt;/numeric/LVNumericRepresentation.ctl"/>
-				<Item Name="DWDT Empty Digital.vi" Type="VI" URL="/&lt;vilib&gt;/Waveform/DWDTOps.llb/DWDT Empty Digital.vi"/>
-				<Item Name="DTbl Empty Digital.vi" Type="VI" URL="/&lt;vilib&gt;/Waveform/DTblOps.llb/DTbl Empty Digital.vi"/>
 				<Item Name="DAQmx Self Calibrate.vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/calibration/calibrationInfo.llb/DAQmx Self Calibrate.vi"/>
 				<Item Name="ProgressBar_WireFlow.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/addons/WireFlow/_WF_ProgressBar.llb/ProgressBar_WireFlow.lvclass"/>
 				<Item Name="ProgressBar_Win_WireFlow.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/addons/WireFlow/_WF_ProgressBar.llb/ProgressBar_Win_WireFlow.lvclass"/>
 				<Item Name="DAQmx Create Virtual Channel.vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Virtual Channel.vi"/>
-				<Item Name="DAQmx Configure Input Buffer.vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/configure/buffer.llb/DAQmx Configure Input Buffer.vi"/>
 				<Item Name="DAQmx Create Channel (AI-Voltage-Basic).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (AI-Voltage-Basic).vi"/>
 				<Item Name="DAQmx Read.vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/read.llb/DAQmx Read.vi"/>
 				<Item Name="DAQmx Read (Analog 1D Wfm NChan NSamp).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/read.llb/DAQmx Read (Analog 1D Wfm NChan NSamp).vi"/>
@@ -880,14 +781,6 @@
 				<Item Name="VISA Configure Serial Port (Serial Instr).vi" Type="VI" URL="/&lt;vilib&gt;/Instr/_visa.llb/VISA Configure Serial Port (Serial Instr).vi"/>
 				<Item Name="subDisplayMessage.vi" Type="VI" URL="/&lt;vilib&gt;/express/express output/DisplayMessageBlock.llb/subDisplayMessage.vi"/>
 				<Item Name="JDP Utility.lvlib" Type="Library" URL="/&lt;vilib&gt;/JDP Science/JDP Science Common Utilities/JDP Utility.lvlib"/>
-				<Item Name="LVPoint32TypeDef.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/miscctls.llb/LVPoint32TypeDef.ctl"/>
-				<Item Name="RectSize.vi" Type="VI" URL="/&lt;vilib&gt;/picture/PictureSupport.llb/RectSize.vi"/>
-				<Item Name="LVPointTypeDef.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/miscctls.llb/LVPointTypeDef.ctl"/>
-				<Item Name="Rectangle Size__lava_lib_ui_tools.vi" Type="VI" URL="/&lt;vilib&gt;/LAVA/UI Tools/Alignment/Rectangle Size__lava_lib_ui_tools.vi"/>
-				<Item Name="RectCentroid.vi" Type="VI" URL="/&lt;vilib&gt;/picture/PictureSupport.llb/RectCentroid.vi"/>
-				<Item Name="InsetRect.vi" Type="VI" URL="/&lt;vilib&gt;/picture/PictureSupport.llb/InsetRect.vi"/>
-				<Item Name="PointInRect.vi" Type="VI" URL="/&lt;vilib&gt;/picture/PictureSupport.llb/PointInRect.vi"/>
-				<Item Name="Point2Rect.vi" Type="VI" URL="/&lt;vilib&gt;/picture/PictureSupport.llb/Point2Rect.vi"/>
 				<Item Name="zeromq.lvlib" Type="Library" URL="/&lt;vilib&gt;/addons/zeromq/zeromq.lvlib"/>
 				<Item Name="Application Directory.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Application Directory.vi"/>
 				<Item Name="NI_Matrix.lvlib" Type="Library" URL="/&lt;vilib&gt;/Analysis/Matrix/NI_Matrix.lvlib"/>
@@ -908,7 +801,6 @@
 				<Item Name="High Resolution Relative Seconds.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/High Resolution Relative Seconds.vi"/>
 				<Item Name="Librarian Path Location.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/libraryn.llb/Librarian Path Location.vi"/>
 				<Item Name="Has LLB Extension.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/libraryn.llb/Has LLB Extension.vi"/>
-				<Item Name="Get File System.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/sysinfo.llb/Get File System.vi"/>
 				<Item Name="Get File System Separator.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/sysinfo.llb/Get File System Separator.vi"/>
 				<Item Name="compatOverwrite.vi" Type="VI" URL="/&lt;vilib&gt;/_oldvers/_oldvers.llb/compatOverwrite.vi"/>
 				<Item Name="Temp Filename.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/libraryn.llb/Temp Filename.vi"/>
@@ -933,11 +825,6 @@
 				<Item Name="NI_PID_pid.lvlib" Type="Library" URL="/&lt;vilib&gt;/addons/control/pid/NI_PID_pid.lvlib"/>
 				<Item Name="lvpidtkt.dll" Type="Document" URL="/&lt;vilib&gt;/addons/control/pid/lvpidtkt.dll"/>
 				<Item Name="NI_PID__prctrl compat.lvlib" Type="Library" URL="/&lt;vilib&gt;/addons/control/pid/NI_PID__prctrl compat.lvlib"/>
-				<Item Name="NI_AWS_Core.lvlib" Type="Library" URL="/&lt;vilib&gt;/AWS Toolkit/Core/NI_AWS_Core.lvlib"/>
-				<Item Name="NI_XML Parsing.lvlib" Type="Library" URL="/&lt;vilib&gt;/AWS Toolkit/XML Parsing/NI_XML Parsing.lvlib"/>
-				<Item Name="i3-external-encryption.lvlib" Type="Library" URL="/&lt;vilib&gt;/LVH/i3 External Encryption/i3-external-encryption.lvlib"/>
-				<Item Name="NI_AWS_S3.lvlib" Type="Library" URL="/&lt;vilib&gt;/AWS Toolkit/S3/NI_AWS_S3.lvlib"/>
-				<Item Name="NI_AWS_IAM.lvlib" Type="Library" URL="/&lt;vilib&gt;/AWS Toolkit/IAM/NI_AWS_IAM.lvlib"/>
 				<Item Name="NI_DigFilter_FXP.lvlib" Type="Library" URL="/&lt;vilib&gt;/addons/Digital Filter Design/NI_DigFilter_FXP.lvlib"/>
 				<Item Name="dfd_Mutate Filter Obj QSetting 0x100 to 0x200.vi" Type="VI" URL="/&lt;vilib&gt;/addons/Digital Filter Design/_Objects.llb/dfd_Mutate Filter Obj QSetting 0x100 to 0x200.vi"/>
 				<Item Name="remez_Filter Implementation Info.ctl" Type="VI" URL="/&lt;vilib&gt;/addons/Digital Filter Design/_REMEZ.llb/remez_Filter Implementation Info.ctl"/>
@@ -1144,12 +1031,323 @@
 				<Item Name="Get LV Class Default Value.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/LVClass/Get LV Class Default Value.vi"/>
 				<Item Name="NI_AAL_SigProc.lvlib" Type="Library" URL="/&lt;vilib&gt;/Analysis/NI_AAL_SigProc.lvlib"/>
 				<Item Name="def.SMO.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/JKI/JKI SMO/Definitions/def.SMO/def.SMO.lvclass"/>
-				<Item Name="CfgManager.lvlib" Type="Library" URL="/&lt;vilib&gt;/LabVIEW Open Source Project/Configuration Manager/CfgManager.lvlib"/>
 				<Item Name="Attribute.Dependencies.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/JKI/JKI SMO/Support/Attribute.Dependencies/Attribute.Dependencies.lvclass"/>
-				<Item Name="Variant_SetName.vi" Type="VI" URL="/&lt;vilib&gt;/LabVIEW Open Source/Data Manipulation/Variant/Variant_SetName.vi"/>
-				<Item Name="Variant_GetName.vi" Type="VI" URL="/&lt;vilib&gt;/LabVIEW Open Source/Data Manipulation/Variant/Variant_GetName.vi"/>
-				<Item Name="Variant_ExtractClusterElements.vi" Type="VI" URL="/&lt;vilib&gt;/LabVIEW Open Source/Data Manipulation/Variant/Variant_ExtractClusterElements.vi"/>
-				<Item Name="KVP Parser.vi" Type="VI" URL="/&lt;vilib&gt;/LabVIEW Open Source/Data Manipulation/KVP Parser.vi"/>
+				<Item Name="Attribute.ErrorHandling.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/JKI/JKI SMO/Support/Attribute.ErrorHandling/Attribute.ErrorHandling.lvclass"/>
+				<Item Name="1D String Array to Delimited String.vi" Type="VI" URL="/&lt;vilib&gt;/AdvancedString/1D String Array to Delimited String.vi"/>
+				<Item Name="JSONtext.lvlib" Type="Library" URL="/&lt;vilib&gt;/JDP Science/JSONtext/JSONtext.lvlib"/>
+				<Item Name="JSONtext LVClass Serializer.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/JDP Science/JSONtext/LVClass Serializer/JSONtext LVClass Serializer.lvclass"/>
+				<Item Name="JDP Timestamp.lvlib" Type="Library" URL="/&lt;vilib&gt;/JDP Science/JDP Science Common Utilities/Timestamp/JDP Timestamp.lvlib"/>
+				<Item Name="Base64 Support.lvlib" Type="Library" URL="/&lt;vilib&gt;/JDP Science/JDP Science Common Utilities/Base64/Base64 Support.lvlib"/>
+				<Item Name="Delimited String to 1D String Array.vi" Type="VI" URL="/&lt;vilib&gt;/AdvancedString/Delimited String to 1D String Array.vi"/>
+				<Item Name="Random Number (Range).vi" Type="VI" URL="/&lt;vilib&gt;/numeric/Random Number (Range).vi"/>
+				<Item Name="Random Number (Range) DBL.vi" Type="VI" URL="/&lt;vilib&gt;/numeric/Random Number (Range) DBL.vi"/>
+				<Item Name="Random Number (Range) I64.vi" Type="VI" URL="/&lt;vilib&gt;/numeric/Random Number (Range) I64.vi"/>
+				<Item Name="sub_Random U32.vi" Type="VI" URL="/&lt;vilib&gt;/numeric/sub_Random U32.vi"/>
+				<Item Name="Random Number (Range) U64.vi" Type="VI" URL="/&lt;vilib&gt;/numeric/Random Number (Range) U64.vi"/>
+				<Item Name="Create Directory Recursive.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/libraryn.llb/Create Directory Recursive.vi"/>
+				<Item Name="Is Path and Not Empty.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Is Path and Not Empty.vi"/>
+				<Item Name="LVMapReplaceAction.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/miscctls.llb/LVMapReplaceAction.ctl"/>
+				<Item Name="Caraya.lvlib" Type="Library" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/Caraya/Caraya.lvlib"/>
+				<Item Name="Caraya Interactive Menu.rtm" Type="Document" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/Caraya/menu/Caraya Interactive Menu.rtm"/>
+				<Item Name="imagedata.ctl" Type="VI" URL="/&lt;vilib&gt;/picture/picture.llb/imagedata.ctl"/>
+				<Item Name="Path to URL inner.vi" Type="VI" URL="/&lt;vilib&gt;/printing/PathToURL.llb/Path to URL inner.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BFile Exists__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BFile Exists__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BFile Exists - Scalar__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BFile Exists - Scalar__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BFile Exists - Array__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BFile Exists - Array__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BRemove Duplicates from 1D Array__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BRemove Duplicates from 1D Array__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BRemove Duplicates from 1D Array (Path)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BRemove Duplicates from 1D Array (Path)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BRemove Duplicates from 1D Array (CDB)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BRemove Duplicates from 1D Array (CDB)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BRemove Duplicates from 1D Array (CSG)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BRemove Duplicates from 1D Array (CSG)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BRemove Duplicates from 1D Array (CXT)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BRemove Duplicates from 1D Array (CXT)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BRemove Duplicates from 1D Array (DBL)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BRemove Duplicates from 1D Array (DBL)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BRemove Duplicates from 1D Array (EXT)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BRemove Duplicates from 1D Array (EXT)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BRemove Duplicates from 1D Array (I16)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BRemove Duplicates from 1D Array (I16)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BRemove Duplicates from 1D Array (I32)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BRemove Duplicates from 1D Array (I32)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BRemove Duplicates from 1D Array (I8)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BRemove Duplicates from 1D Array (I8)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BRemove Duplicates from 1D Array (SGL)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BRemove Duplicates from 1D Array (SGL)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BRemove Duplicates from 1D Array (String)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BRemove Duplicates from 1D Array (String)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BRemove Duplicates from 1D Array (U16)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BRemove Duplicates from 1D Array (U16)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BRemove Duplicates from 1D Array (U32)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BRemove Duplicates from 1D Array (U32)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BRemove Duplicates from 1D Array (U8)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BRemove Duplicates from 1D Array (U8)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BRemove Duplicates from 1D Array (Variant)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BRemove Duplicates from 1D Array (Variant)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BRemove Duplicates from 1D Array (Boolean)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BRemove Duplicates from 1D Array (Boolean)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BRemove Duplicates from 1D Array (I64)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BRemove Duplicates from 1D Array (I64)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BRemove Duplicates from 1D Array (U64)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BRemove Duplicates from 1D Array (U64)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BRemove Duplicates from 1D Array (LVObject)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BRemove Duplicates from 1D Array (LVObject)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BList Directory Recursive__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BList Directory Recursive__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BList Directory__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BList Directory__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BTrim Whitespace__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BTrim Whitespace__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BTrim Whitespace (String)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BTrim Whitespace (String)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BTrim Whitespace (String Array)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BTrim Whitespace (String Array)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BBuild Path__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BBuild Path__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BBuild Path - Traditional__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BBuild Path - Traditional__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BBuild Path - File Names Array__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BBuild Path - File Names Array__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BBuild Path - File Names and Paths Arrays__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BBuild Path - File Names and Paths Arrays__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BBuild Path - Traditional - path__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BBuild Path - Traditional - path__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BBuild Path - File Names Array - path__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BBuild Path - File Names Array - path__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BBuild Path - File Names and Paths Arrays - path__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BBuild Path - File Names and Paths Arrays - path__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BBuild Error Cluster__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BBuild Error Cluster__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BFilter 1D Array__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BFilter 1D Array__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BFilter 1D Array (String)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BFilter 1D Array (String)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSearch Array__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSearch Array__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSearch 1D Array (SGL)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSearch 1D Array (SGL)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSearch 1D Array (DBL)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSearch 1D Array (DBL)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSearch 1D Array (EXT)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSearch 1D Array (EXT)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSearch 1D Array (CSG)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSearch 1D Array (CSG)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSearch 1D Array (CDB)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSearch 1D Array (CDB)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSearch 1D Array (CXT)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSearch 1D Array (CXT)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSearch 1D Array (I8)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSearch 1D Array (I8)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSearch 1D Array (I16)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSearch 1D Array (I16)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSearch 1D Array (I32)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSearch 1D Array (I32)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSearch 1D Array (U8)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSearch 1D Array (U8)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSearch 1D Array (U16)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSearch 1D Array (U16)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSearch 1D Array (U32)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSearch 1D Array (U32)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSearch 1D Array (Boolean)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSearch 1D Array (Boolean)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSearch 1D Array (String)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSearch 1D Array (String)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSearch 1D Array (Path)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSearch 1D Array (Path)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSearch 1D Array (Variant)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSearch 1D Array (Variant)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSearch 1D Array (U64)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSearch 1D Array (U64)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSearch 1D Array (I64)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSearch 1D Array (I64)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSearch 1D Array (LVObject)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSearch 1D Array (LVObject)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BDelete Elements from Array__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BDelete Elements from Array__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BDelete Elements from 1D Array (Boolean)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BDelete Elements from 1D Array (Boolean)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSort Array__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSort Array__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSort 1D Array (CDB)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSort 1D Array (CDB)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BReorder 1D Array (CDB)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BReorder 1D Array (CDB)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSort 1D Array (CXT)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSort 1D Array (CXT)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BReorder 1D Array (CXT)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BReorder 1D Array (CXT)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSort 1D Array (CSG)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSort 1D Array (CSG)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BReorder 1D Array (CSG)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BReorder 1D Array (CSG)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSort 1D Array (DBL)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSort 1D Array (DBL)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSort 1D Array (EXT)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSort 1D Array (EXT)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSort 1D Array (I16)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSort 1D Array (I16)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSort 1D Array (I32)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSort 1D Array (I32)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSort 1D Array (I8)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSort 1D Array (I8)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSort 1D Array (SGL)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSort 1D Array (SGL)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSort 1D Array (U16)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSort 1D Array (U16)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSort 1D Array (U32)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSort 1D Array (U32)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSort 1D Array (U8)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSort 1D Array (U8)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSort 2D Array (CDB)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSort 2D Array (CDB)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSort 2D Array (CXT)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSort 2D Array (CXT)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSort 2D Array (CSG)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSort 2D Array (CSG)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSort 2D Array (DBL)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSort 2D Array (DBL)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSort 2D Array (EXT)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSort 2D Array (EXT)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSort 2D Array (I16)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSort 2D Array (I16)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSort 2D Array (I32)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSort 2D Array (I32)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSort 2D Array (I8)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSort 2D Array (I8)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSort 2D Array (SGL)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSort 2D Array (SGL)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSort 2D Array (U16)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSort 2D Array (U16)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSort 2D Array (U32)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSort 2D Array (U32)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSort 2D Array (U8)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSort 2D Array (U8)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSort 1D Array (Path)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSort 1D Array (Path)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSort 1D Array (String)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSort 1D Array (String)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSort 2D Array (Path)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSort 2D Array (Path)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSort 2D Array (String)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSort 2D Array (String)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSort 1D Array (I64)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSort 1D Array (I64)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSort 1D Array (U64)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSort 1D Array (U64)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSort 2D Array (I64)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSort 2D Array (I64)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSort 2D Array (U64)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSort 2D Array (U64)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BReorder Array2__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BReorder Array2__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BReorder 1D Array2 (CDB)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BReorder 1D Array2 (CDB)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BReorder 1D Array2 (CXT)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BReorder 1D Array2 (CXT)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BReorder 1D Array2 (CSG)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BReorder 1D Array2 (CSG)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BReorder 1D Array2 (DBL)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BReorder 1D Array2 (DBL)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BReorder 1D Array2 (EXT)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BReorder 1D Array2 (EXT)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BReorder 1D Array2 (I16)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BReorder 1D Array2 (I16)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BReorder 1D Array2 (I32)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BReorder 1D Array2 (I32)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BReorder 1D Array2 (I8)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BReorder 1D Array2 (I8)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BReorder 1D Array2 (SGL)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BReorder 1D Array2 (SGL)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BReorder 1D Array2 (U16)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BReorder 1D Array2 (U16)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BReorder 1D Array2 (U32)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BReorder 1D Array2 (U32)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BReorder 1D Array2 (U8)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BReorder 1D Array2 (U8)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BReorder 1D Array2 (Boolean)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BReorder 1D Array2 (Boolean)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BReorder 1D Array2 (String)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BReorder 1D Array2 (String)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BReorder 1D Array2 (Path)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BReorder 1D Array2 (Path)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BReorder 1D Array2 (Variant)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BReorder 1D Array2 (Variant)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BReorder 2D Array2 (Boolean)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BReorder 2D Array2 (Boolean)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BReorder 2D Array2 (CDB)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BReorder 2D Array2 (CDB)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BReorder 2D Array2 (CSG)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BReorder 2D Array2 (CSG)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BReorder 2D Array2 (CXT)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BReorder 2D Array2 (CXT)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BReorder 2D Array2 (DBL)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BReorder 2D Array2 (DBL)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BReorder 2D Array2 (EXT)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BReorder 2D Array2 (EXT)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BReorder 2D Array2 (I8)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BReorder 2D Array2 (I8)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BReorder 2D Array2 (I16)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BReorder 2D Array2 (I16)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BReorder 2D Array2 (I32)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BReorder 2D Array2 (I32)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BReorder 2D Array2 (Path)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BReorder 2D Array2 (Path)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BReorder 2D Array2 (SGL)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BReorder 2D Array2 (SGL)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BReorder 2D Array2 (String)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BReorder 2D Array2 (String)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BReorder 2D Array2 (U8)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BReorder 2D Array2 (U8)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BReorder 2D Array2 (U16)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BReorder 2D Array2 (U16)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BReorder 2D Array2 (U32)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BReorder 2D Array2 (U32)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BReorder 2D Array2 (Variant)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BReorder 2D Array2 (Variant)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BReorder 1D Array2 (I64)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BReorder 1D Array2 (I64)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BReorder 1D Array2 (U64)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BReorder 1D Array2 (U64)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BReorder 2D Array2 (I64)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BReorder 2D Array2 (I64)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BReorder 2D Array2 (U64)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BReorder 2D Array2 (U64)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BReorder 1D Array2 (LVObject)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BReorder 1D Array2 (LVObject)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BReorder 2D Array2 (LVObject)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BReorder 2D Array2 (LVObject)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BDelete Elements from 1D Array (CDB)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BDelete Elements from 1D Array (CDB)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BDelete Elements from 1D Array (CSG)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BDelete Elements from 1D Array (CSG)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BDelete Elements from 1D Array (DBL)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BDelete Elements from 1D Array (DBL)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BDelete Elements from 1D Array (CXT)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BDelete Elements from 1D Array (CXT)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BDelete Elements from 1D Array (EXT)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BDelete Elements from 1D Array (EXT)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BDelete Elements from 1D Array (I8)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BDelete Elements from 1D Array (I8)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BDelete Elements from 1D Array (I16)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BDelete Elements from 1D Array (I16)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BDelete Elements from 1D Array (I32)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BDelete Elements from 1D Array (I32)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BDelete Elements from 1D Array (Path)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BDelete Elements from 1D Array (Path)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BDelete Elements from 1D Array (SGL)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BDelete Elements from 1D Array (SGL)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BDelete Elements from 1D Array (String)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BDelete Elements from 1D Array (String)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BDelete Elements from 1D Array (U8)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BDelete Elements from 1D Array (U8)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BDelete Elements from 1D Array (U16)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BDelete Elements from 1D Array (U16)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BDelete Elements from 1D Array (U32)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BDelete Elements from 1D Array (U32)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BDelete Elements from 1D Array (Variant)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BDelete Elements from 1D Array (Variant)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BDelete Elements from 2D Array (Boolean)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BDelete Elements from 2D Array (Boolean)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BDelete Elements from 2D Array (CDB)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BDelete Elements from 2D Array (CDB)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BDelete Elements from 2D Array (CSG)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BDelete Elements from 2D Array (CSG)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BDelete Elements from 2D Array (CXT)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BDelete Elements from 2D Array (CXT)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BDelete Elements from 2D Array (DBL)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BDelete Elements from 2D Array (DBL)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BDelete Elements from 2D Array (EXT)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BDelete Elements from 2D Array (EXT)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BDelete Elements from 2D Array (I8)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BDelete Elements from 2D Array (I8)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BDelete Elements from 2D Array (I16)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BDelete Elements from 2D Array (I16)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BDelete Elements from 2D Array (I32)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BDelete Elements from 2D Array (I32)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BDelete Elements from 2D Array (Path)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BDelete Elements from 2D Array (Path)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BDelete Elements from 2D Array (SGL)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BDelete Elements from 2D Array (SGL)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BDelete Elements from 2D Array (String)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BDelete Elements from 2D Array (String)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BDelete Elements from 2D Array (U8)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BDelete Elements from 2D Array (U8)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BDelete Elements from 2D Array (U16)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BDelete Elements from 2D Array (U16)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BDelete Elements from 2D Array (U32)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BDelete Elements from 2D Array (U32)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BDelete Elements from 2D Array (Variant)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BDelete Elements from 2D Array (Variant)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BDelete Elements from 1D Array (I64)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BDelete Elements from 1D Array (I64)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BDelete Elements from 1D Array (U64)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BDelete Elements from 1D Array (U64)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BDelete Elements from 2D Array (I64)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BDelete Elements from 2D Array (I64)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BDelete Elements from 2D Array (U64)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BDelete Elements from 2D Array (U64)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BDelete Elements from 1D Array (LVObject)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BDelete Elements from 1D Array (LVObject)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BDelete Elements from 2D Array (LVObject)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BDelete Elements from 2D Array (LVObject)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BFilter 1D Array (U8)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BFilter 1D Array (U8)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BFilter 1D Array (Path)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BFilter 1D Array (Path)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BFilter 1D Array (U32)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BFilter 1D Array (U32)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BFilter 1D Array (U16)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BFilter 1D Array (U16)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BFilter 1D Array (I16)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BFilter 1D Array (I16)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BFilter 1D Array (I32)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BFilter 1D Array (I32)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BFilter 1D Array (I8)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BFilter 1D Array (I8)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BFilter 1D Array (Variant)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BFilter 1D Array (Variant)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BFilter 1D Array (Boolean)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BFilter 1D Array (Boolean)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BFilter 1D Array (CXT)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BFilter 1D Array (CXT)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BFilter 1D Array (CDB)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BFilter 1D Array (CDB)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BFilter 1D Array (CSG)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BFilter 1D Array (CSG)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BFilter 1D Array (EXT)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BFilter 1D Array (EXT)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BFilter 1D Array (DBL)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BFilter 1D Array (DBL)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BFilter 1D Array (SGL)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BFilter 1D Array (SGL)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BFilter 1D Array with Scalar (Boolean)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BFilter 1D Array with Scalar (Boolean)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BFilter 1D Array with Scalar (CDB)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BFilter 1D Array with Scalar (CDB)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BFilter 1D Array with Scalar (CSG)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BFilter 1D Array with Scalar (CSG)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BFilter 1D Array with Scalar (CXT)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BFilter 1D Array with Scalar (CXT)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BFilter 1D Array with Scalar (DBL)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BFilter 1D Array with Scalar (DBL)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BFilter 1D Array with Scalar (EXT)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BFilter 1D Array with Scalar (EXT)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BFilter 1D Array with Scalar (I8)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BFilter 1D Array with Scalar (I8)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BFilter 1D Array with Scalar (I16)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BFilter 1D Array with Scalar (I16)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BFilter 1D Array with Scalar (I32)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BFilter 1D Array with Scalar (I32)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BFilter 1D Array with Scalar (Path)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BFilter 1D Array with Scalar (Path)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BFilter 1D Array with Scalar (SGL)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BFilter 1D Array with Scalar (SGL)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BFilter 1D Array with Scalar (String)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BFilter 1D Array with Scalar (String)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BFilter 1D Array with Scalar (U8)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BFilter 1D Array with Scalar (U8)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BFilter 1D Array with Scalar (U16)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BFilter 1D Array with Scalar (U16)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BFilter 1D Array with Scalar (U32)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BFilter 1D Array with Scalar (U32)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BFilter 1D Array with Scalar (Variant)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BFilter 1D Array with Scalar (Variant)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BFilter 1D Array (I64)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BFilter 1D Array (I64)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BFilter 1D Array (U64)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BFilter 1D Array (U64)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BFilter 1D Array with Scalar (I64)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BFilter 1D Array with Scalar (I64)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BFilter 1D Array with Scalar (U64)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BFilter 1D Array with Scalar (U64)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BFilter 1D Array (LVObject)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BFilter 1D Array (LVObject)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BFilter 1D Array with Scalar (LVObject)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BFilter 1D Array with Scalar (LVObject)__ogtk.vi"/>
+				<Item Name="TRef TravTarget.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/traverseref.llb/TRef TravTarget.ctl"/>
+				<Item Name="TRef Traverse for References.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/traverseref.llb/TRef Traverse for References.vi"/>
+				<Item Name="VI Scripting - Traverse.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/traverseref.llb/VI Scripting - Traverse.lvlib"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BStrip Path Extension__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BStrip Path Extension__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BStrip Path Extension - Path__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BStrip Path Extension - Path__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BStrip Path Extension - String__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BStrip Path Extension - String__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BStrip Path Extension - 1D Array of Paths__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BStrip Path Extension - 1D Array of Paths__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BStrip Path Extension - 1D Array of Strings__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BStrip Path Extension - 1D Array of Strings__ogtk.vi"/>
+				<Item Name="Dflt Data Dir.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Dflt Data Dir.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BEmpty Array__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BEmpty Array__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BEmpty 1D Array (Boolean)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BEmpty 1D Array (Boolean)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BEmpty 1D Array (CDB)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BEmpty 1D Array (CDB)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BEmpty 1D Array (CXT)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BEmpty 1D Array (CXT)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BEmpty 1D Array (CSG)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BEmpty 1D Array (CSG)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BEmpty 1D Array (DBL)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BEmpty 1D Array (DBL)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BEmpty 1D Array (EXT)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BEmpty 1D Array (EXT)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BEmpty 1D Array (I8)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BEmpty 1D Array (I8)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BEmpty 1D Array (I16)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BEmpty 1D Array (I16)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BEmpty 1D Array (I32)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BEmpty 1D Array (I32)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BEmpty 1D Array (Path)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BEmpty 1D Array (Path)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BEmpty 1D Array (SGL)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BEmpty 1D Array (SGL)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BEmpty 1D Array (String)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BEmpty 1D Array (String)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BEmpty 1D Array (U8)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BEmpty 1D Array (U8)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BEmpty 1D Array (U16)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BEmpty 1D Array (U16)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BEmpty 1D Array (U32)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BEmpty 1D Array (U32)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BEmpty 1D Array (Variant)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BEmpty 1D Array (Variant)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BEmpty 2D Array (Boolean)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BEmpty 2D Array (Boolean)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BEmpty 2D Array (CDB)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BEmpty 2D Array (CDB)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BEmpty 2D Array (CXT)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BEmpty 2D Array (CXT)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BEmpty 2D Array (CSG)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BEmpty 2D Array (CSG)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BEmpty 2D Array (DBL)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BEmpty 2D Array (DBL)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BEmpty 2D Array (EXT)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BEmpty 2D Array (EXT)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BEmpty 2D Array (I8)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BEmpty 2D Array (I8)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BEmpty 2D Array (I16)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BEmpty 2D Array (I16)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BEmpty 2D Array (I32)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BEmpty 2D Array (I32)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BEmpty 2D Array (Path)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BEmpty 2D Array (Path)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BEmpty 2D Array (SGL)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BEmpty 2D Array (SGL)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BEmpty 2D Array (String)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BEmpty 2D Array (String)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BEmpty 2D Array (U8)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BEmpty 2D Array (U8)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BEmpty 2D Array (U16)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BEmpty 2D Array (U16)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BEmpty 2D Array (U32)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BEmpty 2D Array (U32)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BEmpty 2D Array (Variant)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BEmpty 2D Array (Variant)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BEmpty Array (Variant)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BEmpty Array (Variant)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BArray Size(s)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BArray Size(s)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BVariant to Header Info__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BVariant to Header Info__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BType Descriptor Header__ogtk.ctl" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BType Descriptor Header__ogtk.ctl"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BType Descriptor Enumeration__ogtk.ctl" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BType Descriptor Enumeration__ogtk.ctl"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BType Descriptor__ogtk.ctl" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BType Descriptor__ogtk.ctl"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BGet Header from TD__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BGet Header from TD__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BEmpty 1D Array (I64)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BEmpty 1D Array (I64)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BEmpty 1D Array (U64)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BEmpty 1D Array (U64)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BEmpty 2D Array (I64)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BEmpty 2D Array (I64)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BEmpty 2D Array (U64)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BEmpty 2D Array (U64)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BEmpty 1D Array (LVObject)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BEmpty 1D Array (LVObject)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BEmpty 2D Array (LVObject)__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BEmpty 2D Array (LVObject)__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BGet Physical Units__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BGet Physical Units__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BPhysical Units__ogtk.ctl" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BPhysical Units__ogtk.ctl"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BGet Physical Units from TD__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BGet Physical Units from TD__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BGet TDEnum from TD__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BGet TDEnum from TD__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BGet Element TD from Array TD__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BGet Element TD from Array TD__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BFormat Variant Into String__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BFormat Variant Into String__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BGet TDEnum from Data__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BGet TDEnum from Data__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BGet Refnum Type Enum from Data__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BGet Refnum Type Enum from Data__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BRefnum Subtype Enum__ogtk.ctl" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BRefnum Subtype Enum__ogtk.ctl"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BGet Refnum Type Enum from TD__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BGet Refnum Type Enum from TD__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BStrip Units__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BStrip Units__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BGet Array Element TDEnum__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BGet Array Element TDEnum__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BGet Strings from Enum__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BGet Strings from Enum__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BGet Strings from Enum TD__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BGet Strings from Enum TD__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BGet PString__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BGet PString__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BGet Waveform Type Enum from Data__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BGet Waveform Type Enum from Data__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BWaveform Subtype Enum__ogtk.ctl" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BWaveform Subtype Enum__ogtk.ctl"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BGet Waveform Type Enum from TD__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BGet Waveform Type Enum from TD__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BResolve Timestamp Format__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BResolve Timestamp Format__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BArray to Array of VData__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BArray to Array of VData__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BReshape Array to 1D VArray__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BReshape Array to 1D VArray__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BGet Data Name__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BGet Data Name__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BGet Data Name from TD__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BGet Data Name from TD__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BGet Last PString__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BGet Last PString__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSet Data Name__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSet Data Name__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BGet Variant Attributes__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BGet Variant Attributes__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BCluster to Array of VData__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BCluster to Array of VData__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BSplit Cluster TD__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BSplit Cluster TD__ogtk.vi"/>
+				<Item Name="3494A183FEBB6A11205EA059762AB79BParse String with TDs__ogtk.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/_Caraya_internal_deps/3494A183FEBB6A11205EA059762AB79BParse String with TDs__ogtk.vi"/>
+				<Item Name="DAQmx Is Task Done.vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/configure/task.llb/DAQmx Is Task Done.vi"/>
+				<Item Name="Assert Array Dimension Count.vim" Type="VI" URL="/&lt;vilib&gt;/Utility/TypeAssert/Assert Array Dimension Count.vim"/>
+				<Item Name="Assert Scalar Numeric Type.vim" Type="VI" URL="/&lt;vilib&gt;/Utility/TypeAssert/Assert Scalar Numeric Type.vim"/>
+				<Item Name="TRef Traverse.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/traverseref.llb/TRef Traverse.vi"/>
 			</Item>
 			<Item Name="lvanlys.dll" Type="Document" URL="/&lt;resource&gt;/lvanlys.dll"/>
 			<Item Name="mscorlib" Type="VI" URL="mscorlib">
@@ -1159,16 +1357,10 @@
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 			<Item Name="LVDFD.dll" Type="Document" URL="/&lt;resource&gt;/LVDFD.dll"/>
-			<Item Name="kernel32.dll" Type="Document" URL="kernel32.dll">
-				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
-			</Item>
 			<Item Name="version.dll" Type="Document" URL="version.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 			<Item Name="System.Management" Type="Document" URL="System.Management">
-				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
-			</Item>
-			<Item Name="shell32.dll" Type="Document" URL="shell32.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 			<Item Name="nilvaiu.dll" Type="Document" URL="nilvaiu.dll">
