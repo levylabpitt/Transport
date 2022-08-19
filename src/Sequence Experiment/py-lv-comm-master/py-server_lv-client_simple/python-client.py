@@ -15,7 +15,7 @@ for y in temperatures:
     command = "Set Temperature >> {}".format(y)
     command_list = command_list + command + ',\n'
     # print(command)
-    for magnet in range(-1,1):
+    for magnet in range(-5,1):
         command = "Set Magnet >> {}".format(magnet)
         # print(command)
         command_list = command_list + command + ',\n'
