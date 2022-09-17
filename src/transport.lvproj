@@ -501,6 +501,8 @@
 				<Item Name="Instrument.DAQ.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Instrument.DAQ/Instrument.DAQ.lvclass"/>
 				<Item Name="Waveform Circular Buffer.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Instrument.DAQ/DAQ/Waveform Circular Buffer.vi"/>
 				<Item Name="Instrument UI.Lockin.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Instrument UI.Lockin/Instrument UI.Lockin.lvclass"/>
+				<Item Name="Instrument.Template.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Instrument Framework/Templates/Instrument.Template/Instrument.Template.lvclass"/>
+				<Item Name="Instrument UI.Template.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Instrument Framework/Templates/Instrument UI.Template/Instrument UI.Template.lvclass"/>
 			</Item>
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Check if File or Folder Exists.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/libraryn.llb/Check if File or Folder Exists.vi"/>
@@ -1325,6 +1327,7 @@
 				<Item Name="LVMapReplaceAction.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/miscctls.llb/LVMapReplaceAction.ctl"/>
 				<Item Name="Assert Array Dimension Count.vim" Type="VI" URL="/&lt;vilib&gt;/Utility/TypeAssert/Assert Array Dimension Count.vim"/>
 				<Item Name="Assert Scalar Numeric Type.vim" Type="VI" URL="/&lt;vilib&gt;/Utility/TypeAssert/Assert Scalar Numeric Type.vim"/>
+				<Item Name="DAQmx Control Task.vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/configure/task.llb/DAQmx Control Task.vi"/>
 			</Item>
 			<Item Name="mscorlib" Type="VI" URL="mscorlib">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
@@ -1340,6 +1343,8 @@
 			<Item Name="nisyscfg.dll" Type="Document" URL="nisyscfg.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
+			<Item Name="lp-server-timeouts.vi" Type="VI" URL="/../../Program Files (x86)/National Instruments/LabVIEW 2019/examples/zeromq/examples/lazy-pirate/lp-server-timeouts.vi"/>
+			<Item Name="lp-client.vi" Type="VI" URL="/../../Program Files (x86)/National Instruments/LabVIEW 2019/examples/zeromq/examples/lazy-pirate/lp-client.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
