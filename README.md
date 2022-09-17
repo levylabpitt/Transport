@@ -28,6 +28,16 @@ Basic transport measurements.
 - Sweep Control.vi: Sequencer for stepping multiple parameters. Calls VIs in Transport.lvclass
 - Continuous B sweep.vi: For sweeping B continuously while asynchronously calling VIs in Transport.lvclass
 
+## Sandbox
+A test environment can be set up by configuring the following
+- Multichannel Lock-in
+  - Install [Multichannel Lock-In](https://github.com/levylabpitt/Multichannel-Lockin/releases/latest). Configure simulated PXIe devices in NI MAX (Described in the Multichannel Lock-In Readme)
+- PPMS Cryostat
+  - Install Quantum Design's **Simulate PPMS MultiVu** Software
+  - Install Quantum Design's **QD Instrument Server**
+  - Install [PPMS Monitor and Control](https://github.com/levylabpitt/PPMS-Monitor-and-Control/releases/latest). Run in Simulation mode (PPMSim)
+- Check out or clone this respotiory and try to communicate to the virtual instruments
+
 ## Contributing
 
 Please contact [Patrick Irvin](p.irvin@levylab.org)
