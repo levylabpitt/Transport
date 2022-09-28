@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2022-05-25 15:16:32" Creator="Patrick" Comments="" ID="97ac47bd3cafd71502ebbcadd640704a">
+<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2022-09-28 17:49:18" Creator="Patrick" Comments="" ID="c065d677d9626f6bcf4e3b0c9c5811f0">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_Transport</Package_File_Name>
-    <Library_Version>1.5.3.2</Library_Version>
+    <Library_Version>1.6.0.1</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\src</Library_Source_Folder>
     <Library_Output_Folder>..\builds\Package</Library_Output_Folder>
@@ -145,9 +145,16 @@ Continuous B sweep.vi: For sweeping B continuously while asynchronously calling 
       <Copyright/>
       <Packager/>
       <URL/>
-      <Release_Notes>[1.5.3]
-- Issue #49: Wiring configuration was not being saved in the class FGV
-- Issue #47: Updated instrument configuration: the configuration scheme should be much more flexible to initialize different sub-instrument classes</Release_Notes>
+      <Release_Notes>[1.6.0]
+- Issue #5, #34, #36: IV is deprecated; the preferred transport VIs are Lockin_sweep and Lockin_time
+- Issues #33 #37: Improved control of 2- and 4-terminal resitance or conductance
+- Issue #38: Lockin_time configures itself to save the same number of channels that the lockin is configured for
+- Issue #47: Improved instrument configuration inside Control Experiment.vi
+- Issue #48: Improved axis labels and sweep definition
+- Issue #50: Add emergency stop and smooth sweep to start in Lockin_sweep
+- Issue #51: Fix writing sweep parameters only to first file
+- Issue #52: Vtg (top gate) now available as default option in Control Experiment.vi
+- Issue #60: JSON-formatted metadata now saved in inside the TDMS files rather than in sidecar files</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
@@ -367,7 +374,7 @@ Continuous B sweep.vi: For sweeping B continuously while asynchronously calling 
         <Path>..\src\SweepControl</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>FF21D11BE06B12BF34CA461560016BCB</GUID>
+      <GUID>7E4C1FBB3A4D440E261F3E062F4D99AF</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -472,7 +479,7 @@ Continuous B sweep.vi: For sweeping B continuously while asynchronously calling 
         <Path>..\src\Control Experiment\Tree.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>8FA37DA25338BAA1E44A3D67E2E0ABF8</GUID>
+      <GUID>9129C6B6095035AACFC288C09259AD2E</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -605,7 +612,7 @@ Continuous B sweep.vi: For sweeping B continuously while asynchronously calling 
         <Path>..\src\SweepControl\SweepControl.TestLauncher.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>E3700F4D17688CB361E14C022C7B5A33</GUID>
+      <GUID>F31D6D5F8E77F3BB493A397A66AE2C4E</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -680,20 +687,6 @@ Continuous B sweep.vi: For sweeping B continuously while asynchronously calling 
         </Position>
         <Icon>00000000</Icon>
         <Path>..\src\Transport\IV.vi</Path>
-        <VI_Title/>
-      </Items_Data>
-      <Items_Data>
-        <Type>Item</Type>
-        <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Lockin.vi</NameSub_Menu_Name>
-        <Short_Name/>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>1</Row>
-          <Column>5</Column>
-        </Position>
-        <Icon>00000000</Icon>
-        <Path>..\src\Transport\Lockin.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -780,7 +773,7 @@ Continuous B sweep.vi: For sweeping B continuously while asynchronously calling 
         <Path>..\src\Transport\THz_TimeDelay.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>DF381C2CEFF452A78D5B88E72D393FD6</GUID>
+      <GUID>F9AC67B6E6922D24CA78E4BF09818D43</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -788,7 +781,7 @@ Continuous B sweep.vi: For sweeping B continuously while asynchronously calling 
       <View_Format>Icons</View_Format>
       <Size>
         <Height_Row>3</Height_Row>
-        <Width_Col.>6</Width_Col.>
+        <Width_Col.>8</Width_Col.>
       </Size>
       <_256_Color_Icon>00000367002900000012000000020000000D00FFFFFF000100000000000A0000000800000000002000200028000000E3000000BD0000000C0007001500180000000000FFFFFF0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000FFFFFFFFFFFF000000000000FFFFFFFFFFFF000000000000FFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000000000000000000000FFFFFF000000000000FFFFFFFFFFFF000000000000FFFFFF000000FFFFFF000000FFFFFFFFFFFFFFFFFF000000000000FFFFFF000000FFFFFF000000FFFFFFFFFFFFFFFFFF000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF007F4CFFAAFFECFFA8FFA8FF007F002900000012000000020000000D00CCCCFF000100000000000A00000008001900000020002000280000022C000001F8001900040020001C00180000000000FFFFFF0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF6C0000FFFFFFFFFFFF6C00006C0000FFFFFF6C0000FFFFFF6C0000FFFFFF6C0000FFFFFF6C0000FFFFFF6C0000FFFFFFFFFFFFFFFFFF6C0000FFFFFFFFFFFF6C00006C0000FFFFFF6C0000FFFFFFFFFFFF6C0000FFFFFFFFFFFF6C0000FFFFFF6C0000FFFFFF6C0000FFFFFF6C0000FFFFFF6C0000FFFFFFFFFFFF6C0000FFFFFF6C0000FFFFFF6C0000FFFFFF6C00006C0000FFFFFFFFFFFF6C00006C0000FFFFFF6C0000FFFFFF6C0000FFFFFF6C00006C00006C0000FFFFFF6C0000FFFFFFFFFFFF6C00006C00006C0000FFFFFF6C00006C0000FFFFFF6C0000FFFFFFFFFFFF6C0000FFFFFFFFFFFF6C00006C00006C0000FFFFFFFFFFFF6C0000FFFFFFFFFFFF6C0000FFFFFFFFFFFF6C0000FFFFFF6C0000FFFFFF6C0000FFFFFF6C00006C00006C0000FFFFFF6C00006C0000FFFFFFFFFFFF6C0000FFFFFFFFFFFFFFFFFF6C0000FFFFFFFFFFFF6C00006C0000FFFFFF6C0000FFFFFF6C0000FFFFFF6C00006C0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000FF9AAA26FF92AA55FF9ABA76FF939255FFD91356FF000000FF</_256_Color_Icon>
       <BW_Color_Icon>00000000</BW_Color_Icon>
@@ -832,63 +825,7 @@ Continuous B sweep.vi: For sweeping B continuously while asynchronously calling 
       <Items_Data>
         <Type>Item</Type>
         <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Erase Comments.vi</NameSub_Menu_Name>
-        <Short_Name/>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>1</Row>
-          <Column>3</Column>
-        </Position>
-        <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment\API\Erase Comments.vi</Path>
-        <VI_Title/>
-      </Items_Data>
-      <Items_Data>
-        <Type>Item</Type>
-        <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Get Channel Indices.vi</NameSub_Menu_Name>
-        <Short_Name/>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>1</Row>
-          <Column>4</Column>
-        </Position>
-        <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment\API\Get Channel Indices.vi</Path>
-        <VI_Title/>
-      </Items_Data>
-      <Items_Data>
-        <Type>Item</Type>
-        <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Read Comments.vi</NameSub_Menu_Name>
-        <Short_Name/>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>1</Row>
-          <Column>5</Column>
-        </Position>
-        <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment\API\Read Comments.vi</Path>
-        <VI_Title/>
-      </Items_Data>
-      <Items_Data>
-        <Type>Item</Type>
-        <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Read Device.vi</NameSub_Menu_Name>
-        <Short_Name/>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>1</Row>
-          <Column>6</Column>
-        </Position>
-        <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment\API\Read Device.vi</Path>
-        <VI_Title/>
-      </Items_Data>
-      <Items_Data>
-        <Type>Item</Type>
-        <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Read Experiment Configuration.vi</NameSub_Menu_Name>
+        <NameSub_Menu_Name>Write Sweep Element.vi</NameSub_Menu_Name>
         <Short_Name/>
         <is_Merge_VI>false</is_Merge_VI>
         <Position>
@@ -896,35 +833,21 @@ Continuous B sweep.vi: For sweeping B continuously while asynchronously calling 
           <Column>1</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment\API\Read Experiment Configuration.vi</Path>
+        <Path>..\src\Control Experiment\API\Write Sweep Element.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
         <Type>Item</Type>
         <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Read Experiment Description.vi</NameSub_Menu_Name>
+        <NameSub_Menu_Name>Write Instruments.vi</NameSub_Menu_Name>
         <Short_Name/>
         <is_Merge_VI>false</is_Merge_VI>
         <Position>
           <Row>2</Row>
-          <Column>2</Column>
+          <Column>5</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment\API\Read Experiment Description.vi</Path>
-        <VI_Title/>
-      </Items_Data>
-      <Items_Data>
-        <Type>Item</Type>
-        <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Read Experiment Path.vi</NameSub_Menu_Name>
-        <Short_Name/>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>2</Row>
-          <Column>3</Column>
-        </Position>
-        <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment\API\Read Experiment Path.vi</Path>
+        <Path>..\src\Control Experiment\API\Write Instruments.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -934,8 +857,8 @@ Continuous B sweep.vi: For sweeping B continuously while asynchronously calling 
         <Short_Name/>
         <is_Merge_VI>false</is_Merge_VI>
         <Position>
-          <Row>2</Row>
-          <Column>4</Column>
+          <Row>3</Row>
+          <Column>5</Column>
         </Position>
         <Icon>00000000</Icon>
         <Path>..\src\Control Experiment\API\Read Instruments.vi</Path>
@@ -948,11 +871,95 @@ Continuous B sweep.vi: For sweeping B continuously while asynchronously calling 
         <Short_Name/>
         <is_Merge_VI>false</is_Merge_VI>
         <Position>
-          <Row>2</Row>
-          <Column>5</Column>
+          <Row>3</Row>
+          <Column>6</Column>
         </Position>
         <Icon>00000000</Icon>
         <Path>..\src\Control Experiment\API\Read Wiring Configuration.vi</Path>
+        <VI_Title/>
+      </Items_Data>
+      <Items_Data>
+        <Type>Item</Type>
+        <Sub_Palette_Index>-1</Sub_Palette_Index>
+        <NameSub_Menu_Name>Read Device.vi</NameSub_Menu_Name>
+        <Short_Name/>
+        <is_Merge_VI>false</is_Merge_VI>
+        <Position>
+          <Row>3</Row>
+          <Column>7</Column>
+        </Position>
+        <Icon>00000000</Icon>
+        <Path>..\src\Control Experiment\API\Read Device.vi</Path>
+        <VI_Title/>
+      </Items_Data>
+      <Items_Data>
+        <Type>Item</Type>
+        <Sub_Palette_Index>-1</Sub_Palette_Index>
+        <NameSub_Menu_Name>Read Comments.vi</NameSub_Menu_Name>
+        <Short_Name/>
+        <is_Merge_VI>false</is_Merge_VI>
+        <Position>
+          <Row>3</Row>
+          <Column>8</Column>
+        </Position>
+        <Icon>00000000</Icon>
+        <Path>..\src\Control Experiment\API\Read Comments.vi</Path>
+        <VI_Title/>
+      </Items_Data>
+      <Items_Data>
+        <Type>Item</Type>
+        <Sub_Palette_Index>-1</Sub_Palette_Index>
+        <NameSub_Menu_Name>Read Experiment Configuration.vi</NameSub_Menu_Name>
+        <Short_Name/>
+        <is_Merge_VI>false</is_Merge_VI>
+        <Position>
+          <Row>3</Row>
+          <Column>2</Column>
+        </Position>
+        <Icon>00000000</Icon>
+        <Path>..\src\Control Experiment\API\Read Experiment Configuration.vi</Path>
+        <VI_Title/>
+      </Items_Data>
+      <Items_Data>
+        <Type>Item</Type>
+        <Sub_Palette_Index>-1</Sub_Palette_Index>
+        <NameSub_Menu_Name>Read Experiment Description.vi</NameSub_Menu_Name>
+        <Short_Name/>
+        <is_Merge_VI>false</is_Merge_VI>
+        <Position>
+          <Row>3</Row>
+          <Column>3</Column>
+        </Position>
+        <Icon>00000000</Icon>
+        <Path>..\src\Control Experiment\API\Read Experiment Description.vi</Path>
+        <VI_Title/>
+      </Items_Data>
+      <Items_Data>
+        <Type>Item</Type>
+        <Sub_Palette_Index>-1</Sub_Palette_Index>
+        <NameSub_Menu_Name>Read Experiment Path.vi</NameSub_Menu_Name>
+        <Short_Name/>
+        <is_Merge_VI>false</is_Merge_VI>
+        <Position>
+          <Row>3</Row>
+          <Column>4</Column>
+        </Position>
+        <Icon>00000000</Icon>
+        <Path>..\src\Control Experiment\API\Read Experiment Path.vi</Path>
+        <VI_Title/>
+      </Items_Data>
+      <Items_Data>
+        <Type>Item</Type>
+        <Sub_Palette_Index>-1</Sub_Palette_Index>
+        <NameSub_Menu_Name>Write Experiment Folder.vi</NameSub_Menu_Name>
+        <Short_Name/>
+        <is_Merge_VI>false</is_Merge_VI>
+        <Position>
+          <Row>2</Row>
+          <Column>4</Column>
+        </Position>
+        <Icon>00000000</Icon>
+        <Path>..\src\Control Experiment\API\Write Experiment Folder.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -963,7 +970,7 @@ Continuous B sweep.vi: For sweeping B continuously while asynchronously calling 
         <is_Merge_VI>false</is_Merge_VI>
         <Position>
           <Row>2</Row>
-          <Column>6</Column>
+          <Column>3</Column>
         </Position>
         <Icon>00000000</Icon>
         <Path>..\src\Control Experiment\API\Write Experiment Description.vi</Path>
@@ -972,7 +979,7 @@ Continuous B sweep.vi: For sweeping B continuously while asynchronously calling 
       <Items_Data>
         <Type>Item</Type>
         <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Write Experiment Folder.vi</NameSub_Menu_Name>
+        <NameSub_Menu_Name>Get Channel Indices.vi</NameSub_Menu_Name>
         <Short_Name/>
         <is_Merge_VI>false</is_Merge_VI>
         <Position>
@@ -980,38 +987,24 @@ Continuous B sweep.vi: For sweeping B continuously while asynchronously calling 
           <Column>1</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment\API\Write Experiment Folder.vi</Path>
+        <Path>..\src\Control Experiment\API\Get Channel Indices.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
         <Type>Item</Type>
         <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Write Instruments.vi</NameSub_Menu_Name>
+        <NameSub_Menu_Name>Erase Comments.vi</NameSub_Menu_Name>
         <Short_Name/>
         <is_Merge_VI>false</is_Merge_VI>
         <Position>
-          <Row>3</Row>
-          <Column>2</Column>
+          <Row>2</Row>
+          <Column>8</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment\API\Write Instruments.vi</Path>
+        <Path>..\src\Control Experiment\API\Erase Comments.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <Items_Data>
-        <Type>Item</Type>
-        <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Write Sweep Element.vi</NameSub_Menu_Name>
-        <Short_Name/>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>3</Row>
-          <Column>3</Column>
-        </Position>
-        <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment\API\Write Sweep Element.vi</Path>
-        <VI_Title/>
-      </Items_Data>
-      <GUID>31E9AADA746F1917B2550E2852F6CD4F</GUID>
+      <GUID>3F3D2B59D5877706F9EAFCB3C3541D19</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1130,15 +1123,15 @@ Continuous B sweep.vi: For sweeping B continuously while asynchronously calling 
         <Path>..\src\Control Experiment\API (File)\Save Transport TDMS File.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>71FD2102D5268C78F96896CD3B3A63DF</GUID>
+      <GUID>B59261F9C177A1774EA1D11A4B13F993</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
       <Name>Comments</Name>
       <View_Format>Icons</View_Format>
       <Size>
-        <Height_Row>2</Height_Row>
-        <Width_Col.>6</Width_Col.>
+        <Height_Row>3</Height_Row>
+        <Width_Col.>4</Width_Col.>
       </Size>
       <_256_Color_Icon>0000052E002900000012000000020000000D00FFFFFF000100000000000A0000000800000000002000200028000002AA00000276000000010007001F00180000000000FFFFFF0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000FFFFFFFFFFFF000000FFFFFFFFFFFFFFFFFF000000FFFFFFFFFFFF000000000000FFFFFF000000000000FFFFFF000000000000FFFFFF000000000000FFFFFFFFFFFF000000FFFFFFFFFFFF000000000000FFFFFFFFFFFF000000000000FFFFFF000000FFFFFFFFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000000000000000FFFFFF000000FFFFFF000000FFFFFF000000FFFFFFFFFFFF000000FFFFFFFFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000FFFFFFFFFFFFFFFFFF000000FFFFFF000000FFFFFF000000FFFFFFFFFFFFFFFFFF000000FFFFFFFFFFFF000000FFFFFFFFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000FFFFFFFFFFFF000000000000FFFFFF000000FFFFFF000000FFFFFFFFFFFF000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000034000001389B6C99B95555D539555515349554D4B00000003002900000012000000020000000D00CCCCFF000100000000000A00000008001900000020002000280000022C000001F8001900040020001C00180000000000FFFFFF0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF6C0000FFFFFFFFFFFF6C00006C0000FFFFFF6C0000FFFFFF6C0000FFFFFF6C0000FFFFFF6C0000FFFFFF6C0000FFFFFFFFFFFFFFFFFF6C0000FFFFFFFFFFFF6C00006C0000FFFFFF6C0000FFFFFFFFFFFF6C0000FFFFFFFFFFFF6C0000FFFFFF6C0000FFFFFF6C0000FFFFFF6C0000FFFFFF6C0000FFFFFFFFFFFF6C0000FFFFFF6C0000FFFFFF6C0000FFFFFF6C00006C0000FFFFFFFFFFFF6C00006C0000FFFFFF6C0000FFFFFF6C0000FFFFFF6C00006C00006C0000FFFFFF6C0000FFFFFFFFFFFF6C00006C00006C0000FFFFFF6C00006C0000FFFFFF6C0000FFFFFFFFFFFF6C0000FFFFFFFFFFFF6C00006C00006C0000FFFFFFFFFFFF6C0000FFFFFFFFFFFF6C0000FFFFFFFFFFFF6C0000FFFFFF6C0000FFFFFF6C0000FFFFFF6C00006C00006C0000FFFFFF6C00006C0000FFFFFFFFFFFF6C0000FFFFFFFFFFFFFFFFFF6C0000FFFFFFFFFFFF6C00006C0000FFFFFF6C0000FFFFFF6C0000FFFFFF6C00006C0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000FF9AAA26FF92AA55FF9ABA76FF939255FFD91356FF000000FF</_256_Color_Icon>
       <BW_Color_Icon>00000000</BW_Color_Icon>
@@ -1154,7 +1147,7 @@ Continuous B sweep.vi: For sweeping B continuously while asynchronously calling 
       <Items_Data>
         <Type>Item</Type>
         <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Comments.Add Device Description.vi</NameSub_Menu_Name>
+        <NameSub_Menu_Name>Generate Comments.vi</NameSub_Menu_Name>
         <Short_Name/>
         <is_Merge_VI>false</is_Merge_VI>
         <Position>
@@ -1162,7 +1155,49 @@ Continuous B sweep.vi: For sweeping B continuously while asynchronously calling 
           <Column>1</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment\Comments\Comments.Add Device Description.vi</Path>
+        <Path>..\src\Control Experiment\Comments\Generate Comments.vi</Path>
+        <VI_Title/>
+      </Items_Data>
+      <Items_Data>
+        <Type>Item</Type>
+        <Sub_Palette_Index>-1</Sub_Palette_Index>
+        <NameSub_Menu_Name>Comments.Create Lockin AO Description.vi</NameSub_Menu_Name>
+        <Short_Name/>
+        <is_Merge_VI>false</is_Merge_VI>
+        <Position>
+          <Row>3</Row>
+          <Column>2</Column>
+        </Position>
+        <Icon>00000000</Icon>
+        <Path>..\src\Control Experiment\Comments\Comments.Create Lockin AO Description.vi</Path>
+        <VI_Title/>
+      </Items_Data>
+      <Items_Data>
+        <Type>Item</Type>
+        <Sub_Palette_Index>-1</Sub_Palette_Index>
+        <NameSub_Menu_Name>Comments.Create Lockin REF Description.vi</NameSub_Menu_Name>
+        <Short_Name/>
+        <is_Merge_VI>false</is_Merge_VI>
+        <Position>
+          <Row>3</Row>
+          <Column>3</Column>
+        </Position>
+        <Icon>00000000</Icon>
+        <Path>..\src\Control Experiment\Comments\Comments.Create Lockin REF Description.vi</Path>
+        <VI_Title/>
+      </Items_Data>
+      <Items_Data>
+        <Type>Item</Type>
+        <Sub_Palette_Index>-1</Sub_Palette_Index>
+        <NameSub_Menu_Name>Comments.Create Lockin Sampling Description.vi</NameSub_Menu_Name>
+        <Short_Name/>
+        <is_Merge_VI>false</is_Merge_VI>
+        <Position>
+          <Row>3</Row>
+          <Column>4</Column>
+        </Position>
+        <Icon>00000000</Icon>
+        <Path>..\src\Control Experiment\Comments\Comments.Create Lockin Sampling Description.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -1186,8 +1221,8 @@ Continuous B sweep.vi: For sweeping B continuously while asynchronously calling 
         <Short_Name/>
         <is_Merge_VI>false</is_Merge_VI>
         <Position>
-          <Row>1</Row>
-          <Column>3</Column>
+          <Row>2</Row>
+          <Column>2</Column>
         </Position>
         <Icon>00000000</Icon>
         <Path>..\src\Control Experiment\Comments\Comments.Add Lockin Description.vi</Path>
@@ -1200,11 +1235,25 @@ Continuous B sweep.vi: For sweeping B continuously while asynchronously calling 
         <Short_Name/>
         <is_Merge_VI>false</is_Merge_VI>
         <Position>
-          <Row>1</Row>
-          <Column>4</Column>
+          <Row>2</Row>
+          <Column>3</Column>
         </Position>
         <Icon>00000000</Icon>
         <Path>..\src\Control Experiment\Comments\Comments.Add Sweep Description.vi</Path>
+        <VI_Title/>
+      </Items_Data>
+      <Items_Data>
+        <Type>Item</Type>
+        <Sub_Palette_Index>-1</Sub_Palette_Index>
+        <NameSub_Menu_Name>Comments.Add Device Description.vi</NameSub_Menu_Name>
+        <Short_Name/>
+        <is_Merge_VI>false</is_Merge_VI>
+        <Position>
+          <Row>1</Row>
+          <Column>3</Column>
+        </Position>
+        <Icon>00000000</Icon>
+        <Path>..\src\Control Experiment\Comments\Comments.Add Device Description.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -1215,69 +1264,13 @@ Continuous B sweep.vi: For sweeping B continuously while asynchronously calling 
         <is_Merge_VI>false</is_Merge_VI>
         <Position>
           <Row>1</Row>
-          <Column>5</Column>
+          <Column>4</Column>
         </Position>
         <Icon>00000000</Icon>
         <Path>..\src\Control Experiment\Comments\Comments.Add Wiring Description.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <Items_Data>
-        <Type>Item</Type>
-        <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Comments.Create Lockin AO Description.vi</NameSub_Menu_Name>
-        <Short_Name/>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>1</Row>
-          <Column>6</Column>
-        </Position>
-        <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment\Comments\Comments.Create Lockin AO Description.vi</Path>
-        <VI_Title/>
-      </Items_Data>
-      <Items_Data>
-        <Type>Item</Type>
-        <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Comments.Create Lockin REF Description.vi</NameSub_Menu_Name>
-        <Short_Name/>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>2</Row>
-          <Column>1</Column>
-        </Position>
-        <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment\Comments\Comments.Create Lockin REF Description.vi</Path>
-        <VI_Title/>
-      </Items_Data>
-      <Items_Data>
-        <Type>Item</Type>
-        <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Comments.Create Lockin Sampling Description.vi</NameSub_Menu_Name>
-        <Short_Name/>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>2</Row>
-          <Column>2</Column>
-        </Position>
-        <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment\Comments\Comments.Create Lockin Sampling Description.vi</Path>
-        <VI_Title/>
-      </Items_Data>
-      <Items_Data>
-        <Type>Item</Type>
-        <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Generate Comments.vi</NameSub_Menu_Name>
-        <Short_Name/>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>2</Row>
-          <Column>3</Column>
-        </Position>
-        <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment\Comments\Generate Comments.vi</Path>
-        <VI_Title/>
-      </Items_Data>
-      <GUID>371106B5F4B14B0E820F2028D327602B</GUID>
+      <GUID>CA54C50E3263A7D6EABDA58700F2B5FF</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1690,7 +1683,7 @@ Continuous B sweep.vi: For sweeping B continuously while asynchronously calling 
         <Path>..\src\Control Experiment\subVIs\Shorten Class name.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>6AC7C6ACC4B68281C2F15B27D57127DB</GUID>
+      <GUID>B42807C53980F6BC19D90B207972AFE2</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1739,7 +1732,7 @@ Continuous B sweep.vi: For sweeping B continuously while asynchronously calling 
         <Path>..\src\Control Experiment\Tests\Test Write.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>B0597F73774238CE711277391EDE5342</GUID>
+      <GUID>C449704C38A747ADD6D4E9F0B9A07EE1</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>4</Parent_Palette_Index>
@@ -1777,26 +1770,12 @@ Continuous B sweep.vi: For sweeping B continuously while asynchronously calling 
       <Items_Data>
         <Type>Item</Type>
         <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Close Dictionary.vi</NameSub_Menu_Name>
-        <Short_Name/>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>1</Row>
-          <Column>2</Column>
-        </Position>
-        <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment\API\Dictionary\Close Dictionary.vi</Path>
-        <VI_Title/>
-      </Items_Data>
-      <Items_Data>
-        <Type>Item</Type>
-        <Sub_Palette_Index>-1</Sub_Palette_Index>
         <NameSub_Menu_Name>Read All Dictionary Elements.vi</NameSub_Menu_Name>
         <Short_Name/>
         <is_Merge_VI>false</is_Merge_VI>
         <Position>
           <Row>1</Row>
-          <Column>3</Column>
+          <Column>4</Column>
         </Position>
         <Icon>00000000</Icon>
         <Path>..\src\Control Experiment\API\Dictionary\Read All Dictionary Elements.vi</Path>
@@ -1810,7 +1789,7 @@ Continuous B sweep.vi: For sweeping B continuously while asynchronously calling 
         <is_Merge_VI>false</is_Merge_VI>
         <Position>
           <Row>1</Row>
-          <Column>4</Column>
+          <Column>2</Column>
         </Position>
         <Icon>00000000</Icon>
         <Path>..\src\Control Experiment\API\Dictionary\Write Dictionary Element.vi</Path>
@@ -1824,13 +1803,27 @@ Continuous B sweep.vi: For sweeping B continuously while asynchronously calling 
         <is_Merge_VI>false</is_Merge_VI>
         <Position>
           <Row>1</Row>
-          <Column>5</Column>
+          <Column>3</Column>
         </Position>
         <Icon>00000000</Icon>
         <Path>..\src\Control Experiment\API\Dictionary\Write Dictionary Elements (Loop).vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>1253AD9752E00ED6B5B46356D8D0E1F1</GUID>
+      <Items_Data>
+        <Type>Item</Type>
+        <Sub_Palette_Index>-1</Sub_Palette_Index>
+        <NameSub_Menu_Name>Close Dictionary.vi</NameSub_Menu_Name>
+        <Short_Name/>
+        <is_Merge_VI>false</is_Merge_VI>
+        <Position>
+          <Row>1</Row>
+          <Column>5</Column>
+        </Position>
+        <Icon>00000000</Icon>
+        <Path>..\src\Control Experiment\API\Dictionary\Close Dictionary.vi</Path>
+        <VI_Title/>
+      </Items_Data>
+      <GUID>48E66C8C9A40AF69C98773BF1F36209D</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>4</Parent_Palette_Index>
@@ -1854,7 +1847,7 @@ Continuous B sweep.vi: For sweeping B continuously while asynchronously calling 
       <Items_Data>
         <Type>Item</Type>
         <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Handle S3 Error.vi</NameSub_Menu_Name>
+        <NameSub_Menu_Name>Upload to S3.vi</NameSub_Menu_Name>
         <Short_Name/>
         <is_Merge_VI>false</is_Merge_VI>
         <Position>
@@ -1862,24 +1855,24 @@ Continuous B sweep.vi: For sweeping B continuously while asynchronously calling 
           <Column>1</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment\API\S3\Handle S3 Error.vi</Path>
+        <Path>..\src\Control Experiment\API\S3\Upload to S3.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
         <Type>Item</Type>
         <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Upload to S3.vi</NameSub_Menu_Name>
+        <NameSub_Menu_Name>Handle S3 Error.vi</NameSub_Menu_Name>
         <Short_Name/>
         <is_Merge_VI>false</is_Merge_VI>
         <Position>
           <Row>1</Row>
-          <Column>2</Column>
+          <Column>3</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment\API\S3\Upload to S3.vi</Path>
+        <Path>..\src\Control Experiment\API\S3\Handle S3 Error.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>93706AA6D804E4FA5E5C7031854D6788</GUID>
+      <GUID>B18DE069F68A575172ED937C56E84C0B</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>7</Parent_Palette_Index>
@@ -1928,7 +1921,7 @@ Continuous B sweep.vi: For sweeping B continuously while asynchronously calling 
         <Path>..\src\Control Experiment\subVIs\Asana\Asana Dictionary Tasks Get Value.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>EFE73D67EFA519B4CE79C0A654AF9F18</GUID>
+      <GUID>6DD6DC6DC8EBFA7EB543CBE77F612B20</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -2047,7 +2040,7 @@ Continuous B sweep.vi: For sweeping B continuously while asynchronously calling 
         <Path>..\src\SweepControl\API\Write Dependencies.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>363CCD85B6CA3674AB6BEB298AB42A05</GUID>
+      <GUID>57B0811F6C7C241E6E231C2C115D4D0E</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -2096,7 +2089,7 @@ Continuous B sweep.vi: For sweeping B continuously while asynchronously calling 
         <Path>..\src\SweepControl\API (file)\Read Sweep Control.json.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>48BFA48A6906917A394FE0A5B6B598FC</GUID>
+      <GUID>626CB964957C73FE32E6A49676C5219B</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -2143,20 +2136,6 @@ Continuous B sweep.vi: For sweeping B continuously while asynchronously calling 
         </Position>
         <Icon>00000000</Icon>
         <Path>..\src\SweepControl\subVIs\Create Scan.vi</Path>
-        <VI_Title/>
-      </Items_Data>
-      <Items_Data>
-        <Type>Item</Type>
-        <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>D-Lockin.vi</NameSub_Menu_Name>
-        <Short_Name/>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>1</Row>
-          <Column>3</Column>
-        </Position>
-        <Icon>00000000</Icon>
-        <Path>..\src\SweepControl\subVIs\D-Lockin.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -2229,7 +2208,7 @@ Continuous B sweep.vi: For sweeping B continuously while asynchronously calling 
         <Path>..\src\SweepControl\subVIs\Sweep Control Loop.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>7555D5438DB5D962F0DDEC82C259EC2A</GUID>
+      <GUID>F1552EC470A39E42F868AA00A10FB8CE</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>3</Parent_Palette_Index>
@@ -2292,7 +2271,7 @@ Continuous B sweep.vi: For sweeping B continuously while asynchronously calling 
         <Path>..\src\Transport\API (class)\Write notifier.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>7A54558ECBCBCA8DD8C517B0F0CBC91B</GUID>
+      <GUID>A5DC576A456427F90557112410FB28D0</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>3</Parent_Palette_Index>
@@ -2341,7 +2320,7 @@ Continuous B sweep.vi: For sweeping B continuously while asynchronously calling 
         <Path>..\src\Transport\API (file)\Read Lockin_Vsg.json.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>1BED1645293D2185C7D4585FDE13794B</GUID>
+      <GUID>83D77108103E5BDADA56DFBE9750AB8E</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>3</Parent_Palette_Index>
@@ -2583,10 +2562,10 @@ Continuous B sweep.vi: For sweeping B continuously while asynchronously calling 
           <Column>4</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Transport\subVI\Waveform to Cluster.vi</Path>
+        <Path>..\src\Control Experiment\subVIs\Waveform to Cluster.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>BBB31E4C2A697EA929B79456C0336EB0</GUID>
+      <GUID>336CDF949162C027760D2CB438CFFF35</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
