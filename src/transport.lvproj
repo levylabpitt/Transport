@@ -17,6 +17,7 @@
 			<Item Name="Transport.vipb" Type="Document" URL="../../build support/Transport.vipb"/>
 			<Item Name="Transport.vipc" Type="Document" URL="../../build support/Transport.vipc"/>
 		</Item>
+		<Item Name="Sequencer" Type="Folder"/>
 		<Item Name="Control Experiment.lvclass" Type="LVClass" URL="../Control Experiment/Control Experiment.lvclass"/>
 		<Item Name="Transport.lvclass" Type="LVClass" URL="../Transport/Transport.lvclass"/>
 		<Item Name="SweepControl.lvclass" Type="LVClass" URL="../SweepControl/SweepControl.lvclass"/>
