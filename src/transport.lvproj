@@ -17,7 +17,17 @@
 			<Item Name="Transport.vipb" Type="Document" URL="../../build support/Transport.vipb"/>
 			<Item Name="Transport.vipc" Type="Document" URL="../../build support/Transport.vipc"/>
 		</Item>
-		<Item Name="Sequencer" Type="Folder"/>
+		<Item Name="Sequencer" Type="Folder">
+			<Item Name="Sequence Experiment.lvclass" Type="LVClass" URL="../Sequence Experiment/Sequence Experiment.lvclass"/>
+			<Item Name="Sequence Experiment SM.lvclass" Type="LVClass" URL="../Sequence Experiment SM/Sequence Experiment SM.lvclass"/>
+			<Item Name="Sequence Experiment UI.lvclass" Type="LVClass" URL="../Sequence Experiment UI/Sequence Experiment UI.lvclass"/>
+		</Item>
+		<Item Name="SMO.Control Experimment" Type="Folder">
+			<Item Name="SMO.Control Experiment.lvclass" Type="LVClass" URL="../SMO.Control Experiment/SMO.Control Experiment.lvclass"/>
+			<Item Name="SMO.Control Experiment UI.lvclass" Type="LVClass" URL="../SMO.Control Experiment UI/SMO.Control Experiment UI.lvclass"/>
+			<Item Name="SMO.SweepControl.lvclass" Type="LVClass" URL="../SMO.SweepControl/SMO.SweepControl.lvclass"/>
+			<Item Name="SMO.Transport.lvclass" Type="LVClass" URL="../SMO.Transport/SMO.Transport.lvclass"/>
+		</Item>
 		<Item Name="Control Experiment.lvclass" Type="LVClass" URL="../Control Experiment/Control Experiment.lvclass"/>
 		<Item Name="Transport.lvclass" Type="LVClass" URL="../Transport/Transport.lvclass"/>
 		<Item Name="SweepControl.lvclass" Type="LVClass" URL="../SweepControl/SweepControl.lvclass"/>
@@ -489,6 +499,10 @@
 				<Item Name="MGI Wait (U32).vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Timing/MGI Wait/MGI Wait (U32).vi"/>
 				<Item Name="MGI Wait (Double).vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Timing/MGI Wait/MGI Wait (Double).vi"/>
 				<Item Name="Cartesian_Experiment.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Control VI/Cartesian_Experiment.vi"/>
+				<Item Name="Boolean Trigger__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/boolean/boolean.llb/Boolean Trigger__ogtk.vi"/>
+				<Item Name="Sweep Pattern--Enum.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Lockin.DAQ/Typedefs/Sweep Pattern--Enum.ctl"/>
+				<Item Name="Sweep Channel--Cluster.ctl" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Instrument.Lockinl.UI/Typedefs/Sweep Channel--Cluster.ctl"/>
+				<Item Name="setIVmodeConfig.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Instrument.Lockin/API/setIVmodeConfig.vi"/>
 			</Item>
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="VISA Configure Serial Port" Type="VI" URL="/&lt;vilib&gt;/Instr/_visa.llb/VISA Configure Serial Port"/>
@@ -1298,12 +1312,11 @@
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 			<Item Name="LVDFD.dll" Type="Document" URL="/&lt;resource&gt;/LVDFD.dll"/>
-			<Item Name="nisyscfg.dll" Type="Document" URL="nisyscfg.dll">
-				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
-			</Item>
 			<Item Name="version.dll" Type="Document" URL="version.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
+			<Item Name="JSON DIDDLE.vi" Type="VI" URL="../SMO.Control Experiment/Private/Control Experiment SM/Tests/JSON DIDDLE.vi"/>
+			<Item Name="Wait SubVI.vi" Type="VI" URL="../Wait SubVI.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
