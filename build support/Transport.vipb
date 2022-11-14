@@ -1,4 +1,4 @@
-<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2022-11-14 14:34:10" Creator="Patrick" Comments="" ID="8317bf88ee2fe8eb0fb22b5ad64b41f0">
+<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2022-11-14 14:43:37" Creator="Patrick" Comments="" ID="5e29f2333560f1524c92e08234b20ddb">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_Transport</Package_File_Name>
     <Library_Version>1.6.1.1</Library_Version>
@@ -159,6 +159,7 @@ Basic transport measurments:
 - Issue #56: Confirm Control Experiment shutdown
 - Issue #61: Add write accessor for device (Mini Control Experiment)
 - Issue #62: Fix R vs T and B graphs in Lockin_time
+- Issue #64: fix issue with graphing a sweep that does not use the first sweep channel
 - Modify API methods for reading json-formatted metadata from TDMS files</Release_Notes>
     </Description>
     <Destinations>
