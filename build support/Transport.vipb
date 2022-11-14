@@ -1,4 +1,4 @@
-<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2022-11-14 14:43:37" Creator="Patrick" Comments="" ID="5e29f2333560f1524c92e08234b20ddb">
+<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2022-11-14 15:07:50" Creator="Patrick" Comments="" ID="d0cf790806caa8e1b6a64a1dd2616ec7">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_Transport</Package_File_Name>
     <Library_Version>1.6.1.1</Library_Version>
@@ -156,6 +156,7 @@ Basic transport measurments:
       <URL/>
       <Release_Notes>[1.6.1]
 - Issue #54: Fix R2/R4 G2/G4 plot labels in Lockin_sweep
+- Issue #55: better support for calling lockin_sweep as a subVI of Sweep Control and Continuous B Sweep
 - Issue #56: Confirm Control Experiment shutdown
 - Issue #61: Add write accessor for device (Mini Control Experiment)
 - Issue #62: Fix R vs T and B graphs in Lockin_time
