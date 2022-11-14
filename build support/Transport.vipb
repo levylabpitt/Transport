@@ -1,4 +1,4 @@
-<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2022-11-14 12:54:33" Creator="Patrick" Comments="" ID="86a38a0d7cd757e06e51827b4e3acd12">
+<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2022-11-14 13:29:00" Creator="Patrick" Comments="" ID="a313174b1c7fbe29a655c902ff8edb38">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_Transport</Package_File_Name>
     <Library_Version>1.6.1.1</Library_Version>
@@ -155,7 +155,8 @@ Basic transport measurments:
       <Packager/>
       <URL/>
       <Release_Notes>[1.6.1]
-- Issue #54: Fix R2/R4 G2/G4 plot labels </Release_Notes>
+- Issue #54: Fix R2/R4 G2/G4 plot labels in Lockin_sweep
+- Issue #62: Fix R vs T and B graphs in Lockin_time</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
