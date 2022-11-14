@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2022-09-30 15:01:44" Creator="Patrick" Comments="" ID="f375cbfd78a748c81a3682b2b21ccf18">
+<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2022-11-14 12:54:33" Creator="Patrick" Comments="" ID="86a38a0d7cd757e06e51827b4e3acd12">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_Transport</Package_File_Name>
-    <Library_Version>1.6.0.2</Library_Version>
+    <Library_Version>1.6.1.1</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\src</Library_Source_Folder>
     <Library_Output_Folder>..\builds\Package</Library_Output_Folder>
@@ -154,17 +154,8 @@ Basic transport measurments:
       <Copyright/>
       <Packager/>
       <URL/>
-      <Release_Notes>[1.6.0]
-- Issue #5, #34, #36: IV is deprecated; the preferred transport VIs are Lockin_sweep and Lockin_time
-- Issue #31: Lockin_time saves a tdms file rather than a *.dat
-- Issue #33, #37: Improved control of 2- and 4-terminal resitance or conductance
-- Issue #38: Lockin_time configures itself to save the same number of channels that the lockin is configured for
-- Issue #47: Improved instrument configuration inside Control Experiment.vi
-- Issue #48: Improved axis labels and sweep definition
-- Issue #50: Add emergency stop and smooth sweep to start in Lockin_sweep
-- Issue #51: Fix writing sweep parameters only to first file
-- Issue #52: Vtg (top gate) now available as default option in Control Experiment.vi
-- Issue #60: JSON-formatted metadata now saved in inside the TDMS files (in a metadata/group property field) rather than in sidecar files</Release_Notes>
+      <Release_Notes>[1.6.1]
+- Issue #54: Fix R2/R4 G2/G4 plot labels </Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
@@ -398,7 +389,7 @@ Basic transport measurments:
         <Path>..\src\Open Me.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>A0C2C75C8453F775B34D46A07783F225</GUID>
+      <GUID>1DC914FA18D71BD558242F5DE2A43B69</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -503,7 +494,7 @@ Basic transport measurments:
         <Path>..\src\Control Experiment\Tree.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>CFD7628D85ED7085547A0FB4D921F429</GUID>
+      <GUID>13640310FD58FDE092FE23D2013AA40E</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -636,7 +627,7 @@ Basic transport measurments:
         <Path>..\src\SweepControl\subVIs</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>B936FAD4D5BB74E4C9ACF5B40B82FDCE</GUID>
+      <GUID>3571D1ABDCEF964C543494C4CF29D6E0</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -697,20 +688,6 @@ Basic transport measurments:
         </Position>
         <Icon>0000041D002900000012000000020000000D00FFFFFF000100000000000A00000008000000000020002000280000019900000165000000080007001900180000000000FFFFFF0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000FFFFFFFFFFFFFFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000000000FFFFFF000000FFFFFF000000FFFFFF000000000000FFFFFFFFFFFF000000FFFFFF000000FFFFFF000000000000000000FFFFFFFFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000FFFFFFFFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000FFFFFF000000000000000000FFFFFF000000000000000000FFFFFFFFFFFFFFFFFF000000000000FFFFFF000000000000FFFFFFFFFFFFFFFFFF000000FFFFFFFFFFFF000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00007FFF008AFFFF6ACAFFFFCAAAFFFF2AAEFFFFC6C4FFFF00007FFF002900000012000000020000000D00CCCCFF000100000000000A00000008001900000020002000280000022C000001F8001900040020001C00180000000000FFFFFF0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF6C0000FFFFFFFFFFFF6C00006C0000FFFFFF6C0000FFFFFF6C0000FFFFFF6C0000FFFFFF6C0000FFFFFF6C0000FFFFFFFFFFFFFFFFFF6C0000FFFFFFFFFFFF6C00006C0000FFFFFF6C0000FFFFFFFFFFFF6C0000FFFFFFFFFFFF6C0000FFFFFF6C0000FFFFFF6C0000FFFFFF6C0000FFFFFF6C0000FFFFFFFFFFFF6C0000FFFFFF6C0000FFFFFF6C0000FFFFFF6C00006C0000FFFFFFFFFFFF6C00006C0000FFFFFF6C0000FFFFFF6C0000FFFFFF6C00006C00006C0000FFFFFF6C0000FFFFFFFFFFFF6C00006C00006C0000FFFFFF6C00006C0000FFFFFF6C0000FFFFFFFFFFFF6C0000FFFFFFFFFFFF6C00006C00006C0000FFFFFFFFFFFF6C0000FFFFFFFFFFFF6C0000FFFFFFFFFFFF6C0000FFFFFF6C0000FFFFFF6C0000FFFFFF6C00006C00006C0000FFFFFF6C00006C0000FFFFFFFFFFFF6C0000FFFFFFFFFFFFFFFFFF6C0000FFFFFFFFFFFF6C00006C0000FFFFFF6C0000FFFFFF6C0000FFFFFF6C00006C0000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000FF9AAA26FF92AA55FF9ABA76FF939255FFD91356FF000000FF</Icon>
         <Path>..\src\Transport\subVI</Path>
-        <VI_Title/>
-      </Items_Data>
-      <Items_Data>
-        <Type>Item</Type>
-        <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>IV.vi</NameSub_Menu_Name>
-        <Short_Name/>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>1</Row>
-          <Column>4</Column>
-        </Position>
-        <Icon>00000000</Icon>
-        <Path>..\src\Transport\IV.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -797,7 +774,7 @@ Basic transport measurments:
         <Path>..\src\Transport\Lockin_sweep.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>33A16019CB076B68648ACEE792DA54CE</GUID>
+      <GUID>F94DF560AA18FCAB78FD1102D9426DC4</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -857,7 +834,7 @@ Basic transport measurments:
           <Column>3</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment\API\Erase Comments.vi</Path>
+        <Path>..\src\Control Experiment\Comments\Erase Comments.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -1028,7 +1005,7 @@ Basic transport measurments:
         <Path>..\src\Control Experiment\API\Write Sweep Element.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>C72172428879560D79964616AEE45C60</GUID>
+      <GUID>4DAEC21026C8BA741AC94FEDD6B38E96</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1147,7 +1124,7 @@ Basic transport measurments:
         <Path>..\src\Control Experiment\API (File)\Save Transport TDMS File.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>21BB8D34C1AEC88B538B8FC974286938</GUID>
+      <GUID>ACF378668DFDF45E48917DF9474CA62F</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1294,7 +1271,7 @@ Basic transport measurments:
         <Path>..\src\Control Experiment\Comments\Generate Comments.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>847B20053AAD05F30D97B8E73217366C</GUID>
+      <GUID>9E3E00F30C50CEE02D2FCBB0AD8380C0</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1369,20 +1346,6 @@ Basic transport measurments:
         </Position>
         <Icon>00000000</Icon>
         <Path>..\src\Control Experiment\subVIs\Data to Dictionary.vim</Path>
-        <VI_Title/>
-      </Items_Data>
-      <Items_Data>
-        <Type>Item</Type>
-        <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Device and User DSC Paths.vi</NameSub_Menu_Name>
-        <Short_Name/>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>1</Row>
-          <Column>5</Column>
-        </Position>
-        <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment\subVIs\Device and User DSC Paths.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -1721,7 +1684,7 @@ Basic transport measurments:
         <Path>..\src\Control Experiment\subVIs\Variant to DBL Array.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>D48924CB019C21114432D48F15E3BFC7</GUID>
+      <GUID>11D69A929F3030DC7B4550FEA88EC0AB</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1798,7 +1761,7 @@ Basic transport measurments:
         <Path>..\src\Control Experiment\Tests\Test Write.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>4BC054D4B8349886CD8FA80E5FA1B9DB</GUID>
+      <GUID>49EA976BAF51882A56D4E36E740DB251</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>4</Parent_Palette_Index>
@@ -1903,7 +1866,7 @@ Basic transport measurments:
         <Path>..\src\Control Experiment\API\Dictionary\Write JSON to Dictionary.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>8EED7109657E87F2D971D6FF920C8902</GUID>
+      <GUID>79FEA18373725EFCB96884FC3A806B70</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>4</Parent_Palette_Index>
@@ -1952,7 +1915,7 @@ Basic transport measurments:
         <Path>..\src\Control Experiment\API\S3\Upload to S3.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>A185EC9ABBC35B96C9E8047236C50583</GUID>
+      <GUID>80D11CE2A16ED55BC0816BAFF08282F3</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>7</Parent_Palette_Index>
@@ -2001,7 +1964,7 @@ Basic transport measurments:
         <Path>..\src\Control Experiment\subVIs\Asana\Asana Dictionary Tasks Get Value.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>AAA3EB6624A81B22A3B52360EA97D778</GUID>
+      <GUID>2BC9A29F3BA649CD17AF68B82DE35EA3</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -2120,7 +2083,7 @@ Basic transport measurments:
         <Path>..\src\SweepControl\API\Write Dependencies.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>53F102BF711758BEDFE459E04953A898</GUID>
+      <GUID>7E9631EEAF6359CFDCBA79623067F2ED</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -2169,7 +2132,7 @@ Basic transport measurments:
         <Path>..\src\SweepControl\API (file)\Read Sweep Control.json.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>58870773F77AC74E2DD6541126DEC300</GUID>
+      <GUID>DA76500FCDEEA932CF4938131A6D458F</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -2288,7 +2251,7 @@ Basic transport measurments:
         <Path>..\src\SweepControl\subVIs\Sweep Control Loop.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>F1B2AAE78D1C4FFDD6AE944FB05F591C</GUID>
+      <GUID>4769315DCF6F69017A9B770DC6329D60</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>3</Parent_Palette_Index>
@@ -2379,7 +2342,7 @@ Basic transport measurments:
         <Path>..\src\Transport\API (class)\Write Sweep Table.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>FBEBC84C4AACBFFD3D7851DF1C345DD8</GUID>
+      <GUID>29C734BDFC2C4D02D8F5CBF131102B50</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>3</Parent_Palette_Index>
@@ -2428,7 +2391,7 @@ Basic transport measurments:
         <Path>..\src\Transport\API (file)\Read Lockin_Vsg.json.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>AE8D81BA73D8901A11465C4758C7345E</GUID>
+      <GUID>6F61298533654ACC12B418B841C94ECA</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>3</Parent_Palette_Index>
@@ -2452,20 +2415,6 @@ Basic transport measurments:
       <Items_Data>
         <Type>Item</Type>
         <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Add Braces Array.vi</NameSub_Menu_Name>
-        <Short_Name/>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>1</Row>
-          <Column>1</Column>
-        </Position>
-        <Icon>00000000</Icon>
-        <Path>..\src\Transport\subVI\Add Braces Array.vi</Path>
-        <VI_Title/>
-      </Items_Data>
-      <Items_Data>
-        <Type>Item</Type>
-        <Sub_Palette_Index>-1</Sub_Palette_Index>
         <NameSub_Menu_Name>Add Braces String.vi</NameSub_Menu_Name>
         <Short_Name/>
         <is_Merge_VI>false</is_Merge_VI>
@@ -2475,20 +2424,6 @@ Basic transport measurments:
         </Position>
         <Icon>00000000</Icon>
         <Path>..\src\Transport\subVI\Add Braces String.vi</Path>
-        <VI_Title/>
-      </Items_Data>
-      <Items_Data>
-        <Type>Item</Type>
-        <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Add Braces.vi</NameSub_Menu_Name>
-        <Short_Name/>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>1</Row>
-          <Column>3</Column>
-        </Position>
-        <Icon>00000000</Icon>
-        <Path>..\src\Transport\subVI\Add Braces.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -2508,20 +2443,6 @@ Basic transport measurments:
       <Items_Data>
         <Type>Item</Type>
         <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Calculate R and G - Two Terminal.vi</NameSub_Menu_Name>
-        <Short_Name/>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>1</Row>
-          <Column>6</Column>
-        </Position>
-        <Icon>00000000</Icon>
-        <Path>..\src\Transport\subVI\Calculate R and G - Two Terminal.vi</Path>
-        <VI_Title/>
-      </Items_Data>
-      <Items_Data>
-        <Type>Item</Type>
-        <Sub_Palette_Index>-1</Sub_Palette_Index>
         <NameSub_Menu_Name>Create Keys (AI).vi</NameSub_Menu_Name>
         <Short_Name/>
         <is_Merge_VI>false</is_Merge_VI>
@@ -2531,20 +2452,6 @@ Basic transport measurments:
         </Position>
         <Icon>00000000</Icon>
         <Path>..\src\Transport\subVI\Create Keys (AI).vi</Path>
-        <VI_Title/>
-      </Items_Data>
-      <Items_Data>
-        <Type>Item</Type>
-        <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Create Keys (AO).vi</NameSub_Menu_Name>
-        <Short_Name/>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>2</Row>
-          <Column>2</Column>
-        </Position>
-        <Icon>00000000</Icon>
-        <Path>..\src\Transport\subVI\Create Keys (AO).vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -2572,21 +2479,7 @@ Basic transport measurments:
           <Column>3</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Transport\subVI\Exec State to Append.vi</Path>
-        <VI_Title/>
-      </Items_Data>
-      <Items_Data>
-        <Type>Item</Type>
-        <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Decimate and Filter.vi</NameSub_Menu_Name>
-        <Short_Name/>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>2</Row>
-          <Column>4</Column>
-        </Position>
-        <Icon>00000000</Icon>
-        <Path>..\src\Transport\subVI\Decimate and Filter.vi</Path>
+        <Path>..\src\Transport\Private\Exec State to Append.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -2601,20 +2494,6 @@ Basic transport measurments:
         </Position>
         <Icon>00000000</Icon>
         <Path>..\src\Transport\subVI\GraphLockin_vs_Parameter.vi</Path>
-        <VI_Title/>
-      </Items_Data>
-      <Items_Data>
-        <Type>Item</Type>
-        <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>GraphRandG_vs_Parameter.vi</NameSub_Menu_Name>
-        <Short_Name/>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>2</Row>
-          <Column>6</Column>
-        </Position>
-        <Icon>00000000</Icon>
-        <Path>..\src\Transport\subVI\GraphRandG_vs_Parameter.vi</Path>
         <VI_Title/>
       </Items_Data>
       <Items_Data>
@@ -2642,24 +2521,10 @@ Basic transport measurments:
           <Column>3</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Transport\subVI\Results (Dictionary) to X and Y Arrays.vi</Path>
+        <Path>..\src\Transport\Private\Results (Dictionary) to X and Y Arrays.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <Items_Data>
-        <Type>Item</Type>
-        <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Max_Min_gate_conversion.vi</NameSub_Menu_Name>
-        <Short_Name/>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>3</Row>
-          <Column>6</Column>
-        </Position>
-        <Icon>00000000</Icon>
-        <Path>..\src\Transport\subVI\Max_Min_gate_conversion.vi</Path>
-        <VI_Title/>
-      </Items_Data>
-      <GUID>CA1BD4DEE7C15E0AAC6945E55B8BCE19</GUID>
+      <GUID>C9D7F093812C07969779465D8E7C2B31</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
