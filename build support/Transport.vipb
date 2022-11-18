@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2022-11-14 15:49:50" Creator="Patrick" Comments="" ID="c85b8d26f5d212a8de3a3eca84e386b2">
+<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2022-11-18 11:38:52" Creator="Patrick" Comments="" ID="bbd04f564884eea09d4d9ec9825f800b">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_Transport</Package_File_Name>
-    <Library_Version>1.6.1.2</Library_Version>
+    <Library_Version>1.6.1.3</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\src</Library_Source_Folder>
     <Library_Output_Folder>..\builds\Package</Library_Output_Folder>
@@ -448,7 +448,7 @@ Basic transport measurments:
         <Path>..\src\SweepControl</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>339094DB94B5F9FC8F6B929916480080</GUID>
+      <GUID>F924AE390035B7F1A4B52319CB15E21B</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -553,7 +553,7 @@ Basic transport measurments:
         <Path>..\src\Control Experiment\Tree.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>06D80863CE39B98F8FAD1076C92A38B9</GUID>
+      <GUID>6129DCFC5DB102640C580FE919A9AD0F</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -686,7 +686,7 @@ Basic transport measurments:
         <Path>..\src\SweepControl\Sweep Control Cartesian.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>58D11EE9D63B1B47D5E916C83ADB486D</GUID>
+      <GUID>4211DFC84584BA2B53C6B4A4C09FD56F</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -819,7 +819,7 @@ Basic transport measurments:
         <Path>..\src\Transport\Lockin_time.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>036808E3A96D37EF81FEBAA64CE961F0</GUID>
+      <GUID>9B4407A884F35A7309F09E095C1CAEC5</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1106,7 +1106,7 @@ Basic transport measurments:
         <Path>..\src\Control Experiment\API\Read Device.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>C5036A436B45A4955BC9FAD7071089F0</GUID>
+      <GUID>DCD7FA8BD49F4C02BC4898857C8472F4</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1239,7 +1239,7 @@ Basic transport measurments:
         <Path>..\src\Control Experiment\API (File)\Save Transport TDMS File.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>6F7CB0772308CD497B4A1EB709CF27BF</GUID>
+      <GUID>AD5E3D276CF5908B44C42FD2FA505EDF</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1400,7 +1400,7 @@ Basic transport measurments:
         <Path>..\src\Control Experiment\Comments\Generate Comments.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>6B36955EE1AD1D5AC1685412472F359D</GUID>
+      <GUID>164789EE810F4192A8F0259CE681992A</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1813,7 +1813,7 @@ Basic transport measurments:
         <Path>..\src\Control Experiment\subVIs\Variant to DBL Array.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>D0E5999D318798DD5A4A77AC71539160</GUID>
+      <GUID>894FC7D55175794D53A3D20A2D04D36A</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1890,7 +1890,7 @@ Basic transport measurments:
         <Path>..\src\Control Experiment\Tests\Test Write.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>A7B354498DC3E55709D445C43EE38137</GUID>
+      <GUID>F7739BB8D50AAF649CB49D1D28ADBA2E</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>4</Parent_Palette_Index>
@@ -1995,7 +1995,7 @@ Basic transport measurments:
         <Path>..\src\Control Experiment\API\Dictionary\Write JSON to Dictionary.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>C8D4B839598601A258AAC07EC65EE608</GUID>
+      <GUID>AD6825BDE1FD056489FC523D88865ACB</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>4</Parent_Palette_Index>
@@ -2044,7 +2044,7 @@ Basic transport measurments:
         <Path>..\src\Control Experiment\API\S3\Upload to S3.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>12E4E1A4B94970056DA70DE3F5D92627</GUID>
+      <GUID>AB461634C052309D6E4159A747D0788C</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>7</Parent_Palette_Index>
@@ -2093,7 +2093,7 @@ Basic transport measurments:
         <Path>..\src\Control Experiment\subVIs\Asana\Asana Dictionary Tasks Get Value.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>EAE0E742B4869091CB4381E2D0149D7F</GUID>
+      <GUID>CA64AF78AA07FEA3BBDFFC34A3078368</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -2212,7 +2212,7 @@ Basic transport measurments:
         <Path>..\src\SweepControl\API\Write Dependencies.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>16DAE1B7BDA3E129DB5BF936451D8E98</GUID>
+      <GUID>4CB4B76DA58536B307CD3401663226EA</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -2261,7 +2261,7 @@ Basic transport measurments:
         <Path>..\src\SweepControl\API (file)\Read Sweep Control.json.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>6F315822FAC1367CB92FCE17B06198D5</GUID>
+      <GUID>5D59DD0DE696A3E3414EFB9667E67E55</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -2380,7 +2380,7 @@ Basic transport measurments:
         <Path>..\src\SweepControl\subVIs\Sweep Control Loop.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>EA54D5483C98A2DA459B68F2BA199B01</GUID>
+      <GUID>D39CA58095AAC8C8C6F0158083D58B62</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>3</Parent_Palette_Index>
@@ -2471,7 +2471,7 @@ Basic transport measurments:
         <Path>..\src\Transport\API (class)\Write Sweep Table.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>865F59159BF7B713A2CCD517CA1E0908</GUID>
+      <GUID>FCE1B89B09E11CAAFDB904549D40ADDC</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>3</Parent_Palette_Index>
@@ -2506,7 +2506,7 @@ Basic transport measurments:
         <Path>..\src\Transport\API (file)\Read Lockin_Sweep.json.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>405FF07F248D2E5867B192223FB6E9B1</GUID>
+      <GUID>50C5C0D3A6BAA713C634792085C5470B</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>3</Parent_Palette_Index>
@@ -2625,7 +2625,7 @@ Basic transport measurments:
         <Path>..\src\Transport\Private\Results (Dictionary) to X and Y Arrays.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>981A52F9E16541BF629A7EE66836AE0F</GUID>
+      <GUID>182282DE07BA7ABC5BF7D5E19D90164A</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
