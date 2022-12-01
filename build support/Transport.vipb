@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2022-11-18 11:38:52" Creator="Patrick" Comments="" ID="bbd04f564884eea09d4d9ec9825f800b">
+<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2022-12-01 14:20:58" Creator="Patrick" Comments="" ID="785420914654b2c25d1910a4046bdc73">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_Transport</Package_File_Name>
-    <Library_Version>1.6.1.3</Library_Version>
+    <Library_Version>1.6.2.1</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\src</Library_Source_Folder>
     <Library_Output_Folder>..\builds\Package</Library_Output_Folder>
@@ -52,11 +52,13 @@
       <External_Dependencies>mgi_lib_read_write_anything &gt;= 2.1.4.4</External_Dependencies>
       <External_Dependencies>mgi_lib_string &gt;= 1.1.1.5</External_Dependencies>
       <External_Dependencies>mgi_lib_timing &gt;= 1.1.0.2</External_Dependencies>
+      <External_Dependencies>mgi_lib_tree &gt;= 1.0.4.4</External_Dependencies>
       <External_Dependencies>national_instruments_lib_guid_generator &gt;= 1.0.2.3</External_Dependencies>
       <External_Dependencies>ni_cloud_toolkit_for_aws &gt;= 1.1.0.1</External_Dependencies>
       <External_Dependencies>ni_lib_stm &gt;= 3.1.0.9</External_Dependencies>
       <External_Dependencies>oglib_appcontrol &gt;= 4.1.0.7</External_Dependencies>
       <External_Dependencies>oglib_array &gt;= 4.1.1.14</External_Dependencies>
+      <External_Dependencies>oglib_boolean &gt;= 4.0.0.7</External_Dependencies>
       <External_Dependencies>oglib_dictionary &gt;= 4.0.0.4</External_Dependencies>
       <External_Dependencies>oglib_error &gt;= 4.2.0.23</External_Dependencies>
       <External_Dependencies>oglib_file &gt;= 4.0.1.22</External_Dependencies>
@@ -103,11 +105,13 @@
       <Direct_Dependencies>mgi_lib_read_write_anything-2.1.4.4</Direct_Dependencies>
       <Direct_Dependencies>mgi_lib_string-1.1.1.5</Direct_Dependencies>
       <Direct_Dependencies>mgi_lib_timing-1.1.0.2</Direct_Dependencies>
+      <Direct_Dependencies>mgi_lib_tree-1.0.4.4</Direct_Dependencies>
       <Direct_Dependencies>national_instruments_lib_guid_generator-1.0.2.3</Direct_Dependencies>
       <Direct_Dependencies>ni_cloud_toolkit_for_aws-1.1.0.1</Direct_Dependencies>
       <Direct_Dependencies>ni_lib_stm-3.1.0.9</Direct_Dependencies>
       <Direct_Dependencies>oglib_appcontrol-4.1.0.7</Direct_Dependencies>
       <Direct_Dependencies>oglib_array-4.1.1.14</Direct_Dependencies>
+      <Direct_Dependencies>oglib_boolean-4.0.0.7</Direct_Dependencies>
       <Direct_Dependencies>oglib_dictionary-4.0.0.4</Direct_Dependencies>
       <Direct_Dependencies>oglib_error-4.2.0.23</Direct_Dependencies>
       <Direct_Dependencies>oglib_file-4.0.1.22</Direct_Dependencies>
@@ -144,7 +148,7 @@
 [Transport.lvclass]
 Basic transport measurments:
 - Lockin vs time (Lockin_time.vi)
-- Lockin Sweep Mode (Lockin_sweep.vi
+- Lockin Sweep Mode (Lockin_sweep.vi)
 
 [SweepControl.lvclass]
 - Sweep Control.vi:
@@ -154,14 +158,9 @@ Basic transport measurments:
       <Copyright/>
       <Packager/>
       <URL/>
-      <Release_Notes>[1.6.1]
-- Issue #54: Fix R2/R4 G2/G4 plot labels in Lockin_sweep
-- Issue #55: better support for calling lockin_sweep as a subVI of Sweep Control and Continuous B Sweep
-- Issue #56: Confirm Control Experiment shutdown
-- Issue #61: Add write accessor for device (Mini Control Experiment)
-- Issue #62: Fix R vs T and B graphs in Lockin_time
-- Issue #64: fix issue with graphing a sweep that does not use the first sweep channel
-- Modify API methods for reading json-formatted metadata from TDMS files</Release_Notes>
+      <Release_Notes>[1.6.2]
+- Issue #66: Improve Lockin_sweep: UI controls, R graph
+- Issue #67: Improve Continuous B Sweep UI</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
@@ -448,7 +447,7 @@ Basic transport measurments:
         <Path>..\src\SweepControl</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>F924AE390035B7F1A4B52319CB15E21B</GUID>
+      <GUID>E211ADE4B7A8EE4F945F57166A972C45</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -553,7 +552,7 @@ Basic transport measurments:
         <Path>..\src\Control Experiment\Tree.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>6129DCFC5DB102640C580FE919A9AD0F</GUID>
+      <GUID>1AA7A6BD6D4AC24B50C904161FAC6F7C</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -686,7 +685,7 @@ Basic transport measurments:
         <Path>..\src\SweepControl\Sweep Control Cartesian.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>4211DFC84584BA2B53C6B4A4C09FD56F</GUID>
+      <GUID>BD228AC12AD90148432B599D0D74818E</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -819,7 +818,7 @@ Basic transport measurments:
         <Path>..\src\Transport\Lockin_time.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>9B4407A884F35A7309F09E095C1CAEC5</GUID>
+      <GUID>0F0BF6150D15288055D2A53AC1757E6E</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1106,7 +1105,7 @@ Basic transport measurments:
         <Path>..\src\Control Experiment\API\Read Device.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>DCD7FA8BD49F4C02BC4898857C8472F4</GUID>
+      <GUID>EA2862198BFCFA2C6E85449219534EF9</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1239,7 +1238,7 @@ Basic transport measurments:
         <Path>..\src\Control Experiment\API (File)\Save Transport TDMS File.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>AD5E3D276CF5908B44C42FD2FA505EDF</GUID>
+      <GUID>F0050928B7E5B837971B9F6A8FA042CA</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1400,7 +1399,7 @@ Basic transport measurments:
         <Path>..\src\Control Experiment\Comments\Generate Comments.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>164789EE810F4192A8F0259CE681992A</GUID>
+      <GUID>F36C44D230D78081628FB90EF002BAE9</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1813,7 +1812,7 @@ Basic transport measurments:
         <Path>..\src\Control Experiment\subVIs\Variant to DBL Array.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>894FC7D55175794D53A3D20A2D04D36A</GUID>
+      <GUID>5DE348A7C362775198739EB36797B927</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1890,7 +1889,7 @@ Basic transport measurments:
         <Path>..\src\Control Experiment\Tests\Test Write.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>F7739BB8D50AAF649CB49D1D28ADBA2E</GUID>
+      <GUID>C628DFB3D27E80209F8DDE133330AC3B</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>4</Parent_Palette_Index>
@@ -1995,7 +1994,7 @@ Basic transport measurments:
         <Path>..\src\Control Experiment\API\Dictionary\Write JSON to Dictionary.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>AD6825BDE1FD056489FC523D88865ACB</GUID>
+      <GUID>8358BC9618589201975E75DD1ACE05F9</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>4</Parent_Palette_Index>
@@ -2044,7 +2043,7 @@ Basic transport measurments:
         <Path>..\src\Control Experiment\API\S3\Upload to S3.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>AB461634C052309D6E4159A747D0788C</GUID>
+      <GUID>AC187C1C66E0A7F4D5D855D6EEDDDFF0</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>7</Parent_Palette_Index>
@@ -2093,7 +2092,7 @@ Basic transport measurments:
         <Path>..\src\Control Experiment\subVIs\Asana\Asana Dictionary Tasks Get Value.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>CA64AF78AA07FEA3BBDFFC34A3078368</GUID>
+      <GUID>0C411E3298E659BC5752E67B6AFBE1A5</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -2212,7 +2211,7 @@ Basic transport measurments:
         <Path>..\src\SweepControl\API\Write Dependencies.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>4CB4B76DA58536B307CD3401663226EA</GUID>
+      <GUID>324DEE7285C40145EB3C6F6AE9F462C1</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -2261,7 +2260,7 @@ Basic transport measurments:
         <Path>..\src\SweepControl\API (file)\Read Sweep Control.json.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>5D59DD0DE696A3E3414EFB9667E67E55</GUID>
+      <GUID>C94E45167223B73384AE1AF0ACAC1DD0</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -2380,7 +2379,7 @@ Basic transport measurments:
         <Path>..\src\SweepControl\subVIs\Sweep Control Loop.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>D39CA58095AAC8C8C6F0158083D58B62</GUID>
+      <GUID>A8CD7777E6674A150DB992EFFEDAE8C0</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>3</Parent_Palette_Index>
@@ -2471,7 +2470,7 @@ Basic transport measurments:
         <Path>..\src\Transport\API (class)\Write Sweep Table.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>FCE1B89B09E11CAAFDB904549D40ADDC</GUID>
+      <GUID>98B55F85FBA4A2259F09A091B9EA696B</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>3</Parent_Palette_Index>
@@ -2506,7 +2505,7 @@ Basic transport measurments:
         <Path>..\src\Transport\API (file)\Read Lockin_Sweep.json.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>50C5C0D3A6BAA713C634792085C5470B</GUID>
+      <GUID>0A06B79E8EBD93425ED4D400E8D486FC</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>3</Parent_Palette_Index>
@@ -2625,7 +2624,7 @@ Basic transport measurments:
         <Path>..\src\Transport\Private\Results (Dictionary) to X and Y Arrays.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>182282DE07BA7ABC5BF7D5E19D90164A</GUID>
+      <GUID>26845E498B5F1DDC496029567355674C</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
