@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2022-12-01 14:20:58" Creator="Patrick" Comments="" ID="785420914654b2c25d1910a4046bdc73">
+<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2022-12-01 15:26:57" Creator="Patrick" Comments="" ID="900f61343c07ed1eda7b50ae7d78d378">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_Transport</Package_File_Name>
-    <Library_Version>1.6.2.1</Library_Version>
+    <Library_Version>1.6.2.2</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\src</Library_Source_Folder>
     <Library_Output_Folder>..\builds\Package</Library_Output_Folder>
@@ -159,7 +159,7 @@ Basic transport measurments:
       <Packager/>
       <URL/>
       <Release_Notes>[1.6.2]
-- Issue #66: Improve Lockin_sweep: UI controls, R graph
+- Issue #66: Improve Lockin_sweep: UI controls, R graph plots and plot legend
 - Issue #67: Improve Continuous B Sweep UI</Release_Notes>
     </Description>
     <Destinations>
