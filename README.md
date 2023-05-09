@@ -36,7 +36,7 @@ A test environment can be set up by configuring the following
   - Install Quantum Design's **Simulate PPMS MultiVu** Software
   - Install Quantum Design's **QD Instrument Server**
   - Install [PPMS Monitor and Control](https://github.com/levylabpitt/PPMS-Monitor-and-Control/releases/latest). Run in Simulation mode (PPMSim)
-- Check out or clone this respotiory and try to communicate to the virtual instruments
+- Check out or clone this respoitory and try to communicate with the virtual instruments
 
 ## Contributing
 
