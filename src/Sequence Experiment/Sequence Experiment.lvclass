@@ -182,125 +182,6 @@
 			<Property Name="NI.LibItem.Scope" Type="Int">3</Property>
 		</Item>
 	</Item>
-	<Item Name="py-lv-comm-master" Type="Folder">
-		<Item Name="py-server_lv-client" Type="Folder">
-			<Item Name="py-lv-comm_callFunction.vi" Type="VI" URL="../py-lv-comm-master/py-server_lv-client/py-lv-comm_callFunction.vi">
-				<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">'1#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!'Y!!!!$Q!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!71&amp;!!!Q!!!!%!!AFF=H*P=C"P&gt;81!"!!!!":!-0````]-=G6U&gt;8*O)(:B&lt;(6F!!![1(!!(A!!)1R[:8*P&lt;8%O&lt;(:M;7)3?GVR8X.P9WNF&gt;#ZM&gt;G.M98.T!!Z[&lt;8&amp;@=W^D;W6U)'^V&gt;!!!'E!B&amp;6&gt;B;81A:G^S)(*F=X"P&lt;H.F)#B5+1!31#%-5(*P='6S&gt;(EA+%9J!!!A1&amp;!!!Q!!!!%!!B.F=H*P=C"J&lt;C!I&lt;G]A:8*S&lt;X)J!"*!-0````])98*H&gt;7VF&lt;H1!!":!1!!"`````Q!+#7&amp;S:X6N:7ZU=Q!31$$`````#':V&lt;G.U;7^O!!!Y1(!!(A!!)1R[:8*P&lt;8%O&lt;(:M;7)3?GVR8X.P9WNF&gt;#ZM&gt;G.M98.T!!V[&lt;8&amp;@=W^D;W6U)'FO!'%!]!!-!!-!"!!&amp;!!9!"!!%!!=!#!!*!!M!$!!.!Q!!?!!!$1A!!!!!!!!*!!!!$1M!!!!!!!!!!!!!#!!!!!!!!!!+!!!#!!!!!1I!!!!)!!!.!!!!$!!!!!!!!!!!!!!"!!Y!!!!!</Property>
-				<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
-				<Property Name="NI.ClassItem.Flags" Type="Int">0</Property>
-				<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">true</Property>
-				<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
-				<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
-				<Property Name="NI.ClassItem.State" Type="Int">1082143248</Property>
-			</Item>
-			<Item Name="py-lv-comm_closeConnection.vi" Type="VI" URL="../py-lv-comm-master/py-server_lv-client/py-lv-comm_closeConnection.vi">
-				<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">'1#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!%N!!!!#1!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!71&amp;!!!Q!!!!%!!AFF=H*P=C"P&gt;81!"!!!!#"!5!!$!!!!!1!#%W6S=G^S)'FO)#BO&lt;S"F=H*P=CE!.%"Q!"Y!!#%-?G6S&lt;WVR,GRW&lt;'FC%HJN=6^T&lt;W.L:81O&lt;(:D&lt;'&amp;T=Q!*=W^D;W6U)'FO!$R!=!!?!!!C$(JF=G^N=3ZM&gt;GRJ9B.[&lt;8&amp;@9W^O&gt;'6Y&gt;#ZM&gt;G.M98.T!!!/?GVR8W.P&lt;H2F?(1A;7Y!!&amp;1!]!!-!!-!"!!%!!1!"!!%!!1!"!!&amp;!!1!"A!(!Q!!?!!!$1A!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!+!!!!!!!!!"!!!!!1!!!!!!%!#!!!!!!</Property>
-				<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
-				<Property Name="NI.ClassItem.Flags" Type="Int">0</Property>
-				<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">true</Property>
-				<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
-				<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
-				<Property Name="NI.ClassItem.State" Type="Int">1082143248</Property>
-			</Item>
-			<Item Name="py-lv-comm_labview-client.vi" Type="VI" URL="../py-lv-comm-master/py-server_lv-client/py-lv-comm_labview-client.vi">
-				<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">'1#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!"A!!!!!A!%!!!!6!$Q!!Q!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!$!!"Y!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1!"!!!!!!</Property>
-				<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
-				<Property Name="NI.ClassItem.Flags" Type="Int">1073742080</Property>
-				<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">true</Property>
-				<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
-				<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
-				<Property Name="NI.ClassItem.State" Type="Int">1082143248</Property>
-			</Item>
-			<Item Name="py-lv-comm_openConnection.vi" Type="VI" URL="../py-lv-comm-master/py-server_lv-client/py-lv-comm_openConnection.vi">
-				<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">'1#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!%Z!!!!#A!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!71&amp;!!!Q!!!!%!!AFF=H*P=C"P&gt;81!"!!!!$:!=!!?!!!B$(JF=G^N=3ZM&gt;GRJ9B*[&lt;8&amp;@=W^D;W6U,GRW9WRB=X-!#H.P9WNF&gt;#"P&gt;81!!$R!=!!?!!!C$(JF=G^N=3ZM&gt;GRJ9B.[&lt;8&amp;@9W^O&gt;'6Y&gt;#ZM&gt;G.M98.T!!!0?GVR8W.P&lt;H2F?(1A&lt;X6U!":!5!!$!!!!!1!##'6S=G^S)'FO!!!51$$`````#V2$5#"B:'2S:8.T!&amp;1!]!!-!!-!"!!&amp;!!9!"!!%!!1!"!!(!!1!"!!)!Q!!?!!!$1A!!!!!!!!*!!!!#1!!!!!!!!!!!!!!!!!!!!!!!!!+!!!!!!!!!!!!!!!)!!!!!!%!#1!!!!!</Property>
-				<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
-				<Property Name="NI.ClassItem.Flags" Type="Int">0</Property>
-				<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">true</Property>
-				<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
-				<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
-				<Property Name="NI.ClassItem.State" Type="Int">1082143248</Property>
-			</Item>
-			<Item Name="py-lv-comm_python-server.py" Type="Document" URL="../py-lv-comm-master/py-server_lv-client/py-lv-comm_python-server.py"/>
-			<Item Name="py-lv-comm_readBool.vi" Type="VI" URL="../py-lv-comm-master/py-server_lv-client/py-lv-comm_readBool.vi">
-				<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">'1#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!'5!!!!$A!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!71&amp;!!!Q!!!!%!!AFF=H*P=C"P&gt;81!"!!!!""!)1NC&lt;W^M)(*F=X6M&gt;!![1(!!(A!!)1R[:8*P&lt;8%O&lt;(:M;7)3?GVR8X.P9WNF&gt;#ZM&gt;G.M98.T!!Z[&lt;8&amp;@=W^D;W6U)'^V&gt;!!!$E!B#&amp;"S&lt;X"F=H2Z!!!A1&amp;!!!Q!!!!%!!B.F=H*P=C"J&lt;C!I&lt;G]A:8*S&lt;X)J!"*!-0````])98*H&gt;7VF&lt;H1!!":!1!!"`````Q!*#7&amp;S:X6N:7ZU=Q!31$$`````#':V&lt;G.U;7^O!!!Y1(!!(A!!)1R[:8*P&lt;8%O&lt;(:M;7)3?GVR8X.P9WNF&gt;#ZM&gt;G.M98.T!!V[&lt;8&amp;@=W^D;W6U)'FO!'%!]!!-!!-!"!!&amp;!!9!"!!%!!1!"Q!)!!I!#Q!-!Q!!?!!!$1A!!!!!!!!*!!!!$1M!!!!!!!!!!!!!!!!!!!A!!!!+!!!#!!!!!2)!!!!1!!!.!!!!$!!!!!!!!!!!!!!"!!U!!!!!</Property>
-				<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
-				<Property Name="NI.ClassItem.Flags" Type="Int">0</Property>
-				<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">true</Property>
-				<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
-				<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
-				<Property Name="NI.ClassItem.State" Type="Int">1082143248</Property>
-			</Item>
-			<Item Name="py-lv-comm_readDouble.vi" Type="VI" URL="../py-lv-comm-master/py-server_lv-client/py-lv-comm_readDouble.vi">
-				<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">'1#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!'8!!!!$A!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!71&amp;!!!Q!!!!%!!AFF=H*P=C"P&gt;81!"!!!!".!#A!.:'^V9GRF)(*F=X6M&gt;!![1(!!(A!!)1R[:8*P&lt;8%O&lt;(:M;7)3?GVR8X.P9WNF&gt;#ZM&gt;G.M98.T!!Z[&lt;8&amp;@=W^D;W6U)'^V&gt;!!!$E!B#&amp;"S&lt;X"F=H2Z!!!A1&amp;!!!Q!!!!%!!B.F=H*P=C"J&lt;C!I&lt;G]A:8*S&lt;X)J!"*!-0````])98*H&gt;7VF&lt;H1!!":!1!!"`````Q!*#7&amp;S:X6N:7ZU=Q!31$$`````#':V&lt;G.U;7^O!!!Y1(!!(A!!)1R[:8*P&lt;8%O&lt;(:M;7)3?GVR8X.P9WNF&gt;#ZM&gt;G.M98.T!!V[&lt;8&amp;@=W^D;W6U)'FO!'%!]!!-!!-!"!!&amp;!!9!"!!%!!1!"Q!)!!I!#Q!-!Q!!?!!!$1A!!!!!!!!*!!!!$1M!!!!!!!!!!!!!!!!!!!A!!!!+!!!#!!!!!2)!!!!1!!!.!!!!$!!!!!!!!!!!!!!"!!U!!!!!</Property>
-				<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
-				<Property Name="NI.ClassItem.Flags" Type="Int">0</Property>
-				<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">true</Property>
-				<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
-				<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
-				<Property Name="NI.ClassItem.State" Type="Int">1082143248</Property>
-			</Item>
-			<Item Name="py-lv-comm_readInt.vi" Type="VI" URL="../py-lv-comm-master/py-server_lv-client/py-lv-comm_readInt.vi">
-				<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">'1#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!'6!!!!$A!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!71&amp;!!!Q!!!!%!!AFF=H*P=C"P&gt;81!"!!!!"&amp;!!Q!+;7ZU)(*F=X6M&gt;!!!/E"Q!"Y!!#%-?G6S&lt;WVR,GRW&lt;'FC%HJN=6^T&lt;W.L:81O&lt;(:D&lt;'&amp;T=Q!/?GVR8X.P9WNF&gt;#"P&gt;81!!!Z!)1B1=G^Q:8*U?1!!)%"1!!-!!!!"!!)4:8*S&lt;X)A;7YA+'ZP)'6S=G^S+1!31$$`````#'&amp;S:X6N:7ZU!!!71%!!!@````]!#1FB=G&gt;V&lt;76O&gt;(-!%E!Q`````QBG&gt;7ZD&gt;'FP&lt;A!!/%"Q!"Y!!#%-?G6S&lt;WVR,GRW&lt;'FC%HJN=6^T&lt;W.L:81O&lt;(:D&lt;'&amp;T=Q!.?GVR8X.P9WNF&gt;#"J&lt;A"B!0!!$!!$!!1!"1!'!!1!"!!%!!=!#!!+!!M!$!-!!(A!!!U)!!!!!!!!#1!!!!U,!!!!!!!!!!!!!!!!!!!)!!!!#A!!!A!!!!%3!!!!%!!!$1!!!!Q!!!!!!!!!!!!!!1!.!!!!!!</Property>
-				<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
-				<Property Name="NI.ClassItem.Flags" Type="Int">0</Property>
-				<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">true</Property>
-				<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
-				<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
-				<Property Name="NI.ClassItem.State" Type="Int">1082143248</Property>
-			</Item>
-			<Item Name="py-lv-comm_readNumpyArray.vi" Type="VI" URL="../py-lv-comm-master/py-server_lv-client/py-lv-comm_readNumpyArray.vi">
-				<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">'1#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!'F!!!!$Q!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!71&amp;!!!Q!!!!%!!AFF=H*P=C"P&gt;81!"!!!!!5!#A!!(%"!!!(`````!!5/&lt;H"B=H*B?3"S:8.V&lt;(1!!$J!=!!?!!!B$(JF=G^N=3ZM&gt;GRJ9B*[&lt;8&amp;@=W^D;W6U,GRW9WRB=X-!$HJN=6^T&lt;W.L:81A&lt;X6U!!!/1#%)5(*P='6S&gt;(E!!#"!5!!$!!!!!1!#%W6S=G^S)'FO)#BO&lt;S"F=H*P=CE!%E!Q`````QBB=G&gt;V&lt;76O&gt;!!!&amp;E"!!!(`````!!I*98*H&gt;7VF&lt;H2T!"*!-0````]):H6O9X2J&lt;WY!!$B!=!!?!!!B$(JF=G^N=3ZM&gt;GRJ9B*[&lt;8&amp;@=W^D;W6U,GRW9WRB=X-!$8JN=6^T&lt;W.L:81A;7Y!91$Q!!Q!!Q!%!!9!"Q!%!!1!"!!)!!E!#Q!-!!U$!!"Y!!!.#!!!!!!!!!E!!!!.#Q!!!!!!!!!!!!!!!!!!#!!!!!I!!!)!!!!"%A!!!"!!!!U!!!!-!!!!!!!!!!!!!!%!$A!!!!!</Property>
-				<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
-				<Property Name="NI.ClassItem.Flags" Type="Int">0</Property>
-				<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">true</Property>
-				<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
-				<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
-				<Property Name="NI.ClassItem.State" Type="Int">1082143248</Property>
-			</Item>
-			<Item Name="py-lv-comm_readString.vi" Type="VI" URL="../py-lv-comm-master/py-server_lv-client/py-lv-comm_readString.vi">
-				<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">'1#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!';!!!!$A!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!71&amp;!!!Q!!!!%!!AFF=H*P=C"P&gt;81!"!!!!":!-0````].=X2S;7ZH)(*F=X6M&gt;!![1(!!(A!!)1R[:8*P&lt;8%O&lt;(:M;7)3?GVR8X.P9WNF&gt;#ZM&gt;G.M98.T!!Z[&lt;8&amp;@=W^D;W6U)'^V&gt;!!!$E!B#&amp;"S&lt;X"F=H2Z!!!A1&amp;!!!Q!!!!%!!B.F=H*P=C"J&lt;C!I&lt;G]A:8*S&lt;X)J!"*!-0````])98*H&gt;7VF&lt;H1!!":!1!!"`````Q!*#7&amp;S:X6N:7ZU=Q!31$$`````#':V&lt;G.U;7^O!!!Y1(!!(A!!)1R[:8*P&lt;8%O&lt;(:M;7)3?GVR8X.P9WNF&gt;#ZM&gt;G.M98.T!!V[&lt;8&amp;@=W^D;W6U)'FO!'%!]!!-!!-!"!!&amp;!!9!"!!%!!1!"Q!)!!I!#Q!-!Q!!?!!!$1A!!!!!!!!*!!!!$1M!!!!!!!!!!!!!!!!!!!A!!!!+!!!#!!!!!2)!!!!1!!!.!!!!$!!!!!!!!!!!!!!"!!U!!!!!</Property>
-				<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
-				<Property Name="NI.ClassItem.Flags" Type="Int">0</Property>
-				<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">true</Property>
-				<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
-				<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
-				<Property Name="NI.ClassItem.State" Type="Int">1082143248</Property>
-			</Item>
-			<Item Name="py-lv-comm_sendCommand.vi" Type="VI" URL="../py-lv-comm-master/py-server_lv-client/py-lv-comm_sendCommand.vi">
-				<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">'1#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!&amp;U!!!!$!!-1#%'=X2B&gt;(6T!!!,1!-!"'.P:'5!!""!-0````]'=W^V=G.F!!!71&amp;!!!Q!!!!%!!AFF=H*P=C"P&gt;81!"!!!!!Z!-0````]%:'&amp;U91!!/E"Q!"Y!!#%-?G6S&lt;WVR,GRW&lt;'FC%HJN=6^T&lt;W.L:81O&lt;(:D&lt;'&amp;T=Q!/?GVR8X.P9WNF&gt;#"P&gt;81!!"J!)26897FU)':P=C"S:8.Q&lt;WZT:3!I6#E!)%"1!!-!!!!"!!)4:8*S&lt;X)A;7YA+'ZP)'6S=G^S+1!11$$`````"W.P&lt;7VB&lt;G1!/%"Q!"Y!!#%-?G6S&lt;WVR,GRW&lt;'FC%HJN=6^T&lt;W.L:81O&lt;(:D&lt;'&amp;T=Q!.?GVR8X.P9WNF&gt;#"J&lt;A"B!0!!$!!$!!1!"1!'!!1!"!!(!!1!#!!%!!E!#A-!!(A!!!U)!!!!!!!!#1!!!!U,!!!!!!!!!!!!!!A!!!!!!!!!#A!!!!!!!!!1!!!!%!!!$1!!!!Q!!!!!!!!!!!!!!1!,!!!!!!</Property>
-				<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
-				<Property Name="NI.ClassItem.Flags" Type="Int">0</Property>
-				<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">true</Property>
-				<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
-				<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
-				<Property Name="NI.ClassItem.State" Type="Int">1082143248</Property>
-			</Item>
-		</Item>
-		<Item Name="py-server_lv-client_simple" Type="Folder">
-			<Item Name="labview-client.png" Type="Document" URL="../py-lv-comm-master/py-server_lv-client_simple/labview-client.png"/>
-			<Item Name="labview-client.vi" Type="VI" URL="../py-lv-comm-master/py-server_lv-client_simple/labview-client.vi">
-				<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">'1#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!"A!!!!!A!%!!!!6!$Q!!Q!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!$!!"Y!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1!"!!!!!!</Property>
-				<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
-				<Property Name="NI.ClassItem.Flags" Type="Int">0</Property>
-				<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">true</Property>
-				<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
-				<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
-				<Property Name="NI.ClassItem.State" Type="Int">1082143248</Property>
-			</Item>
-			<Item Name="labview-server.vi" Type="VI" URL="../py-lv-comm-master/py-server_lv-client_simple/labview-server.vi">
-				<Property Name="NI.ClassItem.ConnectorPane" Type="Bin">'1#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!"A!!!!!A!%!!!!6!$Q!!Q!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!$!!"Y!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1!"!!!!!!</Property>
-				<Property Name="NI.ClassItem.ExecutionSystem" Type="Int">-1</Property>
-				<Property Name="NI.ClassItem.Flags" Type="Int">1073742080</Property>
-				<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">true</Property>
-				<Property Name="NI.ClassItem.MethodScope" Type="UInt">1</Property>
-				<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
-				<Property Name="NI.ClassItem.State" Type="Int">1082143248</Property>
-			</Item>
-			<Item Name="python-client.py" Type="Document" URL="../py-lv-comm-master/py-server_lv-client_simple/python-client.py"/>
-			<Item Name="python-server.py" Type="Document" URL="../py-lv-comm-master/py-server_lv-client_simple/python-server.py"/>
-		</Item>
-		<Item Name="README.md" Type="Document" URL="../py-lv-comm-master/README.md"/>
-	</Item>
 	<Item Name="Protected" Type="Folder">
 		<Property Name="NI.LibItem.Scope" Type="Int">3</Property>
 		<Item Name="Sequence Experiment.Client.vi" Type="VI" URL="../Protected/Sequence Experiment.Client.vi">
@@ -320,7 +201,7 @@
 		<Property Name="NI.ClassItem.IsStaticMethod" Type="Bool">false</Property>
 		<Property Name="NI.ClassItem.MethodScope" Type="UInt">3</Property>
 		<Property Name="NI.ClassItem.Priority" Type="Int">1</Property>
-		<Property Name="NI.ClassItem.State" Type="Int">1117782544</Property>
+		<Property Name="NI.ClassItem.State" Type="Int">1109918224</Property>
 		<Property Name="NI.LibItem.Scope" Type="Int">3</Property>
 	</Item>
 	<Item Name="Sequence Experiment.AppLauncher.vi" Type="VI" URL="../Sequence Experiment.AppLauncher.vi">

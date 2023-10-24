@@ -4,7 +4,7 @@ import zmq
 #ZMQ setup
 context = zmq.Context()
 socket = context.socket(zmq.REQ)
-socket.bind("tcp://127.0.0.1:15213")
+socket.connect("tcp://localhost:15213")
 
 #Experiment setup
 temperatures = [300,350,400]
@@ -29,8 +29,17 @@ print(command_list)
 
 # Send commands as a single csv string to REP socket (LabVIEW will parse the string)
 # To do: format as JSON RPC
-socket.send_string(command_list)
 
+print("sending string")
+socket.send_string("Wait >> 1000")
+
+print("sleeping")
+time.sleep(2)
+
+print("sending string")
+socket.send_string("Wait >> 2000")
+
+#socket.send_multipart(command_list)
 
 
 
