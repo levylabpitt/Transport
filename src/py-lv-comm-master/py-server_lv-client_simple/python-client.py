@@ -1,5 +1,6 @@
 import time
 import zmq
+import sys
 
 #ZMQ setup
 context = zmq.Context()
@@ -7,15 +8,16 @@ socket = context.socket(zmq.REQ)
 socket.connect("tcp://localhost:15213")
 
 #Experiment setup
-temperatures = [300,350,400]
+temperatures = [300,325,350]
 experiments = ["Wait >> 1000", "Lockin_Vsg"]
 command_list = ""
+
 
 for y in temperatures:
     command = "Set Temperature >> {}".format(y)
     command_list = command_list + command + ',\n'
     # print(command)
-    for magnet in range(-5,1):
+    for magnet in range(-1,2):
         command = "Set Magnet >> {}".format(magnet)
         # print(command)
         command_list = command_list + command + ',\n'
@@ -26,22 +28,34 @@ for y in temperatures:
             command_list = command_list + command + ',\n'
 
 print(command_list)
+socket.send_string(command_list)
+reply = socket.recv_string()
+print(f"server replied: {reply}")
 
 # Send commands as a single csv string to REP socket (LabVIEW will parse the string)
 # To do: format as JSON RPC
 
-print("sending string")
-socket.send_string("Wait >> 1000")
+while True:
+    socket.send_string("Get Status")
+    status = socket.recv_string()
+    print(status)
+    if status.find("busy") != -1:
+        time.sleep(1)
+        continue
+    else:
+        break
 
-print("sleeping")
-time.sleep(2)
-
-print("sending string")
-socket.send_string("Wait >> 2000")
-
+'''
+for i in range(10):
+    data = f"Wait >> {i*500}"
+    socket.send_string(data)
+    print(f"Sending: {data}")
+    reply = socket.recv_string()
+    print(f"Server replied: {reply}")
+'''
 #socket.send_multipart(command_list)
 
-
+sys.exit()
 
 '''
 Mark Code:
