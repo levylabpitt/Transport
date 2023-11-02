@@ -2,3 +2,4 @@
 *.lvclass binary
 *.lvproj binary
 *.vipb binary
+*.vi diff=LVCompare
