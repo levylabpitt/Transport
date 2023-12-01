@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2018" Created_Date="2023-11-17 14:02:31" Modified_Date="2023-11-17 16:12:18" Creator="Patrick Irvin" Comments="" ID="54aeec1350279e2675e5f4845a4eee0a">
+<VI_Package_Builder_Settings Version="2018" Created_Date="2023-11-17 14:02:31" Modified_Date="2023-12-01 10:53:03" Creator="Patrick Irvin" Comments="" ID="f936bb4757fa619222117c4a4eaa07f7">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_control_experiment</Package_File_Name>
-    <Library_Version>1.0.0.3</Library_Version>
+    <Library_Version>1.0.0.4</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\src\Control Experiment</Library_Source_Folder>
     <Library_Output_Folder>..\builds\Package</Library_Output_Folder>
@@ -18,7 +18,7 @@
   <Advanced_Settings>
     <Package_Dependencies>
       <External_Dependencies>i3_external_encryption &gt;= 1.0.0.8</External_Dependencies>
-      <External_Dependencies>jdp_science_jsontext &gt;= 1.7.0.118</External_Dependencies>
+      <External_Dependencies>jdp_science_jsontext &gt;= 1.8.1.121</External_Dependencies>
       <External_Dependencies>jdp_science_lib_common_utilities &gt;= 1.4.1.18</External_Dependencies>
       <External_Dependencies>jdp_science_postgresql &gt;= 0.3.1.20</External_Dependencies>
       <External_Dependencies>jki_lib_caraya &gt;= 1.4.2.145</External_Dependencies>
@@ -64,7 +64,7 @@
       <External_Dependencies>oglib_variantconfig &gt;= 4.0.0.5</External_Dependencies>
       <External_Dependencies>wireflow_ab_lib_wf_progressbar &gt;= 1.0.2.56</External_Dependencies>
       <Direct_Dependencies>i3_external_encryption-1.0.0.8</Direct_Dependencies>
-      <Direct_Dependencies>jdp_science_jsontext-1.7.0.118</Direct_Dependencies>
+      <Direct_Dependencies>jdp_science_jsontext-1.8.1.121</Direct_Dependencies>
       <Direct_Dependencies>jdp_science_lib_common_utilities-1.4.1.18</Direct_Dependencies>
       <Direct_Dependencies>jdp_science_postgresql-0.3.1.20</Direct_Dependencies>
       <Direct_Dependencies>jki_lib_caraya-1.4.2.145</Direct_Dependencies>
@@ -134,17 +134,14 @@
       <Copyright/>
       <Packager/>
       <URL/>
-      <Release_Notes>[1.0.0]
-- The class was previously included in the Transport package. It has now been split into it's own package
-- Issue #60: New Lockin API allows quicker and better error handling if Lock-In is not running
-- Issue #74: fix issue with KH address in Control Experiment
-- Issue #78: Fix issues with saving and loading instruments in Load Instrument Classes</Release_Notes>
+      <Release_Notes>[1.0.0.3]
+- Fix install location</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
         <LLB>false</LLB>
         <Preserve_Hierarchy>true</Preserve_Hierarchy>
-        <Path>&lt;user.lib&gt;\Levylab\Transport</Path>
+        <Path>&lt;user.lib&gt;\Levylab\Control Experiment</Path>
       </Toolkit_VIs>
       <Examples>
         <LLB>false</LLB>
@@ -401,7 +398,7 @@
         <Path>..\src\Control Experiment\Control Experiment.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>C6EF1E5C408E82FB26D31FE71DD40211</GUID>
+      <GUID>446B76DFED2015999D4206CAF1937C9D</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -688,7 +685,7 @@
         <Path>..\src\Control Experiment\API\Write Wiring Configuration v2.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>C820A9C637235F60D59CC7D631BA41F8</GUID>
+      <GUID>2AD666134EA807B6E367668BCBF66F02</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -821,7 +818,7 @@
         <Path>..\src\Control Experiment\API (File)\Save Transport TDMS File.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>AC36833E90085808666D42E8A41119E2</GUID>
+      <GUID>3F9B5EEBAE6B1E9B024391971A4170E4</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -982,7 +979,7 @@
         <Path>..\src\Control Experiment\Comments\Generate Comments.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>A7540B9EE6FF4A48980B04AE4154E40D</GUID>
+      <GUID>39F2E118354E3F2F5F6E322AC5079DE3</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1395,7 +1392,7 @@
         <Path>..\src\Control Experiment\subVIs\Variant to DBL Array.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>74775F7545000D541343ECA913B2B6B3</GUID>
+      <GUID>544ECA6CCD59C8D543BB35DA52585674</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1472,7 +1469,7 @@
         <Path>..\src\Control Experiment\Tests\Test Write.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>1C08489559D06245FC96BEB95C63EB15</GUID>
+      <GUID>91420D17C976DF7227AC1269799900CF</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1591,7 +1588,7 @@
         <Path>..\src\Control Experiment\API\Dictionary\Write JSON to Dictionary.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>C586E54BCB7B299660D2880D461D11DA</GUID>
+      <GUID>50A75ED13A02252B99F14BB8F9DA05C9</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1640,7 +1637,7 @@
         <Path>..\src\Control Experiment\API\S3\Upload to S3.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>509C6374A7E8B2624BF684651DF6D1D7</GUID>
+      <GUID>F7C802E592F3F39B4B53FCA7D6E11E7F</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
