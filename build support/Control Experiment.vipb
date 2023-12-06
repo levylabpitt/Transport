@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2018" Created_Date="2023-11-17 14:02:31" Modified_Date="2023-12-05 18:02:27" Creator="Patrick Irvin" Comments="" ID="31c35732374389cef83a492d0d4e1c77">
+<VI_Package_Builder_Settings Version="2018" Created_Date="2023-11-17 14:02:31" Modified_Date="2023-12-05 22:02:08" Creator="Patrick Irvin" Comments="" ID="2eea9509465eff91e0dd2bbb83367792">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_control_experiment</Package_File_Name>
-    <Library_Version>1.0.1.6</Library_Version>
+    <Library_Version>1.0.1.7</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\src\Control Experiment</Library_Source_Folder>
     <Library_Output_Folder>..\builds\Package</Library_Output_Folder>
@@ -142,7 +142,7 @@
       <Toolkit_VIs>
         <LLB>false</LLB>
         <Preserve_Hierarchy>true</Preserve_Hierarchy>
-        <Path>&lt;user.lib&gt;\Levylab\Control Experiment</Path>
+        <Path>&lt;user.lib&gt;\Levylab\Transport\Control Experiment</Path>
       </Toolkit_VIs>
       <Examples>
         <LLB>false</LLB>
@@ -399,7 +399,7 @@
         <Path>..\src\Control Experiment\Control Experiment.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>5ECC7C9411F0637C96358CF80A7FC5E7</GUID>
+      <GUID>F42FDAE78B60277FE732C15A458941C9</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -686,7 +686,7 @@
         <Path>..\src\Control Experiment\API\Write Wiring Configuration v2.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>2548ED19D8C0CE155B89F471716D5DDE</GUID>
+      <GUID>3ED75DFC07F6940681C5E8AD6124D968</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -819,7 +819,7 @@
         <Path>..\src\Control Experiment\API (File)\Save Transport TDMS File.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>A6ACD4BC184C8F22C13159F79F5C09E7</GUID>
+      <GUID>728C847AA862DE511BF437479BE8A888</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -980,7 +980,7 @@
         <Path>..\src\Control Experiment\Comments\Generate Comments.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>3393C03DF10B292556DA207087C12B60</GUID>
+      <GUID>97EAB483D333C9A7DB823624C3836B06</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1393,7 +1393,7 @@
         <Path>..\src\Control Experiment\subVIs\Variant to DBL Array.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>9FB9EB1CFE735D6296E852439E38F40D</GUID>
+      <GUID>3E8E3117AE579D48243B0F9E05BBD1CF</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1470,7 +1470,7 @@
         <Path>..\src\Control Experiment\Tests\Test Write.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>6304E477E99166A47362622B9FA1F073</GUID>
+      <GUID>2B60D5EC1E20FFA89E969BB4D8209521</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1589,7 +1589,7 @@
         <Path>..\src\Control Experiment\API\Dictionary\Write JSON to Dictionary.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>2B3EC66ACEB10D3C3BCCDCF5C1BCAD0F</GUID>
+      <GUID>B9D06ECEBD82E18DD585CC377A132110</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1638,7 +1638,7 @@
         <Path>..\src\Control Experiment\API\S3\Upload to S3.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>E95B3498FDB830CD04EA95A264825C97</GUID>
+      <GUID>F466FF686D2DCF48D5241283F25E2E01</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
