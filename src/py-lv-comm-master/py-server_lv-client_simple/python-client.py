@@ -34,7 +34,7 @@ print(f"server replied: {reply}")
 
 # Send commands as a single csv string to REP socket (LabVIEW will parse the string)
 # To do: format as JSON RPC
-
+'''
 while True:
     socket.send_string("Get Status")
     status = socket.recv_string()
@@ -44,7 +44,7 @@ while True:
         continue
     else:
         break
-
+'''
 '''
 for i in range(10):
     data = f"Wait >> {i*500}"
