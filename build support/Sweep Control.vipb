@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2023-11-17 13:13:32" Modified_Date="2023-12-06 06:58:32" Creator="Patrick Irvin" Comments="" ID="cd72dc01810b9c16c916dc9ad2037efd">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2023-11-17 13:13:32" Modified_Date="2024-06-03 09:14:37" Creator="Patrick Irvin" Comments="" ID="810631549c91328d5356e45df0312ed5">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_sweep_control</Package_File_Name>
-    <Library_Version>1.0.1.8</Library_Version>
+    <Library_Version>1.0.1.9</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\src\Sweep Control</Library_Source_Folder>
     <Library_Output_Folder>..\builds\Package</Library_Output_Folder>
@@ -18,10 +18,10 @@
   <Advanced_Settings>
     <Package_Dependencies>
       <External_Dependencies>i3_external_encryption &gt;= 1.0.0.8</External_Dependencies>
-      <External_Dependencies>jdp_science_jsontext &gt;= 1.8.1.121</External_Dependencies>
+      <External_Dependencies>jdp_science_jsontext &gt;= 1.8.2.122</External_Dependencies>
       <External_Dependencies>jdp_science_lib_common_utilities &gt;= 1.4.1.18</External_Dependencies>
       <External_Dependencies>jdp_science_postgresql &gt;= 0.3.1.20</External_Dependencies>
-      <External_Dependencies>jki_lib_caraya &gt;= 1.4.2.145</External_Dependencies>
+      <External_Dependencies>jki_lib_caraya &gt;= 1.4.3.147</External_Dependencies>
       <External_Dependencies>jki_lib_json_serialization &gt;= 1.1.10.37</External_Dependencies>
       <External_Dependencies>jki_lib_serialization &gt;= 1.0.1.14</External_Dependencies>
       <External_Dependencies>jki_lib_state_machine &gt;= 2018.0.7.45</External_Dependencies>
@@ -34,7 +34,7 @@
       <External_Dependencies>levylab_lib_graph_utilities &gt;= 2.1.10.3</External_Dependencies>
       <External_Dependencies>levylab_lib_krohn_hite_7008 &gt;= 1.7.9.1</External_Dependencies>
       <External_Dependencies>levylab_lib_lockin_multichannel &gt;= 2.15.4.4</External_Dependencies>
-      <External_Dependencies>levylab_lib_lvtoitx &gt;= 3.7.0.2</External_Dependencies>
+      <External_Dependencies>levylab_lib_lvtoitx &gt;= 3.7.2.1</External_Dependencies>
       <External_Dependencies>levylab_lib_plym &gt;= 1.0.1.3</External_Dependencies>
       <External_Dependencies>levylab_lib_voltage_update &gt;= 1.0.3.5</External_Dependencies>
       <External_Dependencies>levylab_lib_xy_utilities &gt;= 1.5.4.1</External_Dependencies>
@@ -56,7 +56,6 @@
       <External_Dependencies>oglib_error &gt;= 4.2.0.23</External_Dependencies>
       <External_Dependencies>oglib_file &gt;= 4.0.1.22</External_Dependencies>
       <External_Dependencies>oglib_lvdata &gt;= 5.0.0.27</External_Dependencies>
-      <External_Dependencies>oglib_lvzip &gt;= 4.0.1</External_Dependencies>
       <External_Dependencies>oglib_md5 &gt;= 4.1.1.10</External_Dependencies>
       <External_Dependencies>oglib_numeric &gt;= 4.1.0.8</External_Dependencies>
       <External_Dependencies>oglib_string &gt;= 5.0.0.25</External_Dependencies>
@@ -64,10 +63,10 @@
       <External_Dependencies>oglib_variantconfig &gt;= 4.0.0.5</External_Dependencies>
       <External_Dependencies>wireflow_ab_lib_wf_progressbar &gt;= 1.0.2.56</External_Dependencies>
       <Direct_Dependencies>i3_external_encryption-1.0.0.8</Direct_Dependencies>
-      <Direct_Dependencies>jdp_science_jsontext-1.8.1.121</Direct_Dependencies>
+      <Direct_Dependencies>jdp_science_jsontext-1.8.2.122</Direct_Dependencies>
       <Direct_Dependencies>jdp_science_lib_common_utilities-1.4.1.18</Direct_Dependencies>
       <Direct_Dependencies>jdp_science_postgresql-0.3.1.20</Direct_Dependencies>
-      <Direct_Dependencies>jki_lib_caraya-1.4.2.145</Direct_Dependencies>
+      <Direct_Dependencies>jki_lib_caraya-1.4.3.147</Direct_Dependencies>
       <Direct_Dependencies>jki_lib_json_serialization-1.1.10.37</Direct_Dependencies>
       <Direct_Dependencies>jki_lib_serialization-1.0.1.14</Direct_Dependencies>
       <Direct_Dependencies>jki_lib_state_machine-2018.0.7.45</Direct_Dependencies>
@@ -80,7 +79,7 @@
       <Direct_Dependencies>levylab_lib_graph_utilities-2.1.10.3</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_krohn_hite_7008-1.7.9.1</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_lockin_multichannel-2.15.4.4</Direct_Dependencies>
-      <Direct_Dependencies>levylab_lib_lvtoitx-3.7.0.2</Direct_Dependencies>
+      <Direct_Dependencies>levylab_lib_lvtoitx-3.7.2.1</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_plym-1.0.1.3</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_voltage_update-1.0.3.5</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_xy_utilities-1.5.4.1</Direct_Dependencies>
@@ -102,7 +101,6 @@
       <Direct_Dependencies>oglib_error-4.2.0.23</Direct_Dependencies>
       <Direct_Dependencies>oglib_file-4.0.1.22</Direct_Dependencies>
       <Direct_Dependencies>oglib_lvdata-5.0.0.27</Direct_Dependencies>
-      <Direct_Dependencies>oglib_lvzip-4.0.1-1</Direct_Dependencies>
       <Direct_Dependencies>oglib_md5-4.1.1.10</Direct_Dependencies>
       <Direct_Dependencies>oglib_numeric-4.1.0.8</Direct_Dependencies>
       <Direct_Dependencies>oglib_string-5.0.0.25</Direct_Dependencies>
@@ -130,8 +128,7 @@
       <Packager/>
       <URL/>
       <Release_Notes>SweepControl.lvclass
-- update category palette
-- update install location</Release_Notes>
+- Issue #82: Sweep Control now supports linear, power, and triangle sweep types</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
@@ -411,7 +408,7 @@
         <Path>..\src\Sweep Control\Sweep Control Cartesian.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>F280192594677C964DF0044567C4F8A7</GUID>
+      <GUID>E728874AC2ADB727818C0D28BA99A66A</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -502,7 +499,7 @@
         <Path>..\src\Sweep Control\API\Write Dependencies.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>D53C36197C98B096131C7D06D0D78254</GUID>
+      <GUID>0628CF88AE5C56B7FF4F18DE17839149</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -551,7 +548,7 @@
         <Path>..\src\Sweep Control\API (file)\Read Sweep Control.json.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>8B1FB4C5F60B5B1F746CD0AE4749FDBC</GUID>
+      <GUID>DFFED4D08609A7440ECB5093C50173B1</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -656,7 +653,7 @@
         <Path>..\src\Sweep Control\subVIs\Sweep Control Loop.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>4C9CA68B6350A37E4A660B35E4059908</GUID>
+      <GUID>D46204137112C815B73CA5B4E7B6723B</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
