@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2018" Created_Date="2023-11-17 14:02:31" Modified_Date="2024-05-31 14:37:38" Creator="Patrick Irvin" Comments="" ID="533676a39d362345f6f4ddd79da477ca">
+<VI_Package_Builder_Settings Version="2018" Created_Date="2023-11-17 14:02:31" Modified_Date="2024-11-18 15:30:55" Creator="Patrick Irvin" Comments="" ID="41e0a1fee0637af15713c6627e8ef098">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_control_experiment</Package_File_Name>
-    <Library_Version>1.0.2.8</Library_Version>
+    <Library_Version>1.1.0.9</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\src\Control Experiment</Library_Source_Folder>
     <Library_Output_Folder>..\builds\Package</Library_Output_Folder>
@@ -20,7 +20,7 @@
       <External_Dependencies>i3_external_encryption &gt;= 1.0.0.8</External_Dependencies>
       <External_Dependencies>jdp_science_jsontext &gt;= 1.8.2.122</External_Dependencies>
       <External_Dependencies>jdp_science_lib_common_utilities &gt;= 1.4.1.18</External_Dependencies>
-      <External_Dependencies>jdp_science_postgresql &gt;= 0.3.1.20</External_Dependencies>
+      <External_Dependencies>jdp_science_postgresql &gt;= 0.6.2.48</External_Dependencies>
       <External_Dependencies>jki_lib_caraya &gt;= 1.4.3.147</External_Dependencies>
       <External_Dependencies>jki_lib_json_serialization &gt;= 1.1.10.37</External_Dependencies>
       <External_Dependencies>jki_lib_serialization &gt;= 1.0.1.14</External_Dependencies>
@@ -32,9 +32,9 @@
       <External_Dependencies>levylab_lib_control_vi &gt;= 1.3.0.11</External_Dependencies>
       <External_Dependencies>levylab_lib_fileutilities &gt;= 1.2.6.13</External_Dependencies>
       <External_Dependencies>levylab_lib_graph_utilities &gt;= 2.1.10.3</External_Dependencies>
-      <External_Dependencies>levylab_lib_krohn_hite_7008 &gt;= 1.7.9.1</External_Dependencies>
+      <External_Dependencies>levylab_lib_krohn_hite_7008 &gt;= 2.0.1.9</External_Dependencies>
       <External_Dependencies>levylab_lib_lockin_multichannel &gt;= 2.15.4.4</External_Dependencies>
-      <External_Dependencies>levylab_lib_lvtoitx &gt;= 3.7.2.1</External_Dependencies>
+      <External_Dependencies>levylab_lib_lvtoitx &gt;= 3.8.2.4</External_Dependencies>
       <External_Dependencies>levylab_lib_plym &gt;= 1.0.1.3</External_Dependencies>
       <External_Dependencies>levylab_lib_voltage_update &gt;= 1.0.3.5</External_Dependencies>
       <External_Dependencies>levylab_lib_xy_utilities &gt;= 1.5.4.1</External_Dependencies>
@@ -65,7 +65,7 @@
       <Direct_Dependencies>i3_external_encryption-1.0.0.8</Direct_Dependencies>
       <Direct_Dependencies>jdp_science_jsontext-1.8.2.122</Direct_Dependencies>
       <Direct_Dependencies>jdp_science_lib_common_utilities-1.4.1.18</Direct_Dependencies>
-      <Direct_Dependencies>jdp_science_postgresql-0.3.1.20</Direct_Dependencies>
+      <Direct_Dependencies>jdp_science_postgresql-0.6.2.48</Direct_Dependencies>
       <Direct_Dependencies>jki_lib_caraya-1.4.3.147</Direct_Dependencies>
       <Direct_Dependencies>jki_lib_json_serialization-1.1.10.37</Direct_Dependencies>
       <Direct_Dependencies>jki_lib_serialization-1.0.1.14</Direct_Dependencies>
@@ -77,9 +77,9 @@
       <Direct_Dependencies>levylab_lib_control_vi-1.3.0.11</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_fileutilities-1.2.6.13</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_graph_utilities-2.1.10.3</Direct_Dependencies>
-      <Direct_Dependencies>levylab_lib_krohn_hite_7008-1.7.9.1</Direct_Dependencies>
+      <Direct_Dependencies>levylab_lib_krohn_hite_7008-2.0.1.9</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_lockin_multichannel-2.15.4.4</Direct_Dependencies>
-      <Direct_Dependencies>levylab_lib_lvtoitx-3.7.2.1</Direct_Dependencies>
+      <Direct_Dependencies>levylab_lib_lvtoitx-3.8.2.4</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_plym-1.0.1.3</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_voltage_update-1.0.3.5</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_xy_utilities-1.5.4.1</Direct_Dependencies>
@@ -132,13 +132,8 @@
       <Copyright/>
       <Packager/>
       <URL/>
-      <Release_Notes>[1.0.2]
-- Issue #79: fix default gate resistor
-   - When changing a channel to "gate" configuration the shunt reistor value will be set to the Default Shunt Resistor value.
-   - After that the user can change to whichever resistor value they want and the program will not take over
-- Issue #80: Update populate VI ring
-   - SweepControl --&gt; Sweep Control subfolder)
-   - add path validation and disable values inside ring if they are not found</Release_Notes>
+      <Release_Notes>[1.1.0]
+- Issue #89: update compatibility with KH7008 v2 drivers and Monitor and Control program</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
@@ -401,7 +396,7 @@
         <Path>..\src\Control Experiment\Control Experiment.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>C52B92DF18C6C19CE101D66BC6194264</GUID>
+      <GUID>1932E539B6020121312A43DCEFBBD149</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -688,7 +683,7 @@
         <Path>..\src\Control Experiment\API\Write Wiring Configuration v2.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>1DDAC64FE7D9A16504F479EEEB368E95</GUID>
+      <GUID>E59296348219E7B3715F417ED72CFBC1</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -821,7 +816,7 @@
         <Path>..\src\Control Experiment\API (File)\Save Transport TDMS File.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>D7168B83608B7A0C4911EF1AA5F8B20E</GUID>
+      <GUID>16249A1DBF20E32752EECC33231203C1</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -982,7 +977,7 @@
         <Path>..\src\Control Experiment\Comments\Generate Comments.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>15587A2B46FA50FE8CF7C18F7EE3A907</GUID>
+      <GUID>D71A3AB6F2816EA1B271CCB67851922D</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1395,7 +1390,7 @@
         <Path>..\src\Control Experiment\subVIs\Variant to DBL Array.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>7F7E6E704F26E34764B316B0F9543B38</GUID>
+      <GUID>C12B39B1B1B3EA06E93CD6D1C3577C47</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1472,7 +1467,7 @@
         <Path>..\src\Control Experiment\Tests\Test Write.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>E7F89032286153B0296EDCBF7B8DA366</GUID>
+      <GUID>CD08F83AD9E4E83493250E622F0574C7</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1591,7 +1586,7 @@
         <Path>..\src\Control Experiment\API\Dictionary\Write JSON to Dictionary.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>A317D06E34F1F9BF942CC3E88D440089</GUID>
+      <GUID>EBDF61CCF2ADFEB752E975904B56689C</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1640,7 +1635,7 @@
         <Path>..\src\Control Experiment\API\S3\Upload to S3.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>343E4ED59A82A4D64D802EC2DBC3F68A</GUID>
+      <GUID>A83BF0197BC1E2AFCDD89B02C9DB1190</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
