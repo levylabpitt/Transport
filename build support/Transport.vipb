@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2024-05-31 22:04:22" Creator="Patrick" Comments="" ID="30a1a9ede70f14ee4f602ab9e96da12e">
+<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2024-11-19 13:21:08" Creator="Patrick" Comments="" ID="16e5c88d2e166109441b6d26a737b32f">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_Transport</Package_File_Name>
-    <Library_Version>1.7.1.8</Library_Version>
+    <Library_Version>1.8.0.9</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\src\Transport</Library_Source_Folder>
     <Library_Output_Folder>..\builds\Package</Library_Output_Folder>
@@ -17,10 +17,11 @@
   </Library_General_Settings>
   <Advanced_Settings>
     <Package_Dependencies>
+      <External_Dependencies>ftdi_lib_d2xx &gt;= 1.1.0.4</External_Dependencies>
       <External_Dependencies>i3_external_encryption &gt;= 1.0.0.8</External_Dependencies>
       <External_Dependencies>jdp_science_jsontext &gt;= 1.8.2.122</External_Dependencies>
       <External_Dependencies>jdp_science_lib_common_utilities &gt;= 1.4.1.18</External_Dependencies>
-      <External_Dependencies>jdp_science_postgresql &gt;= 0.3.1.20</External_Dependencies>
+      <External_Dependencies>jdp_science_postgresql &gt;= 0.6.2.48</External_Dependencies>
       <External_Dependencies>jki_lib_caraya &gt;= 1.4.3.147</External_Dependencies>
       <External_Dependencies>jki_lib_json_serialization &gt;= 1.1.10.37</External_Dependencies>
       <External_Dependencies>jki_lib_serialization &gt;= 1.0.1.14</External_Dependencies>
@@ -32,9 +33,9 @@
       <External_Dependencies>levylab_lib_control_vi &gt;= 1.3.0.11</External_Dependencies>
       <External_Dependencies>levylab_lib_fileutilities &gt;= 1.2.6.13</External_Dependencies>
       <External_Dependencies>levylab_lib_graph_utilities &gt;= 2.1.10.3</External_Dependencies>
-      <External_Dependencies>levylab_lib_krohn_hite_7008 &gt;= 1.7.9.1</External_Dependencies>
+      <External_Dependencies>levylab_lib_krohn_hite_7008 &gt;= 2.0.1.9</External_Dependencies>
       <External_Dependencies>levylab_lib_lockin_multichannel &gt;= 2.15.4.4</External_Dependencies>
-      <External_Dependencies>levylab_lib_lvtoitx &gt;= 3.7.2.1</External_Dependencies>
+      <External_Dependencies>levylab_lib_lvtoitx &gt;= 3.8.2.4</External_Dependencies>
       <External_Dependencies>levylab_lib_plym &gt;= 1.0.1.3</External_Dependencies>
       <External_Dependencies>levylab_lib_voltage_update &gt;= 1.0.3.5</External_Dependencies>
       <External_Dependencies>levylab_lib_xy_utilities &gt;= 1.5.4.1</External_Dependencies>
@@ -62,11 +63,11 @@
       <External_Dependencies>oglib_time &gt;= 4.0.1.3</External_Dependencies>
       <External_Dependencies>oglib_variantconfig &gt;= 4.0.0.5</External_Dependencies>
       <External_Dependencies>wireflow_ab_lib_wf_progressbar &gt;= 1.0.2.56</External_Dependencies>
-      <Additional_External_Dependencies>levylab_lib_control_experiment &gt;=1.0.2.7</Additional_External_Dependencies>
+      <Direct_Dependencies>ftdi_lib_d2xx-1.1.0.4</Direct_Dependencies>
       <Direct_Dependencies>i3_external_encryption-1.0.0.8</Direct_Dependencies>
       <Direct_Dependencies>jdp_science_jsontext-1.8.2.122</Direct_Dependencies>
       <Direct_Dependencies>jdp_science_lib_common_utilities-1.4.1.18</Direct_Dependencies>
-      <Direct_Dependencies>jdp_science_postgresql-0.3.1.20</Direct_Dependencies>
+      <Direct_Dependencies>jdp_science_postgresql-0.6.2.48</Direct_Dependencies>
       <Direct_Dependencies>jki_lib_caraya-1.4.3.147</Direct_Dependencies>
       <Direct_Dependencies>jki_lib_json_serialization-1.1.10.37</Direct_Dependencies>
       <Direct_Dependencies>jki_lib_serialization-1.0.1.14</Direct_Dependencies>
@@ -78,9 +79,9 @@
       <Direct_Dependencies>levylab_lib_control_vi-1.3.0.11</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_fileutilities-1.2.6.13</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_graph_utilities-2.1.10.3</Direct_Dependencies>
-      <Direct_Dependencies>levylab_lib_krohn_hite_7008-1.7.9.1</Direct_Dependencies>
+      <Direct_Dependencies>levylab_lib_krohn_hite_7008-2.0.1.9</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_lockin_multichannel-2.15.4.4</Direct_Dependencies>
-      <Direct_Dependencies>levylab_lib_lvtoitx-3.7.2.1</Direct_Dependencies>
+      <Direct_Dependencies>levylab_lib_lvtoitx-3.8.2.4</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_plym-1.0.1.3</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_voltage_update-1.0.3.5</Direct_Dependencies>
       <Direct_Dependencies>levylab_lib_xy_utilities-1.5.4.1</Direct_Dependencies>
@@ -129,9 +130,13 @@ Basic transport measurments:
       <Copyright/>
       <Packager/>
       <URL/>
-      <Release_Notes>[1.7.1]
-- Issue #81: update state sequence in Lockin_Sweep to update IV graph at the correct moment
-- Issue #84: Lockin_time Macro: exit state ws not being queued properly after receiving T notifier.</Release_Notes>
+      <Release_Notes>[1.8.0]
+Issues:
+- #59: Lockin_wweep: fix "Return to Start" logic
+- #86: Lockin_sweep: fix Temperature units
+- #87: Lockin_time: add pause B sweep if T &gt; T_hold
+- #88: Lockin_time: update R and G calculation
+- #89: update Control Experiment dependency to v1.1</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
@@ -380,7 +385,7 @@ Basic transport measurments:
         <Path>..\src\Transport\Lockin_sweep.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>540DE5DDE4205BF155D242C911F84B52</GUID>
+      <GUID>485FF8B408A896E837FBCD66CF75A2CA</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -471,7 +476,7 @@ Basic transport measurments:
         <Path>..\src\Transport\API (class)\Write Sweep Table.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>4FD17DF45D48C9565E5A72F15036B4B4</GUID>
+      <GUID>F9BC7DE458FB21545209665015DB1970</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -506,7 +511,7 @@ Basic transport measurments:
         <Path>..\src\Transport\API (file)\Read Lockin_Sweep.json.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>A9E4125E738C8DF0C99566741DD65AA2</GUID>
+      <GUID>069EF4A1005831499861BAA39E359F96</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -639,7 +644,7 @@ Basic transport measurments:
         <Path>..\src\Transport\Private\Results (Dictionary) to X and Y Arrays.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>946EAF379DCF24BAC8D46AEA42D13292</GUID>
+      <GUID>41D483B299899BF15F6910CD2A550A6F</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
