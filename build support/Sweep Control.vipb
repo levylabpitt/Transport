@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2023-11-17 13:13:32" Modified_Date="2024-06-03 09:14:37" Creator="Patrick Irvin" Comments="" ID="810631549c91328d5356e45df0312ed5">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2023-11-17 13:13:32" Modified_Date="2024-11-20 12:41:59" Creator="Patrick Irvin" Comments="" ID="d9837f39aae3169509fb9e619a617a11">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_sweep_control</Package_File_Name>
-    <Library_Version>1.0.1.9</Library_Version>
+    <Library_Version>1.1.0.10</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\src\Sweep Control</Library_Source_Folder>
     <Library_Output_Folder>..\builds\Package</Library_Output_Folder>
@@ -16,98 +16,7 @@
     <Target>LabVIEW</Target>
   </Library_General_Settings>
   <Advanced_Settings>
-    <Package_Dependencies>
-      <External_Dependencies>i3_external_encryption &gt;= 1.0.0.8</External_Dependencies>
-      <External_Dependencies>jdp_science_jsontext &gt;= 1.8.2.122</External_Dependencies>
-      <External_Dependencies>jdp_science_lib_common_utilities &gt;= 1.4.1.18</External_Dependencies>
-      <External_Dependencies>jdp_science_postgresql &gt;= 0.3.1.20</External_Dependencies>
-      <External_Dependencies>jki_lib_caraya &gt;= 1.4.3.147</External_Dependencies>
-      <External_Dependencies>jki_lib_json_serialization &gt;= 1.1.10.37</External_Dependencies>
-      <External_Dependencies>jki_lib_serialization &gt;= 1.0.1.14</External_Dependencies>
-      <External_Dependencies>jki_lib_state_machine &gt;= 2018.0.7.45</External_Dependencies>
-      <External_Dependencies>jki_lib_unicode &gt;= 1.0.0.7</External_Dependencies>
-      <External_Dependencies>jki_statemachineobjects &gt;= 1.4.0.69</External_Dependencies>
-      <External_Dependencies>labview-zmq &gt;= 3.6.3.113</External_Dependencies>
-      <External_Dependencies>labview_open_source_lib_epoch_datetime &gt;= 1.2.0.6</External_Dependencies>
-      <External_Dependencies>levylab_lib_control_vi &gt;= 1.3.0.11</External_Dependencies>
-      <External_Dependencies>levylab_lib_fileutilities &gt;= 1.2.6.13</External_Dependencies>
-      <External_Dependencies>levylab_lib_graph_utilities &gt;= 2.1.10.3</External_Dependencies>
-      <External_Dependencies>levylab_lib_krohn_hite_7008 &gt;= 1.7.9.1</External_Dependencies>
-      <External_Dependencies>levylab_lib_lockin_multichannel &gt;= 2.15.4.4</External_Dependencies>
-      <External_Dependencies>levylab_lib_lvtoitx &gt;= 3.7.2.1</External_Dependencies>
-      <External_Dependencies>levylab_lib_plym &gt;= 1.0.1.3</External_Dependencies>
-      <External_Dependencies>levylab_lib_voltage_update &gt;= 1.0.3.5</External_Dependencies>
-      <External_Dependencies>levylab_lib_xy_utilities &gt;= 1.5.4.1</External_Dependencies>
-      <External_Dependencies>lvh_toolbox &gt;= 2.0.0.35</External_Dependencies>
-      <External_Dependencies>mgi_lib_1d_array &gt;= 1.0.2.3</External_Dependencies>
-      <External_Dependencies>mgi_lib_application_control &gt;= 1.1.1.10</External_Dependencies>
-      <External_Dependencies>mgi_lib_file &gt;= 1.1.0.4</External_Dependencies>
-      <External_Dependencies>mgi_lib_numeric &gt;= 1.1.0.2</External_Dependencies>
-      <External_Dependencies>mgi_lib_string &gt;= 1.1.1.5</External_Dependencies>
-      <External_Dependencies>mgi_lib_timing &gt;= 1.1.0.2</External_Dependencies>
-      <External_Dependencies>mgi_lib_tree &gt;= 1.0.4.4</External_Dependencies>
-      <External_Dependencies>national_instruments_lib_guid_generator &gt;= 1.0.2.3</External_Dependencies>
-      <External_Dependencies>ni_cloud_toolkit_for_aws &gt;= 1.1.0.1</External_Dependencies>
-      <External_Dependencies>ni_lib_stm &gt;= 3.1.0.9</External_Dependencies>
-      <External_Dependencies>oglib_appcontrol &gt;= 4.1.0.7</External_Dependencies>
-      <External_Dependencies>oglib_array &gt;= 4.1.1.14</External_Dependencies>
-      <External_Dependencies>oglib_boolean &gt;= 4.0.0.7</External_Dependencies>
-      <External_Dependencies>oglib_dictionary &gt;= 4.0.0.4</External_Dependencies>
-      <External_Dependencies>oglib_error &gt;= 4.2.0.23</External_Dependencies>
-      <External_Dependencies>oglib_file &gt;= 4.0.1.22</External_Dependencies>
-      <External_Dependencies>oglib_lvdata &gt;= 5.0.0.27</External_Dependencies>
-      <External_Dependencies>oglib_md5 &gt;= 4.1.1.10</External_Dependencies>
-      <External_Dependencies>oglib_numeric &gt;= 4.1.0.8</External_Dependencies>
-      <External_Dependencies>oglib_string &gt;= 5.0.0.25</External_Dependencies>
-      <External_Dependencies>oglib_time &gt;= 4.0.1.3</External_Dependencies>
-      <External_Dependencies>oglib_variantconfig &gt;= 4.0.0.5</External_Dependencies>
-      <External_Dependencies>wireflow_ab_lib_wf_progressbar &gt;= 1.0.2.56</External_Dependencies>
-      <Direct_Dependencies>i3_external_encryption-1.0.0.8</Direct_Dependencies>
-      <Direct_Dependencies>jdp_science_jsontext-1.8.2.122</Direct_Dependencies>
-      <Direct_Dependencies>jdp_science_lib_common_utilities-1.4.1.18</Direct_Dependencies>
-      <Direct_Dependencies>jdp_science_postgresql-0.3.1.20</Direct_Dependencies>
-      <Direct_Dependencies>jki_lib_caraya-1.4.3.147</Direct_Dependencies>
-      <Direct_Dependencies>jki_lib_json_serialization-1.1.10.37</Direct_Dependencies>
-      <Direct_Dependencies>jki_lib_serialization-1.0.1.14</Direct_Dependencies>
-      <Direct_Dependencies>jki_lib_state_machine-2018.0.7.45</Direct_Dependencies>
-      <Direct_Dependencies>jki_lib_unicode-1.0.0.7</Direct_Dependencies>
-      <Direct_Dependencies>jki_statemachineobjects-1.4.0.69</Direct_Dependencies>
-      <Direct_Dependencies>labview-zmq-3.6.3.113</Direct_Dependencies>
-      <Direct_Dependencies>labview_open_source_lib_epoch_datetime-1.2.0.6</Direct_Dependencies>
-      <Direct_Dependencies>levylab_lib_control_vi-1.3.0.11</Direct_Dependencies>
-      <Direct_Dependencies>levylab_lib_fileutilities-1.2.6.13</Direct_Dependencies>
-      <Direct_Dependencies>levylab_lib_graph_utilities-2.1.10.3</Direct_Dependencies>
-      <Direct_Dependencies>levylab_lib_krohn_hite_7008-1.7.9.1</Direct_Dependencies>
-      <Direct_Dependencies>levylab_lib_lockin_multichannel-2.15.4.4</Direct_Dependencies>
-      <Direct_Dependencies>levylab_lib_lvtoitx-3.7.2.1</Direct_Dependencies>
-      <Direct_Dependencies>levylab_lib_plym-1.0.1.3</Direct_Dependencies>
-      <Direct_Dependencies>levylab_lib_voltage_update-1.0.3.5</Direct_Dependencies>
-      <Direct_Dependencies>levylab_lib_xy_utilities-1.5.4.1</Direct_Dependencies>
-      <Direct_Dependencies>lvh_toolbox-2.0.0.35</Direct_Dependencies>
-      <Direct_Dependencies>mgi_lib_1d_array-1.0.2.3</Direct_Dependencies>
-      <Direct_Dependencies>mgi_lib_application_control-1.1.1.10</Direct_Dependencies>
-      <Direct_Dependencies>mgi_lib_file-1.1.0.4</Direct_Dependencies>
-      <Direct_Dependencies>mgi_lib_numeric-1.1.0.2</Direct_Dependencies>
-      <Direct_Dependencies>mgi_lib_string-1.1.1.5</Direct_Dependencies>
-      <Direct_Dependencies>mgi_lib_timing-1.1.0.2</Direct_Dependencies>
-      <Direct_Dependencies>mgi_lib_tree-1.0.4.4</Direct_Dependencies>
-      <Direct_Dependencies>national_instruments_lib_guid_generator-1.0.2.3</Direct_Dependencies>
-      <Direct_Dependencies>ni_cloud_toolkit_for_aws-1.1.0.1</Direct_Dependencies>
-      <Direct_Dependencies>ni_lib_stm-3.1.0.9</Direct_Dependencies>
-      <Direct_Dependencies>oglib_appcontrol-4.1.0.7</Direct_Dependencies>
-      <Direct_Dependencies>oglib_array-4.1.1.14</Direct_Dependencies>
-      <Direct_Dependencies>oglib_boolean-4.0.0.7</Direct_Dependencies>
-      <Direct_Dependencies>oglib_dictionary-4.0.0.4</Direct_Dependencies>
-      <Direct_Dependencies>oglib_error-4.2.0.23</Direct_Dependencies>
-      <Direct_Dependencies>oglib_file-4.0.1.22</Direct_Dependencies>
-      <Direct_Dependencies>oglib_lvdata-5.0.0.27</Direct_Dependencies>
-      <Direct_Dependencies>oglib_md5-4.1.1.10</Direct_Dependencies>
-      <Direct_Dependencies>oglib_numeric-4.1.0.8</Direct_Dependencies>
-      <Direct_Dependencies>oglib_string-5.0.0.25</Direct_Dependencies>
-      <Direct_Dependencies>oglib_time-4.0.1.3</Direct_Dependencies>
-      <Direct_Dependencies>oglib_variantconfig-4.0.0.5</Direct_Dependencies>
-      <Direct_Dependencies>wireflow_ab_lib_wf_progressbar-1.0.2.56</Direct_Dependencies>
-    </Package_Dependencies>
+    <Package_Dependencies/>
     <Custom_Action_VIs>
       <Pre-Build_VI/>
       <Post-Build_VI/>
@@ -127,8 +36,8 @@
       <Copyright/>
       <Packager/>
       <URL/>
-      <Release_Notes>SweepControl.lvclass
-- Issue #82: Sweep Control now supports linear, power, and triangle sweep types</Release_Notes>
+      <Release_Notes>[1.1.0]
+- Issue #89 KH7008 v2 and Transport &amp; Control Experiment dependencies</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
@@ -408,7 +317,7 @@
         <Path>..\src\Sweep Control\Sweep Control Cartesian.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>E728874AC2ADB727818C0D28BA99A66A</GUID>
+      <GUID>5CA76FD45977E0A192E3D8E5A8E65286</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -499,7 +408,7 @@
         <Path>..\src\Sweep Control\API\Write Dependencies.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>0628CF88AE5C56B7FF4F18DE17839149</GUID>
+      <GUID>0399AC7B7CBAB4275F370987AE51143E</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -548,7 +457,7 @@
         <Path>..\src\Sweep Control\API (file)\Read Sweep Control.json.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>DFFED4D08609A7440ECB5093C50173B1</GUID>
+      <GUID>9853C3DD415D73B3D80D8C4C7CB3ABE4</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -653,7 +562,7 @@
         <Path>..\src\Sweep Control\subVIs\Sweep Control Loop.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>D46204137112C815B73CA5B4E7B6723B</GUID>
+      <GUID>A0E323C05936EDD018BE4698549FE344</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
