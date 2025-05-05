@@ -445,7 +445,6 @@
 				<Item Name="Instrument-VIM.lvlib" Type="Library" URL="/&lt;userlib&gt;/LevyLab/Instrument Framework/Instrument-VIM/Instrument-VIM.lvlib"/>
 				<Item Name="Unwrap VVariant__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Unwrap VVariant__ogtk.vi"/>
 				<Item Name="RemoteControl.ZMQ.lvlib" Type="Library" URL="/&lt;userlib&gt;/LevyLab/RemoteControl.ZMQ/RemoteControl.ZMQ.lvlib"/>
-				<Item Name="Logger.PGSQL.WriteVariable.vi" Type="VI" URL="/&lt;userlib&gt;/LevyLab/Instrument Framework/SMOs/Logger.PGSQL/Logger.PGSQL.WriteVariable.vi"/>
 				<Item Name="KH7008.lvlib" Type="Library" URL="/&lt;userlib&gt;/LevyLab/Krohn Hite 7008/KH7008/KH7008.lvlib"/>
 				<Item Name="Instrument.Amplifier.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Instrument Framework/Instrument Types/Amplifier/Instrument.Amplifier.lvclass"/>
 				<Item Name="Instrument.LockinAPI.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Instrument Framework/Instrument Types/Lockin/Instrument.LockinAPI.lvclass"/>
