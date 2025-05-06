@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2025-05-05 20:01:44" Creator="Patrick" Comments="" ID="a2115c2ada038238db15fff664199b1a">
+<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2025-05-05 20:25:09" Creator="Patrick" Comments="" ID="6169729f398015b13304c98d0c20d568">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_Transport</Package_File_Name>
-    <Library_Version>1.9.0.11</Library_Version>
+    <Library_Version>1.9.0.12</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\src\Transport</Library_Source_Folder>
     <Library_Output_Folder>..\builds\Package</Library_Output_Folder>
