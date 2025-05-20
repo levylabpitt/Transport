@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2018" Created_Date="2023-11-17 14:02:31" Modified_Date="2025-05-05 19:47:26" Creator="Patrick Irvin" Comments="" ID="3bd1986be3fd1bce6ea3c4f17b50a9b1">
+<VI_Package_Builder_Settings Version="2018" Created_Date="2023-11-17 14:02:31" Modified_Date="2025-05-20 13:44:03" Creator="Patrick Irvin" Comments="" ID="3a99fbc987c35db49f4d511cf3dc0bce">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_control_experiment</Package_File_Name>
-    <Library_Version>1.2.0.11</Library_Version>
+    <Library_Version>1.2.1.11</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\src\Control Experiment</Library_Source_Folder>
     <Library_Output_Folder>..\builds\Package</Library_Output_Folder>
@@ -17,94 +17,8 @@
   </Library_General_Settings>
   <Advanced_Settings>
     <Package_Dependencies>
-      <External_Dependencies>ftdi_lib_d2xx &gt;= 1.2.0.5</External_Dependencies>
-      <External_Dependencies>i3_external_encryption &gt;= 1.0.0.8</External_Dependencies>
-      <External_Dependencies>jdp_science_jsontext &gt;= 1.9.1.125</External_Dependencies>
-      <External_Dependencies>jdp_science_lib_common_utilities &gt;= 1.4.2.19</External_Dependencies>
-      <External_Dependencies>jdp_science_postgresql &gt;= 0.6.2.48</External_Dependencies>
-      <External_Dependencies>jki_lib_json_serialization &gt;= 1.1.10.37</External_Dependencies>
-      <External_Dependencies>jki_lib_serialization &gt;= 1.0.1.14</External_Dependencies>
-      <External_Dependencies>jki_lib_state_machine &gt;= 2018.0.7.45</External_Dependencies>
-      <External_Dependencies>jki_lib_unicode &gt;= 1.0.0.7</External_Dependencies>
-      <External_Dependencies>jki_statemachineobjects &gt;= 1.4.0.69</External_Dependencies>
-      <External_Dependencies>labview-zmq &gt;= 3.6.3.113</External_Dependencies>
-      <External_Dependencies>labview_open_source_lib_epoch_datetime &gt;= 1.3.0.8</External_Dependencies>
-      <External_Dependencies>levylab_lib_fileutilities &gt;= 1.2.6.13</External_Dependencies>
-      <External_Dependencies>levylab_lib_instrument_type &gt;= 1.1.0.7</External_Dependencies>
-      <External_Dependencies>levylab_lib_krohn_hite_7008 &gt;= 2.2.1.15</External_Dependencies>
-      <External_Dependencies>levylab_lib_lockin_multichannel &gt;= 2.20.1.9</External_Dependencies>
-      <External_Dependencies>levylab_lib_lvtdatpgsql &gt;= 3.10.0.8</External_Dependencies>
-      <External_Dependencies>levylab_lib_lvtoitx &gt;= 3.10.0.9</External_Dependencies>
-      <External_Dependencies>levylab_lib_plym &gt;= 1.0.1.3</External_Dependencies>
-      <External_Dependencies>levylab_lib_xy_utilities &gt;= 1.6.0.6</External_Dependencies>
-      <External_Dependencies>mgi_lib_1d_array &gt;= 1.0.2.3</External_Dependencies>
-      <External_Dependencies>mgi_lib_application_control &gt;= 1.1.1.10</External_Dependencies>
-      <External_Dependencies>mgi_lib_file &gt;= 1.1.0.4</External_Dependencies>
-      <External_Dependencies>mgi_lib_numeric &gt;= 1.1.0.2</External_Dependencies>
-      <External_Dependencies>mgi_lib_string &gt;= 1.1.1.5</External_Dependencies>
-      <External_Dependencies>mgi_lib_timing &gt;= 1.1.0.2</External_Dependencies>
-      <External_Dependencies>mgi_lib_tree &gt;= 1.0.4.4</External_Dependencies>
-      <External_Dependencies>national_instruments_lib_guid_generator &gt;= 1.0.2.3</External_Dependencies>
-      <External_Dependencies>ni_cloud_toolkit_for_aws &gt;= 1.1.0.1</External_Dependencies>
-      <External_Dependencies>oglib_appcontrol &gt;= 4.1.0.7</External_Dependencies>
-      <External_Dependencies>oglib_array &gt;= 4.1.1.14</External_Dependencies>
-      <External_Dependencies>oglib_boolean &gt;= 4.0.0.7</External_Dependencies>
-      <External_Dependencies>oglib_dictionary &gt;= 4.0.0.4</External_Dependencies>
-      <External_Dependencies>oglib_error &gt;= 4.2.0.23</External_Dependencies>
-      <External_Dependencies>oglib_file &gt;= 4.0.1.22</External_Dependencies>
-      <External_Dependencies>oglib_lvdata &gt;= 5.0.0.27</External_Dependencies>
-      <External_Dependencies>oglib_md5 &gt;= 4.1.1.10</External_Dependencies>
-      <External_Dependencies>oglib_numeric &gt;= 4.1.0.8</External_Dependencies>
-      <External_Dependencies>oglib_string &gt;= 5.0.0.25</External_Dependencies>
-      <External_Dependencies>oglib_time &gt;= 4.0.1.3</External_Dependencies>
-      <External_Dependencies>oglib_variantconfig &gt;= 4.0.0.5</External_Dependencies>
-      <External_Dependencies>prirvin_lib_json_rpc &gt;= 1.2.6.15</External_Dependencies>
-      <External_Dependencies>prirvin_lib_json_schema &gt;= 0.1.4.8</External_Dependencies>
-      <External_Dependencies>wireflow_ab_lib_wf_progressbar &gt;= 1.0.2.56</External_Dependencies>
-      <Direct_Dependencies>ftdi_lib_d2xx-1.2.0.5</Direct_Dependencies>
-      <Direct_Dependencies>i3_external_encryption-1.0.0.8</Direct_Dependencies>
-      <Direct_Dependencies>jdp_science_jsontext-1.9.1.125</Direct_Dependencies>
-      <Direct_Dependencies>jdp_science_lib_common_utilities-1.4.2.19</Direct_Dependencies>
-      <Direct_Dependencies>jdp_science_postgresql-0.6.2.48</Direct_Dependencies>
-      <Direct_Dependencies>jki_lib_json_serialization-1.1.10.37</Direct_Dependencies>
-      <Direct_Dependencies>jki_lib_serialization-1.0.1.14</Direct_Dependencies>
-      <Direct_Dependencies>jki_lib_state_machine-2018.0.7.45</Direct_Dependencies>
-      <Direct_Dependencies>jki_lib_unicode-1.0.0.7</Direct_Dependencies>
-      <Direct_Dependencies>jki_statemachineobjects-1.4.0.69</Direct_Dependencies>
-      <Direct_Dependencies>labview-zmq-3.6.3.113</Direct_Dependencies>
-      <Direct_Dependencies>labview_open_source_lib_epoch_datetime-1.3.0.8</Direct_Dependencies>
-      <Direct_Dependencies>levylab_lib_fileutilities-1.2.6.13</Direct_Dependencies>
-      <Direct_Dependencies>levylab_lib_instrument_type-1.1.0.7</Direct_Dependencies>
-      <Direct_Dependencies>levylab_lib_krohn_hite_7008-2.2.1.15</Direct_Dependencies>
-      <Direct_Dependencies>levylab_lib_lockin_multichannel-2.20.1.9</Direct_Dependencies>
-      <Direct_Dependencies>levylab_lib_lvtdatpgsql-3.10.0.8</Direct_Dependencies>
-      <Direct_Dependencies>levylab_lib_lvtoitx-3.10.0.9</Direct_Dependencies>
-      <Direct_Dependencies>levylab_lib_plym-1.0.1.3</Direct_Dependencies>
-      <Direct_Dependencies>levylab_lib_xy_utilities-1.6.0.6</Direct_Dependencies>
-      <Direct_Dependencies>mgi_lib_1d_array-1.0.2.3</Direct_Dependencies>
-      <Direct_Dependencies>mgi_lib_application_control-1.1.1.10</Direct_Dependencies>
-      <Direct_Dependencies>mgi_lib_file-1.1.0.4</Direct_Dependencies>
-      <Direct_Dependencies>mgi_lib_numeric-1.1.0.2</Direct_Dependencies>
-      <Direct_Dependencies>mgi_lib_string-1.1.1.5</Direct_Dependencies>
-      <Direct_Dependencies>mgi_lib_timing-1.1.0.2</Direct_Dependencies>
-      <Direct_Dependencies>mgi_lib_tree-1.0.4.4</Direct_Dependencies>
-      <Direct_Dependencies>national_instruments_lib_guid_generator-1.0.2.3</Direct_Dependencies>
-      <Direct_Dependencies>ni_cloud_toolkit_for_aws-1.1.0.1</Direct_Dependencies>
-      <Direct_Dependencies>oglib_appcontrol-4.1.0.7</Direct_Dependencies>
-      <Direct_Dependencies>oglib_array-4.1.1.14</Direct_Dependencies>
-      <Direct_Dependencies>oglib_boolean-4.0.0.7</Direct_Dependencies>
-      <Direct_Dependencies>oglib_dictionary-4.0.0.4</Direct_Dependencies>
-      <Direct_Dependencies>oglib_error-4.2.0.23</Direct_Dependencies>
-      <Direct_Dependencies>oglib_file-4.0.1.22</Direct_Dependencies>
-      <Direct_Dependencies>oglib_lvdata-5.0.0.27</Direct_Dependencies>
-      <Direct_Dependencies>oglib_md5-4.1.1.10</Direct_Dependencies>
-      <Direct_Dependencies>oglib_numeric-4.1.0.8</Direct_Dependencies>
-      <Direct_Dependencies>oglib_string-5.0.0.25</Direct_Dependencies>
-      <Direct_Dependencies>oglib_time-4.0.1.3</Direct_Dependencies>
-      <Direct_Dependencies>oglib_variantconfig-4.0.0.5</Direct_Dependencies>
-      <Direct_Dependencies>prirvin_lib_json_rpc-1.2.6.15</Direct_Dependencies>
-      <Direct_Dependencies>prirvin_lib_json_schema-0.1.4.8</Direct_Dependencies>
-      <Direct_Dependencies>wireflow_ab_lib_wf_progressbar-1.0.2.56</Direct_Dependencies>
+      <Additional_External_Dependencies>levylab_lib_krohn_hite_7008 &gt;=2.2.1.15</Additional_External_Dependencies>
+      <Additional_External_Dependencies>levylab_lib_lockin_multichannel &gt;=2.20.1.10</Additional_External_Dependencies>
     </Package_Dependencies>
     <Custom_Action_VIs>
       <Pre-Build_VI/>
@@ -130,10 +44,10 @@
       <Copyright/>
       <Packager/>
       <URL/>
-      <Release_Notes>[1.2.0]
-- #95: Fix bug in Dictionaries that would not support writing integer data types
-- #93/#94: Updates related to Instrument Framework
-- remove unit tests from source folder</Release_Notes>
+      <Release_Notes>[1.2.1]
+#96: Add new instruments (OptiCool, eLine, Omicron)
+#97: Improve dynamic load instrument classes
+#98: fix Krohn Hite channel enumeration</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
@@ -382,7 +296,7 @@
         <Path>..\src\Control Experiment\Control Experiment.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>95B21739E69AAED74A2D4D98DD0ED99D</GUID>
+      <GUID>D1AA9DB0874FF52556CF89387D8DD48F</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -669,7 +583,7 @@
         <Path>..\src\Control Experiment\API\Write Wiring Configuration v2.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>267A4B5A0E65AB8C66FF3244B5C1DDF0</GUID>
+      <GUID>AFDA15D3D166B166C2FC32708D2A165A</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -802,7 +716,7 @@
         <Path>..\src\Control Experiment\API (File)\Save Transport TDMS File.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>116B8F2825C0B58AF06B5F98081B0296</GUID>
+      <GUID>8F3210922EB291FC70DADD1F6A56C3D3</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -963,7 +877,7 @@
         <Path>..\src\Control Experiment\Comments\Generate Comments.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>2F2E68A13F1E687B4AFCDB7EB8C3ECBB</GUID>
+      <GUID>B9277222D97F95E2C1D46D1C91C83964</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1323,34 +1237,6 @@
       <Items_Data>
         <Type>Item</Type>
         <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Select Instrument Type.vi</NameSub_Menu_Name>
-        <Short_Name/>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>5</Row>
-          <Column>1</Column>
-        </Position>
-        <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment\subVIs\Select Instrument Type.vi</Path>
-        <VI_Title/>
-      </Items_Data>
-      <Items_Data>
-        <Type>Item</Type>
-        <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Shorten Class name.vi</NameSub_Menu_Name>
-        <Short_Name/>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>5</Row>
-          <Column>2</Column>
-        </Position>
-        <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment\subVIs\Shorten Class name.vi</Path>
-        <VI_Title/>
-      </Items_Data>
-      <Items_Data>
-        <Type>Item</Type>
-        <Sub_Palette_Index>-1</Sub_Palette_Index>
         <NameSub_Menu_Name>String Label.vi</NameSub_Menu_Name>
         <Short_Name/>
         <is_Merge_VI>false</is_Merge_VI>
@@ -1362,7 +1248,7 @@
         <Path>..\src\Control Experiment\subVIs\String Label.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>61179B5E1F09751E0B6C1D56818A4F68</GUID>
+      <GUID>85F92622131D22BEF896EE4351362989</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1481,7 +1367,7 @@
         <Path>..\src\Control Experiment\API\Dictionary\Write JSON to Dictionary.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>2E5ACC307395FD5E65BEC1B179DFCF0D</GUID>
+      <GUID>8CBB294E812A56EEC7830E2174A7E89F</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1530,7 +1416,7 @@
         <Path>..\src\Control Experiment\API\S3\Upload to S3.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>D9891620A809871743A6626591BD72FA</GUID>
+      <GUID>31354DB934D19ED95E6A85E0DA3AA184</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
