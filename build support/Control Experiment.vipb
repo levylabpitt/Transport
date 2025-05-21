@@ -1,4 +1,4 @@
-<VI_Package_Builder_Settings Version="2018" Created_Date="2023-11-17 14:02:31" Modified_Date="2025-05-20 15:45:50" Creator="Patrick Irvin" Comments="" ID="e612e4e8afd02a59eccf163747b3f790">
+<VI_Package_Builder_Settings Version="2018" Created_Date="2023-11-17 14:02:31" Modified_Date="2025-05-21 08:34:58" Creator="Patrick Irvin" Comments="" ID="9c812e08702088a1f1fa1110f88099bc">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_control_experiment</Package_File_Name>
     <Library_Version>1.2.1.12</Library_Version>
@@ -47,7 +47,9 @@
       <Release_Notes>[1.2.1]
 #96: Add new instruments (OptiCool, eLine, Omicron)
 #97: Improve dynamic load instrument classes
-#98: fix Krohn Hite channel enumeration</Release_Notes>
+#98: fix Krohn Hite channel enumeration
+#99: bugfix to preserve runtime value of instrument type
+#101: save and recall number of AI channels</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
@@ -296,7 +298,7 @@
         <Path>..\src\Control Experiment\Control Experiment.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>28946931FB9612EF39DA83EFD4355FD7</GUID>
+      <GUID>01AAD936C4E76C01CC28B982513661C5</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -583,7 +585,7 @@
         <Path>..\src\Control Experiment\API\Write Wiring Configuration v2.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>91B2F87AD44DA31431EDAFD881F95ED7</GUID>
+      <GUID>1563B873D94D9C7F6FCE7DF52DF4ABB8</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -716,7 +718,7 @@
         <Path>..\src\Control Experiment\API (File)\Save Transport TDMS File.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>6254B54469F02B7DFA0792E4FA28D20B</GUID>
+      <GUID>19AC158F8B9A2928A3A4AC594707DB2B</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -877,7 +879,7 @@
         <Path>..\src\Control Experiment\Comments\Generate Comments.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>16A913E7C88C1168F9724CC82EB27A26</GUID>
+      <GUID>8EF28ECADE880032ECA7FE7019445C73</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1248,7 +1250,7 @@
         <Path>..\src\Control Experiment\subVIs\String Label.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>0FC496617B3A3A6CF1A3276A8549101A</GUID>
+      <GUID>A797C383C82DCF4697774F5DB2E7BE3C</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1367,7 +1369,7 @@
         <Path>..\src\Control Experiment\API\Dictionary\Write JSON to Dictionary.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>766342A6850416402575D9255BEAEAB4</GUID>
+      <GUID>C1C7F9C6F35059BF4359D5A395DA818A</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1416,7 +1418,7 @@
         <Path>..\src\Control Experiment\API\S3\Upload to S3.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>D223A6D25B60985AC6BA78C0A8C8A146</GUID>
+      <GUID>BA6051221488E1016A5C81EBAFE7D525</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
