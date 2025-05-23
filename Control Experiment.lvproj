@@ -18,7 +18,6 @@
 			<Item Name="Control Experiment.vipc" Type="Document" URL="../build support/Control Experiment.vipc"/>
 		</Item>
 		<Item Name="Control Experiment.lvclass" Type="LVClass" URL="../src/Control Experiment/Control Experiment.lvclass"/>
-		<Item Name="Get Program Directories.vi" Type="VI" URL="../src/Control Experiment/subVIs/Get Program Directories.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="Wait (ms)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/time/time.llb/Wait (ms)__ogtk.vi"/>

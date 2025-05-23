@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2018" Created_Date="2023-11-17 14:02:31" Modified_Date="2025-05-22 12:10:43" Creator="Patrick Irvin" Comments="" ID="ed1342ef5f8ca5378d6f127cb04a0f20">
+<VI_Package_Builder_Settings Version="2018" Created_Date="2023-11-17 14:02:31" Modified_Date="2025-05-23 10:12:14" Creator="Patrick Irvin" Comments="" ID="c9c3d105bf0d89b649aaaa6cca203d31">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_control_experiment</Package_File_Name>
-    <Library_Version>1.2.2.14</Library_Version>
+    <Library_Version>1.2.3.15</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\src\Control Experiment</Library_Source_Folder>
     <Library_Output_Folder>..\builds\Package</Library_Output_Folder>
@@ -44,8 +44,9 @@
       <Copyright/>
       <Packager/>
       <URL/>
-      <Release_Notes>[1.2.2]
-- fix renamed getREFconfig.vi</Release_Notes>
+      <Release_Notes>[1.2.3]
+# 102 Enable opening 64 bit Lockin and KH7008
+# 103 Handle empty device/user paths</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
@@ -294,7 +295,7 @@
         <Path>..\src\Control Experiment\Control Experiment.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>BEA2003F5BBE8B6CD8D697E58380331E</GUID>
+      <GUID>32D2C04FC0412EEF9F289ACAB629B195</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -581,7 +582,7 @@
         <Path>..\src\Control Experiment\API\Write Wiring Configuration v2.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>BD0F07A0B7BBC1274730D6878A14C837</GUID>
+      <GUID>D37D52CD2FF74644A4D48F6F4FFE233B</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -714,7 +715,7 @@
         <Path>..\src\Control Experiment\API (File)\Save Transport TDMS File.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>CABAC57ECBA8BEF0B4F2DC938123E51E</GUID>
+      <GUID>D836F3FF3662FBE25ACDF81BA90C06DE</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -875,7 +876,7 @@
         <Path>..\src\Control Experiment\Comments\Generate Comments.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>AF63229AE4155174F2FBA32DA8993C32</GUID>
+      <GUID>77F0D6380043836610401FA364CAE693</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1246,7 +1247,7 @@
         <Path>..\src\Control Experiment\subVIs\String Label.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>BCE3489CECE6CB859C05A7F09B3080A7</GUID>
+      <GUID>E0F7626A897CAFC567B1B2183F4ACF5D</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1365,7 +1366,7 @@
         <Path>..\src\Control Experiment\API\Dictionary\Write JSON to Dictionary.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>8A01C41FA72FCF5876EF8E69FE280367</GUID>
+      <GUID>B5ADD160D04A8620B70B23EC1360EDA2</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1414,7 +1415,7 @@
         <Path>..\src\Control Experiment\API\S3\Upload to S3.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>EAF5C4719C6F9C07A42EA18318F02C9A</GUID>
+      <GUID>46851C6F1860107E0DDFBEF46F3D86E7</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
