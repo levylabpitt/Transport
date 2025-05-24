@@ -1,4 +1,4 @@
-<VI_Package_Builder_Settings Version="2018" Created_Date="2023-11-17 14:02:31" Modified_Date="2025-05-23 10:12:14" Creator="Patrick Irvin" Comments="" ID="c9c3d105bf0d89b649aaaa6cca203d31">
+<VI_Package_Builder_Settings Version="2018" Created_Date="2023-11-17 14:02:31" Modified_Date="2025-05-23 22:03:28" Creator="Patrick Irvin" Comments="" ID="3c4292e410dcf2f67224199a0ba9319b">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_control_experiment</Package_File_Name>
     <Library_Version>1.2.3.15</Library_Version>
@@ -17,8 +17,8 @@
   </Library_General_Settings>
   <Advanced_Settings>
     <Package_Dependencies>
-      <Additional_External_Dependencies>levylab_lib_krohn_hite_7008 &gt;=2.2.1.15</Additional_External_Dependencies>
-      <Additional_External_Dependencies>levylab_lib_lockin_multichannel &gt;=2.20.1.10</Additional_External_Dependencies>
+      <Additional_External_Dependencies>levylab_lib_krohn_hite_7008 &gt;=2.2.2.17</Additional_External_Dependencies>
+      <Additional_External_Dependencies>levylab_lib_lockin_multichannel &gt;=2.20.3.12</Additional_External_Dependencies>
     </Package_Dependencies>
     <Custom_Action_VIs>
       <Pre-Build_VI/>
@@ -45,8 +45,9 @@
       <Packager/>
       <URL/>
       <Release_Notes>[1.2.3]
-# 102 Enable opening 64 bit Lockin and KH7008
-# 103 Handle empty device/user paths</Release_Notes>
+#102 Enable opening 64 bit Lockin and KH7008
+#103 Retrieve user and instrument information from the database
+#104 FIx issue that would not update the lockin gains after updating the Krohn Hite gains</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
@@ -295,7 +296,7 @@
         <Path>..\src\Control Experiment\Control Experiment.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>32D2C04FC0412EEF9F289ACAB629B195</GUID>
+      <GUID>461AD60904FC78F5927EAC04DDE74D9A</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -582,7 +583,7 @@
         <Path>..\src\Control Experiment\API\Write Wiring Configuration v2.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>D37D52CD2FF74644A4D48F6F4FFE233B</GUID>
+      <GUID>AB3853BA7F89FD2FE27AE0ECA0EBA5B3</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -715,7 +716,7 @@
         <Path>..\src\Control Experiment\API (File)\Save Transport TDMS File.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>D836F3FF3662FBE25ACDF81BA90C06DE</GUID>
+      <GUID>307213E69D384CFE6712BD9BD33B1685</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -876,7 +877,7 @@
         <Path>..\src\Control Experiment\Comments\Generate Comments.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>77F0D6380043836610401FA364CAE693</GUID>
+      <GUID>51EEB73942D4ABA278AD8653B4E89F11</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1236,7 +1237,49 @@
       <Items_Data>
         <Type>Item</Type>
         <Sub_Palette_Index>-1</Sub_Palette_Index>
+        <NameSub_Menu_Name>DB Get Stations.vi</NameSub_Menu_Name>
+        <Short_Name/>
+        <is_Merge_VI>false</is_Merge_VI>
+        <Position>
+          <Row>5</Row>
+          <Column>5</Column>
+        </Position>
+        <Icon>00000000</Icon>
+        <Path>..\src\Control Experiment\subVIs\DB Get Stations.vi</Path>
+        <VI_Title/>
+      </Items_Data>
+      <Items_Data>
+        <Type>Item</Type>
+        <Sub_Palette_Index>-1</Sub_Palette_Index>
+        <NameSub_Menu_Name>DB Get Station Type.vi</NameSub_Menu_Name>
+        <Short_Name/>
+        <is_Merge_VI>false</is_Merge_VI>
+        <Position>
+          <Row>5</Row>
+          <Column>6</Column>
+        </Position>
+        <Icon>00000000</Icon>
+        <Path>..\src\Control Experiment\subVIs\DB Get Station Type.vi</Path>
+        <VI_Title/>
+      </Items_Data>
+      <Items_Data>
+        <Type>Item</Type>
+        <Sub_Palette_Index>-1</Sub_Palette_Index>
         <NameSub_Menu_Name>String Label.vi</NameSub_Menu_Name>
+        <Short_Name/>
+        <is_Merge_VI>false</is_Merge_VI>
+        <Position>
+          <Row>5</Row>
+          <Column>2</Column>
+        </Position>
+        <Icon>00000000</Icon>
+        <Path>..\src\Control Experiment\subVIs\String Label.vi</Path>
+        <VI_Title/>
+      </Items_Data>
+      <Items_Data>
+        <Type>Item</Type>
+        <Sub_Palette_Index>-1</Sub_Palette_Index>
+        <NameSub_Menu_Name>DB Set Measurement.vi</NameSub_Menu_Name>
         <Short_Name/>
         <is_Merge_VI>false</is_Merge_VI>
         <Position>
@@ -1244,10 +1287,24 @@
           <Column>3</Column>
         </Position>
         <Icon>00000000</Icon>
-        <Path>..\src\Control Experiment\subVIs\String Label.vi</Path>
+        <Path>..\src\Control Experiment\subVIs\DB Set Measurement.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>E0F7626A897CAFC567B1B2183F4ACF5D</GUID>
+      <Items_Data>
+        <Type>Item</Type>
+        <Sub_Palette_Index>-1</Sub_Palette_Index>
+        <NameSub_Menu_Name>DB Get Current Users.vi</NameSub_Menu_Name>
+        <Short_Name/>
+        <is_Merge_VI>false</is_Merge_VI>
+        <Position>
+          <Row>5</Row>
+          <Column>4</Column>
+        </Position>
+        <Icon>00000000</Icon>
+        <Path>..\src\Control Experiment\subVIs\DB Get Current Users.vi</Path>
+        <VI_Title/>
+      </Items_Data>
+      <GUID>64474041B339DD32FB11470658AC90C3</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1366,7 +1423,7 @@
         <Path>..\src\Control Experiment\API\Dictionary\Write JSON to Dictionary.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>B5ADD160D04A8620B70B23EC1360EDA2</GUID>
+      <GUID>E4FB4AD4D44D4F379BE94BC79C48F923</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1415,7 +1472,7 @@
         <Path>..\src\Control Experiment\API\S3\Upload to S3.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>46851C6F1860107E0DDFBEF46F3D86E7</GUID>
+      <GUID>B9DD820A17E84C5855F1615DD53CA28F</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
