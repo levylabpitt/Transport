@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2018" Created_Date="2023-11-17 14:02:31" Modified_Date="2025-05-23 22:03:28" Creator="Patrick Irvin" Comments="" ID="3c4292e410dcf2f67224199a0ba9319b">
+<VI_Package_Builder_Settings Version="2018" Created_Date="2023-11-17 14:02:31" Modified_Date="2025-05-24 13:28:41" Creator="Patrick Irvin" Comments="" ID="8534961988021341395ae663378f9b7e">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_control_experiment</Package_File_Name>
-    <Library_Version>1.2.3.15</Library_Version>
+    <Library_Version>1.2.3.16</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\src\Control Experiment</Library_Source_Folder>
     <Library_Output_Folder>..\builds\Package</Library_Output_Folder>
