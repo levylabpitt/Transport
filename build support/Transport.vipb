@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2025-05-28 08:43:42" Creator="Patrick" Comments="" ID="3f62a1338b446b207e22610c068c0006">
+<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2025-05-28 10:46:06" Creator="Patrick" Comments="" ID="36d782993716b0f6a89f841cb1d7bfc0">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_Transport</Package_File_Name>
-    <Library_Version>1.9.2.14</Library_Version>
+    <Library_Version>1.9.2.15</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\src\Transport</Library_Source_Folder>
     <Library_Output_Folder>..\builds\Package</Library_Output_Folder>
@@ -17,7 +17,7 @@
   </Library_General_Settings>
   <Advanced_Settings>
     <Package_Dependencies>
-      <Additional_External_Dependencies>levylab_lib_control_experiment &gt;=1.2.2.13</Additional_External_Dependencies>
+      <Additional_External_Dependencies>levylab_lib_control_experiment &gt;=1.2.3.15</Additional_External_Dependencies>
     </Package_Dependencies>
     <Custom_Action_VIs>
       <Pre-Build_VI/>
@@ -39,7 +39,7 @@ Basic transport measurments:
       <Copyright/>
       <Packager/>
       <URL/>
-      <Release_Notes>[1.9.1]
+      <Release_Notes>[1.9.2]
 #106 Option: hold B sweep if T &gt; T_hold</Release_Notes>
     </Description>
     <Destinations>
@@ -289,7 +289,7 @@ Basic transport measurments:
         <Path>..\src\Transport\Lockin_sweep.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>AFE263F0B12FA001BC64D67ED525E9EF</GUID>
+      <GUID>59DE827C2B12ED6BB2FFD310C3A522DA</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -380,7 +380,7 @@ Basic transport measurments:
         <Path>..\src\Transport\API (class)\Write Sweep Table.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>5DBC94EEB678005B6B11B9103333609D</GUID>
+      <GUID>EECB21E24158A2E1A84EE80ED0860916</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -415,7 +415,7 @@ Basic transport measurments:
         <Path>..\src\Transport\API (file)\Read Lockin_Sweep.json.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>5238CFB7B5D4B038BF30EC10234F2DE7</GUID>
+      <GUID>9FB4998A60067BDEDD5AED72E198DC90</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -548,7 +548,7 @@ Basic transport measurments:
         <Path>..\src\Transport\Private\Results (Dictionary) to X and Y Arrays.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>26EC4FCDD83E3DF6123A0954C78872FA</GUID>
+      <GUID>D9FC0BFD845E86EB62485921EC858C32</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
