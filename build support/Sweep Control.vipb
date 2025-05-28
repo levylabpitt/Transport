@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2023-11-17 13:13:32" Modified_Date="2025-05-28 09:49:34" Creator="Patrick Irvin" Comments="" ID="7125e74d06888a1b18be5c1023f1e54a">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2023-11-17 13:13:32" Modified_Date="2025-05-28 11:22:53" Creator="Patrick Irvin" Comments="" ID="5bb51e1f584aba986fe192c3774f8a2a">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_sweep_control</Package_File_Name>
-    <Library_Version>1.2.1.11</Library_Version>
+    <Library_Version>1.2.1.12</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\src\Sweep Control</Library_Source_Folder>
     <Library_Output_Folder>..\builds\Package</Library_Output_Folder>
@@ -17,8 +17,8 @@
   </Library_General_Settings>
   <Advanced_Settings>
     <Package_Dependencies>
-      <Additional_External_Dependencies>levylab_lib_control_experiment &gt;=1.2.2.13</Additional_External_Dependencies>
-      <Additional_External_Dependencies>levylab_lib_transport &gt;=1.9.2.13</Additional_External_Dependencies>
+      <Additional_External_Dependencies>levylab_lib_control_experiment &gt;=1.2.3.15</Additional_External_Dependencies>
+      <Additional_External_Dependencies>levylab_lib_transport &gt;=1.9.2.14</Additional_External_Dependencies>
     </Package_Dependencies>
     <Custom_Action_VIs>
       <Pre-Build_VI/>
@@ -320,7 +320,7 @@
         <Path>..\src\Sweep Control\Sweep Control Cartesian.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>117BD638241253E9BDA793246BCC7A37</GUID>
+      <GUID>F2E43036961831B18340B63EBDB84A82</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -411,7 +411,7 @@
         <Path>..\src\Sweep Control\API\Write Dependencies.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>D81E47498E1E6371C02F1B2906CE2BD5</GUID>
+      <GUID>C62311A59DB1BEAB40B60A9F4F6AA914</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -460,7 +460,7 @@
         <Path>..\src\Sweep Control\API (file)\Read Sweep Control.json.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>76997A1A999C574E6495339AE8DEF9BD</GUID>
+      <GUID>945776B5BDB75003A48BB6EDD50A0BFA</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -565,7 +565,7 @@
         <Path>..\src\Sweep Control\subVIs\Sweep Control Loop.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>FEE998CB8BDDCAF9489F8429D0D4E271</GUID>
+      <GUID>11366FE455EC5529B5F13B54EE4188C4</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
