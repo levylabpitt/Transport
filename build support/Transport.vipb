@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2025-06-02 13:32:57" Creator="Patrick" Comments="" ID="6fab746b846124fb4b0d94fd648b20f1">
+<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2025-06-04 16:55:57" Creator="Patrick" Comments="" ID="058bf10b371f329df0684e4c9e33036f">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_Transport</Package_File_Name>
-    <Library_Version>1.9.3.16</Library_Version>
+    <Library_Version>1.9.4.16</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\src\Transport</Library_Source_Folder>
     <Library_Output_Folder>..\builds\Package</Library_Output_Folder>
@@ -39,8 +39,8 @@ Basic transport measurments:
       <Copyright/>
       <Packager/>
       <URL/>
-      <Release_Notes>[1.9.3]
-#108 Change Lockin_sweep measurement saving</Release_Notes>
+      <Release_Notes>[1.9.4]
+#111 Missing call to Measure: Time</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
@@ -289,7 +289,7 @@ Basic transport measurments:
         <Path>..\src\Transport\Lockin_sweep.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>00C18D25D01D389D9F5D9B7718237B45</GUID>
+      <GUID>321085A2BB615142F56A5CC234A84403</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -380,7 +380,7 @@ Basic transport measurments:
         <Path>..\src\Transport\API (class)\Write Sweep Table.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>66B78E7AA79302D85791479399A8C9EA</GUID>
+      <GUID>141179389C944FF58109F132D33311C9</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -415,7 +415,7 @@ Basic transport measurments:
         <Path>..\src\Transport\API (file)\Read Lockin_Sweep.json.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>EF2E127D1BDA348EE1B043C7C225637D</GUID>
+      <GUID>7C130C0C56A59E3BB1863DEEB08FCCCD</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -548,7 +548,7 @@ Basic transport measurments:
         <Path>..\src\Transport\Private\Results (Dictionary) to X and Y Arrays.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>DD02E25B24F30A34566206601A4A35CE</GUID>
+      <GUID>05CCD4D1552DD7488D61A271A0DAF5D2</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
