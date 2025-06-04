@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2025-06-04 16:55:57" Creator="Patrick" Comments="" ID="058bf10b371f329df0684e4c9e33036f">
+<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2025-06-04 17:07:21" Creator="Patrick" Comments="" ID="929d086e498561acbffabe12a44d72ce">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_Transport</Package_File_Name>
-    <Library_Version>1.9.4.16</Library_Version>
+    <Library_Version>1.9.4.17</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\src\Transport</Library_Source_Folder>
     <Library_Output_Folder>..\builds\Package</Library_Output_Folder>
@@ -289,7 +289,7 @@ Basic transport measurments:
         <Path>..\src\Transport\Lockin_sweep.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>321085A2BB615142F56A5CC234A84403</GUID>
+      <GUID>BE0B6CA489063C0A2CB4AC48E888B9E8</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -380,7 +380,7 @@ Basic transport measurments:
         <Path>..\src\Transport\API (class)\Write Sweep Table.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>141179389C944FF58109F132D33311C9</GUID>
+      <GUID>E9A0B51E69B0A0455907EC40BD76A235</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -415,7 +415,7 @@ Basic transport measurments:
         <Path>..\src\Transport\API (file)\Read Lockin_Sweep.json.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>7C130C0C56A59E3BB1863DEEB08FCCCD</GUID>
+      <GUID>7731283893F7C1780AA1432BF61E3BD4</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -548,7 +548,7 @@ Basic transport measurments:
         <Path>..\src\Transport\Private\Results (Dictionary) to X and Y Arrays.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>05CCD4D1552DD7488D61A271A0DAF5D2</GUID>
+      <GUID>CE2B29F13E6EBCA0FDC6161075C23B9B</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
