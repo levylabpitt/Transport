@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2018" Created_Date="2023-11-17 14:02:31" Modified_Date="2025-05-24 13:28:41" Creator="Patrick Irvin" Comments="" ID="8534961988021341395ae663378f9b7e">
+<VI_Package_Builder_Settings Version="2018" Created_Date="2023-11-17 14:02:31" Modified_Date="2025-06-06 14:54:41" Creator="Patrick Irvin" Comments="" ID="7d1b401a6bae8804489c686800bc3cff">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_control_experiment</Package_File_Name>
-    <Library_Version>1.2.3.16</Library_Version>
+    <Library_Version>1.3.0.17</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\src\Control Experiment</Library_Source_Folder>
     <Library_Output_Folder>..\builds\Package</Library_Output_Folder>
@@ -44,10 +44,9 @@
       <Copyright/>
       <Packager/>
       <URL/>
-      <Release_Notes>[1.2.3]
-#102 Enable opening 64 bit Lockin and KH7008
-#103 Retrieve user and instrument information from the database
-#104 FIx issue that would not update the lockin gains after updating the Krohn Hite gains</Release_Notes>
+      <Release_Notes>[1.3.0]
+#105 Check installed KR7008 shunt resistor
+#113 Support multiple KH7008</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
@@ -296,7 +295,7 @@
         <Path>..\src\Control Experiment\Control Experiment.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>461AD60904FC78F5927EAC04DDE74D9A</GUID>
+      <GUID>0EE7472A2F3878F768DCC5D73FE7EE39</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -583,7 +582,7 @@
         <Path>..\src\Control Experiment\API\Write Wiring Configuration v2.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>AB3853BA7F89FD2FE27AE0ECA0EBA5B3</GUID>
+      <GUID>E0DB3A55D5EA95D1655F0C789B6D01C9</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -716,7 +715,7 @@
         <Path>..\src\Control Experiment\API (File)\Save Transport TDMS File.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>307213E69D384CFE6712BD9BD33B1685</GUID>
+      <GUID>FBF7B221F86AEB80B92326529FE4C802</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -877,7 +876,7 @@
         <Path>..\src\Control Experiment\Comments\Generate Comments.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>51EEB73942D4ABA278AD8653B4E89F11</GUID>
+      <GUID>FA4DB90BE7436B3A0C19CE13A15C6304</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1304,7 +1303,7 @@
         <Path>..\src\Control Experiment\subVIs\DB Get Current Users.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>64474041B339DD32FB11470658AC90C3</GUID>
+      <GUID>4DDE2D16A073257967A2CC7DA86391E4</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1423,7 +1422,7 @@
         <Path>..\src\Control Experiment\API\Dictionary\Write JSON to Dictionary.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>E4FB4AD4D44D4F379BE94BC79C48F923</GUID>
+      <GUID>D507F700EB46E5A78D9C825629BBF1FB</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1472,7 +1471,7 @@
         <Path>..\src\Control Experiment\API\S3\Upload to S3.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>B9DD820A17E84C5855F1615DD53CA28F</GUID>
+      <GUID>B4E4E5F4F0566C8EC33FF6D022314001</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
