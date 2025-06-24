@@ -16,6 +16,7 @@
 		<Item Name="build support" Type="Folder">
 			<Item Name="Transport.vipb" Type="Document" URL="../build support/Transport.vipb"/>
 			<Item Name="Transport.vipc" Type="Document" URL="../build support/Transport.vipc"/>
+			<Item Name="Lockin_sweep.ico" Type="Document" URL="../build support/Lockin_sweep.ico"/>
 		</Item>
 		<Item Name="Transport.lvclass" Type="LVClass" URL="../src/Transport/Transport.lvclass"/>
 		<Item Name="Dependencies" Type="Dependencies">
@@ -456,6 +457,7 @@
 				<Item Name="KH7008.lvlib" Type="Library" URL="/&lt;userlib&gt;/LevyLab/Krohn Hite 7008/KH7008/KH7008.lvlib"/>
 				<Item Name="Inst.KH7008.lvlib" Type="Library" URL="/&lt;userlib&gt;/LevyLab/Krohn Hite 7008/Inst.KH7008.lvlib"/>
 				<Item Name="Instrument.Lockin.lvlib" Type="Library" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Instrument.Lockin.lvlib"/>
+				<Item Name="MGI Is Runtime.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Application Control/MGI Is Runtime.vi"/>
 			</Item>
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="VISA Configure Serial Port" Type="VI" URL="/&lt;vilib&gt;/Instr/_visa.llb/VISA Configure Serial Port"/>
@@ -1007,6 +1009,51 @@
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 		</Item>
-		<Item Name="Build Specifications" Type="Build"/>
+		<Item Name="Build Specifications" Type="Build">
+			<Item Name="Lockin_sweep" Type="EXE">
+				<Property Name="App_copyErrors" Type="Bool">true</Property>
+				<Property Name="App_INI_aliasGUID" Type="Str">{CE6BBFC6-2BA5-48D1-BC7E-03A3205A7D15}</Property>
+				<Property Name="App_INI_GUID" Type="Str">{6B7F837D-7D74-49CB-B240-BB455ED006A9}</Property>
+				<Property Name="App_serverConfig.httpPort" Type="Int">8002</Property>
+				<Property Name="Bld_autoIncrement" Type="Bool">true</Property>
+				<Property Name="Bld_buildCacheID" Type="Str">{03DA3A4D-AAEA-4CA7-A276-4376B9A6CA5C}</Property>
+				<Property Name="Bld_buildSpecName" Type="Str">Lockin_sweep</Property>
+				<Property Name="Bld_excludeInlineSubVIs" Type="Bool">true</Property>
+				<Property Name="Bld_excludeLibraryItems" Type="Bool">true</Property>
+				<Property Name="Bld_excludePolymorphicVIs" Type="Bool">true</Property>
+				<Property Name="Bld_localDestDir" Type="Path">../builds/Lockin_sweep</Property>
+				<Property Name="Bld_localDestDirType" Type="Str">relativeToProject</Property>
+				<Property Name="Bld_modifyLibraryFile" Type="Bool">true</Property>
+				<Property Name="Bld_previewCacheID" Type="Str">{5627FD93-00CD-4DCF-9B51-FCDDC2647F3B}</Property>
+				<Property Name="Bld_version.build" Type="Int">19</Property>
+				<Property Name="Bld_version.major" Type="Int">1</Property>
+				<Property Name="Bld_version.minor" Type="Int">10</Property>
+				<Property Name="Destination[0].destName" Type="Str">Lockin_sweep.exe</Property>
+				<Property Name="Destination[0].path" Type="Path">../builds/Lockin_sweep/Lockin_sweep.exe</Property>
+				<Property Name="Destination[0].path.type" Type="Str">relativeToProject</Property>
+				<Property Name="Destination[0].preserveHierarchy" Type="Bool">true</Property>
+				<Property Name="Destination[0].type" Type="Str">App</Property>
+				<Property Name="Destination[1].destName" Type="Str">Support Directory</Property>
+				<Property Name="Destination[1].path" Type="Path">../builds/Lockin_sweep/data</Property>
+				<Property Name="Destination[1].path.type" Type="Str">relativeToProject</Property>
+				<Property Name="DestinationCount" Type="Int">2</Property>
+				<Property Name="Exe_iconItemID" Type="Ref">/My Computer/build support/Lockin_sweep.ico</Property>
+				<Property Name="Source[0].itemID" Type="Str">{F7424238-05B0-4B9D-BBF0-01DAEB0B5D1B}</Property>
+				<Property Name="Source[0].type" Type="Str">Container</Property>
+				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
+				<Property Name="Source[1].itemID" Type="Ref">/My Computer/Transport.lvclass/Lockin_sweep.vi</Property>
+				<Property Name="Source[1].sourceInclusion" Type="Str">TopLevel</Property>
+				<Property Name="Source[1].type" Type="Str">VI</Property>
+				<Property Name="SourceCount" Type="Int">2</Property>
+				<Property Name="TgtF_companyName" Type="Str">University of Pittsburgh</Property>
+				<Property Name="TgtF_fileDescription" Type="Str">Lockin_sweep</Property>
+				<Property Name="TgtF_internalName" Type="Str">Lockin_sweep</Property>
+				<Property Name="TgtF_legalCopyright" Type="Str">Copyright © 2025 University of Pittsburgh</Property>
+				<Property Name="TgtF_productName" Type="Str">Lockin_sweep</Property>
+				<Property Name="TgtF_targetfileGUID" Type="Str">{BDC55EFA-719A-4E46-B206-F1C79865B352}</Property>
+				<Property Name="TgtF_targetfileName" Type="Str">Lockin_sweep.exe</Property>
+				<Property Name="TgtF_versionIndependent" Type="Bool">true</Property>
+			</Item>
+		</Item>
 	</Item>
 </Project>
