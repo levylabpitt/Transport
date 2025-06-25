@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2025-06-06 15:12:16" Creator="Patrick" Comments="" ID="10d55ba62f69812af6f2c2ef9a944532">
+<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2025-06-24 20:59:46" Creator="Patrick" Comments="" ID="76ba03096f7f81c0a183acc6f7e777a0">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_Transport</Package_File_Name>
-    <Library_Version>1.9.5.18</Library_Version>
+    <Library_Version>1.9.6.19</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\src\Transport</Library_Source_Folder>
     <Library_Output_Folder>..\builds\Package</Library_Output_Folder>
@@ -39,8 +39,8 @@ Basic transport measurments:
       <Copyright/>
       <Packager/>
       <URL/>
-      <Release_Notes>[1.9.5]
-#112 Lockin_sweep and Lockin_time will close instruments that they explicitly opened</Release_Notes>
+      <Release_Notes>[1.9.6]
+#116 fix Lockin close in Lockin_sweep and Lockin_time</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
@@ -289,7 +289,7 @@ Basic transport measurments:
         <Path>..\src\Transport\Lockin_sweep.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>B32A6867D4C1C3895B47C1D6860C3DCB</GUID>
+      <GUID>558DF2AC3EA430F1CE18CDCBFF722D2A</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -380,7 +380,7 @@ Basic transport measurments:
         <Path>..\src\Transport\API (class)\Write Sweep Table.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>291874A5BD130391F13138190E57A567</GUID>
+      <GUID>6D1C413B1A4F82324682AE2EDC52D84D</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -415,7 +415,7 @@ Basic transport measurments:
         <Path>..\src\Transport\API (file)\Read Lockin_Sweep.json.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>7E8171C5B26A28A9A779885713C881B6</GUID>
+      <GUID>B5C379FEA8987AE972694481B205BBF3</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -548,7 +548,7 @@ Basic transport measurments:
         <Path>..\src\Transport\Private\Results (Dictionary) to X and Y Arrays.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>4636691934C80794096009582E93DE81</GUID>
+      <GUID>569A1826326F503CC41D777769DB1B7F</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>

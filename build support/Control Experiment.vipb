@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2018" Created_Date="2023-11-17 14:02:31" Modified_Date="2025-06-06 14:54:41" Creator="Patrick Irvin" Comments="" ID="7d1b401a6bae8804489c686800bc3cff">
+<VI_Package_Builder_Settings Version="2018" Created_Date="2023-11-17 14:02:31" Modified_Date="2025-06-24 20:29:15" Creator="Patrick Irvin" Comments="" ID="c7560648237d9e7448375d66f6c18bc7">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_control_experiment</Package_File_Name>
-    <Library_Version>1.3.0.17</Library_Version>
+    <Library_Version>1.3.1.18</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\src\Control Experiment</Library_Source_Folder>
     <Library_Output_Folder>..\builds\Package</Library_Output_Folder>
@@ -44,9 +44,11 @@
       <Copyright/>
       <Packager/>
       <URL/>
-      <Release_Notes>[1.3.0]
-#105 Check installed KR7008 shunt resistor
-#113 Support multiple KH7008</Release_Notes>
+      <Release_Notes>[1.3.1]
+#117: Save Transport TDMS uses existing comments instead of generating new
+#115: read number of KH chassis from KH application
+- fix Instrument class wires that were not passed downstream
+- update DB read to remove hardcoded username</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
@@ -295,7 +297,7 @@
         <Path>..\src\Control Experiment\Control Experiment.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>0EE7472A2F3878F768DCC5D73FE7EE39</GUID>
+      <GUID>325668EB17C48CB32E5EEA22AB3D751A</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -582,7 +584,7 @@
         <Path>..\src\Control Experiment\API\Write Wiring Configuration v2.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>E0DB3A55D5EA95D1655F0C789B6D01C9</GUID>
+      <GUID>0D52036CE46AC110B65FB2213ABFD0C7</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -715,7 +717,7 @@
         <Path>..\src\Control Experiment\API (File)\Save Transport TDMS File.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>FBF7B221F86AEB80B92326529FE4C802</GUID>
+      <GUID>8FBA5913E463FFF17190F383E3104195</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -876,7 +878,7 @@
         <Path>..\src\Control Experiment\Comments\Generate Comments.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>FA4DB90BE7436B3A0C19CE13A15C6304</GUID>
+      <GUID>9D827C7ED18C26F7FFD08D31BE75670C</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -1303,7 +1305,7 @@
         <Path>..\src\Control Experiment\subVIs\DB Get Current Users.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>4DDE2D16A073257967A2CC7DA86391E4</GUID>
+      <GUID>449D0DF1A4EB6643FFBBCE697FE3F1EC</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1422,7 +1424,7 @@
         <Path>..\src\Control Experiment\API\Dictionary\Write JSON to Dictionary.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>D507F700EB46E5A78D9C825629BBF1FB</GUID>
+      <GUID>35F248FC21A2CDEF77E89A91DAA55708</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1471,7 +1473,7 @@
         <Path>..\src\Control Experiment\API\S3\Upload to S3.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>B4E4E5F4F0566C8EC33FF6D022314001</GUID>
+      <GUID>E8C15D9E06B88A8FBEE1EDB9E61F062B</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
