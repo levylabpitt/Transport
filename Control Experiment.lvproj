@@ -450,7 +450,6 @@
 				<Item Name="Instrument.LockinAPI.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Instrument Framework/Instrument Types/Lockin/Instrument.LockinAPI.lvclass"/>
 				<Item Name="Instrument.Lockin.lvlib" Type="Library" URL="/&lt;userlib&gt;/LevyLab/Lockin-Multichannel/Instrument.Lockin.lvlib"/>
 				<Item Name="Inst.KH7008.lvlib" Type="Library" URL="/&lt;userlib&gt;/LevyLab/Krohn Hite 7008/Inst.KH7008.lvlib"/>
-				<Item Name="D2XX-lv.lvlib" Type="Library" URL="/&lt;userlib&gt;/LevyLab/D2XX-LV/D2XX-lv.lvlib"/>
 			</Item>
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="VISA Configure Serial Port" Type="VI" URL="/&lt;vilib&gt;/Instr/_visa.llb/VISA Configure Serial Port"/>
@@ -979,7 +978,8 @@
 				<Item Name="Read Registry Value Simple.vi" Type="VI" URL="/&lt;vilib&gt;/registry/registry.llb/Read Registry Value Simple.vi"/>
 			</Item>
 			<Item Name="instr.lib" Type="Folder">
-				<Item Name="D2XX.lvlib" Type="Library" URL="/&lt;instrlib&gt;/FTDI/D2XX/D2XX.lvlib"/>
+				<Item Name="D2XX.lvlib" Type="Library" URL="/&lt;instrlib&gt;/_D2XX/D2XX/D2XX.lvlib"/>
+				<Item Name="D2XX-lv.lvlib" Type="Library" URL="/&lt;instrlib&gt;/_D2XX/D2XX-LV/D2XX-lv.lvlib"/>
 			</Item>
 			<Item Name="mscorlib" Type="VI" URL="mscorlib">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
