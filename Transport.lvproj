@@ -441,7 +441,6 @@
 				<Item Name="MGI Top Level VI Reference.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Application Control/MGI VI Reference/MGI Top Level VI Reference.vi"/>
 				<Item Name="MGI Level&apos;s VI Reference.vi" Type="VI" URL="/&lt;userlib&gt;/_MGI/Application Control/MGI VI Reference/MGI Level&apos;s VI Reference.vi"/>
 				<Item Name="LV-Data.AWS CLI.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/LV-Data/LV-Data.AWS CLI/LV-Data.AWS CLI.lvclass"/>
-				<Item Name="D2XX-lv.lvlib" Type="Library" URL="/&lt;userlib&gt;/LevyLab/D2XX-LV/D2XX-lv.lvlib"/>
 				<Item Name="Instrument.Amplifier.lvclass" Type="LVClass" URL="/&lt;userlib&gt;/LevyLab/Instrument Framework/Instrument Types/Amplifier/Instrument.Amplifier.lvclass"/>
 				<Item Name="Instrument-VIM.lvlib" Type="Library" URL="/&lt;userlib&gt;/LevyLab/Instrument Framework/Instrument-VIM/Instrument-VIM.lvlib"/>
 				<Item Name="Unwrap VVariant__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Unwrap VVariant__ogtk.vi"/>
@@ -986,7 +985,8 @@
 				<Item Name="Close Registry Key.vi" Type="VI" URL="/&lt;vilib&gt;/registry/registry.llb/Close Registry Key.vi"/>
 			</Item>
 			<Item Name="instr.lib" Type="Folder">
-				<Item Name="D2XX.lvlib" Type="Library" URL="/&lt;instrlib&gt;/FTDI/D2XX/D2XX.lvlib"/>
+				<Item Name="D2XX-lv.lvlib" Type="Library" URL="/&lt;instrlib&gt;/_D2XX/D2XX-LV/D2XX-lv.lvlib"/>
+				<Item Name="D2XX.lvlib" Type="Library" URL="/&lt;instrlib&gt;/_D2XX/D2XX/D2XX.lvlib"/>
 			</Item>
 			<Item Name="mscorlib" Type="VI" URL="mscorlib">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
