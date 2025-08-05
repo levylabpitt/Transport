@@ -1,0 +1,5 @@
+== Preamble
+
+A JKI State Machine (TM) is a https://labviewwiki.org/wiki/State_Machine[State Machine] built using the https://github.com/JKISoftware/JKI-State-Machine[template] provided by JKI.
+
+This section describes all JKI State Machine found in the project. 

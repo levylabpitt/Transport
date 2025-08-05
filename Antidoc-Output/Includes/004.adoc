@@ -1,0 +1,420 @@
+== Transport.lvclass:Lockin_time.vi
+
+image::Transport.lvclass_Lockin_time.vi.png[]
+
+*Description:*
+No description found (add content in VI description)
+
+=== States relathionship
+
+[graphviz, format="png", align="center"]
+....
+digraph G624741 {
+rankdir=LR;
+edge[dir=none color=blue  arrowhead=none arrowtail=none style=rounded penwidth=1]
+node[color=crimson shape=Msquare]
+" \"Initialize Core Data\" "[color=forestgreen shape=box]
+" \"Macro: Initialize\" "[color=forestgreen shape=box]
+" \"Exit\" "[color=forestgreen shape=box]
+" \"Stop\": Value Change "[color=coral shape=diamond]
+" Panel Close? "[color=coral shape=diamond]
+" \"Data: Check Notifier\" "[color=forestgreen shape=box]
+" \"Macro: Exit\" "[color=forestgreen shape=box]
+" \"Data: Initialize\" "[color=forestgreen shape=box]
+" \"Macro: Initialize Instruments\" "[color=forestgreen shape=box]
+" \"Data: Initialize Top Level\" "[color=forestgreen shape=box]
+" \"Macro: Measure\" "[color=forestgreen shape=box]
+" \"Data: Initialize Instruments\" "[color=forestgreen shape=box]
+" \"Data: Initialize Lockin\" "[color=forestgreen shape=box]
+" \"Data: Open Temperature\" "[color=forestgreen shape=box]
+" \"Data: Open Magnet\" "[color=forestgreen shape=box]
+" \"Data: Close Instruments\" "[color=forestgreen shape=box]
+" \"Data: Calculate R and G\" "[color=forestgreen shape=box]
+" \"Data: Cleanup\" "[color=forestgreen shape=box]
+" \"UI: Initialize\" "[color=forestgreen shape=box]
+" \"UI: Update Legend (Time Graphs)\" "[color=forestgreen shape=box]
+" \"UI: Update Legend (R G Graphs)\" "[color=forestgreen shape=box]
+" \"Electrodes\": Value Change "[color=coral shape=diamond]
+" \"UI: Update Scale Labels\" "[color=forestgreen shape=box]
+" \"Units\": Value Change "[color=coral shape=diamond]
+" \"UI: Update Status\" "[color=forestgreen shape=box]
+" \"Macro: Magnet Hold\" "[color=forestgreen shape=box]
+" \"Measure: Temperature\" "[color=forestgreen shape=box]
+" \"Measure: Magnet\" "[color=coral shape=box]
+" \"Measure: Vector Magnet\" "[color=coral shape=box]
+" \"Measure: Capacitance\" "[color=coral shape=box]
+" \"Measure: Strain\" "[color=coral shape=box]
+" \"UI: Front Panel State\" "[color=forestgreen shape=box]
+" \"UI: Update Graphs\" "[color=forestgreen shape=box]
+" \"UI: Update Lockin Graphs\" "[color=forestgreen shape=box]
+"Transport.lvclass:Lockin_time.vi"[color=darkgray shape=invhouse]
+" Timeout "[color=coral shape=diamond]
+" \"Macro: Measure Instruments\" "[color=forestgreen shape=box]
+" \"File: Save\" "[color=forestgreen shape=box]
+" \"File: Write JSON\" "[color=forestgreen shape=box]
+" \"Measure: Time\" "[color=forestgreen shape=box]
+" \"Measure: Hold Magnet\" "[color=forestgreen shape=box]
+" \"Measure: Lockin Results\" "[color=forestgreen shape=box]
+" \"Measure: Lockin Waveforms\" "[color=forestgreen shape=box]
+" Default "[color=coral shape=box]
+" \"Error Handler\" "[color=coral shape=box]
+" \"UI: Cursor Set\" "[color=coral shape=box]
+" \"Macro: Initialize\" " -> " \"Initialize Core Data\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Stop\": Value Change " -> " \"Exit\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" Panel Close? " -> " \"Exit\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Data: Check Notifier\" " -> " \"Exit\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Exit\" " -> " \"Exit\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Initialize\" " -> " \"Data: Initialize\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Initialize Instruments\" " -> " \"Data: Initialize\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Initialize\" " -> " \"Data: Initialize Top Level\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Measure\" " -> " \"Data: Check Notifier\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Initialize Instruments\" " -> " \"Data: Initialize Instruments\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Initialize Instruments\" " -> " \"Data: Initialize Lockin\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Initialize Instruments\" " -> " \"Data: Open Temperature\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Initialize Instruments\" " -> " \"Data: Open Magnet\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Exit\" " -> " \"Data: Close Instruments\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Measure\" " -> " \"Data: Calculate R and G\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Exit\" " -> " \"Data: Cleanup\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Initialize\" " -> " \"UI: Initialize\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Initialize\" " -> " \"UI: Update Legend (Time Graphs)\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Electrodes\": Value Change " -> " \"UI: Update Legend (R G Graphs)\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Initialize\" " -> " \"UI: Update Legend (R G Graphs)\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Units\": Value Change " -> " \"UI: Update Scale Labels\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Initialize\" " -> " \"UI: Update Scale Labels\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Measure\" " -> " \"UI: Update Status\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Magnet Hold\" " -> " \"UI: Update Status\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Measure: Temperature\" " -> " \"UI: Update Status\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Measure: Magnet\" " -> " \"UI: Update Status\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Measure: Vector Magnet\" " -> " \"UI: Update Status\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Measure: Capacitance\" " -> " \"UI: Update Status\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Measure: Strain\" " -> " \"UI: Update Status\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Initialize\" " -> " \"UI: Front Panel State\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Exit\" " -> " \"UI: Front Panel State\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Initialize\" " -> " \"UI: Update Graphs\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Measure\" " -> " \"UI: Update Graphs\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Initialize\" " -> " \"UI: Update Lockin Graphs\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Measure\" " -> " \"UI: Update Lockin Graphs\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Initialize\" " -> " \"Macro: Initialize\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+"Transport.lvclass:Lockin_time.vi" -> " \"Macro: Initialize\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" Timeout " -> " \"Macro: Measure\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Initialize\" " -> " \"Macro: Measure\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Measure\" " -> " \"Macro: Measure\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Initialize\" " -> " \"Macro: Initialize Instruments\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Measure\" " -> " \"Macro: Measure Instruments\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Measure: Temperature\" " -> " \"Macro: Magnet Hold\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Stop\": Value Change " -> " \"Macro: Exit\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" Panel Close? " -> " \"Macro: Exit\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Data: Check Notifier\" " -> " \"Macro: Exit\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Initialize\" " -> " \"File: Save\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Measure\" " -> " \"File: Save\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Initialize\" " -> " \"File: Write JSON\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Measure\" " -> " \"Measure: Time\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Measure: Hold Magnet\" " -> " \"Measure: Temperature\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Magnet Hold\" " -> " \"Measure: Hold Magnet\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Measure\" " -> " \"Measure: Lockin Results\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Measure\" " -> " \"Measure: Lockin Waveforms\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+}
+....
+
+=== State machine detailed info
+
+[cols="", %autowidth, frame=all, grid=all, stripes=none]
+|===
+|State Name |State Documentation |State Callers |States Called
+
+4+^|*"", "Event Structure", "Idle"*
+
+| Timeout 
+|
+|
+| "Macro: Measure" 
+
+| "Electrodes": Value Change 
+|
+|
+| "UI: Update Legend (R G Graphs)" 
+
+| "Stop": Value Change 
+|
+|
+| "Exit"  +
+ "Macro: Exit" 
+
+| "Units": Value Change 
+|
+|
+| "UI: Update Scale Labels" 
+
+| Panel Close? 
+|
+|
+| "Exit"  +
+ "Macro: Exit" 
+
+4+^|*Core*
+
+| Default 
+|Do not delete, rename, or modify this frame. (this is used to capture unhandled states and typos)
+|
+|
+
+| "Initialize Core Data" 
+|Do not delete, rename, or modify this frame. (this is used to determine panel behavior on exit)
+| "Macro: Initialize" 
+|
+
+| "Error Handler" 
+|Handle any errors here. You can also output any states to clean-up after errors occur
+|
+|
+
+| "Exit" 
+|Do not put any code in this frame. (No errors that occur here will be handled.)
+| "Stop": Value Change  +
+ Panel Close?  +
+ "Data: Check Notifier"  +
+ "Macro: Exit" 
+|
+
+4+^|*Data*
+
+| "Data: Initialize" 
+|Initialize the shift-register data, here. (data names are defined by what you wire into the bundle function)
+| "Macro: Initialize"  +
+ "Macro: Initialize Instruments" 
+|
+
+| "Data: Initialize Top Level" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new Data frame)
+| "Macro: Initialize" 
+|
+
+| "Data: Check Notifier" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new Data frame)
+| "Macro: Measure" 
+| "Exit"  +
+ "Macro: Exit" 
+
+| "Data: Initialize Instruments" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new Data frame)
+| "Macro: Initialize Instruments" 
+|
+
+| "Data: Initialize Lockin" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new Data frame)
+| "Macro: Initialize Instruments" 
+|
+
+| "Data: Open Temperature" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new Data frame)
+| "Macro: Initialize Instruments" 
+|
+
+| "Data: Open Magnet" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new Data frame)
+| "Macro: Initialize Instruments" 
+|
+
+| "Data: Close Instruments" 
+|Data: Close Instruments (Close Instruments that are explicitly opened by this VI)
+| "Macro: Exit" 
+|
+
+| "Data: Calculate R and G" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new Data frame)
+| "Macro: Measure" 
+|
+
+| "Data: Cleanup" 
+|Cleanup any data and references, here. (this is called automatically, by the Macro: Exit)
+| "Macro: Exit" 
+|
+
+4+^|*UI*
+
+| "UI: Initialize" 
+|Initialize the User Interface, here. (this is called automatically, by the Macro: Init)
+| "Macro: Initialize" 
+|
+
+| "UI: Update Legend (Time Graphs)" 
+|
+| "Macro: Initialize" 
+|
+
+| "UI: Update Legend (R G Graphs)" 
+|R2T (CE) R4T (CE) R2T (1) R4T (1)
+| "Electrodes": Value Change  +
+ "Macro: Initialize" 
+|
+
+| "UI: Update Scale Labels" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new UI frame)
+| "Units": Value Change  +
+ "Macro: Initialize" 
+|
+
+| "UI: Update Status" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new UI frame)
+| "Macro: Measure"  +
+ "Macro: Magnet Hold"  +
+ "Measure: Temperature"  +
+ "Measure: Magnet"  +
+ "Measure: Vector Magnet"  +
+ "Measure: Capacitance"  +
+ "Measure: Strain" 
+|
+
+| "UI: Cursor Set" 
+|Set and Unset Cursor Busy. (Usage: "UI: Cursor Set >> Busy\|Idle")
+|
+|
+
+| "UI: Front Panel State" 
+|Set Front Panel Open or Closed (Usage: "UI: Front Panel State >> Open\|Close")
+| "Macro: Initialize"  +
+ "Macro: Exit" 
+|
+
+| "UI: Update Graphs" 
+|
+| "Macro: Initialize"  +
+ "Macro: Measure" 
+|
+
+| "UI: Update Lockin Graphs" 
+|
+| "Macro: Initialize"  +
+ "Macro: Measure" 
+|
+
+4+^|*Macro*
+
+| "Macro: Initialize" 
+|Initialization Macro (This is called once, when the VI starts)
+| "Macro: Initialize"  +
+
+| "Initialize Core Data"  +
+ "Data: Initialize"  +
+ "Data: Initialize Top Level"  +
+ "UI: Initialize"  +
+ "UI: Update Legend (Time Graphs)"  +
+ "UI: Update Legend (R G Graphs)"  +
+ "UI: Update Scale Labels"  +
+ "UI: Front Panel State"  +
+ "UI: Update Graphs"  +
+ "UI: Update Lockin Graphs"  +
+ "Macro: Initialize"  +
+ "Macro: Measure"  +
+ "Macro: Initialize Instruments"  +
+ "File: Save"  +
+ "File: Write JSON" 
+
+| "Macro: Measure" 
+|Initialization Macro (This is called once, when the VI starts)
+| Timeout  +
+ "Macro: Initialize"  +
+ "Macro: Measure" 
+| "Data: Check Notifier"  +
+ "Data: Calculate R and G"  +
+ "UI: Update Status"  +
+ "UI: Update Graphs"  +
+ "UI: Update Lockin Graphs"  +
+ "Macro: Measure"  +
+ "Macro: Measure Instruments"  +
+ "File: Save"  +
+ "Measure: Time"  +
+ "Measure: Lockin Results"  +
+ "Measure: Lockin Waveforms" 
+
+| "Macro: Initialize Instruments" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new Macro frame)
+| "Macro: Initialize" 
+| "Data: Initialize"  +
+ "Data: Initialize Instruments"  +
+ "Data: Initialize Lockin"  +
+ "Data: Open Temperature"  +
+ "Data: Open Magnet" 
+
+| "Macro: Measure Instruments" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new Macro frame)
+| "Macro: Measure" 
+|
+
+| "Macro: Magnet Hold" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new Macro frame)
+| "Measure: Temperature" 
+| "UI: Update Status"  +
+ "Measure: Hold Magnet" 
+
+| "Macro: Exit" 
+|Exit Macro (This is called once, when the VI exits)
+| "Stop": Value Change  +
+ Panel Close?  +
+ "Data: Check Notifier" 
+| "Exit"  +
+ "Data: Close Instruments"  +
+ "Data: Cleanup"  +
+ "UI: Front Panel State" 
+
+4+^|*File*
+
+| "File: Save" 
+|Your code here. (You can make a copy of, or modify, this frame)
+| "Macro: Initialize"  +
+ "Macro: Measure" 
+|
+
+| "File: Write JSON" 
+|Template Separator (You can make a copy of, or modify, this frame)
+| "Macro: Initialize" 
+|
+
+4+^|*Measure*
+
+| "Measure: Time" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new Macro frame)
+| "Macro: Measure" 
+|
+
+| "Measure: Temperature" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new Macro frame)
+| "Measure: Hold Magnet" 
+| "UI: Update Status"  +
+ "Macro: Magnet Hold" 
+
+| "Measure: Magnet" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new Macro frame)
+|
+| "UI: Update Status" 
+
+| "Measure: Hold Magnet" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new Macro frame)
+| "Macro: Magnet Hold" 
+| "Measure: Temperature" 
+
+| "Measure: Vector Magnet" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new Macro frame)
+|
+| "UI: Update Status" 
+
+| "Measure: Capacitance" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new Macro frame)
+|
+| "UI: Update Status" 
+
+| "Measure: Strain" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new Macro frame)
+|
+| "UI: Update Status" 
+
+| "Measure: Lockin Results" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new Macro frame)
+| "Macro: Measure" 
+|
+
+| "Measure: Lockin Waveforms" 
+|
+| "Macro: Measure" 
+|
+|===

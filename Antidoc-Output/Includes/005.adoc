@@ -1,0 +1,552 @@
+== Transport.lvclass:Lockin_sweep.vi
+
+image::Transport.lvclass_Lockin_sweep.vi.png[]
+
+*Description:*
+No description found (add content in VI description)
+
+=== States relathionship
+
+[graphviz, format="png", align="center"]
+....
+digraph G25690 {
+rankdir=LR;
+edge[dir=none color=blue  arrowhead=none arrowtail=none style=rounded penwidth=1]
+node[color=crimson shape=Msquare]
+" \"Initialize Core Data\" "[color=forestgreen shape=box]
+" \"Macro: Initialize\" "[color=forestgreen shape=box]
+" \"Exit\" "[color=forestgreen shape=box]
+" \"stop\": Value Change "[color=coral shape=diamond]
+" \"Emergency Stop 1\", \"Emergency Stop 2\", \"Emergency Stop 3\", \"Emergency Stop 4\": Value Change "[color=coral shape=diamond]
+" Panel Close? "[color=coral shape=diamond]
+" \"Data: Check Notifier\" "[color=coral shape=box]
+" \"Macro: Exit\" "[color=forestgreen shape=box]
+" \"Sweep: Check State\" "[color=forestgreen shape=box]
+" \"Data: Initialize\" "[color=forestgreen shape=box]
+" \"Macro: Initialize Instruments\" "[color=forestgreen shape=box]
+" \"Data: Initialize Top Level\" "[color=forestgreen shape=box]
+" \"Data: Initialize Instruments\" "[color=forestgreen shape=box]
+" \"Data: Initialize Lockin\" "[color=forestgreen shape=box]
+" \"Data: Open Temperature\" "[color=forestgreen shape=box]
+" \"Data: Open Magnet\" "[color=forestgreen shape=box]
+" \"Data: Close Instruments\" "[color=forestgreen shape=box]
+" \"Data: UI Stop\" "[color=forestgreen shape=box]
+" \"Data: Cleanup\" "[color=forestgreen shape=box]
+" \"UI: Initialize\" "[color=forestgreen shape=box]
+" \"UI: Emergency Stop Visible\" "[color=forestgreen shape=box]
+" \"Emergency Stop Visible?\": Value Change "[color=coral shape=diamond]
+" \"UI: Update Timer\" "[color=forestgreen shape=box]
+" \"Macro: Sweep\" "[color=forestgreen shape=box]
+" \"UI: Update Status\" "[color=forestgreen shape=box]
+" \"Macro: Measure Instruments\" "[color=forestgreen shape=box]
+" \"Measure: Temperature\" "[color=coral shape=box]
+" \"Measure: Magnet\" "[color=coral shape=box]
+" \"Measure: Vector Magnet\" "[color=coral shape=box]
+" \"Measure: Capacitance\" "[color=coral shape=box]
+" \"Measure: Strain\" "[color=coral shape=box]
+" \"UI: Update Graph Axis Labels\" "[color=forestgreen shape=box]
+" \"Units\": Value Change "[color=coral shape=diamond]
+" \"Macro: Start Sweep\" "[color=forestgreen shape=box]
+" \"UI: Update Lockin Graph Legend\" "[color=forestgreen shape=box]
+" \"UI: Update Wfm Graph Legend\" "[color=forestgreen shape=box]
+" \"UI: Update R G Graph Legend\" "[color=forestgreen shape=box]
+" \"UI: Update AO AI Graphs\" "[color=forestgreen shape=box]
+" \"Macro: Stop Sweep\" "[color=forestgreen shape=box]
+" \"UI: Update Lockin Graphs\" "[color=forestgreen shape=box]
+" \"UI: Update R G Graphs\" "[color=forestgreen shape=box]
+" \"UI: Update Graphs from wfm\" "[color=forestgreen shape=box]
+" \"UI: Update IV Graphs\" "[color=forestgreen shape=box]
+" \"UI: Front Panel State\" "[color=forestgreen shape=box]
+"Transport.lvclass:Lockin_sweep.vi"[color=darkgray shape=invhouse]
+" \"Start\": Value Change "[color=coral shape=diamond]
+" \"Sweep: Initialize\" "[color=forestgreen shape=box]
+" \"Sweep: Start\" "[color=forestgreen shape=box]
+" Timeout "[color=coral shape=diamond]
+" \"Sweep: Stop\" "[color=forestgreen shape=box]
+" \"Sweep: Return to Start\" "[color=forestgreen shape=box]
+" \"Measure: Time\" "[color=forestgreen shape=box]
+" \"Measure: Lockin\" "[color=forestgreen shape=box]
+" \"Measure: Lockin Sweep\" "[color=forestgreen shape=box]
+" \"File: Write JSON\" "[color=forestgreen shape=box]
+" \"File: Save Lockin\" "[color=forestgreen shape=box]
+" Default "[color=coral shape=box]
+" \"Error Handler\" "[color=coral shape=box]
+" \"UI: Cursor Set\" "[color=coral shape=box]
+" \"Configure: Wait\" "[color=coral shape=box]
+" \"File: Configure\" "[color=coral shape=box]
+" \"Macro: Initialize\" " -> " \"Initialize Core Data\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"stop\": Value Change " -> " \"Exit\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Emergency Stop 1\", \"Emergency Stop 2\", \"Emergency Stop 3\", \"Emergency Stop 4\": Value Change " -> " \"Exit\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" Panel Close? " -> " \"Exit\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Data: Check Notifier\" " -> " \"Exit\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Exit\" " -> " \"Exit\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Sweep: Check State\" " -> " \"Exit\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Initialize\" " -> " \"Data: Initialize\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Initialize Instruments\" " -> " \"Data: Initialize\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Initialize\" " -> " \"Data: Initialize Top Level\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Initialize Instruments\" " -> " \"Data: Initialize Instruments\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Initialize Instruments\" " -> " \"Data: Initialize Lockin\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Initialize Instruments\" " -> " \"Data: Open Temperature\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Initialize Instruments\" " -> " \"Data: Open Magnet\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Exit\" " -> " \"Data: Close Instruments\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"stop\": Value Change " -> " \"Data: UI Stop\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Emergency Stop 1\", \"Emergency Stop 2\", \"Emergency Stop 3\", \"Emergency Stop 4\": Value Change " -> " \"Data: UI Stop\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" Panel Close? " -> " \"Data: UI Stop\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Exit\" " -> " \"Data: Cleanup\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Initialize\" " -> " \"UI: Initialize\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Emergency Stop Visible?\": Value Change " -> " \"UI: Emergency Stop Visible\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Sweep\" " -> " \"UI: Update Timer\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Measure Instruments\" " -> " \"UI: Update Status\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Measure: Temperature\" " -> " \"UI: Update Status\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Measure: Magnet\" " -> " \"UI: Update Status\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Measure: Vector Magnet\" " -> " \"UI: Update Status\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Measure: Capacitance\" " -> " \"UI: Update Status\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Measure: Strain\" " -> " \"UI: Update Status\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Units\": Value Change " -> " \"UI: Update Graph Axis Labels\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Start Sweep\" " -> " \"UI: Update Graph Axis Labels\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Start Sweep\" " -> " \"UI: Update Lockin Graph Legend\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Start Sweep\" " -> " \"UI: Update Wfm Graph Legend\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Start Sweep\" " -> " \"UI: Update R G Graph Legend\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Start Sweep\" " -> " \"UI: Update AO AI Graphs\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Sweep\" " -> " \"UI: Update AO AI Graphs\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Stop Sweep\" " -> " \"UI: Update AO AI Graphs\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Start Sweep\" " -> " \"UI: Update Lockin Graphs\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Sweep\" " -> " \"UI: Update Lockin Graphs\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Start Sweep\" " -> " \"UI: Update R G Graphs\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Sweep\" " -> " \"UI: Update R G Graphs\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Stop Sweep\" " -> " \"UI: Update R G Graphs\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Stop Sweep\" " -> " \"UI: Update Graphs from wfm\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Stop Sweep\" " -> " \"UI: Update IV Graphs\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Initialize\" " -> " \"UI: Front Panel State\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Exit\" " -> " \"UI: Front Panel State\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Initialize\" " -> " \"Macro: Initialize\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+"Transport.lvclass:Lockin_sweep.vi" -> " \"Macro: Initialize\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Initialize\" " -> " \"Macro: Initialize Instruments\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Start Sweep\" " -> " \"Macro: Measure Instruments\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Sweep\" " -> " \"Macro: Measure Instruments\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Start\": Value Change " -> " \"Macro: Start Sweep\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Initialize\" " -> " \"Macro: Start Sweep\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Sweep: Check State\" " -> " \"Macro: Sweep\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Exit\" " -> " \"Macro: Stop Sweep\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"stop\": Value Change " -> " \"Macro: Exit\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Emergency Stop 1\", \"Emergency Stop 2\", \"Emergency Stop 3\", \"Emergency Stop 4\": Value Change " -> " \"Macro: Exit\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" Panel Close? " -> " \"Macro: Exit\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Data: Check Notifier\" " -> " \"Macro: Exit\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Sweep: Check State\" " -> " \"Macro: Exit\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Start Sweep\" " -> " \"Sweep: Initialize\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Start Sweep\" " -> " \"Sweep: Start\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" Timeout " -> " \"Sweep: Check State\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Stop Sweep\" " -> " \"Sweep: Stop\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Stop Sweep\" " -> " \"Sweep: Return to Start\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Measure Instruments\" " -> " \"Measure: Time\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Measure Instruments\" " -> " \"Measure: Lockin\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Start Sweep\" " -> " \"Measure: Lockin\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Stop Sweep\" " -> " \"Measure: Lockin\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Stop Sweep\" " -> " \"Measure: Lockin Sweep\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Start Sweep\" " -> " \"File: Write JSON\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Stop Sweep\" " -> " \"File: Save Lockin\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+}
+....
+
+=== State machine detailed info
+
+[cols="", %autowidth, frame=all, grid=all, stripes=none]
+|===
+|State Name |State Documentation |State Callers |States Called
+
+4+^|*"", "Event Structure", "Idle"*
+
+| Timeout 
+|
+|
+| "Sweep: Check State" 
+
+| "stop": Value Change 
+|
+|
+| "Exit"  +
+ "Data: UI Stop"  +
+ "Macro: Exit" 
+
+| "Start": Value Change 
+|
+|
+| "Macro: Start Sweep" 
+
+| "Emergency Stop 1", "Emergency Stop 2", "Emergency Stop 3", "Emergency Stop 4": Value Change 
+|
+|
+| "Exit"  +
+ "Data: UI Stop"  +
+ "Macro: Exit" 
+
+| "Units": Value Change 
+|
+|
+| "UI: Update Graph Axis Labels" 
+
+| "Emergency Stop Visible?": Value Change 
+|
+|
+| "UI: Emergency Stop Visible" 
+
+| Panel Close? 
+|
+|
+| "Exit"  +
+ "Data: UI Stop"  +
+ "Macro: Exit" 
+
+4+^|*Core*
+
+| Default 
+|Do not delete, rename, or modify this frame. (this is used to capture unhandled states and typos)
+|
+|
+
+| "Initialize Core Data" 
+|Do not delete, rename, or modify this frame. (this is used to determine panel behavior on exit)
+| "Macro: Initialize" 
+|
+
+| "Error Handler" 
+|Handle any errors here. You can also output any states to clean-up after errors occur
+|
+|
+
+| "Exit" 
+|Do not put any code in this frame. (No errors that occur here will be handled.)
+| "stop": Value Change  +
+ "Emergency Stop 1", "Emergency Stop 2", "Emergency Stop 3", "Emergency Stop 4": Value Change  +
+ Panel Close?  +
+ "Data: Check Notifier"  +
+ "Macro: Exit"  +
+ "Sweep: Check State" 
+|
+
+4+^|*Data*
+
+| "Data: Initialize" 
+|Initialize the shift-register data, here. (data names are defined by what you wire into the bundle function)
+| "Macro: Initialize"  +
+ "Macro: Initialize Instruments" 
+|
+
+| "Data: Initialize Top Level" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new Data frame)
+| "Macro: Initialize" 
+|
+
+| "Data: Check Notifier" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new Data frame)
+|
+| "Exit"  +
+ "Macro: Exit" 
+
+| "Data: Initialize Instruments" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new Data frame)
+| "Macro: Initialize Instruments" 
+|
+
+| "Data: Initialize Lockin" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new Data frame)
+| "Macro: Initialize Instruments" 
+|
+
+| "Data: Open Temperature" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new Data frame)
+| "Macro: Initialize Instruments" 
+|
+
+| "Data: Open Magnet" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new Data frame)
+| "Macro: Initialize Instruments" 
+|
+
+| "Data: Close Instruments" 
+|Data: Close Instruments (Close Instruments that are explicitly opened by this VI)
+| "Macro: Exit" 
+|
+
+| "Data: UI Stop" 
+|Data: UI Stop (Used to record when stop signal comes from UI (front panel stop or panel close)
+| "stop": Value Change  +
+ "Emergency Stop 1", "Emergency Stop 2", "Emergency Stop 3", "Emergency Stop 4": Value Change  +
+ Panel Close? 
+|
+
+| "Data: Cleanup" 
+|Cleanup any data and references, here. (this is called automatically, by the Macro: Exit)
+| "Macro: Exit" 
+|
+
+4+^|*UI*
+
+| "UI: Initialize" 
+|Initialize the User Interface, here. (this is called automatically, by the Macro: Init)
+| "Macro: Initialize" 
+|
+
+| "UI: Cursor Set" 
+|Set and Unset Cursor Busy. (Usage: "UI: Cursor Set >> Busy\|Idle")
+|
+|
+
+| "UI: Emergency Stop Visible" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new UI frame)
+| "Emergency Stop Visible?": Value Change 
+|
+
+| "UI: Update Timer" 
+|
+| "Macro: Sweep" 
+|
+
+| "UI: Update Status" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new UI frame)
+| "Macro: Measure Instruments"  +
+ "Measure: Temperature"  +
+ "Measure: Magnet"  +
+ "Measure: Vector Magnet"  +
+ "Measure: Capacitance"  +
+ "Measure: Strain" 
+|
+
+| "UI: Update Graph Axis Labels" 
+|
+| "Units": Value Change  +
+ "Macro: Start Sweep" 
+|
+
+| "UI: Update Lockin Graph Legend" 
+|
+| "Macro: Start Sweep" 
+|
+
+| "UI: Update Wfm Graph Legend" 
+|
+| "Macro: Start Sweep" 
+|
+
+| "UI: Update R G Graph Legend" 
+|
+| "Macro: Start Sweep" 
+|
+
+| "UI: Update AO AI Graphs" 
+|
+| "Macro: Start Sweep"  +
+ "Macro: Sweep"  +
+ "Macro: Stop Sweep" 
+|
+
+| "UI: Update Lockin Graphs" 
+|results
+| "Macro: Start Sweep"  +
+ "Macro: Sweep" 
+|
+
+| "UI: Update R G Graphs" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new UI frame)
+| "Macro: Start Sweep"  +
+ "Macro: Sweep"  +
+ "Macro: Stop Sweep" 
+|
+
+| "UI: Update Graphs from wfm" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new UI frame)
+| "Macro: Stop Sweep" 
+|
+
+| "UI: Update IV Graphs" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new UI frame)
+| "Macro: Stop Sweep" 
+|
+
+| "UI: Front Panel State" 
+|Set Front Panel Open or Closed (Usage: "UI: Front Panel State >> Open\|Close")
+| "Macro: Initialize"  +
+ "Macro: Exit" 
+|
+
+4+^|*Macro*
+
+| "Macro: Initialize" 
+|Initialization Macro (This is called once, when the VI starts)
+| "Macro: Initialize"  +
+
+| "Initialize Core Data"  +
+ "Data: Initialize"  +
+ "Data: Initialize Top Level"  +
+ "UI: Initialize"  +
+ "UI: Front Panel State"  +
+ "Macro: Initialize"  +
+ "Macro: Initialize Instruments"  +
+ "Macro: Start Sweep" 
+
+| "Macro: Initialize Instruments" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new Macro frame)
+| "Macro: Initialize" 
+| "Data: Initialize"  +
+ "Data: Initialize Instruments"  +
+ "Data: Initialize Lockin"  +
+ "Data: Open Temperature"  +
+ "Data: Open Magnet" 
+
+| "Macro: Measure Instruments" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new Macro frame)
+| "Macro: Start Sweep"  +
+ "Macro: Sweep" 
+| "UI: Update Status"  +
+ "Measure: Time"  +
+ "Measure: Lockin" 
+
+| "Macro: Start Sweep" 
+|Macro: Start Sweep ()
+| "Start": Value Change  +
+ "Macro: Initialize" 
+| "UI: Update Graph Axis Labels"  +
+ "UI: Update Lockin Graph Legend"  +
+ "UI: Update Wfm Graph Legend"  +
+ "UI: Update R G Graph Legend"  +
+ "UI: Update AO AI Graphs"  +
+ "UI: Update Lockin Graphs"  +
+ "UI: Update R G Graphs"  +
+ "Macro: Measure Instruments"  +
+ "Sweep: Initialize"  +
+ "Sweep: Start"  +
+ "Measure: Lockin"  +
+ "File: Write JSON" 
+
+| "Macro: Sweep" 
+|Template Separator (You can make a copy of, or modify, this frame)
+| "Sweep: Check State" 
+| "UI: Update Timer"  +
+ "UI: Update AO AI Graphs"  +
+ "UI: Update Lockin Graphs"  +
+ "UI: Update R G Graphs"  +
+ "Macro: Measure Instruments" 
+
+| "Macro: Stop Sweep" 
+|only "return to start" when stop button is pushed, otherwise defer to sweep configuration
+| "Macro: Exit" 
+| "UI: Update AO AI Graphs"  +
+ "UI: Update R G Graphs"  +
+ "UI: Update Graphs from wfm"  +
+ "UI: Update IV Graphs"  +
+ "Sweep: Stop"  +
+ "Sweep: Return to Start"  +
+ "Measure: Lockin"  +
+ "Measure: Lockin Sweep"  +
+ "File: Save Lockin" 
+
+| "Macro: Exit" 
+|Exit Macro (This is called once, when the VI exits)
+| "stop": Value Change  +
+ "Emergency Stop 1", "Emergency Stop 2", "Emergency Stop 3", "Emergency Stop 4": Value Change  +
+ Panel Close?  +
+ "Data: Check Notifier"  +
+ "Sweep: Check State" 
+| "Exit"  +
+ "Data: Close Instruments"  +
+ "Data: Cleanup"  +
+ "UI: Front Panel State"  +
+ "Macro: Stop Sweep" 
+
+4+^|*Sweep*
+
+| "Sweep: Initialize" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new Macro frame)
+| "Macro: Start Sweep" 
+|
+
+| "Sweep: Start" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new Macro frame)
+| "Macro: Start Sweep" 
+|
+
+| "Sweep: Check State" 
+|Sweep: Check State (It is a separator no-op. You can make a copy of this frame to create a new Macro frame)
+| Timeout 
+| "Exit"  +
+ "Macro: Sweep"  +
+ "Macro: Exit" 
+
+| "Sweep: Stop" 
+|Sweep: Stop (It is a separator no-op. You can make a copy of this frame to create a new Macro frame)
+| "Macro: Stop Sweep" 
+|
+
+| "Sweep: Return to Start" 
+|Sweep: Stop (It is a separator no-op. You can make a copy of this frame to create a new Macro frame)
+| "Macro: Stop Sweep" 
+|
+
+4+^|*Configure*
+
+| "Configure: Wait" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new Macro frame)
+|
+|
+
+4+^|*Measure*
+
+| "Measure: Time" 
+|Your code here. (You can make a copy of, or modify, this frame)
+| "Macro: Measure Instruments" 
+|
+
+| "Measure: Temperature" 
+|Your code here. (You can make a copy of, or modify, this frame)
+|
+| "UI: Update Status" 
+
+| "Measure: Magnet" 
+|Your code here. (You can make a copy of, or modify, this frame)
+|
+| "UI: Update Status" 
+
+| "Measure: Vector Magnet" 
+|Template Separator (You can make a copy of, or modify, this frame)
+|
+| "UI: Update Status" 
+
+| "Measure: Capacitance" 
+|Your code here. (You can make a copy of, or modify, this frame)
+|
+| "UI: Update Status" 
+
+| "Measure: Strain" 
+|Your code here. (You can make a copy of, or modify, this frame)
+|
+| "UI: Update Status" 
+
+| "Measure: Lockin" 
+|Gives the AI and AO waveform which refreshes as per the Lockin sampling parameters
+| "Macro: Measure Instruments"  +
+ "Macro: Start Sweep"  +
+ "Macro: Stop Sweep" 
+|
+
+| "Measure: Lockin Sweep" 
+|Gives the AI and AO waveform which refreshes as per the Lockin sampling parameters
+| "Macro: Stop Sweep" 
+|
+
+4+^|*File*
+
+| "File: Configure" 
+|Template Separator (You can make a copy of, or modify, this frame)
+|
+|
+
+| "File: Write JSON" 
+|Template Separator (You can make a copy of, or modify, this frame)
+| "Macro: Start Sweep" 
+|
+
+| "File: Save Lockin" 
+|Template Separator (You can make a copy of, or modify, this frame)
+| "Macro: Stop Sweep" 
+|
+|===

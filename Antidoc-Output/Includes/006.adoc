@@ -1,0 +1,394 @@
+== Transport.lvclass:THz_TimeDelay.vi
+
+image::Transport.lvclass_THz_TimeDelay.vi.png[]
+
+*Description:*
+No description found (add content in VI description)
+
+=== States relathionship
+
+[graphviz, format="png", align="center"]
+....
+digraph G75497 {
+rankdir=LR;
+edge[dir=none color=blue  arrowhead=none arrowtail=none style=rounded penwidth=1]
+node[color=crimson shape=Msquare]
+" \"Initialize Core Data\" "[color=forestgreen shape=box]
+" \"Macro: Initialize\" "[color=forestgreen shape=box]
+" \"Exit\" "[color=forestgreen shape=box]
+" \"stop\": Value Change "[color=coral shape=diamond]
+" Panel Close? "[color=coral shape=diamond]
+" \"Macro: Exit\" "[color=forestgreen shape=box]
+" \"Sweep: Check State\" "[color=forestgreen shape=box]
+" \"Data: Initialize\" "[color=forestgreen shape=box]
+" \"Error Handler\" "[color=coral shape=box]
+" \"Data: Initialize Top Level\" "[color=forestgreen shape=box]
+" \"Data: Initialize Lockin\" "[color=forestgreen shape=box]
+" \"Data: Reset\" "[color=forestgreen shape=box]
+" \"Macro: Sweeping\" "[color=forestgreen shape=box]
+" \"Data: Cleanup\" "[color=forestgreen shape=box]
+" \"UI: Initialize\" "[color=forestgreen shape=box]
+" \"UI: Update Graphs\" "[color=forestgreen shape=box]
+" \"Macro: Stop Sweep\" "[color=forestgreen shape=box]
+" \"UI: Update Graphs Final\" "[color=forestgreen shape=box]
+" \"UI: Update Timer\" "[color=forestgreen shape=box]
+" \"UI: Front Panel State\" "[color=forestgreen shape=box]
+"Transport.lvclass:THz_TimeDelay.vi"[color=darkgray shape=invhouse]
+" \"Macro: Start Sweep\" "[color=forestgreen shape=box]
+" Timeout "[color=coral shape=diamond]
+" \"Sweep: Initialize\" "[color=forestgreen shape=box]
+" \"Sweep: Wait\" "[color=forestgreen shape=box]
+" \"Sweep: Stop\" "[color=forestgreen shape=box]
+" \"Sweep: Simulate\" "[color=forestgreen shape=box]
+" \"Action: Lockin\" "[color=forestgreen shape=box]
+" \"Action: Lockin Sampling\" "[color=forestgreen shape=box]
+" \"Action: Move Delay Line\" "[color=forestgreen shape=box]
+" \"Action: Close Delay Line\" "[color=forestgreen shape=box]
+" \"Measure: Lockin\" "[color=forestgreen shape=box]
+" \"Measure: Temperature\" "[color=forestgreen shape=box]
+" \"Measure: Time\" "[color=forestgreen shape=box]
+" \"Measure: Delay Line\" "[color=forestgreen shape=box]
+" \"File: Save\" "[color=forestgreen shape=box]
+" Default "[color=coral shape=box]
+" \"UI: Cursor Set\" "[color=coral shape=box]
+" \"File: Configure\" "[color=coral shape=box]
+" \"File: JSON\" "[color=coral shape=box]
+" \"Macro: Initialize\" " -> " \"Initialize Core Data\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"stop\": Value Change " -> " \"Exit\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" Panel Close? " -> " \"Exit\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Initialize\" " -> " \"Exit\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Exit\" " -> " \"Exit\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Sweep: Check State\" " -> " \"Exit\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Error Handler\" " -> " \"Data: Initialize\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Initialize\" " -> " \"Data: Initialize\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Error Handler\" " -> " \"Data: Initialize Top Level\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Initialize\" " -> " \"Data: Initialize Top Level\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Initialize\" " -> " \"Data: Initialize Lockin\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Initialize\" " -> " \"Data: Reset\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Sweeping\" " -> " \"Data: Reset\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Exit\" " -> " \"Data: Cleanup\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Initialize\" " -> " \"UI: Initialize\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Sweeping\" " -> " \"UI: Update Graphs\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Stop Sweep\" " -> " \"UI: Update Graphs\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Stop Sweep\" " -> " \"UI: Update Graphs Final\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Sweeping\" " -> " \"UI: Update Timer\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Initialize\" " -> " \"UI: Front Panel State\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Exit\" " -> " \"UI: Front Panel State\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+"Transport.lvclass:THz_TimeDelay.vi" -> " \"Macro: Initialize\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Error Handler\" " -> " \"Macro: Start Sweep\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Initialize\" " -> " \"Macro: Start Sweep\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" Timeout " -> " \"Macro: Sweeping\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Sweep: Check State\" " -> " \"Macro: Sweeping\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"stop\": Value Change " -> " \"Macro: Stop Sweep\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" Panel Close? " -> " \"Macro: Stop Sweep\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Sweep: Check State\" " -> " \"Macro: Stop Sweep\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"stop\": Value Change " -> " \"Macro: Exit\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" Panel Close? " -> " \"Macro: Exit\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Initialize\" " -> " \"Macro: Exit\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Sweep: Check State\" " -> " \"Macro: Exit\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Initialize\" " -> " \"Sweep: Initialize\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Start Sweep\" " -> " \"Sweep: Initialize\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Start Sweep\" " -> " \"Sweep: Wait\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Stop Sweep\" " -> " \"Sweep: Stop\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" Timeout " -> " \"Sweep: Check State\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Initialize\" " -> " \"Sweep: Simulate\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Start Sweep\" " -> " \"Action: Lockin\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Stop Sweep\" " -> " \"Action: Lockin\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Start Sweep\" " -> " \"Action: Lockin Sampling\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Start Sweep\" " -> " \"Action: Move Delay Line\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Error Handler\" " -> " \"Action: Close Delay Line\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Start Sweep\" " -> " \"Measure: Lockin\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Sweeping\" " -> " \"Measure: Lockin\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Sweeping\" " -> " \"Measure: Temperature\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Sweeping\" " -> " \"Measure: Time\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Start Sweep\" " -> " \"Measure: Delay Line\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Sweeping\" " -> " \"Measure: Delay Line\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+" \"Macro: Stop Sweep\" " -> " \"File: Save\" " [dir=both color=cornflowerblue  arrowhead=normal arrowtail=none style=filled penwidth=1];
+}
+....
+
+=== State machine detailed info
+
+[cols="", %autowidth, frame=all, grid=all, stripes=none]
+|===
+|State Name |State Documentation |State Callers |States Called
+
+4+^|*"", "Event Structure", "Idle"*
+
+| Timeout 
+|
+|
+| "Macro: Sweeping"  +
+ "Sweep: Check State" 
+
+| "stop": Value Change 
+|
+|
+| "Exit"  +
+ "Macro: Stop Sweep"  +
+ "Macro: Exit" 
+
+| Panel Close? 
+|
+|
+| "Exit"  +
+ "Macro: Stop Sweep"  +
+ "Macro: Exit" 
+
+4+^|*Core*
+
+| Default 
+|Do not delete, rename, or modify this frame. (this is used to capture unhandled states and typos)
+|
+|
+
+| "Initialize Core Data" 
+|Do not delete, rename, or modify this frame. (this is used to determine panel behavior on exit)
+| "Macro: Initialize"  +
+ "Macro: Initialize" 
+|
+
+| "Error Handler" 
+|Handle any errors here. You can also output any states to clean-up after errors occur
+|
+| "Data: Initialize"  +
+ "Data: Initialize Top Level"  +
+ "Macro: Start Sweep"  +
+ "Action: Close Delay Line" 
+
+| "Exit" 
+|Do not put any code in this frame. (No errors that occur here will be handled.)
+| "stop": Value Change  +
+ Panel Close?  +
+ "Macro: Initialize"  +
+ "Macro: Exit"  +
+ "Sweep: Check State" 
+|
+
+4+^|*Data*
+
+| "Data: Initialize" 
+|Initialize the shift-register data, here. (data names are defined by what you wire into the bundle function)
+| "Error Handler"  +
+ "Macro: Initialize"  +
+ "Macro: Initialize" 
+|
+
+| "Data: Initialize Top Level" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new Data frame)
+| "Error Handler"  +
+ "Macro: Initialize"  +
+ "Macro: Initialize" 
+|
+
+| "Data: Initialize Lockin" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new Data frame)
+| "Macro: Initialize" 
+|
+
+| "Data: Reset" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new Data frame)
+| "Macro: Initialize"  +
+ "Macro: Initialize"  +
+ "Macro: Sweeping" 
+|
+
+| "Data: Cleanup" 
+|Cleanup any data and references, here. (this is called automatically, by the Macro: Exit)
+| "Macro: Exit" 
+|
+
+4+^|*UI*
+
+| "UI: Initialize" 
+|Initialize the User Interface, here. (this is called automatically, by the Macro: Init)
+| "Macro: Initialize"  +
+ "Macro: Initialize" 
+|
+
+| "UI: Cursor Set" 
+|Set and Unset Cursor Busy. (Usage: "UI: Cursor Set >> Busy\|Idle")
+|
+|
+
+| "UI: Update Graphs" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new UI frame)
+| "Macro: Sweeping"  +
+ "Macro: Stop Sweep" 
+|
+
+| "UI: Update Graphs Final" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new UI frame)
+| "Macro: Stop Sweep" 
+|
+
+| "UI: Update Timer" 
+|
+| "Macro: Sweeping" 
+|
+
+| "UI: Front Panel State" 
+|Set Front Panel Open or Closed (Usage: "UI: Front Panel State >> Open\|Close")
+| "Macro: Initialize"  +
+ "Macro: Initialize"  +
+ "Macro: Exit" 
+|
+
+4+^|*Macro*
+
+| "Macro: Initialize" 
+|Initialization Macro (This is called once, when the VI starts)
+|
+| "Initialize Core Data"  +
+ "Exit"  +
+ "Data: Initialize"  +
+ "Data: Initialize Top Level"  +
+ "Data: Initialize Lockin"  +
+ "Data: Reset"  +
+ "UI: Initialize"  +
+ "UI: Front Panel State"  +
+ "Macro: Start Sweep"  +
+ "Macro: Exit"  +
+ "Sweep: Initialize"  +
+ "Sweep: Simulate" 
+
+| "Macro: Start Sweep" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new Macro frame)
+| "Error Handler"  +
+ "Macro: Initialize" 
+| "Sweep: Initialize"  +
+ "Sweep: Wait"  +
+ "Action: Lockin"  +
+ "Action: Lockin Sampling"  +
+ "Action: Move Delay Line"  +
+ "Measure: Lockin"  +
+ "Measure: Delay Line" 
+
+| "Macro: Sweeping" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new Macro frame)
+| Timeout  +
+ "Sweep: Check State" 
+| "Data: Reset"  +
+ "UI: Update Graphs"  +
+ "UI: Update Timer"  +
+ "Measure: Lockin"  +
+ "Measure: Temperature"  +
+ "Measure: Time"  +
+ "Measure: Delay Line" 
+
+| "Macro: Stop Sweep" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new Macro frame)
+| "stop": Value Change  +
+ Panel Close?  +
+ "Sweep: Check State" 
+| "UI: Update Graphs"  +
+ "UI: Update Graphs Final"  +
+ "Sweep: Stop"  +
+ "Action: Lockin"  +
+ "File: Save" 
+
+| "Macro: Exit" 
+|Exit Macro (This is called once, when the VI exits)
+| "stop": Value Change  +
+ Panel Close?  +
+ "Macro: Initialize"  +
+ "Sweep: Check State" 
+| "Exit"  +
+ "Data: Cleanup"  +
+ "UI: Front Panel State" 
+
+4+^|*Sweep*
+
+| "Sweep: Initialize" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new Macro frame)
+| "Macro: Initialize"  +
+ "Macro: Start Sweep" 
+|
+
+| "Sweep: Wait" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new Macro frame)
+| "Macro: Start Sweep" 
+|
+
+| "Sweep: Stop" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new Macro frame)
+| "Macro: Stop Sweep" 
+|
+
+| "Sweep: Check State" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new Macro frame)
+| Timeout 
+| "Exit"  +
+ "Macro: Sweeping"  +
+ "Macro: Stop Sweep"  +
+ "Macro: Exit" 
+
+| "Sweep: Simulate" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new Macro frame)
+| "Macro: Initialize" 
+|
+
+4+^|*Action*
+
+| "Action: Lockin" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new Macro frame)
+| "Macro: Start Sweep"  +
+ "Macro: Stop Sweep" 
+|
+
+| "Action: Lockin Sampling" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new Macro frame)
+| "Macro: Start Sweep" 
+|
+
+| "Action: Move Delay Line" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new Macro frame)
+| "Macro: Start Sweep" 
+|
+
+| "Action: Close Delay Line" 
+|Do not put any code in this frame. (It is a separator no-op. You can make a copy of this frame to create a new Macro frame)
+| "Error Handler" 
+|
+
+4+^|*Measure*
+
+| "Measure: Lockin" 
+|Template Separator (You can make a copy of, or modify, this frame)
+| "Macro: Start Sweep"  +
+ "Macro: Sweeping" 
+|
+
+| "Measure: Temperature" 
+|Your code here. (You can make a copy of, or modify, this frame)
+| "Macro: Sweeping" 
+|
+
+| "Measure: Time" 
+|Your code here. (You can make a copy of, or modify, this frame)
+| "Macro: Sweeping" 
+|
+
+| "Measure: Delay Line" 
+|Template Separator (You can make a copy of, or modify, this frame)
+| "Macro: Start Sweep"  +
+ "Macro: Sweeping" 
+|
+
+4+^|*File*
+
+| "File: Configure" 
+|Template Separator (You can make a copy of, or modify, this frame)
+|
+|
+
+| "File: Save" 
+|Template Separator (You can make a copy of, or modify, this frame)
+| "Macro: Stop Sweep" 
+|
+
+| "File: JSON" 
+|Template Separator (You can make a copy of, or modify, this frame)
+|
+|
+|===
