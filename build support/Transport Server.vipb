@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2025-08-05 13:29:38" Creator="Patrick" Comments="" ID="f488a571a44897cfc688ac071f4b725a">
+<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2025-08-05 13:58:02" Creator="Patrick" Comments="" ID="848723e9a4500717e482c4b5390280d6">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_Transport_Server</Package_File_Name>
-    <Library_Version>1.10.0.20</Library_Version>
+    <Library_Version>0.0.0.2</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\src\Transport Server</Library_Source_Folder>
     <Library_Output_Folder>..\builds\Package</Library_Output_Folder>
@@ -35,8 +35,8 @@
       <Copyright/>
       <Packager/>
       <URL/>
-      <Release_Notes>[1.10.0]
-- Lockin_sweep: If called as a subVI but sweep parameters are empty use FP controls</Release_Notes>
+      <Release_Notes>0.0.0
+- Initial release</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
