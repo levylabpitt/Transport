@@ -1,4 +1,4 @@
-<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2025-08-06 12:22:11" Creator="Patrick" Comments="" ID="2bd6d53041e84afc4eb116cdb1dc8422">
+<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2025-08-06 15:43:14" Creator="Patrick" Comments="" ID="52d7f74b2e8123ff5eb1e73e6e1e76e8">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_Transport_Server</Package_File_Name>
     <Library_Version>0.0.1.3</Library_Version>
@@ -42,7 +42,7 @@
       <Toolkit_VIs>
         <LLB>false</LLB>
         <Preserve_Hierarchy>true</Preserve_Hierarchy>
-        <Path>&lt;user.lib&gt;\Levylab\Transport\Transport</Path>
+        <Path>&lt;user.lib&gt;\Levylab\Transport\Transport Server</Path>
       </Toolkit_VIs>
       <Examples>
         <LLB>false</LLB>
@@ -355,7 +355,7 @@
         <Path>..\src\Transport Server\Inst.Transport\API\Open.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>00510026479C67DAEEDD77505801DAB5</GUID>
+      <GUID>6410CEE5325CD2E57FBE97DE6B640101</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
