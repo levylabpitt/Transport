@@ -3,30 +3,43 @@
 VIs for scripting and performing transport measurments.
 
 ## Installation
-- LabVIEW 2016 32 bit is required.
+- Transport VIs are developed and published in LabVIEW 2019
 - Please install using the [VI Package Manager](https://vipm.jki.net/)
 
 ## Usage
 
-[Control Experiment.lvclass]
-Control Experiment.vi provides a uniform way to:
+### Configure (`Control Experiment.lvclass`)
+
+`Control Experiment.vi` is an entry point for the following tasks:
 - record information about your sample & device
-- records how the lockin is connected to your device
-- configures the Krohn Hite amplifier
-- ~~configures the Pickering switch if you have one~~
+- record how the lockin is connected to your device
+- configure the Krohn Hite amplifier
 - sets the base path for saving data.
-It also provides methods for saving ITX, TDMS, and DAT (TSV) filetypes.
 
-[Transport.lvclass]
-Basic transport measurements.
-- Lockin Sweep Mode (Lockin_sweep.vi )
-- Lockin vs Vsg (Lockin_Vsg.vi (**Lockin_sweep.vi** is preferred)
-- Lockin vs Time (Lockin_time.vi)
-- IV curves (Lockin_sweep.vi ~~IV.vi~~)
+`Control Experiment.lvclass` also contains:
+- Share configuration with Transport VIs or FLEX
+- It also provides methods for saving ITX, TDMS, and DAT (TSV) filetypes.
 
-[SweepControl.lvclass]
-- Sweep Control.vi: Sequencer for stepping multiple parameters. Calls VIs in Transport.lvclass
-- Continuous B sweep.vi: For sweeping B continuously while asynchronously calling VIs in Transport.lvclass
+### Transport (`Transport.lvclass`)
+
+Basic transport measurements:
+- Lockin Sweep (`Lockin_sweep.vi`)
+- Lockin vs Time (`Lockin_time.vi`)
+- Lockin vs TimeDelay (`THz_TimeDelay.vi`)
+
+### (_new!_) Transport Server
+
+#### Basics:
+![2025-08-07_08-46-11](https://github.com/user-attachments/assets/2d8cc81f-a3bd-4e51-9e05-218afdd00316)
+
+#### Start, Stop, Get Status:
+![2025-08-07_08-47-57](https://github.com/user-attachments/assets/0a02b939-bc92-4a92-8ebb-91af588322de)
+
+### Sequence Experiments (`SweepControl.lvclass`)
+
+- `Sweep Control.vi`: Sequencer for stepping multiple parameters. Calls VIs in `Transport.lvclass`
+- `Continuous B sweep.vi`: Continusouly sweep B while asynchronously calling VIs in `Transport.lvclass`
+- _note:_ Development on these sequencers is being phased out and will be replaced by [FLEX](https://github.com/levylabpitt/FLEX)
 
 ## Sandbox
 A test environment can be set up by configuring the following
@@ -45,3 +58,4 @@ Please contact [Patrick Irvin](p.irvin@levylab.org)
 ## License
 
 [BSD-3](https://opensource.org/licenses/BSD-3-Clause)
+
