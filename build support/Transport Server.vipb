@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2025-08-07 12:15:59" Creator="Patrick" Comments="" ID="f4daa65abb34a156a091eb2a262a3eb5">
+<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2025-08-07 15:10:53" Creator="Patrick" Comments="" ID="1349cb77524956ebbd2e01157a0af19e">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_Transport_Server</Package_File_Name>
-    <Library_Version>0.0.3.4</Library_Version>
+    <Library_Version>0.0.3.5</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\src\Transport Server</Library_Source_Folder>
     <Library_Output_Folder>..\builds\Package</Library_Output_Folder>
