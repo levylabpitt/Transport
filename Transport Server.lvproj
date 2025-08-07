@@ -17,6 +17,7 @@
 		</Item>
 		<Item Name="Inst UI.Transport.lvclass" Type="LVClass" URL="../src/Transport Server/Inst UI.Transport/Inst UI.Transport.lvclass"/>
 		<Item Name="Inst.Transport.lvclass" Type="LVClass" URL="../src/Transport Server/Inst.Transport/Inst.Transport.lvclass"/>
+		<Item Name="Transport Server.vi" Type="VI" URL="../src/Transport Server/Transport Server.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="instr.lib" Type="Folder">
 				<Item Name="D2XX-lv.lvlib" Type="Library" URL="/&lt;instrlib&gt;/_D2XX/D2XX-LV/D2XX-lv.lvlib"/>

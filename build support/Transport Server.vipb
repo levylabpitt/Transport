@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2025-08-06 21:00:29" Creator="Patrick" Comments="" ID="c0bf0519cb8cc05f69df1d638fa7d616">
+<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2025-08-07 12:15:59" Creator="Patrick" Comments="" ID="f4daa65abb34a156a091eb2a262a3eb5">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_Transport_Server</Package_File_Name>
-    <Library_Version>0.0.2.4</Library_Version>
+    <Library_Version>0.0.3.4</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\src\Transport Server</Library_Source_Folder>
     <Library_Output_Folder>..\builds\Package</Library_Output_Folder>
@@ -35,14 +35,10 @@
       <Copyright/>
       <Packager/>
       <URL/>
-      <Release_Notes>0.0.2
-#123 update install location
-#124 remove dynamic image feature
-#125: add buttons to open (and close) the transport VIs
-#126: add getStatus API (and setStatus private command)
-#127: run LockTimeDelay only one time then exit the loop
-#128: add stopTransport button to FP
-#129: open Transport VIs asynchronously</Release_Notes>
+      <Release_Notes>0.0.3
+- fx LockinSweep asynchronous call of 
+- update UI with status, main/debug panes
+- add Transport Server start VI</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
@@ -375,7 +371,7 @@
         <Path>..\src\Transport Server\Inst.Transport\API\getStatus.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>AA980EF8D4BA8C0638BFDFE71B4E2C38</GUID>
+      <GUID>04EF5608D969CE6A0DFC6A95FAC34F35</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
