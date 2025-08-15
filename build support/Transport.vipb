@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2025-07-18 18:08:11" Creator="Patrick" Comments="" ID="2008632782be0b1723792577c3eb4506">
+<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2025-08-15 14:04:48" Creator="Patrick" Comments="" ID="87ab4e67c9c8c91901fc95800dae09d9">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_Transport</Package_File_Name>
-    <Library_Version>1.10.0.20</Library_Version>
+    <Library_Version>1.10.1.21</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\src\Transport</Library_Source_Folder>
     <Library_Output_Folder>..\builds\Package</Library_Output_Folder>
@@ -39,8 +39,8 @@ Basic transport measurments:
       <Copyright/>
       <Packager/>
       <URL/>
-      <Release_Notes>[1.10.0]
-- Lockin_sweep: If called as a subVI but sweep parameters are empty use FP controls</Release_Notes>
+      <Release_Notes>[1.10.1]
+#130 Fix LockinTime saving multiple TDMS files upon startup (@pgwijesinghe)</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
@@ -289,7 +289,7 @@ Basic transport measurments:
         <Path>..\src\Transport\Lockin_sweep.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>71C32D523D3378D8CA91707A79F8CC56</GUID>
+      <GUID>C173D6E0E85C7EADCFA3FED0876008FD</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -380,7 +380,7 @@ Basic transport measurments:
         <Path>..\src\Transport\API (class)\Write Sweep Table.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>08A141290E00AD3637D8496140DA1EC1</GUID>
+      <GUID>505B1425CE81925AFC8FC3B203316EE4</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -415,7 +415,7 @@ Basic transport measurments:
         <Path>..\src\Transport\API (file)\Read Lockin_Sweep.json.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>93A764034C0129E5A64601CC62857E1F</GUID>
+      <GUID>3E3F6D5EF513480AD957B5B147050CC0</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -548,7 +548,7 @@ Basic transport measurments:
         <Path>..\src\Transport\Private\Results (Dictionary) to X and Y Arrays.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>63DEF32B6843BE53CE95E08D9216D2D7</GUID>
+      <GUID>731610864B1F7ABFBC0EE0BCB757D9E9</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
