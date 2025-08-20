@@ -442,7 +442,6 @@
 				<Item Name="Dictionary Update (by value)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/dictionary/dictionary.llb/Dictionary Update (by value)__ogtk.vi"/>
 				<Item Name="Dictionary Update (by reference)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/dictionary/dictionary.llb/Dictionary Update (by reference)__ogtk.vi"/>
 				<Item Name="Dictionary Update (by scalar value)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/dictionary/dictionary.llb/Dictionary Update (by scalar value)__ogtk.vi"/>
-				<Item Name="User Library__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/file/file.llb/User Library__ogtk.vi"/>
 				<Item Name="To Proper Case__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/string/string.llb/To Proper Case__ogtk.vi"/>
 				<Item Name="To Proper Case (String)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/string/string.llb/To Proper Case (String)__ogtk.vi"/>
 				<Item Name="To Proper Case (String Array)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/string/string.llb/To Proper Case (String Array)__ogtk.vi"/>
@@ -1810,7 +1809,7 @@
 				<Property Name="Bld_localDestDirType" Type="Str">relativeToProject</Property>
 				<Property Name="Bld_modifyLibraryFile" Type="Bool">true</Property>
 				<Property Name="Bld_previewCacheID" Type="Str">{8075FCF2-F4B8-4239-A8C1-73E0D07AE644}</Property>
-				<Property Name="Bld_version.build" Type="Int">25</Property>
+				<Property Name="Bld_version.build" Type="Int">26</Property>
 				<Property Name="Bld_version.major" Type="Int">2</Property>
 				<Property Name="Destination[0].destName" Type="Str">Transport.exe</Property>
 				<Property Name="Destination[0].path" Type="Path">../builds/Application/NI_AB_PROJECTNAME.exe</Property>
