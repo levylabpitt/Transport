@@ -1,0 +1,52 @@
+= Sweep Control
+Antidoc v2.0.5; Patrick Irvin <p.irvin@levylab.org>
+:doctype: book
+:toc: left
+:imagesdir: Images
+:sectnums: 
+:toclevels: 2
+:sectanchors: 
+:sectlinks: 
+:chapter-label: Section
+
+include::Includes/000.adoc[leveloffset=+0]
+
+== Classes
+
+This section describes the classes contained in the project.
+
+include::Includes/001.adoc[leveloffset=+1]
+
+include::Includes/002.adoc[leveloffset=+1]
+
+== JKI State Machines
+
+This section describes the JKI State Machines contained in the project.
+
+include::Includes/003.adoc[leveloffset=+1]
+
+include::Includes/004.adoc[leveloffset=+1]
+
+include::Includes/005.adoc[leveloffset=+1]
+
+include::Includes/006.adoc[leveloffset=+1]
+
+== Legal Information
+
+=== Document creation
+
+This document has been generated using the following tools.
+
+include::Includes/007.adoc[leveloffset=+2]
+
+include::Includes/008.adoc[leveloffset=+2]
+
+include::Includes/009.adoc[leveloffset=+2]
+
+include::Includes/010.adoc[leveloffset=+2]
+
+=== Product used in the project
+
+The documented project has been developed with the following products.
+
+include::Includes/011.adoc[leveloffset=+2]

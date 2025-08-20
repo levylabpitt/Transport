@@ -1,0 +1,195 @@
+== Transport.lvclass
+
+*Responsibility:*
+No description found (add content in lvclass description)
+
+*Version:* 1.0.0.9
+
+[plantuml, format="svg", align="center"]
+....
+@startuml
+set namespaceSeparator :
+skinparam ClassBackgroundColor #FFFFFF
+skinparam ClassBorderColor #555555
+skinparam ClassFontColor #000000
+skinparam ClassHeaderBackgroundColor #808080
+
+skinparam top to bottom direction
+class "Transport" {
+{field} +Dependencies : Cluster
+{field} -Notifier : NoType
+{field} -Sweep Configuration : Cluster
+{static} {method} -Calculate R and G (Four Terminal)()
+{static} {method} -Calculate R and G (Two Terminal)()
+{static} {method} -Calculate R and G 2()
+{static} {method} -Graph R and G vs Parameter()
+{static} {method} -Graph Lockin vs Parameter()
+{static} {method} -Results (Dictionary) to X and Y Arrays()
+{static} {method} -Results (2D) to X and Y Arrays()
+{static} {method} -Exec State to Append()
+{static} {method} -State History()
+{static} {method} +Lockin_AIWFM_time()
+{static} {method} +Sweep_AIWFM_time()
+{static} {method} +Lockin_time()
+{static} {method} +Lockin_sweep()
+{static} {method} +THz_TimeDelay()
+
+}
+"Transport" *-- "Control Experiment"
+
+
+
+@enduml
+....
+
+.Functions
+[cols="<.<4d,<.<8a,<.<12d,<.<1a,<.<1a,<.<1a", %autowidth, frame=all, grid=all, stripes=none]
+|===
+|Name |Connector pane |Description |S. |R. |I.
+
+|Calculate R and G (Four Terminal)
+|image:Transport.lvclass_Calculate_R_and_G_(Four_Terminal).vi.png[Transport.lvclass:Calculate R and G (Four Terminal).vi]
+|No description found (add content in vi description)
+|image:scope-private.png[scope-private.png]
+|image:empty.png[empty.png]
+|image:empty.png[empty.png]
+
+|Calculate R and G (Two Terminal)
+|image:Transport.lvclass_Calculate_R_and_G_(Two_Terminal).vi.png[Transport.lvclass:Calculate R and G (Two Terminal).vi]
+|No description found (add content in vi description)
+|image:scope-private.png[scope-private.png]
+|image:empty.png[empty.png]
+|image:empty.png[empty.png]
+
+|Calculate R and G 2
+|image:Transport.lvclass_Calculate_R_and_G_2.vi.png[Transport.lvclass:Calculate R and G 2.vi]
+|No description found (add content in vi description)
+|image:scope-private.png[scope-private.png]
+|image:empty.png[empty.png]
+|image:empty.png[empty.png]
+
+|Graph R and G vs Parameter
+|image:Transport.lvclass_Graph_R_and_G_vs_Parameter.vi.png[Transport.lvclass:Graph R and G vs Parameter.vi]
+|No description found (add content in vi description)
+|image:scope-private.png[scope-private.png]
+|image:empty.png[empty.png]
+|image:empty.png[empty.png]
+
+|Graph Lockin vs Parameter
+|image:Transport.lvclass_Graph_Lockin_vs_Parameter.vi.png[Transport.lvclass:Graph Lockin vs Parameter.vi]
+|No description found (add content in vi description)
+|image:scope-private.png[scope-private.png]
+|image:reentrancy-preallocated.png[reentrancy-preallocated.png]
+|image:empty.png[empty.png]
+
+|Results (Dictionary) to X and Y Arrays
+|image:Transport.lvclass_Results_(Dictionary)_to_X_and_Y_Arrays.vi.png[Transport.lvclass:Results (Dictionary) to X and Y Arrays.vi]
+|No description found (add content in vi description)
+|image:scope-private.png[scope-private.png]
+|image:empty.png[empty.png]
+|image:empty.png[empty.png]
+
+|Results (2D) to X and Y Arrays
+|image:Transport.lvclass_Results_(2D)_to_X_and_Y_Arrays.vi.png[Transport.lvclass:Results (2D) to X and Y Arrays.vi]
+|No description found (add content in vi description)
+|image:scope-private.png[scope-private.png]
+|image:empty.png[empty.png]
+|image:empty.png[empty.png]
+
+|Exec State to Append
+|image:Transport.lvclass_Exec_State_to_Append.vi.png[Transport.lvclass:Exec State to Append.vi]
+|No description found (add content in vi description)
+|image:scope-private.png[scope-private.png]
+|image:empty.png[empty.png]
+|image:empty.png[empty.png]
+
+|State History
+|image:Transport.lvclass_State_History.vi.png[Transport.lvclass:State History.vi]
+|No description found (add content in vi description)
+|image:scope-private.png[scope-private.png]
+|image:reentrancy-preallocated.png[reentrancy-preallocated.png]
+|image:empty.png[empty.png]
+
+|Read Dependencies
+|image:Transport.lvclass_Read_Dependencies.vi.png[Transport.lvclass:Read Dependencies.vi]
+|No description found (add content in vi description)
+|image:empty.png[empty.png]
+|image:reentrancy-preallocated.png[reentrancy-preallocated.png]
+|image:inlined.png[inlined.png]
+
+|Write Dependencies
+|image:Transport.lvclass_Write_Dependencies.vi.png[Transport.lvclass:Write Dependencies.vi]
+|No description found (add content in vi description)
+|image:empty.png[empty.png]
+|image:reentrancy-preallocated.png[reentrancy-preallocated.png]
+|image:inlined.png[inlined.png]
+
+|Write notifier
+|image:Transport.lvclass_Write_notifier.vi.png[Transport.lvclass:Write notifier.vi]
+|No description found (add content in vi description)
+|image:empty.png[empty.png]
+|image:reentrancy-preallocated.png[reentrancy-preallocated.png]
+|image:inlined.png[inlined.png]
+
+|Write Configure Sweep
+|image:Transport.lvclass_Write_Configure_Sweep.vi.png[Transport.lvclass:Write Configure Sweep.vi]
+|No description found (add content in vi description)
+|image:empty.png[empty.png]
+|image:reentrancy-preallocated.png[reentrancy-preallocated.png]
+|image:inlined.png[inlined.png]
+
+|Write Sweep Table
+|image:Transport.lvclass_Write_Sweep_Table.vi.png[Transport.lvclass:Write Sweep Table.vi]
+|No description found (add content in vi description)
+|image:empty.png[empty.png]
+|image:reentrancy-preallocated.png[reentrancy-preallocated.png]
+|image:inlined.png[inlined.png]
+
+|Read Lockin_Sweep.json
+|image:Transport.lvclass_Read_Lockin_Sweep.json.vi.png[Transport.lvclass:Read Lockin_Sweep.json.vi]
+|No description found (add content in vi description)
+|image:empty.png[empty.png]
+|image:empty.png[empty.png]
+|image:empty.png[empty.png]
+
+|Lockin_AIWFM_time
+|image:Transport.lvclass_Lockin_AIWFM_time.vi.png[Transport.lvclass:Lockin_AIWFM_time.vi]
+|No description found (add content in vi description)
+|image:empty.png[empty.png]
+|image:empty.png[empty.png]
+|image:empty.png[empty.png]
+
+|Sweep_AIWFM_time
+|image:Transport.lvclass_Sweep_AIWFM_time.vi.png[Transport.lvclass:Sweep_AIWFM_time.vi]
+|No description found (add content in vi description)
+|image:empty.png[empty.png]
+|image:empty.png[empty.png]
+|image:empty.png[empty.png]
+
+|Lockin_time
+|image:Transport.lvclass_Lockin_time.vi.png[Transport.lvclass:Lockin_time.vi]
+|No description found (add content in vi description)
+|image:empty.png[empty.png]
+|image:empty.png[empty.png]
+|image:empty.png[empty.png]
+
+|Lockin_sweep
+|image:Transport.lvclass_Lockin_sweep.vi.png[Transport.lvclass:Lockin_sweep.vi]
+|No description found (add content in vi description)
+|image:empty.png[empty.png]
+|image:empty.png[empty.png]
+|image:empty.png[empty.png]
+
+|THz_TimeDelay
+|image:Transport.lvclass_THz_TimeDelay.vi.png[Transport.lvclass:THz_TimeDelay.vi]
+|No description found (add content in vi description)
+|image:empty.png[empty.png]
+|image:empty.png[empty.png]
+|image:empty.png[empty.png]
+|===
+
+**S**cope: image:scope-protected.png[] -> Protected | image:scope-community.png[] -> Community | image:scope-private.png[] -> Private
+
+**R**eentrancy: image:reentrancy-preallocated.png[] -> Preallocated reentrancy | image:reentrancy-shared.png[] -> Shared reentrancy
+
+**I**nlining: image:inlined.png[] -> Inlined

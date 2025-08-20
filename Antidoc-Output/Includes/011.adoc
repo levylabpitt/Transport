@@ -1,0 +1,5 @@
+== JKI State Machine(TM)
+
+Copyright (C) 2018, JKI. All rights reserved.
+
+Find more details on https://github.com/JKISoftware/JKI-State-Machine[this page]
