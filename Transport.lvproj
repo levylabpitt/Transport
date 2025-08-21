@@ -1793,6 +1793,9 @@
 			<Item Name="CDK_Utility_Recurse_Folder.vi" Type="VI" URL="/&lt;resource&gt;/Framework/Providers/Builds/Installer/CDK_Utility_Recurse_Folder.vi"/>
 			<Item Name="NI_MDF.lvlib" Type="Library" URL="../../../../../../../Program Files (x86)/National Instruments/LabVIEW 2019/applibs/distkit/MDF/NI_MDF.lvlib"/>
 			<Item Name="NIMdf.dll" Type="Document" URL="../../../../../../../Program Files (x86)/National Instruments/LabVIEW 2019/applibs/distkit/MDF/NIMdf.dll"/>
+			<Item Name="DELETEUpload to S3.vi" Type="VI" URL="../src/DELETEUpload to S3.vi"/>
+			<Item Name="DELETEHandle S3 Error.vi" Type="VI" URL="../src/DELETEHandle S3 Error.vi"/>
+			<Item Name="DELETS3 Backup--cluster.ctl" Type="VI" URL="../src/DELETS3 Backup--cluster.ctl"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="Transport Application" Type="EXE">
