@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2025-08-21 15:24:04" Creator="Patrick" Comments="" ID="1789a66d0f601ba51846d4c3d43f25ee">
+<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2025-08-21 15:25:44" Creator="Patrick" Comments="" ID="03b78af08508d06da32176a9df7297c3">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_Transport</Package_File_Name>
-    <Library_Version>2.0.0.28</Library_Version>
+    <Library_Version>2.0.1.28</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\src</Library_Source_Folder>
     <Library_Output_Folder>..\builds\Package</Library_Output_Folder>
@@ -53,11 +53,8 @@ Server used for scripting and performing asynchronous transport measurments.
       <Copyright/>
       <Packager/>
       <URL/>
-      <Release_Notes>[2.0.0]
-#136 This version consolidates Control Experiment, Transport, and Transport Server packages
-#133 improve startup to verify Lockin and KH status
-#134 Transport Server show/hide from Conigure Experiment.vi window
-#135 Configure Experiment atomatically starts and is in control of Transport Server</Release_Notes>
+      <Release_Notes>[2.0.1]
+#138 new methods: getExptComments, getExptFolder, getSweepConfig</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
