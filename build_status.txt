@@ -1,1 +1,1 @@
-ERROR,10:58:37.27,Step 2 failed - Quitting LabVIEW failed 
+ERROR,11:44:42.16,Step 2 failed - Quitting LabVIEW failed 
