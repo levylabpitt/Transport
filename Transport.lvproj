@@ -24,6 +24,7 @@
 		<Item Name="Inst.Transport.lvclass" Type="LVClass" URL="../src/Transport Server/Inst.Transport/Inst.Transport.lvclass"/>
 		<Item Name="Inst UI.Transport.lvclass" Type="LVClass" URL="../src/Transport Server/Inst UI.Transport/Inst UI.Transport.lvclass"/>
 		<Item Name="Instrument Attributes.lvlib" Type="Library" URL="../src/Attributes/Instrument Attributes.lvlib"/>
+		<Item Name="Test Parse setRefreshTime.vi" Type="VI" URL="../src/Transport Server/Inst.Transport/Tests/Test Parse setRefreshTime.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="Wait (ms)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/time/time.llb/Wait (ms)__ogtk.vi"/>
