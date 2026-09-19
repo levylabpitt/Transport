@@ -41,9 +41,11 @@ A command travels: public API VI (e.g. `Inst.Transport\API\setRefreshTime.vi`) -
 
 ## Experiment VIs and notifiers
 
-- `Inst.Transport.CallByReference.vi` runs Lockin_time, Lockin_sweep and THz_TimeDelay with a synchronous Call By Reference and passes the Transport object by value. Later writes to the object never reach a running VI; only refnums inside it stay live.
-- Those refnums are the notifiers in `Transport.lvclass` private data (`Notifiers`: Stop, RefreshTime, RunningStatus), added in 2.5.0.54. `Inst.Transport` `onStart.vi` creates them once (`Init Notifiers.vi`, unnamed notifiers) and `onStop.vi` destroys them (`Destroy Notifiers.vi`). Use the Get/Send VIs in `src\Transport\API (class)`.
-- The Get VIs read the latest value with Get Notifier Status; they do not wait. A sent value therefore stays "current" until another is sent. That is why `startTransport` sends Stop=False before starting. Get RefreshTime returns 0 if nothing has been sent yet; its `valid?` output only means the refnum is valid.
+- `Inst.Transport.CallByReference.vi` launches Lockin_time, Lockin_sweep and THz_TimeDelay with Start Asynchronous Call, call and forget (0x80), so `Process.vi` keeps running during an experiment. Through 2.5.0.54 it was a synchronous Call By Reference that blocked `Process.vi` for the whole run (issue #166). Its `error out` only reports launch errors; errors inside the experiment VI never come back to the server.
+- The Transport object is passed to the experiment VI by value. Later writes to the object never reach a running VI; only refnums inside it stay live.
+- `Process.vi` keeps a `Status` (idle/running) in its state data, set by `Data: Set Status` from the RunningStatus poll. `Transport: startTransport` refuses to launch while it is `running`.
+- Those refnums are the notifiers in `Transport.lvclass` private data (`Notifiers`: Stop, RefreshTime, RunningStatus), added in 2.5.0.54. `Inst.Transport` `onStart.vi` creates them once (`Init Notifiers.vi`, unnamed notifiers). `onStop.vi` waits up to about 5 s for RunningStatus to go False, then destroys them (`Destroy Notifiers.vi`). Use the Get/Send VIs in `src\Transport\API (class)`.
+- The Get VIs read the latest value with Get Notifier Status; they do not wait. A sent value therefore stays "current" until another is sent. That is why `startTransport` sends Stop=False before starting. Get RefreshTime returns 0 if nothing has been sent yet, so its `valid?` output is False unless the refnum is valid and the value is greater than 0; the experiment VIs only apply a valid value.
 - Each experiment VI polls Stop and RefreshTime in its `Data: Check Notifier` state, and sends RunningStatus True in `Data: Initialize Top Level` and False in `Data: Cleanup`. `Process.vi` polls RunningStatus in its event timeout to report running/idle.
 - The `setRefreshTime` payload key is `RefreshTime` (it was `Refresh Time` before 2.5.0.54).
 
