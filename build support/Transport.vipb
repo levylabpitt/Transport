@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2026-09-19 18:24:33" Creator="Patrick" Comments="" ID="6f067112b99857a064811bbb71271d68">
+<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2026-09-24 13:37:11" Creator="Patrick" Comments="" ID="af88372effbe658d807b1e8056e7377e">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_Transport</Package_File_Name>
-    <Library_Version>2.5.1.56</Library_Version>
+    <Library_Version>2.5.2.57</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\src</Library_Source_Folder>
     <Library_Output_Folder>..\builds\Package</Library_Output_Folder>
@@ -53,26 +53,15 @@ Server used for scripting and performing asynchronous transport measurments.
       <Copyright/>
       <Packager/>
       <URL/>
-      <Release_Notes>[2.5.1.55]
+      <Release_Notes>[2.5.2]
 
-Fixes #166: the Transport Server was unresponsive while an experiment ran.
+Fixes
+#169: Fix issue that would cause Transport Server to report incorrect status
+#171: configure stopTransport button in Transport Server UI
 
-- Experiments (Lockin_time, Lockin_sweep, THz_TimeDelay) now launch asynchronously
-  (call and forget), so the server keeps handling commands during a run.
-  `setRefreshTime` now takes effect immediately, the status text updates, and
-  `getStatus` reports `running` instead of `idle`.
-- `startTransport` is refused with "Experiment already running" when an experiment
-  is running, instead of starting a second one.
-- A refresh time that was never set is ignored, so an experiment keeps its own
-  configured refresh rate instead of being set to 0 ms.
-- `stopTransport` on a running Lockin_sweep now stops it the same way its own stop
-  button does.
-- The stopTransport button no longer closes the experiment's front panel.
-- Stopping the server now stops a running experiment and waits for it (up to 5 s)
-  before releasing the notifiers.
-
-**Note:** errors that occur inside an experiment VI are no longer returned to the
-server, as a consequence of the asynchronous launch.</Release_Notes>
+New Features
+- Transport Server UI now has a "startTransport" button.
+NOTE: Lockin_time.vi, Lockin_sweep.vi, THz_TimeDelay.vi have their run buttons DISABLED. The VIs must be started from Transport Server UI.</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
@@ -310,7 +299,7 @@ server, as a consequence of the asynchronous launch.</Release_Notes>
         <Path>..\src\Transport Server</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>CBD5D051B441BDC48D74F43850BDB6AF</GUID>
+      <GUID>BBB6E59833AE7966406CF6E136E4B59D</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -429,7 +418,7 @@ server, as a consequence of the asynchronous launch.</Release_Notes>
         <Path>..\src\Control Experiment\Comments</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>0CF85D79F90184B1FB61008FA818A0D8</GUID>
+      <GUID>F0C4251EB229441926FE83AB528FDECA</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -495,20 +484,6 @@ server, as a consequence of the asynchronous launch.</Release_Notes>
       <Items_Data>
         <Type>Item</Type>
         <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Sweep_AIWFM_time.vi</NameSub_Menu_Name>
-        <Short_Name/>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>2</Row>
-          <Column>5</Column>
-        </Position>
-        <Icon>00000000</Icon>
-        <Path>..\src\Transport\Sweep_AIWFM_time.vi</Path>
-        <VI_Title/>
-      </Items_Data>
-      <Items_Data>
-        <Type>Item</Type>
-        <Sub_Palette_Index>-1</Sub_Palette_Index>
         <NameSub_Menu_Name>Lockin_time.vi</NameSub_Menu_Name>
         <Short_Name/>
         <is_Merge_VI>false</is_Merge_VI>
@@ -548,21 +523,7 @@ server, as a consequence of the asynchronous launch.</Release_Notes>
         <Path>..\src\Transport\Lockin_sweep.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <Items_Data>
-        <Type>Item</Type>
-        <Sub_Palette_Index>-1</Sub_Palette_Index>
-        <NameSub_Menu_Name>Lockin_AIWFM_time.vi</NameSub_Menu_Name>
-        <Short_Name/>
-        <is_Merge_VI>false</is_Merge_VI>
-        <Position>
-          <Row>1</Row>
-          <Column>5</Column>
-        </Position>
-        <Icon>00000000</Icon>
-        <Path>..\src\Transport\Lockin_AIWFM_time.vi</Path>
-        <VI_Title/>
-      </Items_Data>
-      <GUID>04A1172C2854B2C8D832340FF9AEC73C</GUID>
+      <GUID>FCE4140A1E32420E23FAD379BA925949</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -611,7 +572,7 @@ server, as a consequence of the asynchronous launch.</Release_Notes>
         <Path>..\src\Transport Server\Transport Server.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>887A026F3AABF3BD87BF59DEEF197499</GUID>
+      <GUID>A16F3473001CF40149547CE16F5F645B</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -898,7 +859,7 @@ server, as a consequence of the asynchronous launch.</Release_Notes>
         <Path>..\src\Control Experiment\API\Write Wiring Configuration v2.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>8EEFD6F5DABEE87C9F177135CEB1F16E</GUID>
+      <GUID>047729D7B2AB39E88C22A1C2555D44A4</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1045,7 +1006,7 @@ server, as a consequence of the asynchronous launch.</Release_Notes>
         <Path>..\src\Control Experiment\API (File)\Save Transport ITX File.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>E73936700BBAAF253B2CE1F873405DD4</GUID>
+      <GUID>6115FF326C6B18228DF4CFA95D59610D</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1206,7 +1167,7 @@ server, as a consequence of the asynchronous launch.</Release_Notes>
         <Path>..\src\Control Experiment\Comments\Comments.Create Lockin AO Description.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>4653E4013BE74915FB2A4556F8862809</GUID>
+      <GUID>ABB70050A63A81D2A4F4545FD90F9062</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1731,7 +1692,7 @@ server, as a consequence of the asynchronous launch.</Release_Notes>
         <Path>..\src\Control Experiment\subVIs\Cast Unknown Instrument to Instrument Type.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>A6E823F5FDEB28E5CE9CB8ADDCC065BB</GUID>
+      <GUID>E5DC8FD7BE533C6963CD0243F1F4CBDD</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1808,7 +1769,7 @@ server, as a consequence of the asynchronous launch.</Release_Notes>
         <Path>..\src\Control Experiment\Tests\Test Write.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>A00E18F7535F8E58FED9DA92C55E373C</GUID>
+      <GUID>610CFD7160B224BBB0361737AEE075DA</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>4</Parent_Palette_Index>
@@ -1927,7 +1888,7 @@ server, as a consequence of the asynchronous launch.</Release_Notes>
         <Path>..\src\Control Experiment\API\Dictionary\Read All Dictionary Elements.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>FD9CA30714332F12A5FAE745D787A977</GUID>
+      <GUID>D30A0D93275BF393E587E64DEA4213F2</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -2004,7 +1965,7 @@ server, as a consequence of the asynchronous launch.</Release_Notes>
         <Path>..\src\Transport\API (class)\Write Sweep Table.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>B7576E9CCACBC457B86A070D15BB6982</GUID>
+      <GUID>DC5A9D90B58357AAF47C2C79169A6A03</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -2039,7 +2000,7 @@ server, as a consequence of the asynchronous launch.</Release_Notes>
         <Path>..\src\Transport\API (file)\Read Lockin_Sweep.json.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>218E36A251EE5DA4B52E80689BC2ACC7</GUID>
+      <GUID>A4048E6B3C6289CF095EBDC014B4D36E</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -2172,7 +2133,7 @@ server, as a consequence of the asynchronous launch.</Release_Notes>
         <Path>..\src\Transport\Private\Results (Dictionary) to X and Y Arrays.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>68260ECED2AA9EBB428F0F47A96F76FA</GUID>
+      <GUID>CBDFC3F2FD4AB620AAAABD780FABE670</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>3</Parent_Palette_Index>
@@ -2291,7 +2252,7 @@ server, as a consequence of the asynchronous launch.</Release_Notes>
         <Path>..\src\Transport Server\Inst.Transport\Process.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>805A660F26994AD49563FC5BA53D3429</GUID>
+      <GUID>348AF0F4D715C8C98CBAB7EC27BE49C4</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -2550,7 +2511,7 @@ server, as a consequence of the asynchronous launch.</Release_Notes>
         <Path>..\src\Transport Server\Inst.Transport\API\showUI.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>A550174EB511DD2D353C48CDFE9A9B6B</GUID>
+      <GUID>16BE7AB57E1BE14BAD643C1CBDE41FCB</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>13</Parent_Palette_Index>
@@ -2697,7 +2658,7 @@ server, as a consequence of the asynchronous launch.</Release_Notes>
         <Path>..\src\Transport Server\Inst.Transport\Overrides\onStop.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>05B688DF70930F23E8D2349BA8DC4178</GUID>
+      <GUID>77115C732895085290F2D03585667B56</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>13</Parent_Palette_Index>
@@ -2802,7 +2763,7 @@ server, as a consequence of the asynchronous launch.</Release_Notes>
         <Path>..\src\Transport Server\Inst.Transport\Private\Variant to Display String.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>F29482D8C45997AE72F108C6FEBDD59D</GUID>
+      <GUID>C0029DD695DAAE6E81F500D7B825594D</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>13</Parent_Palette_Index>
@@ -2837,7 +2798,7 @@ server, as a consequence of the asynchronous launch.</Release_Notes>
         <Path>..\src\Transport Server\Inst.Transport\Protected\Inst.Transport.Public API.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>0D40D4C117969964B5A19831A38D3E5F</GUID>
+      <GUID>252F0B27C2B2553695D240D4307AFAD8</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>13</Parent_Palette_Index>
@@ -2900,7 +2861,7 @@ server, as a consequence of the asynchronous launch.</Release_Notes>
         <Path>..\src\Transport Server\Inst.Transport\Tests\Test setExptParam.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>170D8EE0BFE88C05A690A6B1F5F526E4</GUID>
+      <GUID>A3E18D0C2DC88C5144B54049DF238854</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>15</Parent_Palette_Index>
@@ -3005,7 +2966,7 @@ server, as a consequence of the asynchronous launch.</Release_Notes>
         <Path>..\src\Transport Server\Inst.Transport\Overrides\Commands\Handle setConfiguration.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>2F4842D9428C72173FE96ECCB7F43847</GUID>
+      <GUID>8037F01CB34BDBF40DC59D1D18871B76</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>15</Parent_Palette_Index>
@@ -3068,7 +3029,7 @@ server, as a consequence of the asynchronous launch.</Release_Notes>
         <Path>..\src\Transport Server\Inst.Transport\Overrides\Configuration\Write Configuration File.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>ED5EE2E359090682B15DC50E163B64AF</GUID>
+      <GUID>DDEB6A0B6C9CBFC0DC43347FA6769497</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>15</Parent_Palette_Index>
@@ -3201,7 +3162,7 @@ server, as a consequence of the asynchronous launch.</Release_Notes>
         <Path>..\src\Transport Server\Inst.Transport\Overrides\SMO\Get SMO Vendor.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>83C6B624B0E320C339C1EC2A167179F1</GUID>
+      <GUID>C419FADF6BF6D723FCF40B29F4832255</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -3278,7 +3239,7 @@ server, as a consequence of the asynchronous launch.</Release_Notes>
         <Path>..\src\Attributes\Set StateName.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>E468E4A67D60721822F8F74968F33F6D</GUID>
+      <GUID>C02DF903B1AF4F7F547D87678B4ECAE4</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
