@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2026-09-24 15:10:46" Creator="Patrick" Comments="" ID="842d2ba83405a1d6ddab63beedc4fc2e">
+<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2026-09-25 07:07:16" Creator="Patrick" Comments="" ID="7cd93a679053232c103c67c42674f3d4">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_Transport</Package_File_Name>
-    <Library_Version>2.5.2.57</Library_Version>
+    <Library_Version>2.5.3.58</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\src</Library_Source_Folder>
     <Library_Output_Folder>..\builds\Package</Library_Output_Folder>
@@ -54,15 +54,19 @@ Server used for scripting and performing asynchronous transport measurments.
       <Copyright/>
       <Packager/>
       <URL/>
-      <Release_Notes>[2.5.2]
+      <Release_Notes>[2.5.3]
 
 Fixes
-#169: Fix issue that would cause Transport Server to report incorrect status
-#171: configure stopTransport button in Transport Server UI
+#169: The Transport Server now reports "running" while an experiment runs. The 2.5.2.56 notes listed this fix, but it was not in that build: the status read "idle" during a run, and a second startTransport could launch a second experiment instead of being refused with "Experiment already running".
+- The startTransport button in the Transport Server UI now prepares a run the same way the startTransport command does. It selects the experiment VI, writes the experiment folder and dependencies, and clears any earlier stop. In 2.5.2.56 the button skipped these steps, so a run started after a stop could end immediately.
 
-New Features
-- Transport Server UI now has a "startTransport" button.
-NOTE: Lockin_time.vi, Lockin_sweep.vi, THz_TimeDelay.vi have their run buttons DISABLED. The VIs must be started from Transport Server UI.</Release_Notes>
+Preview
+#163: Configure Experiment no longer loses the configured instruments.
+- An instrument whose class can't be found stays in its list as "&lt;name&gt; (not installed)" instead of being cleared.
+- Closing the Configure dialog with the window X no longer changes the instrument set.
+- If any instruments can't be found when you click OK, a message lists them, and the saved configuration is kept.
+- A missing or unreadable Control Experiment.json is reported at startup, and no empty configuration is written over it.
+- Instrument classes with similar names (for example Instrument.Lockin and Instrument.LockinAPI) are no longer mixed up.</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
@@ -300,7 +304,7 @@ NOTE: Lockin_time.vi, Lockin_sweep.vi, THz_TimeDelay.vi have their run buttons D
         <Path>..\src\Transport Server</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>B4821B20107D370F8FEC4A744966956D</GUID>
+      <GUID>38CE6CE5DD97EE9E1E50B0FC927D231D</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -419,7 +423,7 @@ NOTE: Lockin_time.vi, Lockin_sweep.vi, THz_TimeDelay.vi have their run buttons D
         <Path>..\src\Control Experiment\Comments</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>7DB26594710DE9C8026284B520133183</GUID>
+      <GUID>2E842BEBA40799ECD66CB8A211030776</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -524,7 +528,7 @@ NOTE: Lockin_time.vi, Lockin_sweep.vi, THz_TimeDelay.vi have their run buttons D
         <Path>..\src\Transport\Lockin_sweep.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>3F7082C21D904B37A83ED086EF22F467</GUID>
+      <GUID>A53563CF5493F7DCA42D7AE39EC65E5A</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -573,7 +577,7 @@ NOTE: Lockin_time.vi, Lockin_sweep.vi, THz_TimeDelay.vi have their run buttons D
         <Path>..\src\Transport Server\Transport Server.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>DD4FE5BC8643E6A1731C2BC893D88F73</GUID>
+      <GUID>9E8B96C9E49927659591259DAEAAD6ED</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -860,7 +864,7 @@ NOTE: Lockin_time.vi, Lockin_sweep.vi, THz_TimeDelay.vi have their run buttons D
         <Path>..\src\Control Experiment\API\Write Wiring Configuration v2.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>D0EE5A297CFF679D292848F56FC6080A</GUID>
+      <GUID>6202B2E3FBEDD843D720748944E4E006</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1007,7 +1011,7 @@ NOTE: Lockin_time.vi, Lockin_sweep.vi, THz_TimeDelay.vi have their run buttons D
         <Path>..\src\Control Experiment\API (File)\Save Transport ITX File.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>D11AD77AB01424462124227B6FEED3E9</GUID>
+      <GUID>6D21E8A9FE22760D7C99DC56BA50F8DB</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1168,7 +1172,7 @@ NOTE: Lockin_time.vi, Lockin_sweep.vi, THz_TimeDelay.vi have their run buttons D
         <Path>..\src\Control Experiment\Comments\Comments.Create Lockin AO Description.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>00AA864003028ECB44D47C434D31AA1F</GUID>
+      <GUID>E44F743936EC7405B6CE0C490409FDD3</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1693,7 +1697,7 @@ NOTE: Lockin_time.vi, Lockin_sweep.vi, THz_TimeDelay.vi have their run buttons D
         <Path>..\src\Control Experiment\subVIs\Cast Unknown Instrument to Instrument Type.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>9DFEB3439D8145A06D01D118103800A2</GUID>
+      <GUID>7913E078934DB1A493357E4B69EE2C1E</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1770,7 +1774,7 @@ NOTE: Lockin_time.vi, Lockin_sweep.vi, THz_TimeDelay.vi have their run buttons D
         <Path>..\src\Control Experiment\Tests\Test Write.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>916E1EC9A6E6379B850A3864DBFEFE0A</GUID>
+      <GUID>7BF5191EACB2E812FDD257F369EA579C</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>4</Parent_Palette_Index>
@@ -1889,7 +1893,7 @@ NOTE: Lockin_time.vi, Lockin_sweep.vi, THz_TimeDelay.vi have their run buttons D
         <Path>..\src\Control Experiment\API\Dictionary\Read All Dictionary Elements.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>4E0373DEC521A87870819DABAA387732</GUID>
+      <GUID>9BE5B5077ED24E978D8851F10128266F</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -1966,7 +1970,7 @@ NOTE: Lockin_time.vi, Lockin_sweep.vi, THz_TimeDelay.vi have their run buttons D
         <Path>..\src\Transport\API (class)\Write Sweep Table.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>F276FE03FEC912BE2276D8834E1BC960</GUID>
+      <GUID>AA095B2142035CBD6FBEA0B9CE508BBC</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -2001,7 +2005,7 @@ NOTE: Lockin_time.vi, Lockin_sweep.vi, THz_TimeDelay.vi have their run buttons D
         <Path>..\src\Transport\API (file)\Read Lockin_Sweep.json.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>0F26A03D9EE2837E4AF3AC186DD27164</GUID>
+      <GUID>03FD03081EE4D50DF008CC0DDAC4DC8F</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -2134,7 +2138,7 @@ NOTE: Lockin_time.vi, Lockin_sweep.vi, THz_TimeDelay.vi have their run buttons D
         <Path>..\src\Transport\Private\Results (Dictionary) to X and Y Arrays.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>8D04E774A6D056BC6FD07A0E9BB08273</GUID>
+      <GUID>F46D5DDA28D278A07C8A95C1467A3D9B</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>3</Parent_Palette_Index>
@@ -2253,7 +2257,7 @@ NOTE: Lockin_time.vi, Lockin_sweep.vi, THz_TimeDelay.vi have their run buttons D
         <Path>..\src\Transport Server\Inst.Transport\Process.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>604976D8B3E1046556AB83007A4C5F18</GUID>
+      <GUID>F3024D9094E2BC95ACB65D3B8E4C7BDA</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -2512,7 +2516,7 @@ NOTE: Lockin_time.vi, Lockin_sweep.vi, THz_TimeDelay.vi have their run buttons D
         <Path>..\src\Transport Server\Inst.Transport\API\showUI.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>C7F0DBD7DBE1433D742E8E379B2C3B24</GUID>
+      <GUID>3E491E2FB8DB5ABA7EACF349FFDDF2A5</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>13</Parent_Palette_Index>
@@ -2659,7 +2663,7 @@ NOTE: Lockin_time.vi, Lockin_sweep.vi, THz_TimeDelay.vi have their run buttons D
         <Path>..\src\Transport Server\Inst.Transport\Overrides\onStop.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>4DA9EE44051E99E5CA80C6FB1768A765</GUID>
+      <GUID>678BB4DE38D099CB3C6D518DE632BEE6</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>13</Parent_Palette_Index>
@@ -2764,7 +2768,7 @@ NOTE: Lockin_time.vi, Lockin_sweep.vi, THz_TimeDelay.vi have their run buttons D
         <Path>..\src\Transport Server\Inst.Transport\Private\Variant to Display String.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>D5E307D2C0484B74AD9DDD5540F69A6D</GUID>
+      <GUID>A25B953390D99E4559E364C4E6364504</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>13</Parent_Palette_Index>
@@ -2799,7 +2803,7 @@ NOTE: Lockin_time.vi, Lockin_sweep.vi, THz_TimeDelay.vi have their run buttons D
         <Path>..\src\Transport Server\Inst.Transport\Protected\Inst.Transport.Public API.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>A5B6F9EF674873BC078B4D3C6DE3D1FE</GUID>
+      <GUID>13561ED61A2551C12362E6CB3B5EBF95</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>13</Parent_Palette_Index>
@@ -2862,7 +2866,7 @@ NOTE: Lockin_time.vi, Lockin_sweep.vi, THz_TimeDelay.vi have their run buttons D
         <Path>..\src\Transport Server\Inst.Transport\Tests\Test setExptParam.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>0461B72F682EC82011665C1F26827578</GUID>
+      <GUID>C2A5C45FED38B51432A1A6A3A139DE7F</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>15</Parent_Palette_Index>
@@ -2967,7 +2971,7 @@ NOTE: Lockin_time.vi, Lockin_sweep.vi, THz_TimeDelay.vi have their run buttons D
         <Path>..\src\Transport Server\Inst.Transport\Overrides\Commands\Handle setConfiguration.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>2967B2AACF0968A2A613586549F363E1</GUID>
+      <GUID>BA035144C7C6BA8D1847C4C91E6ECE04</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>15</Parent_Palette_Index>
@@ -3030,7 +3034,7 @@ NOTE: Lockin_time.vi, Lockin_sweep.vi, THz_TimeDelay.vi have their run buttons D
         <Path>..\src\Transport Server\Inst.Transport\Overrides\Configuration\Write Configuration File.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>551C1D4A8584D77ED91BC363BB8E013D</GUID>
+      <GUID>072616F1ADFFFFDD668BF89D4006BD7D</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>15</Parent_Palette_Index>
@@ -3163,7 +3167,7 @@ NOTE: Lockin_time.vi, Lockin_sweep.vi, THz_TimeDelay.vi have their run buttons D
         <Path>..\src\Transport Server\Inst.Transport\Overrides\SMO\Get SMO Vendor.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>F830A0CD41E5909320A25559985949D8</GUID>
+      <GUID>A620EDAC90495746AF4DA20DD0778A84</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -3240,7 +3244,7 @@ NOTE: Lockin_time.vi, Lockin_sweep.vi, THz_TimeDelay.vi have their run buttons D
         <Path>..\src\Attributes\Set StateName.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>04EA5AD1CF63CBA1B6F701F488278757</GUID>
+      <GUID>02EDEDA553B48A1CBA9E2F3ABCFC4234</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
