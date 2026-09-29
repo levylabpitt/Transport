@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2026-09-28 15:47:37" Creator="Patrick" Comments="" ID="8b9ecda6f76405ef2b35702d0188b8d8">
+<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2026-09-29 14:05:19" Creator="Patrick" Comments="" ID="82cf4a34e5a37b44a36f1b542045fcbd">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_Transport</Package_File_Name>
-    <Library_Version>2.5.4.59</Library_Version>
+    <Library_Version>2.6.0.60</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\src</Library_Source_Folder>
     <Library_Output_Folder>..\builds\Package</Library_Output_Folder>
@@ -54,9 +54,11 @@ Server used for scripting and performing asynchronous transport measurments.
       <Copyright/>
       <Packager/>
       <URL/>
-      <Release_Notes>[2.5.4]
+      <Release_Notes>### 2.6.0
 
-Transport Server fixes</Release_Notes>
+#172: Experiment Folder/Description are controlled in Transport Server (or API)
+- Sweep configuration is configured in Transport Server (or API)
+- callers of setSweepConfig() should verify new data format</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
@@ -294,7 +296,7 @@ Transport Server fixes</Release_Notes>
         <Path>..\src\Transport Server</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>6DA00D6F53CE5A2B498465DE151CAA14</GUID>
+      <GUID>EF4F216274D255593368D1E0042456E1</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -413,7 +415,7 @@ Transport Server fixes</Release_Notes>
         <Path>..\src\Control Experiment\Comments</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>C80D86C260E895ADA47A92C3113878D7</GUID>
+      <GUID>CE38BC571E1592090F24577BCB59A6E7</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -518,7 +520,7 @@ Transport Server fixes</Release_Notes>
         <Path>..\src\Transport\Lockin_sweep.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>61A73C4710FB7924197EAC0DEB50C1E6</GUID>
+      <GUID>7B6746A9A82244C8C53126DA8A3F6731</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -567,7 +569,7 @@ Transport Server fixes</Release_Notes>
         <Path>..\src\Transport Server\Transport Server.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>5B24F6E4C94DA27B084C4272A2B66166</GUID>
+      <GUID>7EB3EBB3B99EDDC50D9426C4B3ACFB9C</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -854,7 +856,7 @@ Transport Server fixes</Release_Notes>
         <Path>..\src\Control Experiment\API\Write Wiring Configuration v2.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>F50014DC07420F89D01DA5AACEA00687</GUID>
+      <GUID>845988D2C974C662C932E1696876CAFD</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1001,7 +1003,7 @@ Transport Server fixes</Release_Notes>
         <Path>..\src\Control Experiment\API (File)\Save Transport ITX File.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>695FCA0AD995E6B12E7DAAF8127899DE</GUID>
+      <GUID>05A4DAFC17981375C8144AFF1A44FFA8</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1162,7 +1164,7 @@ Transport Server fixes</Release_Notes>
         <Path>..\src\Control Experiment\Comments\Comments.Create Lockin AO Description.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>B116760C261386EC8AE8BC3CD4AE3ABE</GUID>
+      <GUID>114FB9A754FD482B721EA2F9A18B696A</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1687,7 +1689,7 @@ Transport Server fixes</Release_Notes>
         <Path>..\src\Control Experiment\subVIs\Cast Unknown Instrument to Instrument Type.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>5D78FF308527F53926E2108F5FB7A12E</GUID>
+      <GUID>66D68C60B910B7F660072A7DB61316C7</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1764,7 +1766,7 @@ Transport Server fixes</Release_Notes>
         <Path>..\src\Control Experiment\Tests\Test Write.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>5BCFE2993F26D388D9E69792512A08A4</GUID>
+      <GUID>893214AF5F634A29552CE75158F377C1</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>4</Parent_Palette_Index>
@@ -1883,7 +1885,7 @@ Transport Server fixes</Release_Notes>
         <Path>..\src\Control Experiment\API\Dictionary\Read All Dictionary Elements.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>FB5DD04C87754DB9E3DFA5C94154CD0B</GUID>
+      <GUID>B95C993FD3641285BA2F42D46AAFB37A</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -1960,7 +1962,7 @@ Transport Server fixes</Release_Notes>
         <Path>..\src\Transport\API (class)\Write Sweep Table.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>D01610D6D1095875EADE3C2D0AC4E701</GUID>
+      <GUID>A362570297B9D457D85825AFA305A22A</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -1995,7 +1997,7 @@ Transport Server fixes</Release_Notes>
         <Path>..\src\Transport\API (file)\Read Lockin_Sweep.json.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>86ABCF0A80EF1E1F6004888AD39967BF</GUID>
+      <GUID>26DBF4D646D31AC74BA82AF9D60D2791</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -2128,7 +2130,7 @@ Transport Server fixes</Release_Notes>
         <Path>..\src\Transport\Private\Results (Dictionary) to X and Y Arrays.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>FB9C7E71C69FCBB746F8BE37D753493D</GUID>
+      <GUID>83871B6B12D48D3A7F668352F8F07BFE</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>3</Parent_Palette_Index>
@@ -2247,7 +2249,7 @@ Transport Server fixes</Release_Notes>
         <Path>..\src\Transport Server\Inst.Transport\Process.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>0F1C719B6F31846A2E4F87645AD69E8A</GUID>
+      <GUID>1E94A72F814E6C99B95401D245110E70</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -2506,7 +2508,7 @@ Transport Server fixes</Release_Notes>
         <Path>..\src\Transport Server\Inst.Transport\API\showUI.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>24ACBE79E7FFD8F8C4EB5B179075F0CB</GUID>
+      <GUID>5871A1E6D9D6616CF8471BBF770EB2C1</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>13</Parent_Palette_Index>
@@ -2653,7 +2655,7 @@ Transport Server fixes</Release_Notes>
         <Path>..\src\Transport Server\Inst.Transport\Overrides\onStop.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>D250BCC5F7EF9346E6EB90F1E97037BD</GUID>
+      <GUID>ED4A4B7C4883EB97D52BFFDC11DA7BE7</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>13</Parent_Palette_Index>
@@ -2758,7 +2760,7 @@ Transport Server fixes</Release_Notes>
         <Path>..\src\Transport Server\Inst.Transport\Private\Variant to Display String.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>8968DCC770CAFF7F43A8523C5DFC397D</GUID>
+      <GUID>9916996A055CC038DCB3B6F2C82334A2</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>13</Parent_Palette_Index>
@@ -2793,7 +2795,7 @@ Transport Server fixes</Release_Notes>
         <Path>..\src\Transport Server\Inst.Transport\Protected\Inst.Transport.Public API.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>3724EC178EEB115E251149BB5756C08C</GUID>
+      <GUID>293080CCF9198614125377A45238DB33</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>13</Parent_Palette_Index>
@@ -2856,7 +2858,7 @@ Transport Server fixes</Release_Notes>
         <Path>..\src\Transport Server\Inst.Transport\Tests\Test setExptParam.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>C5F21E846C4EEC40AA63EC2EC8C5EC08</GUID>
+      <GUID>92339C29E0FA9AA7BFDDD67CFDF049D1</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>15</Parent_Palette_Index>
@@ -2961,7 +2963,7 @@ Transport Server fixes</Release_Notes>
         <Path>..\src\Transport Server\Inst.Transport\Overrides\Commands\Handle setConfiguration.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>F18FFDECC5D74F7F111DD353A7C675A5</GUID>
+      <GUID>EB201AA6D89AA7697EE9E902E8581ADD</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>15</Parent_Palette_Index>
@@ -3024,7 +3026,7 @@ Transport Server fixes</Release_Notes>
         <Path>..\src\Transport Server\Inst.Transport\Overrides\Configuration\Write Configuration File.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>11E446531738005736094D658D97452A</GUID>
+      <GUID>0333C6C7EFF974DC7C964B721DADFF82</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>15</Parent_Palette_Index>
@@ -3157,7 +3159,7 @@ Transport Server fixes</Release_Notes>
         <Path>..\src\Transport Server\Inst.Transport\Overrides\SMO\Get SMO Vendor.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>33CB413246A06ED67140030F3FBEDFDC</GUID>
+      <GUID>D66646CB0D677B53064FB6A0864B2A09</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -3234,7 +3236,7 @@ Transport Server fixes</Release_Notes>
         <Path>..\src\Attributes\Set StateName.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>5A150E08DD2DFD59DC2F31CB9C4B9980</GUID>
+      <GUID>30856B699CDFC56042095F53195B97DE</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
