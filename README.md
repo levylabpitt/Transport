@@ -1,39 +1,54 @@
 # Transport
 
-VIs for scripting and performing transport measurments.
+VIs for scripting and performing transport measurements.
 
 ## Installation
 - Transport VIs are developed and published in LabVIEW 2019
 - Please install using the [VI Package Manager](https://vipm.jki.net/)
+- The `Transport` package includes Transport, Control Experiment, and Transport Server. The separate Control Experiment and Transport Server packages have been retired; their old releases remain available for existing users.
 
 ## Usage
 
-### Configure (`Control Experiment.lvclass`)
+Start with `Configure Experiment.vi` (in `Control Experiment.lvclass`). It is the entry point for everything else: it opens a Transport Server instance and shows its UI (`Open`, `showUI`, `hideUI` and `Close` from the Transport Server API), so you do not launch the server separately.
 
-`Control Experiment.vi` is an entry point for the following tasks:
+![Configure Experiment](documentation/Pictures/Configure%20Experiment.png)
+
+### Configure Experiment (`Control Experiment.lvclass`)
+
+From `Configure Experiment.vi` you can:
 - record information about your sample & device
 - record how the lockin is connected to your device
 - configure the Krohn Hite amplifier
-- sets the base path for saving data.
+- set the base path for saving data
+- open the Transport Server to set the experiment folder and comments and to start and stop experiments
 
 `Control Experiment.lvclass` also contains:
 - Share configuration with Transport VIs or FLEX
-- It also provides methods for saving ITX, TDMS, and DAT (TSV) filetypes.
+- Methods for saving ITX, TDMS, and DAT (TSV) filetypes.
 
 ### Transport (`Transport.lvclass`)
 
-Basic transport measurements:
+Basic transport measurements, launched by the Transport Server:
 - Lockin Sweep (`Lockin_sweep.vi`)
 - Lockin vs Time (`Lockin_time.vi`)
 - Lockin vs TimeDelay (`THz_TimeDelay.vi`)
 
-### (_new!_) Transport Server
+### Transport Server (`Inst.Transport`)
 
-#### Basics:
-![2025-08-07_08-46-11](https://github.com/user-attachments/assets/2d8cc81f-a3bd-4e51-9e05-218afdd00316)
+An Instrument Framework (JKI SMO) server for running Transport experiments locally or remotely. `Configure Experiment.vi` spawns it; other programs can also send it the commands below. It is the single place to control and view the experiment folder, comments, and sweep configuration; the fields in `Lockin_sweep.vi` and the other experiment VIs are indicators only.
 
-#### Start, Stop, Get Status:
-![2025-08-07_08-47-57](https://github.com/user-attachments/assets/0a02b939-bc92-4a92-8ebb-91af588322de)
+Commands (public API VIs under `Inst.Transport\API`):
+- `startTransport` / `stopTransport`: launch and stop an experiment. A second start is refused while a run is active.
+- `getStatus`: report idle or running.
+- `setRefreshTime`: change the refresh time of a running experiment. The JSON key is `RefreshTime`.
+- `setExptFolder` / `getExptFolder`, `setExptComments` / `getExptComments`: experiment folder and description.
+- `setExptParam` / `appendExptParam` / `clearExptParam`: experiment parameters.
+- `setSweepConfig` / `getSweepConfig`: sweep configuration.
+- `showUI` / `hideUI`: show or hide the server UI (`Inst UI.Transport`).
+
+Experiments run asynchronously, so the server stays responsive during a run.
+
+![Transport Server UI](documentation/Pictures/Transport%20Server%20UI.png)
 
 ### Sequence Experiments (`SweepControl.lvclass`)
 
