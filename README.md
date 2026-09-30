@@ -11,7 +11,7 @@ VIs for scripting and performing transport measurements.
 
 Start with `Configure Experiment.vi` (in `Control Experiment.lvclass`). It is the entry point for everything else: it opens a Transport Server instance and shows its UI (`Open`, `showUI`, `hideUI` and `Close` from the Transport Server API), so you do not launch the server separately.
 
-![Configure Experiment](documentation/Pictures/Configure%20Experiment.png)
+<img width="892" height="770" alt="image" src="https://github.com/user-attachments/assets/c3b29084-441d-402d-908b-ebd48c112efd" />
 
 ### Configure Experiment (`Control Experiment.lvclass`)
 
@@ -48,7 +48,7 @@ Commands (public API VIs under `Inst.Transport\API`):
 
 Experiments run asynchronously, so the server stays responsive during a run.
 
-![Transport Server UI](documentation/Pictures/Transport%20Server%20UI.png)
+<img width="602" height="608" alt="image" src="https://github.com/user-attachments/assets/500c8536-d69b-4038-ae3a-237dda1e8da9" />
 
 ### Sequence Experiments (`SweepControl.lvclass`)
 
