@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2020.1" Created_Date="2023-11-17 13:13:32" Modified_Date="2026-10-02 15:31:56" Creator="Patrick Irvin" Comments="" ID="d31f2e3af67374d4efcb5a3a210886f5">
+<VI_Package_Builder_Settings Version="2020.1" Created_Date="2023-11-17 13:13:32" Modified_Date="2026-10-02 15:46:19" Creator="Patrick Irvin" Comments="" ID="0c0ac98341879db5c7c8a14f6272d4d2">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_sweep_control</Package_File_Name>
-    <Library_Version>2.0.0.14</Library_Version>
+    <Library_Version>2.0.0.15</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\src\Sweep Control</Library_Source_Folder>
     <Library_Output_Folder>..\builds\Package</Library_Output_Folder>
@@ -319,7 +319,7 @@
         <Path>..\src\Sweep Control\Sweep Control Cartesian.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>07E40957700D9E386F1167F6F58AE6CA</GUID>
+      <GUID>F11318147219375048C6D5250C3219F2</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -410,7 +410,7 @@
         <Path>..\src\Sweep Control\API\Write Dependencies.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>9887820626DEFA97AAED87134C36B595</GUID>
+      <GUID>C02F153EFA0BCD8083F05E23D5891F26</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -459,7 +459,7 @@
         <Path>..\src\Sweep Control\API (file)\Read Sweep Control.json.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>6E51156F64763E0D113C1ADF60D702A8</GUID>
+      <GUID>EE5FB76CCB27BBE8EB2FD9FC486A9B2C</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -564,7 +564,7 @@
         <Path>..\src\Sweep Control\subVIs\Sweep Control Loop.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>F065E78829C0A635E92070E24E8CB029</GUID>
+      <GUID>C1CD4E0796ABB39A28A8190E278744D6</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
