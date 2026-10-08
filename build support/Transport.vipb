@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2026-10-05 12:32:58" Creator="Patrick" Comments="" ID="b3ffc20b7157f1920120d3d1aa4e35b7">
+<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2026-10-08 13:33:01" Creator="Patrick" Comments="" ID="fd983e2c38bad1fe6031b5c4f488890c">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_Transport</Package_File_Name>
-    <Library_Version>2.6.3.63</Library_Version>
+    <Library_Version>2.6.4.64</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\src</Library_Source_Folder>
     <Library_Output_Folder>..\builds\Package</Library_Output_Folder>
@@ -54,9 +54,9 @@ Server used for scripting and performing asynchronous transport measurments.
       <Copyright/>
       <Packager/>
       <URL/>
-      <Release_Notes>### 2.6.3
+      <Release_Notes>### 2.6.4
 
-#179 Move *.CallByReference.vi from Inst.Transport [Transport Server] to Transport.vi and give ownership to Transport.vi</Release_Notes>
+- Lockin_sweep: sweep config must be set from API or Transport Server; front panel only indicates the configuration and doesn't allow user to change</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
@@ -294,7 +294,7 @@ Server used for scripting and performing asynchronous transport measurments.
         <Path>..\src\Attributes</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>F7E56A07E82726B62F47FCDE4699EE96</GUID>
+      <GUID>35844EFD1998BCF6924D438852D2E897</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -413,7 +413,7 @@ Server used for scripting and performing asynchronous transport measurments.
         <Path>..\src\Control Experiment\Comments</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>B4A68B1496F98441E9827553665DA164</GUID>
+      <GUID>72BCBF38530B363069C99F77744E58BF</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -490,7 +490,7 @@ Server used for scripting and performing asynchronous transport measurments.
         <Path>..\src\Transport\Transport.CallByReference.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>1FC2B1AAA13DBAEEDA844FF20FCBEB3D</GUID>
+      <GUID>A3AB859EDD4C1CD3DDCA16E52A2A848E</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -539,7 +539,7 @@ Server used for scripting and performing asynchronous transport measurments.
         <Path>..\src\Transport Server\Transport Server.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>0F46BE3F3723E78DA6F12D6AD3CAFAB2</GUID>
+      <GUID>7790F5A2987C2121FAA54AB999859E31</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -826,7 +826,7 @@ Server used for scripting and performing asynchronous transport measurments.
         <Path>..\src\Control Experiment\API\Write Wiring Configuration v2.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>29B4DAD3281B1E5DC00C5D32C2E0D0DE</GUID>
+      <GUID>029795F6D4C3165A319B85ABC0CD6BDD</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -973,7 +973,7 @@ Server used for scripting and performing asynchronous transport measurments.
         <Path>..\src\Control Experiment\API (File)\Save Transport ITX File.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>DEDFBBD69B5039C62DA49BDA19974BEE</GUID>
+      <GUID>BEFF3A899FD4D7AD774B1B38EE759BDD</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1134,7 +1134,7 @@ Server used for scripting and performing asynchronous transport measurments.
         <Path>..\src\Control Experiment\Comments\Comments.Create Lockin AO Description.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>44303AB525B25EA1482E5B65F349887A</GUID>
+      <GUID>9309ECDE941C1DFE8CAADCC943FF76F9</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1659,7 +1659,7 @@ Server used for scripting and performing asynchronous transport measurments.
         <Path>..\src\Control Experiment\subVIs\Cast Unknown Instrument to Instrument Type.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>273C24CA159731522472C41D68E554CD</GUID>
+      <GUID>794A80F2CF1E4086C3A9D6059AD88DE4</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1736,7 +1736,7 @@ Server used for scripting and performing asynchronous transport measurments.
         <Path>..\src\Control Experiment\Tests\Test Write.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>AB5767B719DD49BD1CADF4E2DC9E4599</GUID>
+      <GUID>4D05ED5B2F63DD87495EBFBE01105F27</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>4</Parent_Palette_Index>
@@ -1855,7 +1855,7 @@ Server used for scripting and performing asynchronous transport measurments.
         <Path>..\src\Control Experiment\API\Dictionary\Read All Dictionary Elements.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>A4CAFE160AB75D522EF8159D8946CE73</GUID>
+      <GUID>0C903C59EA2BCFF8535580ACBEF2E8C4</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -1890,7 +1890,7 @@ Server used for scripting and performing asynchronous transport measurments.
         <Path>..\src\Transport\API (file)\Read Lockin_Sweep.json.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>365111E1E05662DEE39BB267077273BB</GUID>
+      <GUID>1207054DE855257BD1860ABC3F0F4D1C</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -2065,7 +2065,7 @@ Server used for scripting and performing asynchronous transport measurments.
         <Path>..\src\Transport\Private\THz_TimeDelay.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>F4AB77958879C170C36BE19DD1C5D3EA</GUID>
+      <GUID>F1A9FCBAB6CDF85637C8237379CD011E</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>3</Parent_Palette_Index>
@@ -2184,7 +2184,7 @@ Server used for scripting and performing asynchronous transport measurments.
         <Path>..\src\Transport Server\Inst.Transport\Documentation.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>CB928F1DAB1B7E9651DCD21001717EB8</GUID>
+      <GUID>205C3EAB89FAF327A0A8A2B64FE9AA6F</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -2443,7 +2443,7 @@ Server used for scripting and performing asynchronous transport measurments.
         <Path>..\src\Transport Server\Inst.Transport\API\showUI.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>9F20A5E95282911E810F2C279FF7F8BB</GUID>
+      <GUID>5F122FB97E7BF3F8B198276026A5DAAB</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>12</Parent_Palette_Index>
@@ -2590,7 +2590,7 @@ Server used for scripting and performing asynchronous transport measurments.
         <Path>..\src\Transport Server\Inst.Transport\Overrides\onStop.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>1431C793C757CE5CDA747F9AA39EB7A5</GUID>
+      <GUID>1A52D5C1F9B71079A74C5F7E2C534565</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>12</Parent_Palette_Index>
@@ -2667,7 +2667,7 @@ Server used for scripting and performing asynchronous transport measurments.
         <Path>..\src\Transport Server\Inst.Transport\Private\Variant to Display String.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>896CC4AC1907DE1A2A9A363124B4F9D8</GUID>
+      <GUID>94193CCB60A3EFECF37BADCA367FB9F4</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>12</Parent_Palette_Index>
@@ -2702,7 +2702,7 @@ Server used for scripting and performing asynchronous transport measurments.
         <Path>..\src\Transport Server\Inst.Transport\Protected\Inst.Transport.Public API.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>4E146EFAFA67328B766449A1FD6A6D97</GUID>
+      <GUID>4DF2E2D2928DD701109B5B534E696DA7</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>12</Parent_Palette_Index>
@@ -2765,7 +2765,7 @@ Server used for scripting and performing asynchronous transport measurments.
         <Path>..\src\Transport Server\Inst.Transport\Tests\Test setExptParam.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>2BF55F98016A2A6DA79B1EFE10563C54</GUID>
+      <GUID>A6DF87881430DDE2E2930AA5704CE6B5</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>14</Parent_Palette_Index>
@@ -2870,7 +2870,7 @@ Server used for scripting and performing asynchronous transport measurments.
         <Path>..\src\Transport Server\Inst.Transport\Overrides\Commands\Handle setConfiguration.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>E2A24A150E2FB20095F57B00E7209F12</GUID>
+      <GUID>C54E5BF9928D52D3B25D23C2531BF9B8</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>14</Parent_Palette_Index>
@@ -2933,7 +2933,7 @@ Server used for scripting and performing asynchronous transport measurments.
         <Path>..\src\Transport Server\Inst.Transport\Overrides\Configuration\Write Configuration File.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>742FF8434E30F74D0DD5D588D0D66108</GUID>
+      <GUID>7BCE96ED9257809008196255B6CDA944</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>14</Parent_Palette_Index>
@@ -3066,7 +3066,7 @@ Server used for scripting and performing asynchronous transport measurments.
         <Path>..\src\Transport Server\Inst.Transport\Overrides\SMO\Get SMO Vendor.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>E3ECC3AE136E3AF5EF2D3E692B9DBDD9</GUID>
+      <GUID>7A1A027F4DEF0BC51A8345F34FF73B69</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -3143,7 +3143,7 @@ Server used for scripting and performing asynchronous transport measurments.
         <Path>..\src\Attributes\Set StateName.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>A31E911B77278839A515CB30D77F8176</GUID>
+      <GUID>7C44E9072A2F50082BFFE7E87699F6B6</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -3332,7 +3332,7 @@ Server used for scripting and performing asynchronous transport measurments.
         <Path>..\src\Transport\API (class)\Write Dependencies.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>17DA7166FE96ADF29B43CE5FE28D85E2</GUID>
+      <GUID>0F727D570A8A982FD3987E6C9AC9BAC0</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
