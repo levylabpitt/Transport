@@ -1002,6 +1002,7 @@
 				<Item Name="TRef Traverse for References.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/traverseref.llb/TRef Traverse for References.vi"/>
 				<Item Name="Get File System Separator.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/sysinfo.llb/Get File System Separator.vi"/>
 				<Item Name="Waveform Min Max.vi" Type="VI" URL="/&lt;vilib&gt;/Waveform/WDTOps.llb/Waveform Min Max.vi"/>
+				<Item Name="Stall Data Flow.vim" Type="VI" URL="/&lt;vilib&gt;/Utility/Stall Data Flow.vim"/>
 			</Item>
 			<Item Name="instr.lib" Type="Folder">
 				<Item Name="D2XX-lv.lvlib" Type="Library" URL="/&lt;instrlib&gt;/_D2XX/D2XX-LV/D2XX-lv.lvlib"/>
