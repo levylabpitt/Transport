@@ -37,7 +37,7 @@ Outputs:
 
 What it does:
 
-1. Transient codes: **56** (network timeout), **91** (bad reply type, until RemoteControl.ZMQ#1 ships), **1556** (ZMQ reconnect), and the "empty reply" code that Instrument-Framework#200 adds. When #200 ships, call its `Is Transient Comm Error.vi` here instead of keeping a local list.
+1. Transient codes: **123** ("LabVIEW: A timeout occurred.", what the ZMQ client returns for a request with no reply from RemoteControl.ZMQ 1.4.0.32 on), **56** (network timeout, other transports), **91** (bad reply type, what RemoteControl.ZMQ 1.3.7.30 and earlier produced instead of a timeout), **1556** (ZMQ reconnect), and the "empty reply" code that Instrument-Framework#200 adds. When #200 ships, call its `Is Transient Comm Error.vi` here instead of keeping a local list.
 2. Append one line to `log path`, transient or not:
    ```
    <ISO time> <VI name> <state> <code> <source, first 200 chars>
@@ -94,7 +94,7 @@ Run `Lockin_sweep` with a sweep of about 5 minutes against a running Multichanne
 1. Normal run: no log lines, file saved, the VI exits on its own (regression check).
 2. Pause the lock-in for 3 s mid-sweep (breakpoint in its `Handle Command.vi`, then continue):
    - no dialog;
-   - log lines with code 91 or 56 (depending on the RemoteControl.ZMQ version);
+   - log lines with code 123 (RemoteControl.ZMQ 1.4.0.32) or 91 (older versions);
    - the sweep carries on and the file is complete.
 3. Pause the lock-in for 3 s straight after `startSweep`: same as test 2. This is the field case.
 4. Close the Lockin exe mid-sweep:
@@ -114,4 +114,4 @@ Run `Lockin_sweep` with a sweep of about 5 minutes against a running Multichanne
 - Make `Status grace period (ms)` part of the sweep configuration (a wire-protocol change; see the JSON-key rule in CLAUDE.md).
 - Retry a sweep that ended early, if the experiment allows it.
 
-Related: levylabpitt/RemoteControl.ZMQ#1, levylabpitt/Instrument-Framework#200, levylabpitt/Multichannel-Lockin#183.
+Related: levylabpitt/RemoteControl.ZMQ#1 (fixed in 1.4.0.32), levylabpitt/Instrument-Framework#200, levylabpitt/Multichannel-Lockin#183.
