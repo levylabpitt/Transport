@@ -46,8 +46,9 @@ What it does:
    - **123** ("LabVIEW: A timeout occurred."), what the ZMQ client returns for a request with no reply from RemoteControl.ZMQ 1.4.0.32 on;
    - **56** (network timeout, other transports);
    - **91** (bad reply type), what RemoteControl.ZMQ 1.3.7.30 and earlier produced instead of a timeout;
-   - **1556** (ZMQ reconnect);
    - the "empty reply" code that Instrument-Framework#200 adds.
+
+   Not **1556** ("The reference is invalid"): it is generic. RemoteControl.ZMQ already handles its own 1556 inside `ZMQ.Handle Error.vi` (it reconnects), so a 1556 that reaches this code means some other reference died (for example, `Inst.Transport` `onStop.vi` destroying the notifiers), and the run should stop, not retry.
 
    `Comm Error?` = `Error Filtered?`; `Unhandled error` = `Error Out`. When #200 ships, call its `Is Transient Comm Error.vi` here instead of keeping a local list.
 2. **Message:** `<state>: <code> <description>`, using `Error Code Database.vi` for the description, as `DAQmx.Error Handler.vi` does.
