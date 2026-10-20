@@ -54,7 +54,7 @@ What it does:
 2. **Message:** `<state>: <code> <description>`, using `Error Code Database.vi` for the description, as `DAQmx.Error Handler.vi` does.
 3. **Log path:**
    - `log folder override` if it is not empty;
-   - otherwise `Control Experiment:Read Experiment Path.vi`, which is the data **folder** (e.g. `C:	emp\TEST.20261014 - test experiment error policy`). Create it with `Create Directory Recursive`, because an error can come before the first save creates it. Do **not** append `Read Device.vi`: that is the data **file** base name (`TEST.20261014`, saved as `TEST.20261014.000000.tdms`), not a folder;
+   - otherwise `Control Experiment:Read Experiment Path.vi`, which is the data **folder** (e.g. `C:\temp\TEST.20261014\01 - test experiment error policy`). Create it with `Create Directory Recursive`, because an error can come before the first save creates it. Do **not** append `Read Device.vi`: that is the data **file** base name (`TEST.20261014`, saved as `TEST.20261014.000000.tdms`), not a folder;
    - if the experiment path is empty or cannot be created, `%LOCALAPPDATA%\Levylab\Transport`.
 
    The file is `<Device> errors.log` (e.g. `TEST.20261014 errors.log`, next to the `.tdms` files), or `Transport errors.log` when `Read Device` is empty.
