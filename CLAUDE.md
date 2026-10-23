@@ -36,7 +36,8 @@ gh release view --json tagName -q .tagName
 A command travels: public API VI (e.g. `Inst.Transport\API\setRefreshTime.vi`) -> `Client.vi` -> `Inst.Transport` `Handle Command.vi` -> `Process.vi` state `Transport: <command>` -> `Transport.lvclass`.
 
 - In `Handle Command.vi`, several commands share one multi-value "forward to child process" frame that calls `Inst.Transport.sendMessageToProcess.vi`. `startTransport` and `stopTransport` have their own frames: they send the Stop notifier (False and True respectively) and then forward.
-- `Process.vi` receives forwarded commands as the MessageToProcess user event, checks the name against the Public and Protected command enums, and queues the state `Transport: <command>`. `startTransport` goes through `Macro: Transport` (`Transport: prepareTransport` then `Transport: startTransport`).
+- `Process.vi` receives forwarded commands as the MessageToProcess user event, checks the name against the Public and Protected command enums (a name added to an enum is accepted automatically), then cases on the name. Most commands store their data in state data and queue `Transport: <command>`. Some only store data (setExptFolder, setExptComments). showUI/hideUI queue `Action: UI Status`, which fires the UI State public event. `startTransport` goes through `Macro: startTransport`.
+- Errors reach the client only from `Handle Command.vi` (`error out`, or a get frame's reply). Anything forwarded to `Process.vi`, or sent on as a public event, is fire-and-forget. Get commands answer in `Handle Command.vi` from Inst.Transport private data; setSweepConfig caches its payload there for that reason.
 - Unhandled commands fall to the parent `Instrument.lvclass:Handle Command.vi` (Instrument Framework, outside this repo). Its only built-ins are ACK, HELP, IDN, GET, SET, getAll, setAll, setIDN and setConfiguration; anything else raises error 4001 "command not supported". A new command therefore probably needs an entry in the Inst.Transport command enum, a `Handle Command.vi` frame and a `Process.vi` state.
 
 ## Experiment VIs and notifiers
@@ -56,6 +57,8 @@ The Instrument Framework parses payloads with `JSON to LVtype.vim`, which silent
 ## Control Experiment persistence
 
 Control Experiment persists to `%LOCALAPPDATA%\Levylab\Control Experiment\`: `configuration.ini` holds the UI, and `Control Experiment.json` holds the instrument set as absolute class paths (see issue #163, "Configure Experiment forgets previous configuration"). Verified at 2.4.3.52 only; lvkit found no literal path constants, so the path is assembled at runtime.
+
+Despite its name, `Control Experiment FGV.vi` is not a functional global: lvkit shows no shift register. Its read and write go to `Control Experiment.json` on every call.
 
 ## Reading LabVIEW code
 
