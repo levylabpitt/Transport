@@ -24,7 +24,7 @@ from . import db, hardware, legacy, rules, service, sim, topology
 from .demo import demo_config
 from .model import KH_COUPLINGS, KH_FILTERS, KH_OVERRIDES, KH_SHUNTS, Config
 from .groupheader import GroupHeader
-from .sampleview import SampleView
+from .deviceview import DeviceView
 from .tablemodels import CHANNEL_COLUMNS, GROUP_TINT, ChannelModel, OutputModel, choices
 from .wiringview import WiringView
 
@@ -192,14 +192,14 @@ class MainWindow(QMainWindow):
         self.machine = QPlainTextEdit(readOnly=True)
         self.machine.setFont(QFont("Consolas", 9))
         self.log = QPlainTextEdit(readOnly=True)
-        self.sample = SampleView(cfg)
+        self.sample = DeviceView(cfg)
         self.sample.rowClicked.connect(self._select_ai)
         sample_scroll = QScrollArea()
         sample_scroll.setWidget(self.sample)
         sample_scroll.setWidgetResizable(True)
         self.tabs = QTabWidget()
+        self.tabs.addTab(sample_scroll, "Device")
         self.tabs.addTab(scroll, "Wiring (per AI)")
-        self.tabs.addTab(sample_scroll, "Sample (per electrode)")
         self.tabs.addTab(self.machine, "Machine view (topology JSON)")
         self.tabs.addTab(self.log, "Instrument log")
 
@@ -315,8 +315,13 @@ class MainWindow(QMainWindow):
             for c, (key, label) in enumerate(row):
                 grid.addWidget(QLabel(label), r, 2 * c)
                 grid.addWidget(self._exp_field(key, getattr(e, key)), r, 2 * c + 1)
-        grid.addWidget(QLabel("Description"), 2, 0)
-        grid.addWidget(self._exp_field("description", e.description), 2, 1, 1, 5)
+        self.pads = QSpinBox(minimum=1, maximum=256, value=e.pads)
+        self.pads.setToolTip("Bond pads on the device, numbered 1..N: the Electrode dropdown and the Device view")
+        self.pads.valueChanged.connect(self._pads_changed)
+        grid.addWidget(QLabel("Pads"), 2, 0)
+        grid.addWidget(self.pads, 2, 1)
+        grid.addWidget(QLabel("Description"), 2, 2)
+        grid.addWidget(self._exp_field("description", e.description), 2, 3, 1, 3)
         for c in (1, 3, 5):
             grid.setColumnStretch(c, 1)
         h.addWidget(eg, 3)
@@ -442,6 +447,10 @@ class MainWindow(QMainWindow):
         self.apply_action.setEnabled(errors == 0)
         self.machine.setPlainText(json.dumps(topology.build(self.cfg), indent=1))
 
+    def _pads_changed(self, n: int) -> None:
+        self.cfg.experiment.pads = n
+        self.changed()
+
     def _exp_edit(self, key, text):
         setattr(self.cfg.experiment, key, text.strip())
         if key == "station_type" and not self.lookups.error:
@@ -500,6 +509,9 @@ class MainWindow(QMainWindow):
         e = cfg.experiment
         for key, le in self.ed.items():
             le.setText(getattr(e, key))
+        self.pads.blockSignals(True)
+        self.pads.setValue(e.pads)
+        self.pads.blockSignals(False)
         for w, v in ((self.n_ai, len(cfg.channels)), (self.n_ao, len(cfg.outputs))):
             w.blockSignals(True)
             w.setValue(v)

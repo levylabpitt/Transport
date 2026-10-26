@@ -133,6 +133,7 @@ class Experiment:
     path: str = ""
     station: str = ""
     station_type: str = ""
+    pads: int = 28  # bond pads on the device, numbered 1..pads
 
     @property
     def device_name(self) -> str:

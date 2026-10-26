@@ -30,6 +30,7 @@ E_AO = 5012
 E_VALUE = 5013
 W_NO_ELECTRODE = 6001
 W_U_OPEN_SHUNT = 6002
+W_NOT_A_PAD = 6003
 
 
 @dataclass(frozen=True)
@@ -104,6 +105,10 @@ def validate(cfg: Config) -> list[Issue]:
                 seen_kh[ch.kh] = ch.ai
         if ch.type in ("U", "V") and not ch.electrode:
             issues.append(Issue(W_NO_ELECTRODE, ch.ai, "electrode", "no electrode entered"))
+        for fld, e in (("electrode", ch.electrode), ("minus", ch.minus if ch.minus_is_electrode else "")):
+            if e.isdigit() and not 1 <= int(e) <= cfg.experiment.pads:
+                issues.append(Issue(W_NOT_A_PAD, ch.ai, fld,
+                                    f"electrode {e} is not a pad of a {cfg.experiment.pads}-pad device"))
         if ch.type == "U" and ch.shunt == "Open":
             issues.append(Issue(W_U_OPEN_SHUNT, ch.ai, "shunt", "U with an open shunt measures no current"))
         if ch.type == "U" and ch.minus == MINUS_AO and ch.ao not in ao_numbers:

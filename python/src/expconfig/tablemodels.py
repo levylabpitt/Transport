@@ -7,7 +7,7 @@ from dataclasses import dataclass
 from typing import Callable
 
 from PySide6.QtCore import QAbstractTableModel, QModelIndex, Qt
-from PySide6.QtGui import QBrush, QColor
+from PySide6.QtGui import QBrush, QColor, QFont
 
 from . import rules
 from .model import (
@@ -28,28 +28,27 @@ class Column:
 # Grouped as in Configure Experiment: what the lock-in input measures, then the
 # Krohn-Hite channel in front of it, then the gain outside the instruments.
 CHANNEL_COLUMNS = [
-    # Signal order: sample -> Krohn-Hite -> gain outside the instruments -> lock-in AI.
-    # The AI number is the row header.
-    Column("electrode", "on KH +", True,
-           "Electrode cabled to the Krohn-Hite + input (or straight to the AI when KH # is none)", "Sample"),
-    Column("minus", "on KH −", True,
-           "What the Krohn-Hite − input is cabled to: an AO (normal cabling), GND, n.c., "
-           "or a second electrode to measure a difference", "Sample"),
-    Column("kh", "KH #", True, "Krohn-Hite channel whose output goes to this AI (A1..A8, B1..), or none",
-           "Krohn-Hite"),
-    Column("input", "Config", False, "Input mode, derived from Type and what is on the − input",
-           "Krohn-Hite"),
+    # One row per lock-in AI (the row header). The standard channel n is
+    # AI n = AO n = KH channel n; anything else is shown as an exception.
+    Column("electrode", "Electrode", True,
+           "Device pad cabled to the Krohn-Hite + input (or straight to the AI when KH # is none)", "Device"),
+    Column("kh", "KH #", True, "Krohn-Hite channel whose output goes to this AI. Standard: channel n", "Krohn-Hite"),
+    Column("minus", "\u2212 input", True,
+           "What the Krohn-Hite \u2212 input is cabled to. Standard: the DAC, AO n. Also GND, n.c., "
+           "or a second pad to measure a difference", "Krohn-Hite"),
+    Column("input", "Config", False, "Input mode, derived from Type and the \u2212 input", "Krohn-Hite"),
     Column("kh_gain", "Gain", True, "Krohn-Hite gain", "Krohn-Hite"),
-    Column("shunt", "Shunt", True, "Shunt resistor between the − and + inputs; only used by U rows",
+    Column("shunt", "R_sh", True, "Shunt resistor between the \u2212 and + inputs; only used by U rows",
            "Krohn-Hite"),
     Column("couple", "Couple", True, "AC or DC coupling", "Krohn-Hite"),
     Column("filter", "Filter", True, "Bandwidth filter", "Krohn-Hite"),
     Column("ext_gain", "Ext. gain", True,
-           "Gain between the Krohn-Hite (or the sample) and the AI, e.g. SR830: 10 V / sensitivity", "Other"),
-    Column("type", "Type", True, "U: sourced through the shunt; V: voltage; n.c.; Ground", "Lock-in"),
-    Column("role", "Role", True, "Label the experiment VIs use to find channels (I+, V1+, Vbg, ...)", "Lock-in"),
-    Column("name", "Name", False, "Derived: U<e>, V<e>, dV<e>-<reference>", "Lock-in"),
+           "Gain between the Krohn-Hite (or the pad) and the ADC, e.g. SR830: 10 V / sensitivity", "Lock-in"),
     Column("lockin_gain", "Total gain", False, "KH gain x external gain, sent to the lock-in", "Lock-in"),
+    Column("type", "Type", True, "U: sourced through R_sh; V: voltage; n.c.; Ground", "Measurement"),
+    Column("role", "Role", True, "Label the experiment VIs use to find channels (I+, V1+, Vbg, ...)",
+           "Measurement"),
+    Column("name", "Name", False, "Derived: U<e>, V<e>, dV<e>-<second pad>", "Measurement"),
 ]
 
 OUTPUT_COLUMNS = [
@@ -59,8 +58,9 @@ OUTPUT_COLUMNS = [
     Column("electrode", "Electrode", True, "Electrode it drives when it does not go through a KH channel"),
 ]
 
-GROUP_TINT = {"Sample": QColor(252, 250, 240), "Krohn-Hite": QColor(243, 251, 247),
-              "Other": QColor(255, 248, 243), "Lock-in": QColor(246, 248, 255)}
+GROUP_TINT = {"Device": QColor(252, 250, 240), "Krohn-Hite": QColor(243, 251, 247),
+              "Lock-in": QColor(246, 248, 255), "Measurement": QColor(250, 246, 252)}
+EXCEPTION_FG = QColor(20, 80, 200)
 ERROR_BG = QColor(255, 205, 205)
 WARN_BG = QColor(255, 236, 190)
 MISMATCH_BG = QColor(255, 220, 160)
@@ -77,8 +77,28 @@ def reference_text(ch) -> str:
     return ch.minus
 
 
+def exception(ch, key: str) -> str:
+    """Why this cell differs from the standard channel (AI n = AO n = KH n), or ""."""
+    n = ch.ai
+    if key == "kh":
+        if ch.kh is None:
+            return "No Krohn-Hite: the pad goes straight to the ADC"
+        if ch.kh != n - 1:
+            return f"Standard would be KH {kh_label(n - 1)}"
+    if key == "minus" and ch.kh is not None:
+        if ch.minus == MINUS_AO and ch.ao != n:
+            return f"Standard would be AO {n}"
+        if ch.minus != MINUS_AO:
+            return f"Not the DAC: the \u2212 input is on {ch.minus}"
+    if key == "ext_gain" and ch.ext_gain != 1:
+        return "An external gain stage sits before the ADC"
+    return ""
+
+
 def choices(cfg: Config, key: str) -> tuple[list[str], bool]:
     """Options for a column's editor, and whether free text is allowed."""
+    if key == "electrode":
+        return [str(i) for i in range(1, cfg.experiment.pads + 1)], True
     if key == "type":
         return list(CHANNEL_TYPES), False
     if key == "shunt":
@@ -183,11 +203,18 @@ class ChannelModel(QAbstractTableModel):
             if key in ("kh", "input") and ch.ai in self.mismatch:
                 return QBrush(MISMATCH_BG)
             return QBrush(GROUP_TINT.get(col.group, QColor(255, 255, 255)))
+        why = exception(ch, key)
         if role == Qt.ForegroundRole:
+            if why:
+                return QBrush(EXCEPTION_FG)
             if not self._cell_editable(ch, key):
                 return QBrush(DERIVED_FG)
+        if role == Qt.FontRole and why:
+            f = QFont()
+            f.setBold(True)
+            return f
         if role == Qt.ToolTipRole:
-            parts = []
+            parts = [why] if why else []
             if issue:
                 parts.append(f"[{issue.code}] {issue.message}")
             if key in ("kh", "input") and ch.ai in self.mismatch:
