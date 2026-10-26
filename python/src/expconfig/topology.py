@@ -25,15 +25,25 @@ def build(cfg: Config) -> dict:
     def edge(a: str, b: str, kind: str = "cable", **attrs) -> None:
         edges.append({"from": a, "to": b, "kind": kind, **attrs})
 
+    # An AO with gain != 1 has an amplifier between it and the device. When a
+    # U row sources through a KH channel from that AO, the amplifier sits after
+    # the KH (AO -> KH - / shunt / + -> amp -> electrode); otherwise it is
+    # AO -> amp -> electrode directly.
+    via_kh = {c.ao for c in cfg.channels
+              if c.kh is not None and c.type == "U" and c.minus == MINUS_AO and c.ao is not None}
+    amps: dict[int, str] = {}
     for o in cfg.outputs:
         ao = node(f"ao:{o.ao}", "ao", channel=o.ao, name=o.name)
-        if o.gain != 1 or o.electrode:
-            stage = ao
-            if o.gain != 1:
-                stage = node(f"amp:ao{o.ao}", "gain", gain=o.gain, note="between AO and device")
-                edge(ao, stage)
-            if o.electrode:
-                edge(stage, node(f"electrode:{o.electrode}", "electrode", name=o.electrode))
+        if o.gain != 1:
+            amps[o.ao] = node(f"amp:ao{o.ao}", "gain", gain=o.gain, note="between AO and device")
+        if o.ao in via_kh:
+            continue
+        stage = ao
+        if o.ao in amps:
+            edge(ao, amps[o.ao])
+            stage = amps[o.ao]
+        if o.electrode:
+            edge(stage, node(f"electrode:{o.electrode}", "electrode", name=o.electrode))
 
     for ch in cfg.channels:
         if ch.type in ("n.c.",) and not ch.electrode:
@@ -57,7 +67,11 @@ def build(cfg: Config) -> dict:
         m = node(f"kh:{k}:-", "kh_input", kh=k, terminal="-")
         out = node(f"kh:{k}:out", "kh_output", kh=k, input=ch.input, gain=ch.kh_gain,
                    shunt=ch.shunt, couple=ch.couple, filter=ch.filter)
-        if plus:
+        amp = amps.get(ch.ao) if ch.type == "U" and ch.minus == MINUS_AO else None
+        if plus and amp:
+            edge(plus, amp)
+            edge(amp, p)
+        elif plus:
             edge(plus, p)
         if ch.minus == MINUS_AO:
             if ch.ao is not None:

@@ -50,3 +50,13 @@ def test_topology_answers_what_an_ai_measures():
     amp = next(n for n in g["nodes"] if n["id"] == "amp:ao4")
     assert amp["gain"] == 25
     assert {"from": "amp:ao4", "to": "electrode:gate", "kind": "cable"} in g["edges"]
+
+
+def test_backgate_amplifier_sits_after_the_kh():
+    from expconfig.demo import demo_config
+    cfg = demo_config()  # AI 4: U on gate via A4 from AO 4, AO 4 gain 25
+    g = topology.build(cfg)
+    assert {"from": "electrode:gate", "to": "amp:ao4", "kind": "cable"} in g["edges"]
+    assert {"from": "amp:ao4", "to": "kh:A4:+", "kind": "cable"} in g["edges"]
+    assert {"from": "ao:4", "to": "kh:A4:-", "kind": "cable"} in g["edges"]
+    assert topology.path_to_ai(g, 4) == ["electrode:gate"]
