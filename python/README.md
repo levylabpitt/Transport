@@ -27,6 +27,7 @@ uv run expconfig --demo
 | `rpc.py` | JSON-RPC 2.0 over ZMQ REQ/REP, the Instrument Framework protocol (same as FLEX `flex.inst.base`) |
 | `instruments.py`, `hardware.py` | KH 7008 and lock-in clients; rows to `setAllChannels` and gain lists; apply, read back, mismatches, adopt |
 | `sim.py` | Simulated KH chassis and lock-in |
+| `db.py` | Lab database: user and station lookups, measurement record (credentials from pgpass) |
 | `app.py`, `tablemodels.py`, `wiringview.py` | The PySide6 application |
 
 ## Remote API (for FLEX)
@@ -63,4 +64,5 @@ hardware.Rig(cfg).apply(cfg)    # writes the KH and lock-in, returns the read-ba
 
 - **Multiple KH chassis** are assumed to be one server address each (A = first). Check how the LabVIEW side addresses chassis B.
 - **Untested against LabVIEW.** Writing `Control Experiment.json` keeps every key LabVIEW reads, but whether `JSON to Control Experiment Class.vi` tolerates the added keys has not been tried. The app refuses to overwrite the file with a configuration that has no instrument classes.
+- **Database:** the app reads `db.levylab.org` at startup for the dropdowns (`--no-db` to skip). It writes only on "Log measurement", after confirmation. `EXPCONFIG_LIVE_DB=1 uv run pytest` adds a read-only test against the real database.
 - **Not yet handled:** the `non KH` electrode list (kept from the old file but not editable) and the database (PGSQL) fields.
