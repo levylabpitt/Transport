@@ -54,11 +54,26 @@ class WiringView(QWidget):
         self.selected_ai = ai
         self.update()
 
+    def _rows(self):
+        return [c for c in self.cfg.channels if not (c.type == "n.c." and not c.electrode)]
+
+    def _idle(self) -> str:
+        idle = [c.ai for c in self.cfg.channels if c.type == "n.c." and not c.electrode]
+        if not idle:
+            return ""
+        spans, start = [], idle[0]
+        for prev, cur in zip(idle, idle[1:] + [None]):
+            if cur != prev + 1:
+                spans.append(f"{start}" if start == prev else f"{start}-{prev}")
+                start = cur
+        return f"AI {', '.join(spans)}: not connected"
+
     def _outputs_shown(self):
         return [o for o in self.cfg.outputs if o.name or o.gain != 1 or o.electrode]
 
     def sizeHint(self) -> QSize:
-        h = PAD + len(self.cfg.channels) * STRIP_H + 30 + len(self._outputs_shown()) * OUT_H + PAD
+        h = PAD + len(self._rows()) * STRIP_H + (24 if self._idle() else 0) + 30 \
+            + len(self._outputs_shown()) * OUT_H + PAD
         return QSize(WIDTH, h)
 
     def minimumSizeHint(self) -> QSize:
@@ -66,8 +81,9 @@ class WiringView(QWidget):
 
     def mousePressEvent(self, ev):
         row = int((ev.position().y() - PAD) // STRIP_H)
-        if 0 <= row < len(self.cfg.channels):
-            self.rowClicked.emit(self.cfg.channels[row].ai)
+        rows = self._rows()
+        if 0 <= row < len(rows):
+            self.rowClicked.emit(rows[row].ai)
 
     # ---- drawing -------------------------------------------------------
 
@@ -103,9 +119,14 @@ class WiringView(QWidget):
         f.setPointSizeF(8.5)
         p.setFont(f)
         y = PAD
-        for ch in self.cfg.channels:
+        for ch in self._rows():
             self._strip(p, ch, y)
             y += STRIP_H
+        idle = self._idle()
+        if idle:
+            p.setPen(QColor(120, 120, 120))
+            p.drawText(QRectF(COL_PLUS, y + 2, WIDTH, 20), Qt.AlignLeft | Qt.AlignVCenter, idle)
+            y += 24
         outs = self._outputs_shown()
         if outs:
             p.setPen(QColor(80, 80, 80))

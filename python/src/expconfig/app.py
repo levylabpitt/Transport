@@ -12,7 +12,7 @@ from pathlib import Path
 from PySide6.QtCore import QModelIndex, QObject, Qt, QTimer, Signal
 from PySide6.QtGui import QAction, QFont, QKeySequence
 from PySide6.QtWidgets import (
-    QAbstractItemView, QApplication, QComboBox, QFileDialog, QFormLayout, QGroupBox, QHBoxLayout,
+    QAbstractItemView, QApplication, QComboBox, QFileDialog, QFormLayout, QGridLayout, QGroupBox, QHBoxLayout,
     QHeaderView, QLabel, QLineEdit, QListWidget, QListWidgetItem, QMainWindow, QMessageBox,
     QPlainTextEdit, QScrollArea, QSpinBox, QSplitter, QStyledItemDelegate, QTableView, QTabWidget,
     QVBoxLayout, QWidget,
@@ -23,7 +23,9 @@ import threading
 from . import db, hardware, legacy, rules, service, sim, topology
 from .demo import demo_config
 from .model import KH_COUPLINGS, KH_FILTERS, KH_OVERRIDES, KH_SHUNTS, Config
-from .tablemodels import CHANNEL_COLUMNS, ChannelModel, OutputModel, choices
+from .groupheader import GroupHeader
+from .sampleview import SampleView
+from .tablemodels import CHANNEL_COLUMNS, GROUP_TINT, ChannelModel, OutputModel, choices
 from .wiringview import WiringView
 
 
@@ -123,8 +125,10 @@ class ChoiceEdit(QComboBox):
 
 class MainWindow(QMainWindow):
     lookupsReady = Signal(object)
+    instrumentsReady = Signal(object)
 
-    def __init__(self, cfg: Config, source: str, api_port: int = 0, db_settings: db.DbSettings | None = None):
+    def __init__(self, cfg: Config, source: str, api_port: int = 0, db_settings: db.DbSettings | None = None,
+                 query_instruments: bool = False):
         super().__init__()
         self.cfg = cfg
         self.source = source
@@ -143,6 +147,7 @@ class MainWindow(QMainWindow):
         lv.addLayout(self._setall_bar())
 
         self.table = QTableView()
+        self.table.setHorizontalHeader(GroupHeader([c.group for c in CHANNEL_COLUMNS], GROUP_TINT))
         self.table.setModel(self.channel_model)
         self.table.setItemDelegate(ChoiceDelegate(self))
         self.table.setEditTriggers(QAbstractItemView.DoubleClicked | QAbstractItemView.SelectedClicked
@@ -151,7 +156,8 @@ class MainWindow(QMainWindow):
         self.table.setSelectionMode(QAbstractItemView.SingleSelection)
         self.table.verticalHeader().setVisible(False)
         self.table.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeToContents)
-        self.table.horizontalHeader().setStretchLastSection(True)
+        self.table.horizontalHeader().setMinimumSectionSize(44)
+        self.table.verticalHeader().setDefaultSectionSize(24)
         self.table.selectionModel().currentRowChanged.connect(self._row_selected)
 
         self.outputs = QTableView()
@@ -175,7 +181,7 @@ class MainWindow(QMainWindow):
         QVBoxLayout(cg).addWidget(self.table)
         tables.addWidget(cg)
         tables.addWidget(bottom)
-        tables.setSizes([560, 220])
+        tables.setSizes([640, 170])
         lv.addWidget(tables, 1)
 
         # --- right: wiring view, machine view, log ---
@@ -187,15 +193,21 @@ class MainWindow(QMainWindow):
         self.machine = QPlainTextEdit(readOnly=True)
         self.machine.setFont(QFont("Consolas", 9))
         self.log = QPlainTextEdit(readOnly=True)
+        self.sample = SampleView(cfg)
+        self.sample.rowClicked.connect(self._select_ai)
+        sample_scroll = QScrollArea()
+        sample_scroll.setWidget(self.sample)
+        sample_scroll.setWidgetResizable(True)
         self.tabs = QTabWidget()
-        self.tabs.addTab(scroll, "Wiring")
+        self.tabs.addTab(scroll, "Wiring (per AI)")
+        self.tabs.addTab(sample_scroll, "Sample (per electrode)")
         self.tabs.addTab(self.machine, "Machine view (topology JSON)")
         self.tabs.addTab(self.log, "Instrument log")
 
         split = QSplitter(Qt.Horizontal)
         split.addWidget(left)
         split.addWidget(self.tabs)
-        split.setSizes([880, 620])
+        split.setSizes([930, 570])
         self.setCentralWidget(split)
         self._actions()
         self.changed()
@@ -210,6 +222,37 @@ class MainWindow(QMainWindow):
             self.db_label.setText("loading…")
             threading.Thread(target=lambda: self.lookupsReady.emit(db.lookups(db_settings)),
                              daemon=True).start()
+        self.instrumentsReady.connect(self._instruments_ready)
+        if query_instruments:
+            self.conn.setText("querying…")
+            cfg_copy = copy.deepcopy(cfg)
+
+            def query():
+                rig = hardware.Rig(cfg_copy, timeout=2.0)
+                try:
+                    self.instrumentsReady.emit(rig.read())
+                finally:
+                    rig.close()
+            threading.Thread(target=query, daemon=True).start()
+
+    def _instruments_ready(self, rb: hardware.Readback) -> None:
+        self._show_readback(rb, "Startup read")
+
+    def _adopt_counts(self, rb: hardware.Readback) -> None:
+        """The table has as many rows as the lock-in has inputs and outputs."""
+        if not rb.input_gain:
+            return
+        n_ai, n_ao = len(rb.input_gain), len(rb.output_gain)
+        for w, v in ((self.n_ai, n_ai), (self.n_ao, n_ao)):
+            w.blockSignals(True)
+            w.setValue(v)
+            w.setEnabled(False)
+            w.setToolTip("Read from the lock-in")
+            w.blockSignals(False)
+        if (n_ai, n_ao) != (len(self.cfg.channels), len(self.cfg.outputs)):
+            self.log.appendPlainText(f"Table resized to the lock-in: {n_ai} AI, {n_ao} AO "
+                                     f"(was {len(self.cfg.channels)} AI, {len(self.cfg.outputs)} AO)")
+            self._resize()
 
     def _lookups_ready(self, lk: db.Lookups) -> None:
         self.lookups = lk
@@ -261,23 +304,28 @@ class MainWindow(QMainWindow):
         h.setContentsMargins(0, 0, 0, 0)
         e = self.cfg.experiment
         eg = QGroupBox("Experiment")
-        ef = QFormLayout(eg)
+        grid = QGridLayout(eg)
+        grid.setContentsMargins(8, 4, 8, 6)
+        grid.setVerticalSpacing(4)
         self.ed = {}
-        for key, label in (("sample", "Sample"), ("device", "Device"), ("user", "User"),
-                           ("description", "Description"), ("path", "Data path"),
-                           ("station_type", "Station type"), ("station", "Station")):
-            if key in ("user", "station_type", "station"):
-                le = ChoiceEdit(getattr(e, key))
-                le.committed.connect(lambda t, k=key: self._exp_edit(k, t))
-            else:
-                le = QLineEdit(getattr(e, key))
-                le.editingFinished.connect(lambda k=key, le=le: self._exp_edit(k, le.text()))
-            ef.addRow(label, le)
-            self.ed[key] = le
+        layout = (
+            (("sample", "Sample"), ("device", "Device"), ("user", "User")),
+            (("station_type", "Station type"), ("station", "Station"), ("path", "Data path")),
+        )
+        for r, row in enumerate(layout):
+            for c, (key, label) in enumerate(row):
+                grid.addWidget(QLabel(label), r, 2 * c)
+                grid.addWidget(self._exp_field(key, getattr(e, key)), r, 2 * c + 1)
+        grid.addWidget(QLabel("Description"), 2, 0)
+        grid.addWidget(self._exp_field("description", e.description), 2, 1, 1, 5)
+        for c in (1, 3, 5):
+            grid.setColumnStretch(c, 1)
         h.addWidget(eg, 3)
 
         ig = QGroupBox("Instruments")
         f = QFormLayout(ig)
+        f.setContentsMargins(8, 4, 8, 6)
+        f.setVerticalSpacing(3)
         self.kh_addr = QLineEdit(", ".join(self.cfg.instruments.kh_addresses))
         self.kh_addr.setToolTip("One ZMQ address per Krohn-Hite chassis: A, B, ...")
         self.kh_addr.editingFinished.connect(self._instruments_edit)
@@ -285,31 +333,41 @@ class MainWindow(QMainWindow):
         self.lockin_addr.editingFinished.connect(self._instruments_edit)
         self.n_ai = QSpinBox(minimum=1, maximum=64, value=len(self.cfg.channels))
         self.n_ao = QSpinBox(minimum=0, maximum=64, value=len(self.cfg.outputs))
-        self.n_ai.valueChanged.connect(self._resize)
-        self.n_ao.valueChanged.connect(self._resize)
+        for sb in (self.n_ai, self.n_ao):
+            sb.setToolTip("Set from the lock-in when it is reachable")
+            sb.valueChanged.connect(self._resize)
         self.default_shunt = QComboBox()
         self.default_shunt.addItems(KH_SHUNTS[1:])
         self.default_shunt.setCurrentText(self.cfg.default_shunt)
+        self.default_shunt.setToolTip("Shunt given to a row when its type becomes U")
         self.default_shunt.currentTextChanged.connect(lambda t: setattr(self.cfg, "default_shunt", t))
         counts = QHBoxLayout()
-        counts.addWidget(QLabel("AI"))
-        counts.addWidget(self.n_ai)
-        counts.addWidget(QLabel("AO"))
-        counts.addWidget(self.n_ao)
-        counts.addWidget(QLabel("default shunt"))
-        counts.addWidget(self.default_shunt)
-        f.addRow("KH chassis", self.kh_addr)
+        for lbl, wdg in (("AI", self.n_ai), ("AO", self.n_ao), ("default shunt", self.default_shunt)):
+            counts.addWidget(QLabel(lbl))
+            counts.addWidget(wdg)
+        counts.addStretch(1)
+        f.addRow("Krohn-Hite", self.kh_addr)
         f.addRow("Lock-in", self.lockin_addr)
         f.addRow("Channels", counts)
         self.conn = QLabel("not connected")
-        f.addRow("Status", self.conn)
         self.api_label = QLabel("off")
         self.api_label.setToolTip("This app's own JSON-RPC server (getChannelConfig, setChannelConfig, ...)")
-        f.addRow("Remote API", self.api_label)
         self.db_label = QLabel("off")
-        f.addRow("Database", self.db_label)
+        for lbl, wdg in (("Status", self.conn), ("Remote API", self.api_label), ("Database", self.db_label)):
+            wdg.setTextInteractionFlags(Qt.TextSelectableByMouse)
+            f.addRow(lbl, wdg)
         h.addWidget(ig, 2)
         return w
+
+    def _exp_field(self, key: str, value: str) -> QWidget:
+        if key in ("user", "station_type", "station"):
+            le = ChoiceEdit(value)
+            le.committed.connect(lambda t, k=key: self._exp_edit(k, t))
+        else:
+            le = QLineEdit(value)
+            le.editingFinished.connect(lambda k=key, le=le: self._exp_edit(k, le.text()))
+        self.ed[key] = le
+        return le
 
     def _setall_bar(self) -> QHBoxLayout:
         bar = QHBoxLayout()
@@ -368,6 +426,7 @@ class MainWindow(QMainWindow):
     def changed(self) -> None:
         self.channel_model.refresh()
         self.wiring.set_config(self.cfg)
+        self.sample.set_config(self.cfg)
         found = rules.validate(self.cfg)
         self.issues.clear()
         for i in found:
@@ -421,11 +480,13 @@ class MainWindow(QMainWindow):
     def _row_selected(self, cur: QModelIndex, _prev):
         if cur.isValid():
             self.wiring.select(self.cfg.channels[cur.row()].ai)
+            self.sample.select(self.cfg.channels[cur.row()].ai)
 
     def _select_ai(self, ai: int):
         row = next(i for i, c in enumerate(self.cfg.channels) if c.ai == ai)
         self.table.selectRow(row)
         self.wiring.select(ai)
+        self.sample.select(ai)
 
     def _issue_clicked(self, item):
         ai = item.data(Qt.UserRole)
@@ -511,6 +572,7 @@ class MainWindow(QMainWindow):
             self._disconnect()
             self.statusBar().showMessage(f"{what} failed: {rb.errors[0]}")
             return
+        self._adopt_counts(rb)
         self.log.appendPlainText(f"{what}: KH {json.dumps(rb.kh)}")
         self.log.appendPlainText(f"{what}: input gain {rb.input_gain}, output gain {rb.output_gain}")
         mism = rb.mismatches(self.cfg)
@@ -617,6 +679,7 @@ def main(argv=None) -> None:
     ap.add_argument("--tab", type=int, default=0, help="right-hand tab to show")
     ap.add_argument("--screenshot", type=Path, help="render the window to this PNG and exit")
     ap.add_argument("--no-db", action="store_true", help="do not contact the lab database")
+    ap.add_argument("--offline", action="store_true", help="do not query the instruments at startup")
     ap.add_argument("--wait", type=int, default=300, help="ms to wait before --screenshot")
     ap.add_argument("--api-port", type=int, default=service.DEFAULT_PORT,
                     help=f"port for the remote API (default {service.DEFAULT_PORT}, 0 = off)")
@@ -629,7 +692,8 @@ def main(argv=None) -> None:
         cfg, source = demo_config(), "demo configuration"
     else:
         cfg, source = legacy.import_legacy(), str(legacy.DEFAULT_DIR)
-    w = MainWindow(cfg, source, api_port=a.api_port, db_settings=None if a.no_db else db.DbSettings())
+    w = MainWindow(cfg, source, api_port=a.api_port, db_settings=None if a.no_db else db.DbSettings(),
+                   query_instruments=not (a.offline or a.sim))
     if a.sim:
         w.start_sim()
         if a.apply:
