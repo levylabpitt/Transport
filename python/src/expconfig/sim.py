@@ -38,7 +38,8 @@ class SimKH:
             self.channels = sorted(copy.deepcopy(new), key=lambda p: p["channel"])
             return None
         if method == "getShuntResistor":
-            return {"ShuntResistor": self.shunts}
+            # The real server names the optional resistor fitted, as one string.
+            return {"ShuntResistor": "10M" if "500" not in self.shunts else ("500" if "10M" not in self.shunts else "")}
         if method == "getChassis":
             return {"Chassis": 1}
         raise RpcError(f"command not supported: {method}", 4001)

@@ -90,13 +90,24 @@ def test_adopt_pulls_gains_set_on_the_instruments(rig):
     khs[0].channels[0]["gain"] = "100"     # set on the KH
     changes = hardware.adopt(cfg, hardware.Rig(cfg).read())
     assert cfg.output(4).gain == 25 and cfg.channel(1).kh_gain == "100"
-    assert len(changes) == 2
+    assert len(changes) == 2  # A1 is OFF on the KH and the row is n.c.: gain adopted, nothing else
+
+
+def test_adopt_recovers_external_gain_and_skips_unconfigured_channels(rig):
+    cfg, khs, lockin = rig
+    cfg = rules.apply_entries(cfg, [{"AI": 1, "Type": "U", "Electrode": "1", "Shunt": "5k"},
+                                    {"AI": 2, "Type": "U", "Electrode": "2", "Shunt": "5k"}])
+    khs[0].channels[0].update(input="DIFF", gain="100", shunt="5k")   # A1 configured
+    lockin.input_gain[0] = 5000.0                                       # 100 x 50
+    hardware.adopt(cfg, hardware.Rig(cfg).read())
+    assert cfg.channel(1).kh_gain == "100" and cfg.channel(1).ext_gain == 50
+    assert cfg.channel(2).shunt == "5k"  # A2 is OFF on the KH: not adopted
 
 
 def test_shunt_not_fitted_is_reported():
     kh = [f"tcp://127.0.0.1:{free_port()}"]
     lk = f"tcp://127.0.0.1:{free_port()}"
-    servers, _, _ = sim.start(kh, lk, shunts=[["Open", "50", "5k"]])
+    servers, _, _ = sim.start(kh, lk, shunts=[["Open", "50", "5k", "50k", "10M"]])  # 10M fitted, no 500
     try:
         cfg = Config()
         cfg.instruments.kh_addresses, cfg.instruments.lockin_address = kh, lk
@@ -107,3 +118,9 @@ def test_shunt_not_fitted_is_reported():
     finally:
         for s in servers:
             s.stop()
+
+
+def test_available_shunts_from_the_real_reply_shape():
+    assert hardware.available_shunts("") is None
+    assert "10M" not in hardware.available_shunts("500")
+    assert "500" not in hardware.available_shunts("10M")

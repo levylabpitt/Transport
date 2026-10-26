@@ -5,7 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 
 from .instruments import KH7008, Lockin
-from .model import KH_CHANNELS_PER_CHASSIS, Config, kh_label
+from .model import KH_CHANNELS_PER_CHASSIS, KH_SHUNTS, Config, kh_label
 
 
 def kh_settings(cfg: Config, current: dict[int, list[dict]]) -> dict[int, list[dict]]:
@@ -44,6 +44,19 @@ def output_gains(cfg: Config, n: int) -> list[float]:
         if 1 <= o.ao <= n:
             gains[o.ao - 1] = o.gain
     return gains
+
+
+def available_shunts(reply) -> list[str] | None:
+    """getShuntResistor returns the optional resistor fitted in the chassis as one
+    string: "500" means the 10M position is not usable, anything else non-empty means
+    the 500 position is not (Configure Experiment, UI: Disable KH SR). "" = unknown."""
+    if isinstance(reply, list):
+        return [str(x) for x in reply] or None
+    fitted = str(reply or "").strip()
+    if not fitted:
+        return None
+    missing = "10M" if fitted == "500" else "500"
+    return [s for s in KH_SHUNTS if s != missing]
 
 
 @dataclass
@@ -92,17 +105,30 @@ def adopt(cfg: Config, rb: Readback) -> list[str]:
     lock-in output gains. Types, electrodes and roles are not touched. Returns what changed."""
     changes = []
     for ch in cfg.channels:
-        if ch.kh is None:
-            continue
-        chassis, idx = divmod(ch.kh, KH_CHANNELS_PER_CHASSIS)
-        p = next((p for p in rb.kh.get(chassis, []) if p.get("channel") == idx + 1), None)
-        if not p:
-            continue
-        for attr, key in (("kh_gain", "gain"), ("couple", "couple"), ("filter", "filter")) + (
-                (("shunt", "shunt"),) if ch.type == "U" else ()):
-            if str(p.get(key)) != getattr(ch, attr):
-                changes.append(f"AI {ch.ai}: {attr} {getattr(ch, attr)} -> {p.get(key)}")
-                setattr(ch, attr, str(p.get(key)))
+        p = None
+        if ch.kh is not None:
+            chassis, idx = divmod(ch.kh, KH_CHANNELS_PER_CHASSIS)
+            p = next((p for p in rb.kh.get(chassis, []) if p.get("channel") == idx + 1), None)
+            # A channel that is OFF on the KH while the row expects it on was never
+            # configured; its shunt and gain say nothing about the experiment.
+            if p and p.get("input") == "OFF" and ch.input != "OFF":
+                p = None
+        if p:
+            for attr, key in (("kh_gain", "gain"), ("couple", "couple"), ("filter", "filter")) + (
+                    (("shunt", "shunt"),) if ch.type == "U" else ()):
+                if str(p.get(key)) != getattr(ch, attr):
+                    changes.append(f"AI {ch.ai}: {attr} {getattr(ch, attr)} -> {p.get(key)}")
+                    setattr(ch, attr, str(p.get(key)))
+        # The lock-in input gain is KH gain x external gain, so an external gain the
+        # old Configure Experiment never saved can be recovered from it. Only for rows
+        # still at the default 1, and only gains above 1 (SR830, preamp): a ratio
+        # below 1 more likely means the KH gain was changed and the lock-in is stale.
+        if ch.ext_gain == 1 and ch.ai <= len(rb.input_gain):
+            kh_gain = float(ch.kh_gain) if ch.kh is not None else 1.0
+            ext = float(rb.input_gain[ch.ai - 1]) / kh_gain
+            if ext > 1 + 1e-9:
+                changes.append(f"AI {ch.ai}: ext_gain 1 -> {ext:g} (from the lock-in input gain)")
+                ch.ext_gain = ext
     for o in cfg.outputs:
         if o.ao <= len(rb.output_gain) and rb.output_gain[o.ao - 1] != o.gain:
             changes.append(f"AO {o.ao}: gain {o.gain:g} -> {rb.output_gain[o.ao - 1]:g}")
@@ -122,7 +148,9 @@ class Rig:
         for i, kh in enumerate(self.khs):
             try:
                 rb.kh[i] = kh.get_all_channels()
-                rb.shunts[i] = [str(x) for x in kh.get_shunt_resistors()]
+                avail = available_shunts(kh.get_shunt_resistors())
+                if avail is not None:
+                    rb.shunts[i] = avail
             except Exception as err:
                 rb.errors.append(f"KH {chr(65 + i)}: {err}")
         try:
