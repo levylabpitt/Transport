@@ -9,6 +9,7 @@ credentials live in this code or its config.
 
 from __future__ import annotations
 
+import hashlib
 import json
 from dataclasses import dataclass, field
 
@@ -19,9 +20,9 @@ DEFAULT_DBNAME = "levylab"
 # Roles that are not experimenters (DB Get Current Users.vi).
 NON_EXPERIMENTER_ROLES = ("InfoTech", "Support Staff, Lab Organizer")
 
-# Optional column for the wiring topology on the measurement table. The table does
-# not have it today; when someone adds it (jsonb), record_measurement fills it.
-WIRING_COLUMN = "wiring"
+# Each distinct wiring is stored once in public.wiring (an ordinary table, keyed
+# by a hash of its content); a measurement row in llab_001 points to it by wiring_id.
+WIRING_SCHEMA = "levylab.wiring/1"
 
 
 @dataclass
@@ -78,29 +79,64 @@ def lookups(settings: DbSettings, connect=_connect) -> Lookups:
         return Lookups(error=f"{type(err).__name__}: {err}".strip())
 
 
+def wiring_document(cfg) -> dict:
+    """What goes into public.wiring.wiring: the tables and the topology graph."""
+    from . import topology
+
+    return {
+        "schema": WIRING_SCHEMA,
+        "channels": [c.to_dict() for c in cfg.channels],
+        "outputs": [o.to_dict() for o in cfg.outputs],
+        "kh_override": cfg.kh_override,
+        "topology": topology.build(cfg),
+    }
+
+
+def wiring_hash(doc: dict) -> str:
+    """Content hash used to store an identical wiring only once."""
+    canonical = json.dumps(doc, sort_keys=True, separators=(",", ":"), ensure_ascii=False)
+    return hashlib.sha256(canonical.encode("utf-8")).hexdigest()
+
+
+_USER = "(SELECT user_id FROM public.users WHERE first_name = %(user)s LIMIT 1)"
+_STATION = "(SELECT station_id FROM public.stations WHERE name = %(station)s LIMIT 1)"
+
+
 def record_measurement(settings: DbSettings, *, user: str, station: str, device: str, measurement: str,
                        lockin_serial: str, kh_serial: str, wiring: dict | None = None,
-                       connect=_connect) -> None:
-    """Insert one measurement row (DB Set Measurement.vi). Empty strings become NULL."""
+                       connect=_connect) -> int | None:
+    """Insert one measurement row (DB Set Measurement.vi). Empty strings become NULL.
+
+    With a wiring document, it is stored in public.wiring unless an identical one is
+    already there, and the measurement row gets its wiring_id. Returns the wiring_id.
+    Both inserts are one transaction.
+    """
     def v(x):
         return x or None
 
-    cols = ["time", "user_id", "station_id", "device_id", "measurement_id", "lockin_id", "kh_id"]
-    vals = ["now()",
-            "(SELECT user_id FROM public.users WHERE first_name = %(user)s LIMIT 1)",
-            "(SELECT station_id FROM public.stations WHERE name = %(station)s LIMIT 1)",
-            "%(device)s", "%(measurement)s", "%(lockin)s", "%(kh)s"]
     params = {"user": v(user), "station": v(station), "device": v(device), "measurement": v(measurement),
-              "lockin": v(lockin_serial), "kh": v(kh_serial)}
+              "lockin": v(lockin_serial), "kh": v(kh_serial), "wiring_id": None}
     with connect(settings, settings.write_user) as conn:
         cur = conn.cursor()
         if wiring is not None:
-            cur.execute("SELECT 1 FROM information_schema.columns WHERE table_schema = 'public' "
-                        "AND table_name = 'llab_001' AND column_name = %s", (WIRING_COLUMN,))
-            if cur.fetchone():
-                cols.append(WIRING_COLUMN)
-                vals.append("%(wiring)s::jsonb")
+            cur.execute("SELECT to_regclass('public.wiring') IS NOT NULL")
+            row = cur.fetchone()
+            if row and row[0]:
+                params["sha256"] = wiring_hash(wiring)
                 params["wiring"] = json.dumps(wiring)
-        cur.execute(f'INSERT INTO public.llab_001 ({", ".join(chr(34) + c + chr(34) for c in cols)}) '
-                    f'VALUES ({", ".join(vals)})', params)
+                cur.execute(
+                    "INSERT INTO public.wiring (user_id, station_id, device_id, sha256, wiring) "
+                    f"VALUES ({_USER}, {_STATION}, %(device)s, %(sha256)s, %(wiring)s::jsonb) "
+                    "ON CONFLICT (sha256) DO NOTHING RETURNING wiring_id", params)
+                row = cur.fetchone()
+                if row is None:  # stored before
+                    cur.execute("SELECT wiring_id FROM public.wiring WHERE sha256 = %(sha256)s", params)
+                    row = cur.fetchone()
+                params["wiring_id"] = row[0] if row else None
+        cur.execute(
+            'INSERT INTO public.llab_001 ("time", user_id, station_id, device_id, measurement_id, '
+            "lockin_id, kh_id, wiring_id) "
+            f"VALUES (now(), {_USER}, {_STATION}, %(device)s, %(measurement)s, %(lockin)s, %(kh)s, "
+            "%(wiring_id)s)", params)
         conn.commit()
+    return params["wiring_id"]

@@ -582,8 +582,8 @@ class MainWindow(QMainWindow):
         if QMessageBox.question(self, "Log measurement", f"Insert into {target}?\n\n{text}") != QMessageBox.Yes:
             return
         try:
-            db.record_measurement(self.db_settings, wiring=topology.build(self.cfg), **values)
-            self.statusBar().showMessage("Measurement logged to the database")
+            wid = db.record_measurement(self.db_settings, wiring=db.wiring_document(self.cfg), **values)
+            self.statusBar().showMessage(f"Measurement logged to the database (wiring {wid})")
             self.log.appendPlainText(f"Database: logged {values}")
         except Exception as err:
             QMessageBox.warning(self, "Log measurement", f"Not logged:\n{err}")

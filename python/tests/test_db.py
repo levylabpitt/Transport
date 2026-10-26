@@ -23,16 +23,24 @@ class FakeCursor:
 
 
 class FakeConn:
-    def __init__(self, answers, has_wiring=False):
+    def __init__(self, answers, has_wiring_table=False, stored=None):
         self.answers = answers
-        self.has_wiring = has_wiring
+        self.has_wiring_table = has_wiring_table
+        self.stored = dict(stored or {})  # sha256 -> wiring_id, as in public.wiring
         self.log = []
         self.committed = False
         self.user = None
 
     def answer(self, sql, params):
-        if "information_schema.columns" in sql:
-            return [(1,)] if self.has_wiring else []
+        if "to_regclass('public.wiring')" in sql:
+            return [(self.has_wiring_table,)]
+        if sql.startswith("INSERT INTO public.wiring"):
+            if params["sha256"] in self.stored:
+                return []  # ON CONFLICT DO NOTHING returns no row
+            self.stored[params["sha256"]] = len(self.stored) + 1
+            return [(self.stored[params["sha256"]],)]
+        if sql.startswith("SELECT wiring_id FROM public.wiring"):
+            return [(self.stored[params["sha256"]],)]
         for key, rows in self.answers.items():
             if key in sql:
                 return rows
@@ -90,20 +98,41 @@ def test_record_measurement_uses_parameters_and_real_nulls():
     assert "Ana" not in sql  # values are parameters, never formatted into the SQL
     assert params["measurement"] is None and params["kh"] is None  # NULL, not the text 'NULL'
     assert conn.user == "llab_writer" and conn.committed
-    assert "wiring" not in sql  # no wiring passed
+    assert params["wiring_id"] is None  # no wiring passed
 
 
-def test_wiring_is_written_only_if_the_column_exists():
-    graph = {"schema": "levylab.topology/1", "nodes": [], "edges": []}
-    without = FakeConn({}, has_wiring=False)
-    db.record_measurement(db.DbSettings(), user="A", station="S", device="D", measurement="M",
-                          lockin_serial="L", kh_serial="K", wiring=graph, connect=connector(without))
-    assert '"wiring"' not in without.log[-1][0]
-    with_col = FakeConn({}, has_wiring=True)
-    db.record_measurement(db.DbSettings(), user="A", station="S", device="D", measurement="M",
-                          lockin_serial="L", kh_serial="K", wiring=graph, connect=connector(with_col))
-    sql, params = with_col.log[-1]
-    assert '"wiring"' in sql and json.loads(params["wiring"]) == graph
+def _record(conn, wiring):
+    return db.record_measurement(db.DbSettings(), user="A", station="S", device="D", measurement="M",
+                                 lockin_serial="L", kh_serial="K", wiring=wiring, connect=connector(conn))
+
+
+def test_wiring_is_stored_once_and_linked_from_the_measurement():
+    from expconfig.demo import demo_config
+    doc = db.wiring_document(demo_config())
+    conn = FakeConn({}, has_wiring_table=True)
+    assert _record(conn, doc) == 1
+    stored_sql, stored_params = next(e for e in conn.log if e[0].startswith("INSERT INTO public.wiring"))
+    assert json.loads(stored_params["wiring"]) == doc
+    assert stored_params["sha256"] == db.wiring_hash(doc)
+    assert conn.log[-1][1]["wiring_id"] == 1
+    # the same wiring again: no second copy, same id on the new measurement row
+    assert _record(conn, json.loads(json.dumps(doc))) == 1
+    assert len(conn.stored) == 1 and conn.log[-1][1]["wiring_id"] == 1
+    # a different wiring gets a new id
+    changed = demo_config()
+    changed.channels[0].electrode = "99"
+    assert _record(conn, db.wiring_document(changed)) == 2
+
+
+def test_no_wiring_table_means_no_wiring_id():
+    conn = FakeConn({}, has_wiring_table=False)
+    assert _record(conn, {"x": 1}) is None
+    assert conn.log[-1][0].startswith("INSERT INTO public.llab_001")
+    assert conn.log[-1][1]["wiring_id"] is None
+
+
+def test_hash_ignores_key_order():
+    assert db.wiring_hash({"a": 1, "b": [1, 2]}) == db.wiring_hash({"b": [1, 2], "a": 1})
 
 
 @pytest.mark.skipif(not os.environ.get("EXPCONFIG_LIVE_DB"), reason="set EXPCONFIG_LIVE_DB=1 to read the lab database")

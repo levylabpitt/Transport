@@ -88,11 +88,12 @@ Ported from `src\Control Experiment\subVIs\DB *.vi`; `db.py` in expconfig.
   - no foreign keys.
 
   `llab_001` is a hypertable of about 10k rows since 2025-05. It gets a row per CONFIRM, often several identical ones.
-- **Wiring in the database (proposal sent to the admin).** A separate table, not a column on `llab_001`: `public.wirings (wiring_id serial PK, created, user_id, station_id, device_id, sha256 UNIQUE, wiring jsonb)`.
-  - Each distinct wiring is stored once.
-  - `llab_001` gets a nullable `wiring_id`.
-  - When the planned `devices` / `experiments` tables exist, `wirings` can reference them.
-  - expconfig currently writes a `wiring` column on `llab_001` if one exists. Switch it to the `wirings` table once that is created.
+- **Wiring in the database.** `public.wiring` (created 2026-10-26, an ordinary table, not a hypertable): `wiring_id serial PK, created, user_id, station_id, device_id, sha256 UNIQUE, wiring jsonb`. `llab_001` has a nullable `wiring_id`.
+  - "Log measurement" stores the wiring document (`levylab.wiring/1`: channels, outputs, override, topology graph, about 7 KB) unless one with the same hash is already there.
+  - It then inserts the `llab_001` row with that `wiring_id`. Both inserts are one transaction.
+  - Both statements were checked against the real database with `EXPLAIN` (no rows written).
+  - The sequence and constraints still carry the old name `wirings_*` from before the rename; this is harmless.
+  - `llab_001.wiring_id` is a plain integer, not a foreign key, like `user_id` and `station_id`.
 - **When to log.** Configure Experiment logs on every CONFIRM unless "I'm Finished Taking Data!" is set. expconfig logs only on "Log measurement", after showing the values. Decide whether Apply should log automatically.
 
 ## Launcher (LabVIEW, to build)
