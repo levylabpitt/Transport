@@ -154,7 +154,6 @@ class MainWindow(QMainWindow):
                                    | QAbstractItemView.EditKeyPressed | QAbstractItemView.AnyKeyPressed)
         self.table.setSelectionBehavior(QAbstractItemView.SelectRows)
         self.table.setSelectionMode(QAbstractItemView.SingleSelection)
-        self.table.verticalHeader().setVisible(False)
         self.table.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeToContents)
         self.table.horizontalHeader().setMinimumSectionSize(44)
         self.table.verticalHeader().setDefaultSectionSize(24)

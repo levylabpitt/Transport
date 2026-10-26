@@ -28,23 +28,28 @@ class Column:
 # Grouped as in Configure Experiment: what the lock-in input measures, then the
 # Krohn-Hite channel in front of it, then the gain outside the instruments.
 CHANNEL_COLUMNS = [
-    Column("ai", "AI", False, "Lock-in analog input: the data columns AIn, Xn, Yn", "Lock-in"),
-    Column("electrode", "Electrode", True, "Electrode cabled to the Krohn-Hite + input", "Lock-in"),
-    Column("minus", "Reference", True,
-           "What the Krohn-Hite - input is cabled to: an AO (normal cabling), GND, n.c., "
-           "or a second electrode to measure a difference", "Lock-in"),
+    # Signal order: sample -> Krohn-Hite -> gain outside the instruments -> lock-in AI.
+    # The AI number is the row header.
+    Column("electrode", "on KH +", True,
+           "Electrode cabled to the Krohn-Hite + input (or straight to the AI when KH # is none)", "Sample"),
+    Column("minus", "on KH −", True,
+           "What the Krohn-Hite − input is cabled to: an AO (normal cabling), GND, n.c., "
+           "or a second electrode to measure a difference", "Sample"),
+    Column("kh", "KH #", True, "Krohn-Hite channel whose output goes to this AI (A1..A8, B1..), or none",
+           "Krohn-Hite"),
+    Column("input", "Config", False, "Input mode, derived from Type and what is on the − input",
+           "Krohn-Hite"),
+    Column("kh_gain", "Gain", True, "Krohn-Hite gain", "Krohn-Hite"),
+    Column("shunt", "Shunt", True, "Shunt resistor between the − and + inputs; only used by U rows",
+           "Krohn-Hite"),
+    Column("couple", "Couple", True, "AC or DC coupling", "Krohn-Hite"),
+    Column("filter", "Filter", True, "Bandwidth filter", "Krohn-Hite"),
+    Column("ext_gain", "Ext. gain", True,
+           "Gain between the Krohn-Hite (or the sample) and the AI, e.g. SR830: 10 V / sensitivity", "Other"),
     Column("type", "Type", True, "U: sourced through the shunt; V: voltage; n.c.; Ground", "Lock-in"),
     Column("role", "Role", True, "Label the experiment VIs use to find channels (I+, V1+, Vbg, ...)", "Lock-in"),
     Column("name", "Name", False, "Derived: U<e>, V<e>, dV<e>-<reference>", "Lock-in"),
-    Column("kh", "KH #", True, "Krohn-Hite channel cabled to this AI (A1..A8, B1..), or none", "Krohn-Hite"),
-    Column("input", "Config", False, "Krohn-Hite input mode, derived from Type and Reference", "Krohn-Hite"),
-    Column("kh_gain", "Gain", True, "Krohn-Hite gain", "Krohn-Hite"),
-    Column("shunt", "Shunt", True, "Shunt resistor; only used by U rows", "Krohn-Hite"),
-    Column("couple", "Couple", True, "AC or DC coupling", "Krohn-Hite"),
-    Column("filter", "Filter", True, "Bandwidth filter", "Krohn-Hite"),
-    Column("ext_gain", "Ext. gain", True, "Gain between the source and the AI (e.g. SR830: 10 V / sensitivity)",
-           "Other"),
-    Column("lockin_gain", "Total", False, "KH gain x external gain, sent to the lock-in", "Other"),
+    Column("lockin_gain", "Total gain", False, "KH gain x external gain, sent to the lock-in", "Lock-in"),
 ]
 
 OUTPUT_COLUMNS = [
@@ -54,7 +59,8 @@ OUTPUT_COLUMNS = [
     Column("electrode", "Electrode", True, "Electrode it drives when it does not go through a KH channel"),
 ]
 
-GROUP_TINT = {"Lock-in": QColor(246, 248, 255), "Krohn-Hite": QColor(243, 251, 247), "Other": QColor(255, 248, 243)}
+GROUP_TINT = {"Sample": QColor(252, 250, 240), "Krohn-Hite": QColor(243, 251, 247),
+              "Other": QColor(255, 248, 243), "Lock-in": QColor(246, 248, 255)}
 ERROR_BG = QColor(255, 205, 205)
 WARN_BG = QColor(255, 236, 190)
 MISMATCH_BG = QColor(255, 220, 160)
@@ -129,6 +135,10 @@ class ChannelModel(QAbstractTableModel):
                 return CHANNEL_COLUMNS[section].title
             if role == Qt.ToolTipRole:
                 return CHANNEL_COLUMNS[section].tip
+        elif role == Qt.DisplayRole and section < len(self.cfg.channels):
+            return f"AI {self.cfg.channels[section].ai}"
+        elif role == Qt.ToolTipRole:
+            return "Lock-in analog input: data columns AIn, Xn, Yn"
         return None
 
     def _cell_editable(self, ch, key: str) -> bool:
@@ -183,7 +193,7 @@ class ChannelModel(QAbstractTableModel):
             if key in ("kh", "input") and ch.ai in self.mismatch:
                 parts.append(self.mismatch[ch.ai])
             return "\n".join(parts) or col.tip
-        if role == Qt.TextAlignmentRole and key in ("ai", "ext_gain", "lockin_gain"):
+        if role == Qt.TextAlignmentRole and key in ("ext_gain", "lockin_gain"):
             return int(Qt.AlignRight | Qt.AlignVCenter)
         return None
 
