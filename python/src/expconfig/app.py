@@ -227,10 +227,13 @@ class MainWindow(QMainWindow):
         act("Save as…", self.save_as, "Ctrl+Shift+S")
         act("Write Control Experiment.json", self.save_legacy,
             tip="Write the file Transport and FLEX read")
+        act("Export topology…", self.export_topology, tip="Save the wiring graph as JSON")
         tb.addSeparator()
         act("Read back", self.read_back, "F5", "Read the KH channels and lock-in gains")
         self.apply_action = act("Apply to instruments", self.apply, "Ctrl+Return",
                                 "Write KH channels and lock-in gains, then read back")
+        act("Adopt instrument state", self.adopt,
+            tip="Copy KH gain/shunt/coupling/filter and lock-in output gains into the table")
         tb.addSeparator()
         act("Simulated instruments", self.start_sim, tip="Start simulated KH + lock-in on free ports")
 
@@ -338,8 +341,20 @@ class MainWindow(QMainWindow):
             p = legacy.save(self.cfg, Path(d))
             self.statusBar().showMessage(f"Wrote {p}")
 
+    def export_topology(self):
+        path, _ = QFileDialog.getSaveFileName(self, "Export topology", "topology.json", "JSON (*.json)")
+        if path:
+            Path(path).write_text(json.dumps(topology.build(self.cfg), indent=1), encoding="utf-8")
+            self.statusBar().showMessage(f"Wrote {path}")
+
     def save_legacy(self):
         target = legacy.DEFAULT_DIR / legacy.JSON_NAME
+        if legacy.missing_instruments(self.cfg):
+            QMessageBox.warning(self, "Write configuration",
+                                "This configuration has no instrument classes (it was not imported from "
+                                "Configure Experiment). Transport needs them, so it will not replace "
+                                f"{target}.\n\nImport from Configure Experiment first, or use Save as.")
+            return
         if QMessageBox.question(self, "Write configuration",
                                 f"Overwrite {target}?\n\nTransport (prepareTransport) and FLEX read this file.") \
                 != QMessageBox.Yes:
@@ -401,6 +416,23 @@ class MainWindow(QMainWindow):
             self._disconnect()
         finally:
             QApplication.restoreOverrideCursor()
+
+    def adopt(self):
+        QApplication.setOverrideCursor(Qt.WaitCursor)
+        try:
+            rb = self._rig().read()
+        finally:
+            QApplication.restoreOverrideCursor()
+        if rb.errors:
+            self._show_readback(rb, "Adopt")
+            return
+        changes = hardware.adopt(self.cfg, rb)
+        rules.derive_all(self.cfg)
+        for c in changes:
+            self.log.appendPlainText(f"Adopted {c}")
+        self.output_model.layoutChanged.emit()
+        self._show_readback(rb, "Adopt")
+        self.statusBar().showMessage(f"Adopted {len(changes)} settings from the instruments")
 
     def start_sim(self):
         n_ai, n_ao = len(self.cfg.channels), len(self.cfg.outputs)

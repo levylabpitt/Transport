@@ -17,6 +17,8 @@ from datetime import datetime
 from pathlib import Path
 
 from . import rules, topology
+from dataclasses import asdict
+
 from .model import (
     ROLE_STRINGS, Channel, Config, Experiment, Instruments, Output, parse_kh_label,
 )
@@ -85,6 +87,13 @@ def import_legacy(directory: Path = DEFAULT_DIR) -> Config:
         if raw.get("Channels"):
             cfg.channels = [Channel.from_dict(d) for d in raw["Channels"]]
             cfg.outputs = [Output.from_dict(d) for d in raw.get("Outputs", [])]
+            own = raw.get("Configurator", {})
+            if "experiment" in own:
+                cfg.experiment = Experiment(**own["experiment"])
+            if "instruments" in own:
+                cfg.instruments = Instruments(**own["instruments"])
+            cfg.kh_override = own.get("kh_override", cfg.kh_override)
+            cfg.default_shunt = own.get("default_shunt", cfg.default_shunt)
             return rules.derive_all(cfg)
 
     ini_path = directory / INI_NAME
@@ -161,6 +170,10 @@ def export_json(cfg: Config) -> dict:
     out["Channels"] = channels
     out["Outputs"] = outputs
     out["Topology"] = graph
+    out["Configurator"] = {
+        "experiment": asdict(e), "instruments": asdict(cfg.instruments),
+        "kh_override": cfg.kh_override, "default_shunt": cfg.default_shunt,
+    }
     # The embedded "json" string becomes the TDMS <ControlExperiment> property.
     meta = {
         "Device": {
@@ -177,6 +190,12 @@ def export_json(cfg: Config) -> dict:
     }
     out["json"] = json.dumps(meta)
     return out
+
+
+def missing_instruments(cfg: Config) -> bool:
+    """True when the file would carry no instrument classes. Transport's
+    prepareTransport needs them, so such a file must not replace the real one."""
+    return not cfg.legacy.get("Experiment", {}).get("Instruments")
 
 
 def save(cfg: Config, directory: Path = DEFAULT_DIR) -> Path:

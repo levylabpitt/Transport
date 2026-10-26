@@ -65,9 +65,10 @@ class SimLockin:
         raise RpcError(f"command not supported: {method}", 4001)
 
 
-def start(kh_addresses: list[str], lockin_address: str, n_ai=8, n_ao=4):
-    """Start simulators; returns (servers, sim objects) so tests can inspect state."""
-    khs = [SimKH() for _ in kh_addresses]
+def start(kh_addresses: list[str], lockin_address: str, n_ai=8, n_ao=4, shunts=None):
+    """Start simulators; returns (servers, sim objects) so tests can inspect state.
+    shunts: optional list (one per chassis) of fitted shunt values."""
+    khs = [SimKH(shunts[i]) if shunts else SimKH() for i in range(len(kh_addresses))]
     lockin = SimLockin(n_ai, n_ao)
     servers = [Server(a, k.handle).start() for a, k in zip(kh_addresses, khs)]
     servers.append(Server(lockin_address, lockin.handle).start())

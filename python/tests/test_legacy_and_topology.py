@@ -60,3 +60,21 @@ def test_backgate_amplifier_sits_after_the_kh():
     assert {"from": "amp:ao4", "to": "kh:A4:+", "kind": "cable"} in g["edges"]
     assert {"from": "ao:4", "to": "kh:A4:-", "kind": "cable"} in g["edges"]
     assert topology.path_to_ai(g, 4) == ["electrode:gate"]
+
+
+def test_own_file_round_trips_experiment_and_instruments(tmp_path):
+    from expconfig.demo import demo_config
+    cfg = demo_config()
+    cfg.instruments.kh_addresses = ["tcp://a:1", "tcp://b:2"]
+    cfg.kh_override = "All Ground"
+    legacy.save(cfg, tmp_path)
+    again = legacy.import_legacy(tmp_path)
+    assert again.experiment == cfg.experiment
+    assert again.instruments == cfg.instruments
+    assert again.kh_override == "All Ground"
+    assert legacy.missing_instruments(again)  # demo has no instrument classes
+
+
+def test_imported_file_keeps_instrument_classes():
+    cfg = legacy.import_legacy(FIXTURES)
+    assert not legacy.missing_instruments(cfg)

@@ -82,3 +82,28 @@ def test_mismatch_reported_when_instrument_changed_behind_our_back(rig):
     r.apply(cfg)
     lockin.input_gain[1] = 7.0
     assert any("AI 2" in m for m in r.read().mismatches(cfg))
+
+
+def test_adopt_pulls_gains_set_on_the_instruments(rig):
+    cfg, khs, lockin = rig
+    lockin.output_gain[3] = 25.0           # set on the lock-in UI
+    khs[0].channels[0]["gain"] = "100"     # set on the KH
+    changes = hardware.adopt(cfg, hardware.Rig(cfg).read())
+    assert cfg.output(4).gain == 25 and cfg.channel(1).kh_gain == "100"
+    assert len(changes) == 2
+
+
+def test_shunt_not_fitted_is_reported():
+    kh = [f"tcp://127.0.0.1:{free_port()}"]
+    lk = f"tcp://127.0.0.1:{free_port()}"
+    servers, _, _ = sim.start(kh, lk, shunts=[["Open", "50", "5k"]])
+    try:
+        cfg = Config()
+        cfg.instruments.kh_addresses, cfg.instruments.lockin_address = kh, lk
+        cfg.resize(8, 8)
+        cfg = rules.apply_entries(cfg, [{"AI": 1, "Type": "U", "Electrode": "1", "Shunt": "500"}])
+        mism = hardware.Rig(cfg).read().mismatches(cfg)
+        assert any("500 not fitted" in m for m in mism)
+    finally:
+        for s in servers:
+            s.stop()
