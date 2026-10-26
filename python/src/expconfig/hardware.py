@@ -170,6 +170,11 @@ class Rig:
         self.lockin.set_output_gain(output_gains(cfg, len(before.output_gain)))
         return self.read()
 
+    def serials(self) -> tuple[str, list[str]]:
+        """Serial numbers from IDN, for the measurement record."""
+        return (str(self.lockin.idn().get("serial", "")),
+                [str(kh.idn().get("serial", "")) for kh in self.khs])
+
     def close(self) -> None:
         for kh in self.khs:
             kh.close()

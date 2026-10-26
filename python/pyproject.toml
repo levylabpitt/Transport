@@ -7,6 +7,7 @@ requires-python = ">=3.10"
 dependencies = [
     "pyzmq>=26",
     "PySide6>=6.8",
+    "psycopg[binary]>=3.2",
 ]
 
 [project.scripts]

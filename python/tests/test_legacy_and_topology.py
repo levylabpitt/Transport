@@ -78,3 +78,28 @@ def test_own_file_round_trips_experiment_and_instruments(tmp_path):
 def test_imported_file_keeps_instrument_classes():
     cfg = legacy.import_legacy(FIXTURES)
     assert not legacy.missing_instruments(cfg)
+
+
+def test_save_keeps_instrument_changes_made_on_disk_meanwhile(tmp_path):
+    import shutil
+    for f in FIXTURES.iterdir():
+        shutil.copy(f, tmp_path / f.name)
+    cfg = legacy.import_legacy(tmp_path)
+    # Transport (another writer) changes the instrument classes after we loaded
+    disk = json.loads((tmp_path / legacy.JSON_NAME).read_text(encoding="utf-8"))
+    disk["Experiment"]["Instruments"].append({"class path": "X.lvclass", "Address": "tcp://x:1", "Type": "Magnet"})
+    (tmp_path / legacy.JSON_NAME).write_text(json.dumps(disk), encoding="utf-8")
+    cfg.channels[0].electrode = "9"
+    legacy.save(cfg, tmp_path)
+    saved = json.loads((tmp_path / legacy.JSON_NAME).read_text(encoding="utf-8"))
+    assert saved["Experiment"]["Instruments"][-1]["Type"] == "Magnet"  # their change kept
+    assert saved["Channels"][0]["electrode"] == "9"                    # ours written
+
+
+def test_demo_may_write_when_the_file_already_has_instruments(tmp_path):
+    import shutil
+    from expconfig.demo import demo_config
+    for f in FIXTURES.iterdir():
+        shutil.copy(f, tmp_path / f.name)
+    assert not legacy.missing_instruments(demo_config(), tmp_path)
+    assert legacy.missing_instruments(demo_config(), tmp_path / "empty")

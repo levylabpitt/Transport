@@ -18,7 +18,9 @@ from PySide6.QtWidgets import (
     QVBoxLayout, QWidget,
 )
 
-from . import hardware, legacy, rules, service, sim, topology
+import threading
+
+from . import db, hardware, legacy, rules, service, sim, topology
 from .demo import demo_config
 from .model import KH_COUPLINGS, KH_FILTERS, KH_OVERRIDES, KH_SHUNTS, Config
 from .tablemodels import CHANNEL_COLUMNS, ChannelModel, OutputModel, choices
@@ -90,8 +92,39 @@ class _Bridge(QObject):
         return box.get("value")
 
 
+class ChoiceEdit(QComboBox):
+    """Editable combo box with a line-edit interface: choices from the database,
+    free text when the database is unreachable or the value is not listed."""
+
+    committed = Signal(str)
+
+    def __init__(self, text: str = ""):
+        super().__init__()
+        self.setEditable(True)
+        self.setInsertPolicy(QComboBox.NoInsert)
+        self.setEditText(text)
+        self.lineEdit().editingFinished.connect(lambda: self.committed.emit(self.currentText()))
+        self.activated.connect(lambda _i: self.committed.emit(self.currentText()))
+
+    def text(self) -> str:
+        return self.currentText().strip()
+
+    def setText(self, text: str) -> None:
+        self.setEditText(text)
+
+    def set_choices(self, items: list[str]) -> None:
+        keep = self.currentText()
+        self.blockSignals(True)
+        self.clear()
+        self.addItems(items)
+        self.setEditText(keep)
+        self.blockSignals(False)
+
+
 class MainWindow(QMainWindow):
-    def __init__(self, cfg: Config, source: str, api_port: int = 0):
+    lookupsReady = Signal(object)
+
+    def __init__(self, cfg: Config, source: str, api_port: int = 0, db_settings: db.DbSettings | None = None):
         super().__init__()
         self.cfg = cfg
         self.source = source
@@ -170,6 +203,26 @@ class MainWindow(QMainWindow):
         self.api = None
         if api_port:
             self._start_api(api_port)
+        self.db_settings = db_settings
+        self.lookups = db.Lookups(error="not loaded")
+        self.lookupsReady.connect(self._lookups_ready)
+        if db_settings:
+            self.db_label.setText("loading…")
+            threading.Thread(target=lambda: self.lookupsReady.emit(db.lookups(db_settings)),
+                             daemon=True).start()
+
+    def _lookups_ready(self, lk: db.Lookups) -> None:
+        self.lookups = lk
+        if lk.error:
+            self.db_label.setText("offline")
+            self.db_label.setToolTip(lk.error)
+            self.log.appendPlainText(f"Database: {lk.error}")
+            return
+        self.db_label.setText(f"{self.db_settings.host}: {len(lk.users)} users, "
+                              f"{sum(map(len, lk.stations.values()))} stations")
+        self.ed["user"].set_choices(lk.users)
+        self.ed["station_type"].set_choices(lk.station_types)
+        self.ed["station"].set_choices(lk.stations_of(self.cfg.experiment.station_type))
 
     def _start_api(self, port: int) -> None:
         bridge = _Bridge()
@@ -211,9 +264,14 @@ class MainWindow(QMainWindow):
         ef = QFormLayout(eg)
         self.ed = {}
         for key, label in (("sample", "Sample"), ("device", "Device"), ("user", "User"),
-                           ("description", "Description"), ("path", "Data path"), ("station", "Station")):
-            le = QLineEdit(getattr(e, key))
-            le.editingFinished.connect(lambda k=key, le=le: self._exp_edit(k, le.text()))
+                           ("description", "Description"), ("path", "Data path"),
+                           ("station_type", "Station type"), ("station", "Station")):
+            if key in ("user", "station_type", "station"):
+                le = ChoiceEdit(getattr(e, key))
+                le.committed.connect(lambda t, k=key: self._exp_edit(k, t))
+            else:
+                le = QLineEdit(getattr(e, key))
+                le.editingFinished.connect(lambda k=key, le=le: self._exp_edit(k, le.text()))
             ef.addRow(label, le)
             self.ed[key] = le
         h.addWidget(eg, 3)
@@ -248,6 +306,8 @@ class MainWindow(QMainWindow):
         self.api_label = QLabel("off")
         self.api_label.setToolTip("This app's own JSON-RPC server (getChannelConfig, setChannelConfig, ...)")
         f.addRow("Remote API", self.api_label)
+        self.db_label = QLabel("off")
+        f.addRow("Database", self.db_label)
         h.addWidget(ig, 2)
         return w
 
@@ -292,6 +352,8 @@ class MainWindow(QMainWindow):
         act("Write Control Experiment.json", self.save_legacy,
             tip="Write the file Transport and FLEX read")
         act("Export topology…", self.export_topology, tip="Save the wiring graph as JSON")
+        act("Log measurement…", self.log_measurement,
+            tip="Write this measurement (user, station, device, serials, wiring) to the lab database")
         tb.addSeparator()
         act("Read back", self.read_back, "F5", "Read the KH channels and lock-in gains")
         self.apply_action = act("Apply to instruments", self.apply, "Ctrl+Return",
@@ -323,7 +385,9 @@ class MainWindow(QMainWindow):
         self.machine.setPlainText(json.dumps(topology.build(self.cfg), indent=1))
 
     def _exp_edit(self, key, text):
-        setattr(self.cfg.experiment, key, text)
+        setattr(self.cfg.experiment, key, text.strip())
+        if key == "station_type" and not self.lookups.error:
+            self.ed["station"].set_choices(self.lookups.stations_of(text.strip()))
 
     def _instruments_edit(self):
         addrs = [a.strip() for a in self.kh_addr.text().split(",") if a.strip()]
@@ -413,7 +477,7 @@ class MainWindow(QMainWindow):
 
     def save_legacy(self):
         target = legacy.DEFAULT_DIR / legacy.JSON_NAME
-        if legacy.missing_instruments(self.cfg):
+        if legacy.missing_instruments(self.cfg, legacy.DEFAULT_DIR):
             QMessageBox.warning(self, "Write configuration",
                                 "This configuration has no instrument classes (it was not imported from "
                                 "Configure Experiment). Transport needs them, so it will not replace "
@@ -498,6 +562,32 @@ class MainWindow(QMainWindow):
         self._show_readback(rb, "Adopt")
         self.statusBar().showMessage(f"Adopted {len(changes)} settings from the instruments")
 
+    def log_measurement(self):
+        if not self.db_settings:
+            QMessageBox.information(self, "Log measurement", "The database is turned off (--no-db).")
+            return
+        e = self.cfg.experiment
+        try:
+            lockin_sn, kh_sns = self._rig().serials()
+        except Exception as err:
+            lockin_sn, kh_sns = "", []
+            self.log.appendPlainText(f"Serial numbers not read: {err}")
+        values = {
+            "user": e.user, "station": e.station, "device": e.device_name,
+            "measurement": str(Path(e.path) / e.device_name) if e.path else e.device_name,
+            "lockin_serial": lockin_sn, "kh_serial": ", ".join(kh_sns),
+        }
+        text = "\n".join(f"{k}: {v or '(empty, stored as NULL)'}" for k, v in values.items())
+        target = f"{self.db_settings.host}/{self.db_settings.dbname} (llab_001)"
+        if QMessageBox.question(self, "Log measurement", f"Insert into {target}?\n\n{text}") != QMessageBox.Yes:
+            return
+        try:
+            db.record_measurement(self.db_settings, wiring=topology.build(self.cfg), **values)
+            self.statusBar().showMessage("Measurement logged to the database")
+            self.log.appendPlainText(f"Database: logged {values}")
+        except Exception as err:
+            QMessageBox.warning(self, "Log measurement", f"Not logged:\n{err}")
+
     def start_sim(self):
         n_ai, n_ao = len(self.cfg.channels), len(self.cfg.outputs)
         kh = [f"tcp://127.0.0.1:{_free_port()}" for _ in self.cfg.instruments.kh_addresses]
@@ -526,6 +616,8 @@ def main(argv=None) -> None:
     ap.add_argument("--select", type=int, help="select this AI at startup")
     ap.add_argument("--tab", type=int, default=0, help="right-hand tab to show")
     ap.add_argument("--screenshot", type=Path, help="render the window to this PNG and exit")
+    ap.add_argument("--no-db", action="store_true", help="do not contact the lab database")
+    ap.add_argument("--wait", type=int, default=300, help="ms to wait before --screenshot")
     ap.add_argument("--api-port", type=int, default=service.DEFAULT_PORT,
                     help=f"port for the remote API (default {service.DEFAULT_PORT}, 0 = off)")
     a = ap.parse_args(argv)
@@ -537,7 +629,7 @@ def main(argv=None) -> None:
         cfg, source = demo_config(), "demo configuration"
     else:
         cfg, source = legacy.import_legacy(), str(legacy.DEFAULT_DIR)
-    w = MainWindow(cfg, source, api_port=a.api_port)
+    w = MainWindow(cfg, source, api_port=a.api_port, db_settings=None if a.no_db else db.DbSettings())
     if a.sim:
         w.start_sim()
         if a.apply:
@@ -550,7 +642,7 @@ def main(argv=None) -> None:
         def shot():
             w.grab().save(str(a.screenshot))
             app.quit()
-        QTimer.singleShot(300, shot)
+        QTimer.singleShot(a.wait, shot)
     sys.exit(app.exec())
 
 

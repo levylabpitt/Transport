@@ -17,6 +17,9 @@ class KH7008:
     def ack(self) -> None:
         self.rpc.call("ACK")
 
+    def idn(self) -> dict:
+        return self.rpc.call("IDN") or {}
+
     def get_all_channels(self) -> list[dict]:
         return self.rpc.call("getAllChannels")["allChannelProperties"]
 
@@ -38,6 +41,9 @@ class Lockin:
 
     def ack(self) -> None:
         self.rpc.call("ACK")
+
+    def idn(self) -> dict:
+        return self.rpc.call("IDN") or {}
 
     def get_input_gain(self) -> list[float]:
         return list(self.rpc.call("getInputGain"))

@@ -14,7 +14,8 @@ import time
 from .model import KH_COUPLINGS, KH_FILTERS, KH_GAINS, KH_INPUTS, KH_SHUNTS
 from .rpc import RpcError, Server
 
-_FRAMEWORK = {"ACK": lambda p: "ACK", "IDN": lambda p: {"Manufacturer": "Levylab", "Model": "simulated"}}
+_FRAMEWORK = {"ACK": lambda p: "ACK",
+              "IDN": lambda p: {"vendor": "Levylab", "model": "simulated", "serial": "sim", "firmware": "0"}}
 
 
 class SimKH:

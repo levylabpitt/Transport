@@ -96,3 +96,17 @@ def test_remote_api_updates_window_and_applies(qapp):
     assert row2["name"] == "U2" and row2["input"] == "DIFF"
     assert result["err"][0] == 5001 and result["err"][1][0]["AI"] == 99
     w.api.stop()
+
+
+def test_database_lookups_fill_the_rings(qapp):
+    from expconfig import db
+    w = MainWindow(demo_config(), "test")
+    w.db_settings = db.DbSettings()
+    w._lookups_ready(db.Lookups(users=["Ana", "Patrick"], station_types=["Cryo", "AFM"],
+                                stations={"Cryo": ["PPMS 1", "MNK"], "AFM": ["Cypher"]}))
+    assert [w.ed["user"].itemText(i) for i in range(w.ed["user"].count())] == ["Ana", "Patrick"]
+    assert w.ed["user"].text() == "Patrick"  # current value kept
+    w._exp_edit("station_type", "AFM")
+    assert [w.ed["station"].itemText(i) for i in range(w.ed["station"].count())] == ["Cypher"]
+    w._lookups_ready(db.Lookups(error="offline"))
+    assert w.db_label.text() == "offline"

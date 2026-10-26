@@ -142,9 +142,15 @@ def _lv_path(p: str) -> str:
     return f"{m.group(1)}:\\{m.group(2).replace('/', chr(92))}" if m else p
 
 
-def export_json(cfg: Config) -> dict:
-    """Control Experiment.json content: the legacy keys, kept or refreshed, plus the new ones."""
-    out = json.loads(json.dumps(cfg.legacy)) if cfg.legacy else {}
+def export_json(cfg: Config, on_disk: dict | None = None) -> dict:
+    """Control Experiment.json content: the legacy keys, kept or refreshed, plus the new ones.
+
+    on_disk is the file as it is now. Keys this app does not own (instrument classes
+    and addresses, sweep, anything another program added) are taken from it rather
+    than from the copy read at startup, so a change made meanwhile is not undone.
+    """
+    base = on_disk if on_disk is not None else cfg.legacy
+    out = json.loads(json.dumps(base)) if base else {}
     exp = out.setdefault("Experiment", {})
     e = cfg.experiment
     exp.update({
@@ -192,9 +198,16 @@ def export_json(cfg: Config) -> dict:
     return out
 
 
-def missing_instruments(cfg: Config) -> bool:
+def missing_instruments(cfg: Config, directory: Path | None = None) -> bool:
     """True when the file would carry no instrument classes. Transport's
     prepareTransport needs them, so such a file must not replace the real one."""
+    if directory is not None and (Path(directory) / JSON_NAME).exists():
+        try:
+            disk = json.loads((Path(directory) / JSON_NAME).read_text(encoding="utf-8"))
+            if disk.get("Experiment", {}).get("Instruments"):
+                return False  # the merge keeps them
+        except (OSError, ValueError):
+            pass
     return not cfg.legacy.get("Experiment", {}).get("Instruments")
 
 
@@ -203,6 +216,14 @@ def save(cfg: Config, directory: Path = DEFAULT_DIR) -> Path:
     directory.mkdir(parents=True, exist_ok=True)
     path = directory / JSON_NAME
     tmp = path.with_suffix(".tmp")
-    tmp.write_text(json.dumps(export_json(cfg), indent=1), encoding="utf-8")
+    on_disk = None
+    if path.exists():
+        try:
+            on_disk = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            on_disk = None
+    content = export_json(cfg, on_disk)
+    cfg.legacy = {k: v for k, v in content.items()}
+    tmp.write_text(json.dumps(content, indent=1), encoding="utf-8")
     tmp.replace(path)
     return path
