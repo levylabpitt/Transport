@@ -58,3 +58,41 @@ def test_sim_apply_round_trip(qapp):
     w.start_sim()
     w.apply()
     assert w.statusBar().currentMessage() == "Apply: matches the table"
+
+
+def test_remote_api_updates_window_and_applies(qapp):
+    import socket
+    import threading
+    from expconfig.rpc import Client, RpcError
+
+    with socket.socket() as s:
+        s.bind(("127.0.0.1", 0))
+        port = s.getsockname()[1]
+    w = MainWindow(demo_config(), "test", api_port=port)
+    w.start_sim()
+    result, errors = {}, []
+
+    def client():
+        c = Client(f"tcp://127.0.0.1:{port}", timeout=5)
+        try:
+            result["set"] = c.call("setChannelConfig", {"Channels": [{"AI": 2, "Type": "U", "Shunt": "50k"}]})
+            result["get"] = c.call("getChannelConfig")
+            try:
+                c.call("setChannelConfig", {"Channels": [{"AI": 99}]})
+            except RpcError as err:
+                result["err"] = (err.code, err.data)
+        except Exception as err:
+            errors.append(err)
+
+    t = threading.Thread(target=client)
+    t.start()
+    while t.is_alive():  # the GUI thread must keep processing events for the bridge
+        qapp.processEvents()
+        t.join(0.01)
+    assert not errors, errors
+    assert result["set"]["applied"] and result["set"]["mismatches"] == []
+    assert w.cfg.channel(2).type == "U" and w.cfg.channel(2).shunt == "50k"
+    row2 = next(c for c in result["get"]["Channels"] if c["ai"] == 2)
+    assert row2["name"] == "U2" and row2["input"] == "DIFF"
+    assert result["err"][0] == 5001 and result["err"][1][0]["AI"] == 99
+    w.api.stop()

@@ -29,6 +29,23 @@ uv run expconfig --demo
 | `sim.py` | Simulated KH chassis and lock-in |
 | `app.py`, `tablemodels.py`, `wiringview.py` | The PySide6 application |
 
+## Remote API (for FLEX)
+
+While the app runs, it serves JSON-RPC 2.0 over ZMQ on `tcp://*:29180` (`--api-port`, 0 = off). This is the Instrument Framework protocol, so FLEX's base class talks to it unchanged:
+
+```python
+from flex.inst.base import Instrument
+cfg = Instrument("tcp://localhost:29180")
+cfg.call("getChannelConfig")      # {"Channels": [...], "Outputs": [...]}
+cfg.call("setChannelConfig", {"Channels": [{"AI": 2, "Type": "U", "Electrode": "5", "Shunt": "50k"}]})
+cfg.call("setOutputs", {"Outputs": [{"AO": 4, "Name": "Vbg", "Gain": 25}]})
+cfg.call("getTopology")           # the wiring graph
+```
+
+- **`setChannelConfig`** updates the open window and, unless `"apply": false`, applies to the instruments like CONFIRM. It returns the rows plus any read-back mismatches.
+- **A bad request is rejected whole.** The error code is the first issue's #182 code, for example 5001 for an unknown AI, and `error.data` lists every issue.
+- **Other methods:** `getChecks`, `applyConfig`, `ACK`, `IDN`, `HELP`.
+
 ## Using it from Python or marimo
 
 The model has no UI dependency:

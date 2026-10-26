@@ -17,6 +17,7 @@ import zmq
 class RpcError(RuntimeError):
     def __init__(self, message: str, code: int | None = None, data: Any = None):
         super().__init__(f"[{code}] {message}" if code is not None else message)
+        self.message = message
         self.code = code
         self.data = data
 
@@ -117,7 +118,10 @@ class Server:
                 req_id = req.get("id")
                 reply = {"jsonrpc": "2.0", "result": self.handler(req["method"], req.get("params")), "id": req_id}
             except RpcError as err:
-                reply = {"jsonrpc": "2.0", "error": {"code": err.code, "message": str(err)}, "id": req_id}
+                error = {"code": err.code, "message": err.message}
+                if err.data is not None:
+                    error["data"] = err.data
+                reply = {"jsonrpc": "2.0", "error": error, "id": req_id}
             except Exception as err:  # unknown method, bad params
                 reply = {"jsonrpc": "2.0", "error": {"code": -32603, "message": repr(err)}, "id": req_id}
             sock.send_string(json.dumps(reply))

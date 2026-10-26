@@ -18,6 +18,7 @@ It replaces the configuration part of `Configure Experiment.vi`. The experiment 
   - It keeps `Experiment.Instruments` (class paths and addresses) untouched.
   - It writes v1 `Wiring Configuration` with `KH.Labels` = Role.
   - It adds `Channels`, `Outputs` and `Topology`.
+- **Remote API.** The app serves JSON-RPC over ZMQ itself (default port 29180): `getChannelConfig`, `setChannelConfig`, `setOutputs`, `getTopology`, `getChecks`, `applyConfig`. This takes over the role of the Transport Server commands in the #182 spec, using the same payload keys and error codes.
 - **Import.** The app reads the old `configuration.ini` and `Control Experiment.json`, so an existing setup opens without retyping.
 
 ## Model

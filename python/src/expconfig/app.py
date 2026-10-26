@@ -3,12 +3,13 @@
 from __future__ import annotations
 
 import argparse
+import copy
 import json
 import socket
 import sys
 from pathlib import Path
 
-from PySide6.QtCore import QModelIndex, Qt, QTimer
+from PySide6.QtCore import QModelIndex, QObject, Qt, QTimer, Signal
 from PySide6.QtGui import QAction, QFont, QKeySequence
 from PySide6.QtWidgets import (
     QAbstractItemView, QApplication, QComboBox, QFileDialog, QFormLayout, QGroupBox, QHBoxLayout,
@@ -17,7 +18,7 @@ from PySide6.QtWidgets import (
     QVBoxLayout, QWidget,
 )
 
-from . import hardware, legacy, rules, sim, topology
+from . import hardware, legacy, rules, service, sim, topology
 from .demo import demo_config
 from .model import KH_COUPLINGS, KH_FILTERS, KH_OVERRIDES, KH_SHUNTS, Config
 from .tablemodels import CHANNEL_COLUMNS, ChannelModel, OutputModel, choices
@@ -61,8 +62,36 @@ class ChoiceDelegate(QStyledItemDelegate):
             super().setModelData(editor, model, index)
 
 
+class _Bridge(QObject):
+    """Run a callable on the GUI thread and wait for it (used by the remote API thread)."""
+
+    run = Signal(object)
+
+    def __init__(self):
+        super().__init__()
+        self.run.connect(self._run, Qt.BlockingQueuedConnection)
+
+    @staticmethod
+    def _run(job):
+        job()
+
+    def call(self, fn):
+        box = {}
+
+        def job():
+            try:
+                box["value"] = fn()
+            except Exception as err:  # re-raised in the caller's thread
+                box["error"] = err
+
+        self.run.emit(job)
+        if "error" in box:
+            raise box["error"]
+        return box.get("value")
+
+
 class MainWindow(QMainWindow):
-    def __init__(self, cfg: Config, source: str):
+    def __init__(self, cfg: Config, source: str, api_port: int = 0):
         super().__init__()
         self.cfg = cfg
         self.source = source
@@ -138,6 +167,38 @@ class MainWindow(QMainWindow):
         self._actions()
         self.changed()
         self.statusBar().showMessage(f"Loaded {source}")
+        self.api = None
+        if api_port:
+            self._start_api(api_port)
+
+    def _start_api(self, port: int) -> None:
+        bridge = _Bridge()
+        self._bridge = bridge
+        svc = service.ConfigService(
+            get_cfg=lambda: bridge.call(lambda: copy.deepcopy(self.cfg)),
+            set_cfg=lambda c: bridge.call(lambda: self._remote_set(c)),
+            apply=lambda c: bridge.call(lambda: self._remote_apply(c)),
+        )
+        try:
+            self.api = service.serve(svc, port)
+            self.api_label.setText(f"tcp://*:{port}")
+        except Exception as err:
+            self.api_label.setText(f"not started: {err}")
+
+    def _remote_set(self, cfg: Config) -> None:
+        self.cfg = cfg
+        self.channel_model.set_config(cfg)
+        self.output_model.set_config(cfg)
+        self.changed()
+        self.log.appendPlainText("Remote: configuration changed")
+        self.statusBar().showMessage("Configuration changed by a remote client")
+
+    def _remote_apply(self, cfg: Config) -> list[str]:
+        rb = self._rig().apply(cfg)
+        self._show_readback(rb, "Remote apply")
+        if rb.errors:
+            raise RuntimeError("; ".join(rb.errors))
+        return rb.mismatches(cfg)
 
     # ---- layout pieces ---------------------------------------------------
 
@@ -184,6 +245,9 @@ class MainWindow(QMainWindow):
         f.addRow("Channels", counts)
         self.conn = QLabel("not connected")
         f.addRow("Status", self.conn)
+        self.api_label = QLabel("off")
+        self.api_label.setToolTip("This app's own JSON-RPC server (getChannelConfig, setChannelConfig, ...)")
+        f.addRow("Remote API", self.api_label)
         h.addWidget(ig, 2)
         return w
 
@@ -462,6 +526,8 @@ def main(argv=None) -> None:
     ap.add_argument("--select", type=int, help="select this AI at startup")
     ap.add_argument("--tab", type=int, default=0, help="right-hand tab to show")
     ap.add_argument("--screenshot", type=Path, help="render the window to this PNG and exit")
+    ap.add_argument("--api-port", type=int, default=service.DEFAULT_PORT,
+                    help=f"port for the remote API (default {service.DEFAULT_PORT}, 0 = off)")
     a = ap.parse_args(argv)
 
     app = QApplication.instance() or QApplication(sys.argv[:1])
@@ -471,7 +537,7 @@ def main(argv=None) -> None:
         cfg, source = demo_config(), "demo configuration"
     else:
         cfg, source = legacy.import_legacy(), str(legacy.DEFAULT_DIR)
-    w = MainWindow(cfg, source)
+    w = MainWindow(cfg, source, api_port=a.api_port)
     if a.sim:
         w.start_sim()
         if a.apply:
