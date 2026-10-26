@@ -1,0 +1,63 @@
+{
+ "json": "{\"Device\": {\"Device\": \"TEST.20261019\", \"User\": \"Patrick\", \"Time\": \"2026-10-20T17:13:48.689-04:00\", \"Computer Name\": \"LAB-PC\"}, \"Wiring\": {\"Lockin Ch\": [], \"KH Electrodes\": [\"\", \"\", \"\", \"\", \"\", \"\", \"\", \"\"], \"KH Labels\": [\"I+\", \"I-\", \"\", \"\", \"\", \"\", \"\", \"\"], \"Other Electrodes\": [], \"Other Labels\": []}}",
+ "Experiment": {
+  "User": "Patrick",
+  "Device": "TEST.20261019",
+  "Device Path": "C:\\temp\\TEST.20261019",
+  "Device Description": "TEST",
+  "Experiment Path": "",
+  "Experiment Description": "",
+  "Instrument": "PPMS (sim)",
+  "Instruments": [
+   {
+    "class path": "C:\\Program Files\\National Instruments\\LabVIEW 2019\\user.lib\\LevyLab\\Lockin-Multichannel\\Instrument.Lockin\\Instrument.Lockin.lvclass",
+    "Address": "tcp://localhost:29170",
+    "Type": "DAQ"
+   },
+   {
+    "class path": "C:\\Program Files\\National Instruments\\LabVIEW 2019\\user.lib\\LevyLab\\Krohn Hite 7008\\Inst.Krohn-Hite-7008\\Inst.Krohn-Hite-7008.lvclass",
+    "Address": "tcp://localhost:29160",
+    "Type": "Amplifier"
+   }
+  ],
+  "Sweep": []
+ },
+ "Wiring Configuration": {
+  "Lockin Ch": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8
+  ],
+  "KH": {
+   "Electrodes": [
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ],
+   "Labels": [
+    "I+",
+    "I-",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+   ]
+  },
+  "not KH": {
+   "Electrodes": [],
+   "Labels": []
+  }
+ }
+}
