@@ -9,18 +9,25 @@
 Standard cabling: KH + to an electrode, KH - to an AO, KH output to AI. Shunt (including Open) is set per channel in software.
 
 - **Numbering.** AI and AO are numbered continuously from 1, because their clocks are synchronized whatever the chassis, card and channel layout. KH channels are A1..A8, B1..B8, C1.., with at most 8 per chassis.
+- **An electrode can be on several rows.** A teed electrode feeds more than one KH channel. Example:
+  - electrode 6 → SE+ (`V6`);
+  - electrode 7 → SE+ (`V7`);
+  - 6 and 7 teed to channel 8 as + and - (`dV6-7`).
+
+  So Electrode is not unique across rows, and nothing checks that it is. Only the KH channel must be unique (error 5009).
 - **Each row is one AI.** Row n is AI n. By default it uses KH channel n (A1 for AI 1, B1 for AI 9) and AO n. The user can change both per row, for example to skip a broken KH channel or to route an AI around the KH (`none`).
 
 | Type | Minus | KH input | Shunt | Name |
 | --- | --- | --- | --- | --- |
 | U | "" (the row's AO) | DIFF | as set | `U<electrode>` |
 | V | "", `GND` or `n.c.` | SE+ | Open | `V<electrode>` |
-| V | an electrode | DIFF | Open | `V<electrode>-<minus>` = V(+) - V(-) |
+| V | an electrode | DIFF | Open | `dV<electrode>-<minus>` = V(+) - V(-) |
 | n.c. / Ground | any | OFF | Open | "" |
 
 - **Role is separate from Name.** Role is the label the experiments use to find channels: `I+`, `I-`, `V1+`, `V1-`, `V2+`, `V2-`, `dV1`, `Vsg`, and so on. `Get Channel Indices.vi` (used for R and G in Lockin_time and Lockin_sweep) looks channels up by these names. Example: `U1` with role `I+` is the current source; `U2` with role `Vbg` is a gate.
 - **AI is the data column index.** The experiment VIs name data columns by position (`AI3`, `X3`, `Y3`), and `Get Channel Indices.vi` assumes AI = row + 1. A file's columns therefore join to its rows on AI.
-- **KH Configuration (All Ground / All Differential), DC Coupled and BW Filter** stay global, applied over the rows as today. The row stores the per-channel result as read back from the KH. A remote command for them (`setKHConfig`) is a later issue.
+- **Coupling (AC/DC) and BW filter are per row.** They replace the global `DC Coupled` and `BW Filter` buttons. Two set-all controls, `Coupling (all)` and `Filter (all)`, write the same value into every row of the table; the user then confirms as for any edit. Remotely, the same thing is done by sending every row in `setChannelConfig`.
+- **KH Configuration (All Ground / All Differential) stays an apply-time override, as today.** It forces the KH inputs at the next CONFIRM without changing the rows' Type, then resets to No Selection. The rows store what the KH reads back. A remote command for it (`setKHConfig`) is a later issue.
 - **`Control Experiment.json` stays.** FLEX `src/flex/exp/CESession.py` reads its `Wiring Configuration` (`Lockin Ch`, `KH.Electrodes`, `KH.Labels`). Keep writing v1 with `Labels` = Role, and add the rows next to it.
 - **The server answers from its own cache, not the file.** Configure Experiment pushes the rows to Inst.Transport after every apply, with a protected command. Handle Command validates and answers get from that cache, so errors reach the client.
 - **Why an array of clusters.**
@@ -44,7 +51,7 @@ Standard cabling: KH + to an electrode, KH - to an AO, KH output to AI. Shunt (i
      - Show it as a ring whose Strings And Values are built at runtime from the chassis count (edit 3.8), so -1 can display as `none`.
      - Default: row - 1, or `none` if the row is beyond 8 × chassis.
      - User-editable.
-   - `KH channelProperties--Cluster`: from the Krohn Hite 7008 package, `{channel, gain, input, shunt, couple, filter}`. Input is derived. After apply, the whole cluster holds the read-back.
+   - `KH channelProperties--Cluster`: from the Krohn Hite 7008 package, `{channel, gain, input, shunt, couple, filter}`. Input is derived. Gain, shunt, couple and filter are user settings. After apply, the whole cluster holds the read-back.
    - `External Gain DBL`: today's "Other: Gain" column, default 1.
    - `Lockin Gain DBL`: derived, what `Multiply Gains` sends to `setInputGain`.
    - `AO U32`.
@@ -52,15 +59,18 @@ Standard cabling: KH + to an electrode, KH - to an AO, KH output to AI. Shunt (i
    - `AI I32` (default -1).
    - `AO I32` (default -1 = unchanged).
    - `External Gain DBL` (default NaN = unchanged).
-   - `Electrode, Minus, Type, Role, KH, Shunt, KH Gain` as **String** ("" = unchanged). `KH` takes the form `A1`, `B3` or `none`.
+   - `Electrode, Minus, Type, Role, KH, Shunt, KH Gain, Couple, Filter` as **String** ("" = unchanged).
+   - `KH` takes the form `A1`, `B3` or `none`.
+   - `Couple` takes `AC` or `DC`; `Filter` takes `ON` or `OFF`.
    - Strings, because `JSON to LVtype.vim` silently defaults missing or misspelled keys, so a typed enum would hide a bad value.
-4. **`UI Controls --cluster.ctl`** (persisted to configuration.ini): add `Channels [Channel--cluster]`. Keep `Lockin` and `KH` for one release, read only by the migration (edit 3.7).
-5. **`Control Experiment JSON--cluster.ctl`**: add `Channels [Channel--cluster]` after `Wiring`. This cluster becomes the TDMS file property `<ControlExperiment>` (edit 3.12).
-6. **Delete `Wiring Description--v2--cluster.ctl`** and `API\Write Wiring Configuration v2.vi`. This is an abandoned design: the VI has no callers.
+4. **`UI Controls --cluster.ctl`** (persisted to configuration.ini): add `Channels [Channel--cluster]`. Keep `Lockin`, `KH`, `DC Coupled` and `BW Filter` for one release, read only by the migration (edit 3.7).
+5. **New `Coupling All--enum.ctl`** = `{No Selection, All AC, All DC}` and **`Filter All--enum.ctl`** = `{No Selection, All ON, All OFF}`, for the set-all controls.
+6. **`Control Experiment JSON--cluster.ctl`**: add `Channels [Channel--cluster]` after `Wiring`. This cluster becomes the TDMS file property `<ControlExperiment>` (edit 3.12).
+7. **Delete `Wiring Description--v2--cluster.ctl`** and `API\Write Wiring Configuration v2.vi`. This is an abandoned design: the VI has no callers.
 
 ### 2. Control Experiment.lvclass
 
-1. **Private data:** rename the field `Wiring Configuration v2` to **`Channels`** and retype it to `[Channel--cluster]`. Nothing reads it, and only `Write Wiring Configuration v2.vi` (no callers, deleted in 1.6) writes it. Confirmed by render, 2026-10-23.
+1. **Private data:** rename the field `Wiring Configuration v2` to **`Channels`** and retype it to `[Channel--cluster]`. Nothing reads it, and only `Write Wiring Configuration v2.vi` (no callers, deleted in 1.7) writes it. Confirmed by render, 2026-10-23.
    - `Comments.Add Wiring Description.vi` reads only `Wiring Configuration.{Lockin Ch, KH.Electrodes, KH.Labels, not KH.Electrodes, not KH.Labels}`.
    - `Get Channel Indices.vi` reads a `[String]` `Labels` field. The diagram shows it with a short name. It is a v1 Labels field, presumably `KH.Labels`: hover over the unbundle to confirm.
 2. **New methods** (in `API`):
@@ -70,28 +80,29 @@ Standard cabling: KH + to an electrode, KH - to an AO, KH output to AI. Shunt (i
       - Inputs: rows, `[Channel Config Entry]`, Default Resistor, KH chassis count. Outputs: rows, error.
       - For each entry, find the row with that `AI` and apply each field that is not unchanged. Parse `Type`, `Shunt` and `KH Gain` against the enum strings. Parse `KH` as letter + 1..8 (index = 8 × letter + channel - 1), or `none`. Minus accepts `""`, `GND`, `n.c.`/`nc`, or any other text, which is taken as an electrode. When Type becomes U and the shunt is Open, use Default Resistor. Then run Derive Channel.
       - Role is free text.
-      - Errors: 5000 `AI` missing, 5001 `AI` not in the table, 5002 bad `Type`, 5003 bad `Shunt`, 5004 bad `KH Gain`, 5005 Minus equals Electrode, 5008 bad `KH` (malformed, or beyond the chassis count), 5009 the same KH channel on two rows (checked on the merged rows, so a swap in one request works). Each message names the entry index and the value.
+      - Errors: 5000 `AI` missing, 5001 `AI` not in the table, 5002 bad `Type`, 5003 bad `Shunt`, 5004 bad `KH Gain`, 5005 Minus equals Electrode, 5008 bad `KH` (malformed, or beyond the chassis count), 5009 the same KH channel on two rows (checked on the merged rows, so a swap in one request works), 5010 bad `Couple`, 5011 bad `Filter`. Each message names the entry index and the value.
       - On any error, return the input rows unchanged.
    4. **`Read Channels.vi` / `Write Channels.vi`**: accessors for the `Channels` field.
    5. **`Channels to Wiring v1.vi`**: rows in, v1 `Wiring Description` out.
-      - `Lockin Ch` ← AI, `KH.Electrodes` ← Electrode, `KH.Labels` ← Role.
+      - `Lockin Ch` ← AI, `KH.Electrodes` ← Electrode (`6-7` for a differential row), `KH.Labels` ← Role.
       - `not KH` is passed through from the existing `non KH` control, which is unchanged in this issue.
    6. **`Migrate Wiring v1 to Channels.vi`**: old `Lockin` and `KH` UI clusters plus the old label list in, rows out.
       - Per index: Electrode as is; Role = label string; KH gain as it was.
+      - Couple and filter: the old global `DC Coupled` and `BW Filter` values, on every row.
       - KH # as it was. The old ring's last item is `none` (value 8 × chassis); map it to -1.
       - Shunt: kept for types that use one, Open otherwise.
       - Type: Current → U, Gate → U, Voltage (SE) → V, Voltage (Diff) → V, Ground → Ground.
       - External Gain = 1, AO = AI.
       - Old Voltage (Diff) rows lose their second electrode (old files never stored it). Note this in the release notes.
    7. **`Apply Channel Configuration.vi`**: the body of today's `KH: set KH 1` plus `KH: set KH 2`, with rows as the input instead of the Lockin and KH clusters.
-      - Inputs: C.E., rows, KH Configuration, DC Coupled, BW Filter, Channel Settings, KH class array, Lockin.
+      - Inputs: C.E., rows, KH Configuration, Channel Settings, KH class array, Lockin.
       - Outputs: C.E., Channel Settings, rows, error.
       - Each row writes the KH channel at its `KH #`: chassis = KH # div 8 selects the element of the KH class array, and channel = KH # mod 8 + 1 is the only number sent to that chassis's driver.
       - The letters in `A1`, `B1` are display-only: they are never sent to a chassis.
       - This replaces today's Scan From String of the ring text and `Letter to Number.vi`, which do the same thing.
       - Rows with `none` write nothing. KH channels that no row uses keep the defaults from `KH: set KH 0`.
       - KH Configuration overrides per channel as today: All Ground → OFF; All Differential → DIFF + the row's shunt.
-      - DC Coupled and BW Filter set `couple` and `filter` on every row.
+      - Each row's own `couple` and `filter` are written to its channel. This replaces the two global Selects in `KH: set KH 1`.
       - After `getAllChannels`, copy each channel's read-back into its row's `KH` cluster.
       - `Multiply Gains` takes External Gain from the rows; write its result to `Lockin Gain`.
       - Ends with `Write Channels.vi`.
@@ -100,15 +111,20 @@ Standard cabling: KH + to an electrode, KH - to an AO, KH output to AI. Shunt (i
 
 **Front panel**
 1. Delete the `Lockin` and `KH` clusters, the `Gain` array and `Label Strings`. Add `Channels`, an array of `Channel--cluster` with a vertical scrollbar.
-   - Editable: Electrode, Minus, Type, Role, KH #, Shunt, KH gain, External Gain, AO.
-   - Disabled: AI (= row + 1), input, couple, filter, Name, Lockin Gain.
+   - Editable: Electrode, Minus, Type, Role, KH #, Shunt, KH gain, couple, filter, External Gain, AO.
+   - Disabled: AI (= row + 1), input, Name, Lockin Gain.
+   - Delete the `DC Coupled` and `BW Filter` buttons. In their place, add `Coupling (all)` and `Filter (all)` (edit 1.5), next to `KH Configuration`.
 
 **Events**
 2. Delete event [1] `Label Strings` and event [15] (scroll), and delete the state `UI: Link Scroll Bars`.
 3. Replace event [13] `Lockin.Label` with `Channels: Value Change`: run `Derive Channel` on every row, write `Channels`, and set `Values have changed` True.
-4. In event [14], replace the Lockin, KH and Gain sources with `Channels`.
+4. In event [14], replace the Lockin, KH and Gain sources with `Channels`. Remove `DC Coupled` and `BW Filter` if they are listed.
+   - Add an event frame **`"Coupling (all)", "Filter (all)": Value Change`**:
+     - If the new value is not No Selection, set `couple` (or `filter`) on every row of `Channels`.
+     - Reset the control to No Selection and set `Values have changed` True.
+     - Nothing reaches the KH until CONFIRM.
 5. In events [16] `AI Channels` and [17] `KH Chassis`, resize `Channels` instead of Lockin, KH and Gain.
-   - New rows: AI = row + 1, KH # = row (or `none` beyond 8 × chassis), AO = row + 1, Type = n.c., External Gain = 1.
+   - New rows: AI = row + 1, KH # = row (or `none` beyond 8 × chassis), AO = row + 1, Type = n.c., External Gain = 1. Couple and filter: copy them from the last existing row, or use the KH defaults if the table is empty.
    - Existing rows keep their KH #. After a chassis count change, set any KH # now beyond the count to `none`.
    - Keep the queued states, with the changes in 3.11.
 
@@ -180,8 +196,13 @@ Standard cabling: KH + to an electrode, KH - to an AO, KH output to AI. Shunt (i
 
 1. **Migration.** Start Configure Experiment from an old configuration.ini. The table is migrated from the old Lockin/KH, roles match the old labels, and CONFIRM writes the same KH settings as before the change for the same channels.
 2. **UI.** Set row 1 to U, electrode 1, role I+, 5k, and row 3 to V, electrode 3, Minus 4, role V1+.
-   - Names show `U1` and `V3-4`; KH input is DIFF and DIFF; row 3's shunt is forced to Open.
+   - Names show `U1` and `dV3-4`; KH input is DIFF and DIFF; row 3's shunt is forced to Open.
+   - Teed electrodes: set AI 6 to V, electrode 6; AI 7 to V, electrode 7; AI 8 to V, electrode 6, Minus 7.
+     - Names show `V6`, `V7`, `dV6-7`. KH inputs are SE+, SE+, DIFF.
+     - No error, even though electrodes 6 and 7 appear twice.
    - After CONFIRM, each row's `KH` cluster equals the `getAllChannels` read-back, including couple and filter.
+   - Set row 1 to DC and row 2 to AC, with the filter on for row 1 only. After CONFIRM, the read-back matches per channel.
+   - `Coupling (all)` = All DC sets every row to DC and resets to No Selection. The KH changes only after CONFIRM.
    - With two chassis, set AI 3 to KH `B5` and AI 4 to `none`. After CONFIRM, B5 has row 3's settings, A3 keeps its defaults, and A4 is untouched.
 3. **R and G.** Run Lockin_time: R and G find their channels by role, as before.
 4. **Data file.** Run Lockin_sweep and open the TDMS file. `<ControlExperiment>` contains `Channels`, and `X3` joins to the row with `AI` 3.
@@ -196,6 +217,7 @@ Standard cabling: KH + to an electrode, KH - to an AO, KH output to AI. Shunt (i
    - `Shunt: "7k"` (5003)
    - `KH: "C1"` with two chassis (5008)
    - AI 1 and AI 2 both on `A1` (5009)
+   - `Couple: "XC"` (5010)
    - while an experiment runs (5007)
    - before Configure Experiment is open (5006)
 7. **Json file.** `Control Experiment.json` after CONFIRM has `Wiring Configuration` with roles in `KH.Labels`, plus `Channels`. FLEX `CESession` still shows the wiring.
@@ -218,4 +240,4 @@ Feature release.
 - The lock-in AO and reference settings exist only as text.
 - The Sweep text accumulates on appends.
 
-**`setKHConfig`.** KH Configuration (All Ground / All Differential), DC Coupled and BW Filter.
+**`setKHConfig`.** KH Configuration (All Ground / All Differential). Coupling and filter need no command of their own: they are per-row fields in `setChannelConfig`.
