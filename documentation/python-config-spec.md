@@ -44,30 +44,28 @@ What `Configure Experiment.vi` does today, and where it goes:
 
 ## Control Experiment.json: from shared file to APIs
 
-The file was the hand-off from Configure Experiment to Transport, and later to FLEX. Once both sides have APIs it has no job of its own, but it has readers today, so it is retired in stages.
+The file was the hand-off from Configure Experiment to Transport, and later to FLEX. Once the Transport Server owns the instrument configuration and receives the wiring from expconfig directly, nothing needs it.
 
 **Readers today:**
-- Transport `prepareTransport`, through `Control Experiment FGV.vi`, which reads the file on every call. It takes the experiment folder, description and dictionary, and the instrument classes (`Write Dependencies`). The Control Experiment object read here also carries:
+- Transport `prepareTransport`, through `Control Experiment FGV.vi`, which reads the file on every call. It takes the experiment folder, description and dictionary, and the instrument classes. The Control Experiment object read here also carries:
   - the v1 wiring that `Get Channel Indices.vi` uses to find the R/G channels by role;
   - the `json` string that becomes the TDMS `<ControlExperiment>` property.
 - `Load Instrument Classes.vi` (Configure Experiment).
 - FLEX `CESession`.
 - Sweep Control (superseded).
 
-**Stage 1 (now): one file, each writer owns its sections.**
-- **Transport** owns `Experiment.Instruments` (and `Experiment.Sweep`).
-- **expconfig** owns the rest: the experiment fields, `Wiring Configuration`, `Channels`, `Outputs`, `Topology`, `Configurator`, `json`.
-- **expconfig re-reads the file just before writing** and keeps the sections it does not own (done). Transport must do the same once it writes the instrument section.
+**Now (trial):** a shared file.
+- Transport (Configure Experiment for now) owns `Experiment.Instruments` and `Experiment.Sweep`; expconfig owns the rest.
+- expconfig re-reads the file before writing and keeps what it does not own (done).
 
-**Stage 2: expconfig pushes, Transport keeps it in memory.**
-- **New Transport commands:**
-  - `setExperimentInfo`: device, user, description, folder. This extends the existing `setExptFolder` / `setExptComments`.
+**Target:** no shared file.
+- **Transport** owns the instrument classes (its UI, its own settings file).
+- **expconfig pushes** the experiment info and wiring to Transport, on Apply and whenever it connects:
+  - `setExperimentInfo`: device, user, description, folder. This extends `setExptFolder` / `setExptComments`.
   - `setWiring`: the `Channels` rows. Transport builds the v1 wiring (roles in `KH.Labels`) and the `json` string into its Control Experiment object, so `Get Channel Indices` and `<ControlExperiment>` keep working.
-- **expconfig pushes** on Apply, on save, and whenever it connects (so a restarted Transport is refilled).
-- **FLEX reads** from `getChannelConfig` (expconfig) and Transport's getters.
-- **Each program persists its own settings in its own file:** expconfig its configuration, Transport its instrument classes. There is no shared hand-off file.
-
-**Stage 3: retire the file.** `prepareTransport` stops reading `Control Experiment.json`, and nothing writes it. Keep writing a read-only snapshot for one release if FLEX users need time to move.
+- **`prepareTransport`** uses what Transport holds instead of reading the file.
+- **FLEX** uses `getChannelConfig` (expconfig) and Transport's getters.
+- **expconfig** keeps its own settings in its own file.
 
 ## Database
 
@@ -83,8 +81,18 @@ Ported from `src\Control Experiment\subVIs\DB *.vi`; `db.py` in expconfig.
   - stations per type: `public.stations.name`.
 - **Measurement record:** `INSERT INTO public.llab_001 ("time", user_id, station_id, device_id, measurement_id, lockin_id, kh_id)`. User and station are looked up by name; the serial numbers come from the instruments' `IDN`.
   - Values are passed as parameters. The LabVIEW VI formats them into the SQL and quotes `'NULL'`, so empty fields there are stored as the text "NULL". Python stores real NULLs.
-  - `measurement_id` is the device folder path. Check what the LabVIEW `PGSQL: Write` state passes; lvkit did not show it clearly.
-- **Wiring in the database.** `llab_001` has no column for it. Proposed: `ALTER TABLE public.llab_001 ADD COLUMN wiring jsonb;` (needs an admin login, Patrick's decision). expconfig already writes the topology graph there when the column exists, and leaves it out when it does not.
+  - **`measurement_id` is never filled today.** Every recent row has the text "NULL", because Configure Experiment passes an empty value and the format string quotes it. expconfig leaves it as a real NULL until we decide what it should hold (data folder? experiment ID?).
+- **The actual schema (read 2026-10-26)** is smaller than the planned one:
+  - `users`, `stations` and `table_index`;
+  - 155 `llab_*` tables, which are TimescaleDB hypertables plus their `_index` tables;
+  - no foreign keys.
+
+  `llab_001` is a hypertable of about 10k rows since 2025-05. It gets a row per CONFIRM, often several identical ones.
+- **Wiring in the database (proposal sent to the admin).** A separate table, not a column on `llab_001`: `public.wirings (wiring_id serial PK, created, user_id, station_id, device_id, sha256 UNIQUE, wiring jsonb)`.
+  - Each distinct wiring is stored once.
+  - `llab_001` gets a nullable `wiring_id`.
+  - When the planned `devices` / `experiments` tables exist, `wirings` can reference them.
+  - expconfig currently writes a `wiring` column on `llab_001` if one exists. Switch it to the `wirings` table once that is created.
 - **When to log.** Configure Experiment logs on every CONFIRM unless "I'm Finished Taking Data!" is set. expconfig logs only on "Log measurement", after showing the values. Decide whether Apply should log automatically.
 
 ## Launcher (LabVIEW, to build)
@@ -103,8 +111,8 @@ A small LabVIEW application, built as an exe like the KH and lock-in apps, in it
 
 - **The UI.** Move the instrument class selection (Configure dialog, `Instruments: Load Classes`, `Load Instrument Classes.vi`, `Installed Classes to Rings.vi`) to `Inst UI.Transport`.
 - **Persistence.** Transport persists the choice itself:
-  - Stage 1: write `Experiment.Instruments` in `Control Experiment.json`, keeping the other sections.
-  - Stage 2: its own configuration file.
+  - During the trial: write `Experiment.Instruments` in `Control Experiment.json`, keeping the other sections.
+  - Target: its own configuration file.
 - **New command `getInstruments`** returning `[{Type, Address, class path}]`. expconfig then reads the KH and lock-in addresses from it instead of from the file.
 
 ## Model
@@ -146,6 +154,6 @@ One `Channel` row per lock-in AI, plus one `Output` row per AO. Field meanings a
 ## Open questions
 
 - **Multiple KH chassis.** The prototype assumes one KH server address per chassis (A = first). Check against how `KH: Open` builds its KH class array.
-- **LabVIEW reading a Python-written file.** Whether `JSON to Control Experiment Class.vi` accepts the added keys is untested. This matters only until Stage 2.
-- **`measurement_id`.** Check what LabVIEW logs there, and whether Apply should log automatically.
+- **LabVIEW reading a Python-written file.** Whether `JSON to Control Experiment Class.vi` accepts the added keys is untested. This matters only during the trial.
+- **`measurement_id`.** Decide what it should hold, and whether Apply should log automatically.
 - **Home.** This repo, FLEX, or a package of its own.
