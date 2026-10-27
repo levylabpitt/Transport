@@ -31,6 +31,10 @@ def build(cfg: Config) -> dict:
     # AO -> amp -> electrode directly.
     via_kh = {c.ao for c in cfg.channels
               if c.kh is not None and c.type == "U" and c.minus == MINUS_AO and c.ao is not None}
+    driven: dict[int, list[str]] = {}  # Drive rows: AO -> pads it drives directly
+    for c in cfg.channels:
+        if c.type == "Drive" and c.ao is not None and c.electrode:
+            driven.setdefault(c.ao, []).append(c.electrode)
     amps: dict[int, str] = {}
     for o in cfg.outputs:
         ao = node(f"ao:{o.ao}", "ao", channel=o.ao, name=o.name)
@@ -42,11 +46,11 @@ def build(cfg: Config) -> dict:
         if o.ao in amps:
             edge(ao, amps[o.ao])
             stage = amps[o.ao]
-        if o.electrode:
-            edge(stage, node(f"electrode:{o.electrode}", "electrode", name=o.electrode))
+        for e in dict.fromkeys(([o.electrode] if o.electrode else []) + driven.get(o.ao, [])):
+            edge(stage, node(f"electrode:{e}", "electrode", name=e))
 
     for ch in cfg.channels:
-        if ch.type in ("n.c.",) and not ch.electrode:
+        if ch.type == "Drive" or (ch.type == "n.c." and not ch.electrode):
             continue
         ai = node(f"ai:{ch.ai}", "ai", channel=ch.ai, role=ch.role, name=ch.name,
                   ext_gain=ch.ext_gain, lockin_gain=ch.lockin_gain)

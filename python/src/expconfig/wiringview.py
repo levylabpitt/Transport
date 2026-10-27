@@ -68,8 +68,11 @@ class WiringView(QWidget):
                 start = cur
         return f"AI {', '.join(spans)}: not connected"
 
+    def _drive_rows(self, ao: int):
+        return [c for c in self.cfg.channels if c.type == "Drive" and c.ao == ao]
+
     def _outputs_shown(self):
-        return [o for o in self.cfg.outputs if o.name or o.gain != 1 or o.electrode]
+        return [o for o in self.cfg.outputs if o.name or o.gain != 1 or o.electrode or self._drive_rows(o.ao)]
 
     def sizeHint(self) -> QSize:
         h = PAD + len(self._rows()) * STRIP_H + (24 if self._idle() else 0) + 30 \
@@ -156,6 +159,15 @@ class WiringView(QWidget):
         else:
             self._box(p, top, ["+  (none)"], QColor(240, 240, 240), dashed=True, bold_first=False)
 
+        if ch.type == "Drive":
+            o = self.cfg.output(ch.ao) if ch.ao is not None else None
+            gain = f"amp x{o.gain:g}" if o and o.gain != 1 else "direct"
+            self._box(p, kh, [f"AO {ch.ao if ch.ao is not None else '?'}   drive", gain], QColor(225, 240, 225))
+            self._wire(p, QPointF(kh.left(), kh.center().y()), QPointF(top.right(), top.center().y()))
+            role = f"  role {ch.role}" if ch.role else ""
+            self._box(p, ai, [f"AI {ch.ai}   unused", f"pad driven by AO{role}"], QColor(244, 244, 244), dashed=True)
+            p.setOpacity(1.0)
+            return
         if ch.kh is not None:
             unused = ch.input in ("SE+", "OFF") and not ch.minus_is_electrode
             if unused:
@@ -200,7 +212,8 @@ class WiringView(QWidget):
                  if c.ao == o.ao and c.kh is not None and c.minus == MINUS_AO and c.type == "U"]
         x = COL_PLUS
         ao = QRectF(x, y + 4, 104, 26)
-        self._box(p, ao, [f"AO {o.ao}  {o.name}".strip()], QColor(225, 240, 225))
+        label = o.name or next((c.role for c in users + self._drive_rows(o.ao) if c.role), "")
+        self._box(p, ao, [f"AO {o.ao}  {label}".strip()], QColor(225, 240, 225))
         src = QPointF(ao.right(), ao.center().y())
         x = ao.right() + 18
         if users:
@@ -214,7 +227,8 @@ class WiringView(QWidget):
             self._box(p, amp, [f"amp x{o.gain:g}"], QColor(250, 222, 210))
             self._wire(p, src, QPointF(amp.left(), amp.center().y()))
             src, x = QPointF(amp.right(), amp.center().y()), amp.right() + 18
-        target = o.electrode or (users[0].electrode if users else "")
+        drives = self._drive_rows(o.ao)
+        target = o.electrode or (users[0].electrode if users else "") or (drives[0].electrode if drives else "")
         if target:
             e = QRectF(x, y + 4, 96, 26)
             self._box(p, e, [target], electrode_color(target), bold_first=False)

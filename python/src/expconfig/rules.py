@@ -50,6 +50,12 @@ def derive(ch: Channel) -> Channel:
     if ch.type == "U":
         ch.input = "DIFF"
         ch.name = f"U{ch.electrode}" if ch.electrode else "U"
+    elif ch.type == "Drive":
+        ch.kh = None
+        ch.minus = MINUS_AO
+        ch.ext_gain = 1.0
+        ch.shunt = "Open"
+        ch.name = ""
     elif ch.type == "V":
         if ch.minus_is_electrode:
             ch.input = "DIFF"
@@ -75,6 +81,10 @@ def derive_all(cfg: Config) -> Config:
 
 def set_type(ch: Channel, new_type: str, default_shunt: str) -> None:
     """Change a row's type the way the UI does: a new U row gets the default shunt."""
+    if ch.type == "Drive" and new_type != "Drive" and ch.kh is None:
+        ch.kh = ch.ai - 1  # back to the standard channel
+    if new_type == "Drive" and ch.ao is None:
+        ch.ao = ch.ai
     ch.type = new_type
     if new_type == "U" and ch.shunt == "Open":
         ch.shunt = default_shunt
@@ -103,7 +113,7 @@ def validate(cfg: Config) -> list[Issue]:
                                     f"KH channel also used by AI {seen_kh[ch.kh]}"))
             else:
                 seen_kh[ch.kh] = ch.ai
-        if ch.type in ("U", "V") and not ch.electrode:
+        if ch.type in ("U", "V", "Drive") and not ch.electrode:
             issues.append(Issue(W_NO_ELECTRODE, ch.ai, "electrode", "no electrode entered"))
         for fld, e in (("electrode", ch.electrode), ("minus", ch.minus if ch.minus_is_electrode else "")):
             if e.isdigit() and not 1 <= int(e) <= cfg.experiment.pads:
@@ -111,8 +121,8 @@ def validate(cfg: Config) -> list[Issue]:
                                     f"electrode {e} is not a pad of a {cfg.experiment.pads}-pad device"))
         if ch.type == "U" and ch.shunt == "Open":
             issues.append(Issue(W_U_OPEN_SHUNT, ch.ai, "shunt", "U with an open shunt measures no current"))
-        if ch.type == "U" and ch.minus == MINUS_AO and ch.ao not in ao_numbers:
-            issues.append(Issue(E_AO, ch.ai, "ao", f"AO {ch.ao} is not in the outputs table"))
+        if ch.type in ("U", "Drive") and ch.minus == MINUS_AO and ch.ao not in ao_numbers:
+            issues.append(Issue(E_AO, ch.ai, "ao", f"AO {ch.ao} is not an output of the lock-in"))
         if ch.ext_gain <= 0:
             issues.append(Issue(E_VALUE, ch.ai, "ext_gain", "external gain must be positive"))
     for o in cfg.outputs:

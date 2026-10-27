@@ -10,7 +10,8 @@ from __future__ import annotations
 import re
 from dataclasses import asdict, dataclass, field, fields
 
-CHANNEL_TYPES = ("U", "V", "n.c.", "Ground")
+# Drive: AO n drives the pad directly (through its output gain), no KH, AI n unused.
+CHANNEL_TYPES = ("U", "V", "n.c.", "Ground", "Drive")
 KH_INPUTS = ("OFF", "SE+", "SE-", "DIFF")
 KH_GAINS = ("1", "10", "100", "1000")
 KH_SHUNTS = ("Open", "50", "500", "5k", "50k", "10M")

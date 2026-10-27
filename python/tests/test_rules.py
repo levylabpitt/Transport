@@ -102,3 +102,19 @@ def test_lockin_gain_combines_kh_and_external_gain():
     assert ch.lockin_gain == 200000
     ch.kh = None
     assert ch.lockin_gain == 2000
+
+
+def test_drive_row_has_no_kh_and_returns_to_standard():
+    cfg = make()
+    cfg.outputs[2].gain = 10
+    cfg = rules.apply_entries(cfg, [{"AI": 3, "Type": "Drive", "Electrode": "14"}])
+    ch = cfg.channel(3)
+    assert (ch.kh, ch.ao, ch.input) == (None, 3, "OFF")
+    assert not [i for i in rules.validate(cfg) if i.ai == 3]
+    from expconfig import topology
+    g = topology.build(cfg)
+    assert {"from": "ao:3", "to": "amp:ao3", "kind": "cable"} in g["edges"]
+    assert {"from": "amp:ao3", "to": "electrode:14", "kind": "cable"} in g["edges"]
+    assert not any(n["id"] == "ai:3" for n in g["nodes"])
+    cfg = rules.apply_entries(cfg, [{"AI": 3, "Type": "V"}])
+    assert cfg.channel(3).kh == 2

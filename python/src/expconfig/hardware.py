@@ -123,7 +123,7 @@ def adopt(cfg: Config, rb: Readback) -> list[str]:
         # old Configure Experiment never saved can be recovered from it. Only for rows
         # still at the default 1, and only gains above 1 (SR830, preamp): a ratio
         # below 1 more likely means the KH gain was changed and the lock-in is stale.
-        if ch.ext_gain == 1 and ch.ai <= len(rb.input_gain):
+        if ch.ext_gain == 1 and ch.type != "Drive" and ch.ai <= len(rb.input_gain):
             kh_gain = float(ch.kh_gain) if ch.kh is not None else 1.0
             ext = float(rb.input_gain[ch.ai - 1]) / kh_gain
             if ext > 1 + 1e-9:

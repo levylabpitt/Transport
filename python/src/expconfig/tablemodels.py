@@ -1,4 +1,4 @@
-"""Qt table models for the channel and output tables."""
+"""Qt table model for the channel table."""
 
 from __future__ import annotations
 
@@ -33,7 +33,9 @@ CHANNEL_COLUMNS = [
     Column("channel", "Ch", False, "Channel number; data columns AIn, Xn, Yn", ""),
     Column("electrode", "Electrode", True,
            "Device pad cabled to the Krohn-Hite + input (or straight to the AI when KH # is none)", "Device"),
-    Column("type", "Type", True, "U: sourced through R_sh; V: voltage; n.c.; Ground", "Measurement"),
+    Column("type", "Type", True,
+           "U: sourced through R_sh; V: voltage; n.c.; Ground; Drive: the AO drives the pad directly, "
+           "no KH, AI unused", "Measurement"),
     Column("role", "Role", True, "Label the experiment VIs use to find channels (I+, V1+, Vbg, ...)",
            "Measurement"),
     Column("name", "Name", False, "Derived: U<e>, V<e>, dV<e>-<second pad>", "Measurement"),
@@ -56,14 +58,7 @@ CHANNEL_COLUMNS = [
            "Lock-in"),
     Column("out_gain", "Output gain", True,
            "Amplifier between that AO and the device, e.g. 25 for a backgate amplifier. "
-           "Belongs to the AO: also in the Outputs table", "Lock-in"),
-]
-
-OUTPUT_COLUMNS = [
-    Column("ao", "AO", False, "Lock-in analog output"),
-    Column("name", "Name", True, "What it drives (Vbg, I source, ...)"),
-    Column("gain", "Gain", True, "Amplifier between AO and device (lock-in output gain)"),
-    Column("electrode", "Electrode", True, "Electrode it drives when it does not go through a KH channel"),
+           "Belongs to the AO, so rows sharing an AO share it", "Lock-in"),
 ]
 
 GROUP_TINT = {"": QColor(244, 244, 244), "Device": QColor(252, 250, 240), "Krohn-Hite": QColor(243, 251, 247),
@@ -88,6 +83,12 @@ def reference_text(ch) -> str:
 def exception(ch, key: str) -> str:
     """Why this cell differs from the standard channel (AI n = AO n = KH n), or ""."""
     n = ch.ai
+    if ch.type == "Drive":
+        if key == "type":
+            return f"AO {ch.ao} drives the pad directly; AI {n} is not used"
+        if key == "ao" and ch.ao != n:
+            return f"Standard would be AO {n}"
+        return ""
     if key == "kh":
         if ch.kh is None:
             return "No Krohn-Hite: the pad goes straight to the ADC"
@@ -134,7 +135,8 @@ class ChannelModel(QAbstractTableModel):
         self.cfg = cfg
         self.on_change = on_change
         self.issues: dict[tuple[int, str], rules.Issue] = {}
-        self.mismatch: dict[int, str] = {}
+        self.mismatch: dict[int, str] = {}     # AI -> KH/lock-in input readback difference
+        self.ao_mismatch: dict[int, str] = {}  # AO -> lock-in output gain difference
         self.revalidate()
 
     def set_config(self, cfg: Config) -> None:
@@ -165,10 +167,17 @@ class ChannelModel(QAbstractTableModel):
                 return CHANNEL_COLUMNS[section].tip
         return None
 
+    def _drives_ao(self, ch) -> bool:
+        """The row's AO column applies: a Drive row, or a KH row whose - input is the DAC."""
+        return ch.ao is not None and (ch.type == "Drive" or (ch.kh is not None and ch.minus == MINUS_AO))
+
     def _cell_editable(self, ch, key: str) -> bool:
         col = next(c for c in CHANNEL_COLUMNS if c.key == key)
         if not col.editable:
             return False
+        if ch.type == "Drive":
+            return key in ("electrode", "type", "role", "ao") or (
+                key == "out_gain" and self.cfg.output(ch.ao) is not None)
         if key == "shunt":
             return ch.type == "U" and ch.kh is not None
         if key in ("kh_gain", "couple", "filter", "minus", "ao") and ch.kh is None:
@@ -188,16 +197,20 @@ class ChannelModel(QAbstractTableModel):
         return f
 
     def display(self, ch, key: str) -> str:
+        if ch.type == "Drive" and key in ("kh", "ai", "ext_gain", "lockin_gain"):
+            return "unused" if key == "ai" else ""
         if key == "kh":
             return kh_label(ch.kh)
-        if key in ("channel", "ai"):
+        if key == "channel":
+            return str(ch.ai)
+        if key == "ai":
             return str(ch.ai)
         if key == "plus":
             return ch.electrode if ch.kh is not None else ""
         if key == "minus":
             return ("AO" if ch.minus == MINUS_AO else ch.minus) if ch.kh is not None else ""
         if key in ("ao", "out_gain"):
-            if ch.kh is None or ch.minus != MINUS_AO or ch.ao is None:
+            if not self._drives_ao(ch):
                 return ""
             o = self.cfg.output(ch.ao)
             return str(ch.ao) if key == "ao" else (f"{o.gain:g}" if o else "")
@@ -219,6 +232,8 @@ class ChannelModel(QAbstractTableModel):
                 return QBrush(ERROR_BG if issue.is_error else WARN_BG)
             if key in ("kh", "input") and ch.ai in self.mismatch:
                 return QBrush(MISMATCH_BG)
+            if key == "out_gain" and self._drives_ao(ch) and ch.ao in self.ao_mismatch:
+                return QBrush(MISMATCH_BG)
             return QBrush(GROUP_TINT.get(col.group, QColor(255, 255, 255)))
         why = exception(ch, key)
         if role == Qt.ForegroundRole:
@@ -236,6 +251,8 @@ class ChannelModel(QAbstractTableModel):
                 parts.append(f"[{issue.code}] {issue.message}")
             if key in ("kh", "input") and ch.ai in self.mismatch:
                 parts.append(self.mismatch[ch.ai])
+            if key == "out_gain" and self._drives_ao(ch) and ch.ao in self.ao_mismatch:
+                parts.append(self.ao_mismatch[ch.ao])
             return "\n".join(parts) or col.tip
         if role == Qt.TextAlignmentRole:
             if key in ("ext_gain", "lockin_gain", "out_gain"):
@@ -283,65 +300,4 @@ class ChannelModel(QAbstractTableModel):
 
     def refresh(self) -> None:
         self.revalidate()
-        self.dataChanged.emit(self.index(0, 0), self.index(self.rowCount() - 1, self.columnCount() - 1))
-
-
-class OutputModel(QAbstractTableModel):
-    def __init__(self, cfg: Config, on_change: Callable[[], None]):
-        super().__init__()
-        self.cfg = cfg
-        self.on_change = on_change
-        self.mismatch: dict[int, str] = {}
-
-    def set_config(self, cfg: Config) -> None:
-        self.beginResetModel()
-        self.cfg = cfg
-        self.endResetModel()
-
-    def rowCount(self, parent=QModelIndex()):
-        return 0 if parent.isValid() else len(self.cfg.outputs)
-
-    def columnCount(self, parent=QModelIndex()):
-        return 0 if parent.isValid() else len(OUTPUT_COLUMNS)
-
-    def headerData(self, section, orientation, role=Qt.DisplayRole):
-        if orientation == Qt.Horizontal:
-            if role == Qt.DisplayRole:
-                return OUTPUT_COLUMNS[section].title
-            if role == Qt.ToolTipRole:
-                return OUTPUT_COLUMNS[section].tip
-        return None
-
-    def flags(self, index):
-        f = Qt.ItemIsSelectable | Qt.ItemIsEnabled
-        if OUTPUT_COLUMNS[index.column()].editable:
-            f |= Qt.ItemIsEditable
-        return f
-
-    def data(self, index, role=Qt.DisplayRole):
-        o = self.cfg.outputs[index.row()]
-        key = OUTPUT_COLUMNS[index.column()].key
-        if role in (Qt.DisplayRole, Qt.EditRole):
-            v = getattr(o, key)
-            return f"{v:g}" if isinstance(v, float) else str(v)
-        if role == Qt.BackgroundRole and key == "gain" and o.ao in self.mismatch:
-            return QBrush(MISMATCH_BG)
-        if role == Qt.ToolTipRole:
-            return self.mismatch.get(o.ao) if key == "gain" and o.ao in self.mismatch else OUTPUT_COLUMNS[index.column()].tip
-        return None
-
-    def setData(self, index, value, role=Qt.EditRole):
-        if role != Qt.EditRole:
-            return False
-        o = self.cfg.outputs[index.row()]
-        key = OUTPUT_COLUMNS[index.column()].key
-        try:
-            setattr(o, key, float(value) if key == "gain" else str(value).strip())
-        except ValueError:
-            return False
-        self.dataChanged.emit(index, index)
-        self.on_change()
-        return True
-
-    def refresh(self) -> None:
         self.dataChanged.emit(self.index(0, 0), self.index(self.rowCount() - 1, self.columnCount() - 1))

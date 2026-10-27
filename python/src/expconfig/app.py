@@ -24,7 +24,7 @@ from . import db, hardware, legacy, rules, service, sim, topology
 from .demo import demo_config
 from .model import KH_COUPLINGS, KH_FILTERS, KH_OVERRIDES, KH_SHUNTS, Config
 from .groupheader import GroupHeader
-from .tablemodels import CHANNEL_COLUMNS, GROUP_TINT, ChannelModel, OutputModel, choices
+from .tablemodels import CHANNEL_COLUMNS, GROUP_TINT, ChannelModel, choices
 from .wiringview import WiringView
 
 
@@ -136,7 +136,6 @@ class MainWindow(QMainWindow):
         self.resize(1500, 900)
 
         self.channel_model = ChannelModel(cfg, self.changed)
-        self.output_model = OutputModel(cfg, self.changed)
 
         # --- left: forms, set-all bar, tables, issues ---
         left = QWidget()
@@ -159,27 +158,17 @@ class MainWindow(QMainWindow):
         self.table.verticalHeader().setVisible(False)  # the Ch column is the row number
         self.table.selectionModel().currentRowChanged.connect(self._row_selected)
 
-        self.outputs = QTableView()
-        self.outputs.setModel(self.output_model)
-        self.outputs.verticalHeader().setVisible(False)
-        self.outputs.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
-
         self.issues = QListWidget()
         self.issues.itemClicked.connect(self._issue_clicked)
 
-        bottom = QSplitter(Qt.Horizontal)
-        og = QGroupBox("Outputs (AO)")
-        QVBoxLayout(og).addWidget(self.outputs)
         ig = QGroupBox("Checks")
         QVBoxLayout(ig).addWidget(self.issues)
-        bottom.addWidget(og)
-        bottom.addWidget(ig)
 
         tables = QSplitter(Qt.Vertical)
         cg = QGroupBox("Channels (one row per lock-in AI)")
         QVBoxLayout(cg).addWidget(self.table)
         tables.addWidget(cg)
-        tables.addWidget(bottom)
+        tables.addWidget(ig)
         tables.setSizes([640, 170])
         lv.addWidget(tables, 1)
 
@@ -277,7 +266,6 @@ class MainWindow(QMainWindow):
     def _remote_set(self, cfg: Config) -> None:
         self.cfg = cfg
         self.channel_model.set_config(cfg)
-        self.output_model.set_config(cfg)
         self.changed()
         self.log.appendPlainText("Remote: configuration changed")
         self.statusBar().showMessage("Configuration changed by a remote client")
@@ -423,7 +411,6 @@ class MainWindow(QMainWindow):
 
     def changed(self) -> None:
         self.channel_model.refresh()
-        self.output_model.refresh()
         self.wiring.set_config(self.cfg)
         found = rules.validate(self.cfg)
         self.issues.clear()
@@ -460,11 +447,9 @@ class MainWindow(QMainWindow):
 
     def _resize(self):
         self.channel_model.beginResetModel()
-        self.output_model.beginResetModel()
         self.cfg.resize(self.n_ai.value(), self.n_ao.value())
         rules.derive_all(self.cfg)
         self.channel_model.endResetModel()
-        self.output_model.endResetModel()
         self.changed()
 
     def _set_all(self, attr, box, values):
@@ -497,7 +482,6 @@ class MainWindow(QMainWindow):
         self.cfg = cfg
         self.source = source
         self.channel_model.set_config(cfg)
-        self.output_model.set_config(cfg)
         e = cfg.experiment
         for key, le in self.ed.items():
             le.setText(getattr(e, key))
@@ -580,15 +564,14 @@ class MainWindow(QMainWindow):
         self.log.appendPlainText(f"{what}: input gain {rb.input_gain}, output gain {rb.output_gain}")
         mism = rb.mismatches(self.cfg)
         self.channel_model.mismatch = {}
-        self.output_model.mismatch = {}
+        self.channel_model.ao_mismatch = {}
         for m in mism:
             head = m.split(":")[0].split()
             if head[0] == "AI":
                 self.channel_model.mismatch[int(head[1])] = m
             elif head[0] == "AO":
-                self.output_model.mismatch[int(head[1])] = m
+                self.channel_model.ao_mismatch[int(head[1])] = m
         self.conn.setText(f"connected, {len(self.cfg.instruments.kh_addresses)} KH chassis")
-        self.output_model.layoutChanged.emit()
         self.changed()
         self.statusBar().showMessage(f"{what}: {'matches the table' if not mism else f'{len(mism)} differences'}")
 
@@ -623,7 +606,6 @@ class MainWindow(QMainWindow):
         rules.derive_all(self.cfg)
         for c in changes:
             self.log.appendPlainText(f"Adopted {c}")
-        self.output_model.layoutChanged.emit()
         self._show_readback(rb, "Adopt")
         self.statusBar().showMessage(f"Adopted {len(changes)} settings from the instruments")
 

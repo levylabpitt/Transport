@@ -121,7 +121,7 @@ A small LabVIEW application, built as an exe like the KH and lock-in apps, in it
 One `Channel` row per lock-in AI, plus one `Output` row per AO. Field meanings and rules are those of the #182 spec:
 
 - **Channel:**
-  - Entered: `ai`, `electrode`, `minus`, `type` (U, V, n.c., Ground), `role`, `kh` (A1.., or none), `shunt`, `kh_gain`, `couple`, `filter`, `ext_gain`, `ao`.
+  - Entered: `ai`, `electrode`, `minus`, `type` (U, V, n.c., Ground, Drive: AO n drives the pad directly through its output gain, no KH, AI n unused), `role`, `kh` (A1.., or none), `shunt`, `kh_gain`, `couple`, `filter`, `ext_gain`, `ao`.
   - Derived: `input`, `name`, `lockin_gain` = `kh_gain` × `ext_gain`.
   - `ext_gain` is the gain between the KH (or the sample) and the AI, for example an SR830 output: 10 V / sensitivity.
 - **Output:**
@@ -144,7 +144,7 @@ One `Channel` row per lock-in AI, plus one `Output` row per AO. Field meanings a
   - experiment info, with user and station dropdowns from the database;
   - the channel table, with per-cell editors, derived columns read-only, and invalid cells marked with the reason;
   - set-all controls: Coupling, Filter, All Ground / All Differential;
-  - the outputs table;
+  - no separate outputs table: AO and output gain are columns of the channel row, and a Drive row covers an AO that drives a pad without a KH channel;
   - the wiring view and the topology JSON;
   - instrument connections: Read back, Adopt, Apply;
   - Log measurement.

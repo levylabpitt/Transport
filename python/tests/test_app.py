@@ -110,3 +110,16 @@ def test_database_lookups_fill_the_rings(qapp):
     assert [w.ed["station"].itemText(i) for i in range(w.ed["station"].count())] == ["Cypher"]
     w._lookups_ready(db.Lookups(error="offline"))
     assert w.db_label.text() == "offline"
+
+
+def test_drive_row_cells(qapp):
+    w = MainWindow(demo_config(), "test")
+    m = w.channel_model
+    row = 8  # AI 9: Drive, pad 14, AO 9
+    assert m.data(m.index(row, col("ai"))) == "unused"
+    assert m.data(m.index(row, col("ao"))) == "9"
+    assert m.flags(m.index(row, col("out_gain"))) & Qt.ItemIsEditable
+    assert not m.flags(m.index(row, col("kh"))) & Qt.ItemIsEditable
+    assert m.setData(m.index(row, col("out_gain")), "2")
+    assert w.cfg.output(9).gain == 2
+    assert m.data(m.index(row, col("kh"))) == ""
