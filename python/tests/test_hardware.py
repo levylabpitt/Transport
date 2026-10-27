@@ -124,3 +124,13 @@ def test_available_shunts_from_the_real_reply_shape():
     assert hardware.available_shunts("") is None
     assert "10M" not in hardware.available_shunts("500")
     assert "500" not in hardware.available_shunts("10M")
+
+
+def test_read_collects_idn_serials(rig):
+    cfg, _, _ = rig
+    r = hardware.Rig(cfg)
+    rb = r.read()
+    r.close()
+    assert rb.lockin_idn.get("serial") == "sim"
+    assert sorted(rb.kh_idn) == [0, 1]
+    assert rb.serials() == ("sim", ["sim", "sim"])

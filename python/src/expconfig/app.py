@@ -28,6 +28,13 @@ from .tablemodels import CHANNEL_COLUMNS, GROUP_TINT, ChannelModel, choices
 from .wiringview import WiringView
 
 
+def _idn_text(d: dict) -> str:
+    """'Multichannel-Lockin  SN 2674814sim  fw 3.8.6.97' from an IDN reply."""
+    if not d:
+        return "not read"
+    return "  ".join(x for x in (str(d.get("model", "")), f"SN {d.get('serial', '?')}",
+                                 f"fw {d['firmware']}" if d.get("firmware") else "") if x)
+
 class ChoiceDelegate(QStyledItemDelegate):
     """Combo-box editors whose options depend on the column (and the current config)."""
 
@@ -217,6 +224,8 @@ class MainWindow(QMainWindow):
                     rig.close()
             threading.Thread(target=query, daemon=True).start()
 
+    serials: tuple[str, list[str]] = ("", [])
+
     def _instruments_ready(self, rb: hardware.Readback) -> None:
         self._show_readback(rb, "Startup read")
 
@@ -336,10 +345,15 @@ class MainWindow(QMainWindow):
         f.addRow("Lock-in", self.lockin_addr)
         f.addRow("Channels", counts)
         self.conn = QLabel("not connected")
+        self.lockin_id = QLabel("not read")
+        self.kh_id = QLabel("not read")
+        for lbl in (self.lockin_id, self.kh_id):
+            lbl.setToolTip("From IDN; the serial numbers are what Log measurement records")
         self.api_label = QLabel("off")
         self.api_label.setToolTip("This app's own JSON-RPC server (getChannelConfig, setChannelConfig, ...)")
         self.db_label = QLabel("off")
-        for lbl, wdg in (("Status", self.conn), ("Remote API", self.api_label), ("Database", self.db_label)):
+        for lbl, wdg in (("Status", self.conn), ("Lock-in ID", self.lockin_id), ("KH ID", self.kh_id),
+                         ("Remote API", self.api_label), ("Database", self.db_label)):
             wdg.setTextInteractionFlags(Qt.TextSelectableByMouse)
             f.addRow(lbl, wdg)
         h.addWidget(ig, 2)
@@ -551,7 +565,15 @@ class MainWindow(QMainWindow):
             self.rig = hardware.Rig(self.cfg, timeout=2.0)
         return self.rig
 
+    def _show_idn(self, rb: hardware.Readback) -> None:
+        self.lockin_id.setText(_idn_text(rb.lockin_idn))
+        self.kh_id.setText("; ".join(f"{chr(65 + i)}: {_idn_text(rb.kh_idn.get(i, {}))}" for i in sorted(rb.kh))
+                           or "not read")
+        if rb.lockin_idn or rb.kh_idn:
+            self.serials = rb.serials()
+
     def _show_readback(self, rb: hardware.Readback, what: str):
+        self._show_idn(rb)
         for e in rb.errors:
             self.log.appendPlainText(f"ERROR {e}")
         if rb.errors:
@@ -617,8 +639,9 @@ class MainWindow(QMainWindow):
         try:
             lockin_sn, kh_sns = self._rig().serials()
         except Exception as err:
-            lockin_sn, kh_sns = "", []
-            self.log.appendPlainText(f"Serial numbers not read: {err}")
+            # Instruments not answering now: use the serials from the last read, if any.
+            lockin_sn, kh_sns = self.serials
+            self.log.appendPlainText(f"Serial numbers not read now ({err}); using the last read")
         values = {
             "user": e.user, "station": e.station, "device": e.device_name,
             "measurement": str(Path(e.path) / e.device_name) if e.path else e.device_name,

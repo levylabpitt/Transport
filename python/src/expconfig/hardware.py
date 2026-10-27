@@ -66,6 +66,14 @@ class Readback:
     shunts: dict[int, list[str]] = field(default_factory=dict)
     output_gain: list[float] = field(default_factory=list)
     errors: list[str] = field(default_factory=list)
+    # IDN replies ({vendor, model, serial, firmware}); empty when IDN failed.
+    lockin_idn: dict = field(default_factory=dict)
+    kh_idn: dict[int, dict] = field(default_factory=dict)
+
+    def serials(self) -> tuple[str, list[str]]:
+        """Serial numbers from IDN, for the measurement record."""
+        return (str(self.lockin_idn.get("serial", "")),
+                [str(self.kh_idn.get(i, {}).get("serial", "")) for i in sorted(self.kh)])
 
     def mismatches(self, cfg: Config) -> list[str]:
         """Rows whose instrument state differs from the table."""
@@ -147,6 +155,7 @@ class Rig:
         rb = Readback()
         for i, kh in enumerate(self.khs):
             try:
+                rb.kh_idn[i] = kh.idn()
                 rb.kh[i] = kh.get_all_channels()
                 avail = available_shunts(kh.get_shunt_resistors())
                 if avail is not None:
@@ -154,6 +163,7 @@ class Rig:
             except Exception as err:
                 rb.errors.append(f"KH {chr(65 + i)}: {err}")
         try:
+            rb.lockin_idn = self.lockin.idn()
             rb.input_gain = self.lockin.get_input_gain()
             rb.output_gain = self.lockin.get_output_gain()
         except Exception as err:
