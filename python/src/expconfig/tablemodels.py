@@ -25,30 +25,38 @@ class Column:
     group: str = ""
 
 
-# Grouped as in Configure Experiment: what the lock-in input measures, then the
-# Krohn-Hite channel in front of it, then the gain outside the instruments.
+# Read left to right: the channel, the pad it measures, what it means, then the
+# Krohn-Hite channel in front of the lock-in, then the lock-in itself.
 CHANNEL_COLUMNS = [
-    # One row per lock-in AI (the row header). The standard channel n is
+    # One row per channel n, read on lock-in AI n. The standard channel n is
     # AI n = AO n = KH channel n; anything else is shown as an exception.
+    Column("channel", "Ch", False, "Channel number; data columns AIn, Xn, Yn", ""),
     Column("electrode", "Electrode", True,
            "Device pad cabled to the Krohn-Hite + input (or straight to the AI when KH # is none)", "Device"),
+    Column("type", "Type", True, "U: sourced through R_sh; V: voltage; n.c.; Ground", "Measurement"),
+    Column("role", "Role", True, "Label the experiment VIs use to find channels (I+, V1+, Vbg, ...)",
+           "Measurement"),
+    Column("name", "Name", False, "Derived: U<e>, V<e>, dV<e>-<second pad>", "Measurement"),
     Column("kh", "KH #", True, "Krohn-Hite channel whose output goes to this AI. Standard: channel n", "Krohn-Hite"),
-    Column("minus", "\u2212 input", True,
-           "What the Krohn-Hite \u2212 input is cabled to. Standard: the DAC, AO n. Also GND, n.c., "
-           "or a second pad to measure a difference", "Krohn-Hite"),
+    Column("plus", "+", False, "What the Krohn-Hite + input is cabled to: the electrode", "Krohn-Hite"),
+    Column("minus", "\u2212", True,
+           "What the Krohn-Hite \u2212 input is cabled to. Standard: the DAC (the AO in the Lock-in group). "
+           "Also GND, n.c., or a second pad to measure a difference", "Krohn-Hite"),
     Column("input", "Config", False, "Input mode, derived from Type and the \u2212 input", "Krohn-Hite"),
     Column("kh_gain", "Gain", True, "Krohn-Hite gain", "Krohn-Hite"),
     Column("shunt", "R_sh", True, "Shunt resistor between the \u2212 and + inputs; only used by U rows",
            "Krohn-Hite"),
     Column("couple", "Couple", True, "AC or DC coupling", "Krohn-Hite"),
     Column("filter", "Filter", True, "Bandwidth filter", "Krohn-Hite"),
+    Column("ai", "AI", False, "Lock-in analog input. Always the channel number", "Lock-in"),
     Column("ext_gain", "Ext. gain", True,
            "Gain between the Krohn-Hite (or the pad) and the ADC, e.g. SR830: 10 V / sensitivity", "Lock-in"),
-    Column("lockin_gain", "Total gain", False, "KH gain x external gain, sent to the lock-in", "Lock-in"),
-    Column("type", "Type", True, "U: sourced through R_sh; V: voltage; n.c.; Ground", "Measurement"),
-    Column("role", "Role", True, "Label the experiment VIs use to find channels (I+, V1+, Vbg, ...)",
-           "Measurement"),
-    Column("name", "Name", False, "Derived: U<e>, V<e>, dV<e>-<second pad>", "Measurement"),
+    Column("lockin_gain", "Input gain", False, "KH gain x external gain, sent to the lock-in", "Lock-in"),
+    Column("ao", "AO", True, "Lock-in analog output (DAC) on the Krohn-Hite \u2212 input. Standard: AO n",
+           "Lock-in"),
+    Column("out_gain", "Output gain", True,
+           "Amplifier between that AO and the device, e.g. 25 for a backgate amplifier. "
+           "Belongs to the AO: also in the Outputs table", "Lock-in"),
 ]
 
 OUTPUT_COLUMNS = [
@@ -58,7 +66,7 @@ OUTPUT_COLUMNS = [
     Column("electrode", "Electrode", True, "Electrode it drives when it does not go through a KH channel"),
 ]
 
-GROUP_TINT = {"Device": QColor(252, 250, 240), "Krohn-Hite": QColor(243, 251, 247),
+GROUP_TINT = {"": QColor(244, 244, 244), "Device": QColor(252, 250, 240), "Krohn-Hite": QColor(243, 251, 247),
               "Lock-in": QColor(246, 248, 255), "Measurement": QColor(250, 246, 252)}
 EXCEPTION_FG = QColor(20, 80, 200)
 ERROR_BG = QColor(255, 205, 205)
@@ -85,11 +93,10 @@ def exception(ch, key: str) -> str:
             return "No Krohn-Hite: the pad goes straight to the ADC"
         if ch.kh != n - 1:
             return f"Standard would be KH {kh_label(n - 1)}"
-    if key == "minus" and ch.kh is not None:
-        if ch.minus == MINUS_AO and ch.ao != n:
-            return f"Standard would be AO {n}"
-        if ch.minus != MINUS_AO:
-            return f"Not the DAC: the \u2212 input is on {ch.minus}"
+    if key == "minus" and ch.kh is not None and ch.minus != MINUS_AO:
+        return f"Not the DAC: the \u2212 input is on {ch.minus}"
+    if key == "ao" and ch.kh is not None and ch.minus == MINUS_AO and ch.ao != n:
+        return f"Standard would be AO {n}"
     if key == "ext_gain" and ch.ext_gain != 1:
         return "An external gain stage sits before the ADC"
     return ""
@@ -115,7 +122,9 @@ def choices(cfg: Config, key: str) -> tuple[list[str], bool]:
         return list(ROLE_STRINGS), True
     if key == "minus":
         electrodes = sorted({c.electrode for c in cfg.channels if c.electrode}, key=_natural)
-        return [f"AO {o.ao}" for o in cfg.outputs] + ["GND", "n.c."] + electrodes, True
+        return ["AO", "GND", "n.c."] + electrodes, True
+    if key == "ao":
+        return [str(o.ao) for o in cfg.outputs] + ["none"], False
     return [], True
 
 
@@ -139,8 +148,7 @@ class ChannelModel(QAbstractTableModel):
         self.issues = {}
         for i in found:
             if i.ai is not None:
-                # AO problems show on the Reference column, where the AO is chosen.
-                self.issues[(i.ai, "minus" if i.field == "ao" else i.field)] = i
+                self.issues[(i.ai, i.field)] = i
         return found
 
     def rowCount(self, parent=QModelIndex()):
@@ -155,10 +163,6 @@ class ChannelModel(QAbstractTableModel):
                 return CHANNEL_COLUMNS[section].title
             if role == Qt.ToolTipRole:
                 return CHANNEL_COLUMNS[section].tip
-        elif role == Qt.DisplayRole and section < len(self.cfg.channels):
-            return f"AI {self.cfg.channels[section].ai}"
-        elif role == Qt.ToolTipRole:
-            return "Lock-in analog input: data columns AIn, Xn, Yn"
         return None
 
     def _cell_editable(self, ch, key: str) -> bool:
@@ -167,8 +171,12 @@ class ChannelModel(QAbstractTableModel):
             return False
         if key == "shunt":
             return ch.type == "U" and ch.kh is not None
-        if key in ("kh_gain", "couple", "filter", "minus") and ch.kh is None:
+        if key in ("kh_gain", "couple", "filter", "minus", "ao") and ch.kh is None:
             return False
+        if key == "ao":
+            return ch.minus == MINUS_AO
+        if key == "out_gain":
+            return ch.kh is not None and ch.minus == MINUS_AO and self.cfg.output(ch.ao) is not None
         return True
 
     def flags(self, index):
@@ -182,8 +190,17 @@ class ChannelModel(QAbstractTableModel):
     def display(self, ch, key: str) -> str:
         if key == "kh":
             return kh_label(ch.kh)
+        if key in ("channel", "ai"):
+            return str(ch.ai)
+        if key == "plus":
+            return ch.electrode if ch.kh is not None else ""
         if key == "minus":
-            return reference_text(ch) if ch.kh is not None else ""
+            return ("AO" if ch.minus == MINUS_AO else ch.minus) if ch.kh is not None else ""
+        if key in ("ao", "out_gain"):
+            if ch.kh is None or ch.minus != MINUS_AO or ch.ao is None:
+                return ""
+            o = self.cfg.output(ch.ao)
+            return str(ch.ao) if key == "ao" else (f"{o.gain:g}" if o else "")
         if key in ("ext_gain", "lockin_gain"):
             return f"{getattr(ch, key):g}"
         if key in ("input", "kh_gain", "shunt", "couple", "filter") and ch.kh is None:
@@ -220,8 +237,11 @@ class ChannelModel(QAbstractTableModel):
             if key in ("kh", "input") and ch.ai in self.mismatch:
                 parts.append(self.mismatch[ch.ai])
             return "\n".join(parts) or col.tip
-        if role == Qt.TextAlignmentRole and key in ("ext_gain", "lockin_gain"):
-            return int(Qt.AlignRight | Qt.AlignVCenter)
+        if role == Qt.TextAlignmentRole:
+            if key in ("ext_gain", "lockin_gain", "out_gain"):
+                return int(Qt.AlignRight | Qt.AlignVCenter)
+            if key in ("channel", "ai", "ao", "kh", "plus", "minus"):
+                return int(Qt.AlignCenter)
         return None
 
     def setData(self, index, value, role=Qt.EditRole):
@@ -234,11 +254,19 @@ class ChannelModel(QAbstractTableModel):
             if key == "kh":
                 ch.kh = parse_kh_label(text)
             elif key == "minus":
-                m = re.fullmatch(r"AO\s*(\d+)", text, re.IGNORECASE)
+                m = re.fullmatch(r"AO\s*(\d*)", text, re.IGNORECASE)
                 if m:
-                    ch.minus, ch.ao = MINUS_AO, int(m.group(1))
+                    ch.minus = MINUS_AO
+                    if m.group(1):
+                        ch.ao = int(m.group(1))
+                    elif ch.ao is None:
+                        ch.ao = ch.ai if self.cfg.output(ch.ai) else None
                 else:
                     ch.minus = normalize_minus(text)
+            elif key == "ao":
+                ch.ao = None if text.lower() in ("", "none") else int(text)
+            elif key == "out_gain":
+                self.cfg.output(ch.ao).gain = float(text)
             elif key == "type":
                 rules.set_type(ch, text, self.cfg.default_shunt)
             elif key == "ext_gain":
@@ -314,3 +342,6 @@ class OutputModel(QAbstractTableModel):
         self.dataChanged.emit(index, index)
         self.on_change()
         return True
+
+    def refresh(self) -> None:
+        self.dataChanged.emit(self.index(0, 0), self.index(self.rowCount() - 1, self.columnCount() - 1))

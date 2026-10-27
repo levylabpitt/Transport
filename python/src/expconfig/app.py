@@ -24,7 +24,6 @@ from . import db, hardware, legacy, rules, service, sim, topology
 from .demo import demo_config
 from .model import KH_COUPLINGS, KH_FILTERS, KH_OVERRIDES, KH_SHUNTS, Config
 from .groupheader import GroupHeader
-from .deviceview import DeviceView
 from .tablemodels import CHANNEL_COLUMNS, GROUP_TINT, ChannelModel, OutputModel, choices
 from .wiringview import WiringView
 
@@ -157,6 +156,7 @@ class MainWindow(QMainWindow):
         self.table.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeToContents)
         self.table.horizontalHeader().setMinimumSectionSize(44)
         self.table.verticalHeader().setDefaultSectionSize(24)
+        self.table.verticalHeader().setVisible(False)  # the Ch column is the row number
         self.table.selectionModel().currentRowChanged.connect(self._row_selected)
 
         self.outputs = QTableView()
@@ -192,14 +192,8 @@ class MainWindow(QMainWindow):
         self.machine = QPlainTextEdit(readOnly=True)
         self.machine.setFont(QFont("Consolas", 9))
         self.log = QPlainTextEdit(readOnly=True)
-        self.sample = DeviceView(cfg)
-        self.sample.rowClicked.connect(self._select_ai)
-        sample_scroll = QScrollArea()
-        sample_scroll.setWidget(self.sample)
-        sample_scroll.setWidgetResizable(True)
         self.tabs = QTabWidget()
-        self.tabs.addTab(sample_scroll, "Device")
-        self.tabs.addTab(scroll, "Wiring (per AI)")
+        self.tabs.addTab(scroll, "Wiring")
         self.tabs.addTab(self.machine, "Machine view (topology JSON)")
         self.tabs.addTab(self.log, "Instrument log")
 
@@ -316,7 +310,7 @@ class MainWindow(QMainWindow):
                 grid.addWidget(QLabel(label), r, 2 * c)
                 grid.addWidget(self._exp_field(key, getattr(e, key)), r, 2 * c + 1)
         self.pads = QSpinBox(minimum=1, maximum=256, value=e.pads)
-        self.pads.setToolTip("Bond pads on the device, numbered 1..N: the Electrode dropdown and the Device view")
+        self.pads.setToolTip("Bond pads on the device, numbered 1..N: the Electrode dropdown")
         self.pads.valueChanged.connect(self._pads_changed)
         grid.addWidget(QLabel("Pads"), 2, 0)
         grid.addWidget(self.pads, 2, 1)
@@ -429,8 +423,8 @@ class MainWindow(QMainWindow):
 
     def changed(self) -> None:
         self.channel_model.refresh()
+        self.output_model.refresh()
         self.wiring.set_config(self.cfg)
-        self.sample.set_config(self.cfg)
         found = rules.validate(self.cfg)
         self.issues.clear()
         for i in found:
@@ -488,13 +482,11 @@ class MainWindow(QMainWindow):
     def _row_selected(self, cur: QModelIndex, _prev):
         if cur.isValid():
             self.wiring.select(self.cfg.channels[cur.row()].ai)
-            self.sample.select(self.cfg.channels[cur.row()].ai)
 
     def _select_ai(self, ai: int):
         row = next(i for i, c in enumerate(self.cfg.channels) if c.ai == ai)
         self.table.selectRow(row)
         self.wiring.select(ai)
-        self.sample.select(ai)
 
     def _issue_clicked(self, item):
         ai = item.data(Qt.UserRole)
