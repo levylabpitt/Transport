@@ -72,7 +72,8 @@ class WiringView(QWidget):
         return [c for c in self.cfg.channels if c.type == "Drive" and c.ao == ao]
 
     def _outputs_shown(self):
-        return [o for o in self.cfg.outputs if o.name or o.gain != 1 or o.electrode or self._drive_rows(o.ao)]
+        return [o for o in self.cfg.outputs
+                if o.name or o.gain != 1 or o.offset or o.electrode or self._drive_rows(o.ao)]
 
     def sizeHint(self) -> QSize:
         h = PAD + len(self._rows()) * STRIP_H + (24 if self._idle() else 0) + 30 \
@@ -222,9 +223,10 @@ class WiringView(QWidget):
             self._box(p, r, [f"{kh_label(c.kh)} shunt {c.shunt} (AI {c.ai})"], QColor(214, 240, 232), bold_first=False)
             self._wire(p, src, QPointF(r.left(), r.center().y()))
             src, x = QPointF(r.right(), r.center().y()), r.right() + 18
-        if o.gain != 1:
-            amp = QRectF(x, y + 4, 76, 26)
-            self._box(p, amp, [f"amp x{o.gain:g}"], QColor(250, 222, 210))
+        if o.gain != 1 or o.offset:
+            text = f"amp x{o.gain:g}" + (f", offset {o.offset:g}" if o.offset else "")
+            amp = QRectF(x, y + 4, 76 if not o.offset else 150, 26)
+            self._box(p, amp, [text], QColor(250, 222, 210))
             self._wire(p, src, QPointF(amp.left(), amp.center().y()))
             src, x = QPointF(amp.right(), amp.center().y()), amp.right() + 18
         drives = self._drive_rows(o.ao)

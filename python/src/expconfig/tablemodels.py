@@ -9,7 +9,7 @@ from typing import Callable
 from PySide6.QtCore import QAbstractTableModel, QModelIndex, Qt
 from PySide6.QtGui import QBrush, QColor, QFont
 
-from . import rules
+from . import hardware, rules
 from .model import (
     CHANNEL_TYPES, KH_CHANNELS_PER_CHASSIS, KH_COUPLINGS, KH_FILTERS, KH_GAINS, KH_SHUNTS,
     MINUS_AO, ROLE_STRINGS, Config, kh_label, normalize_minus, parse_kh_label,
@@ -59,6 +59,9 @@ CHANNEL_COLUMNS = [
     Column("out_gain", "Output gain", True,
            "Amplifier between that AO and the device, e.g. 25 for a backgate amplifier. "
            "Belongs to the AO, so rows sharing an AO share it", "Lock-in"),
+    Column("out_offset", "Output offset", True,
+           "Trims the amplifier's offset: in output units (at the device), subtracted from the requested "
+           "value before the output gain. Belongs to the AO, like the output gain", "Lock-in"),
 ]
 
 GROUP_TINT = {"": QColor(244, 244, 244), "Device": QColor(252, 250, 240), "Krohn-Hite": QColor(243, 251, 247),
@@ -136,8 +139,21 @@ class ChannelModel(QAbstractTableModel):
         self.on_change = on_change
         self.issues: dict[tuple[int, str], rules.Issue] = {}
         self.mismatch: dict[int, str] = {}     # AI -> KH/lock-in input readback difference
-        self.ao_mismatch: dict[int, str] = {}  # AO -> lock-in output gain difference
+        self.ao_mismatch: dict[int, str] = {}  # AO -> lock-in output gain/offset difference
+        self.ai_daq: list[dict] = []            # getInputDAQ, one entry per AI; empty until read
+        self.ao_daq: list[dict] = []
         self.revalidate()
+
+    def set_daq(self, ai_daq: list[dict], ao_daq: list[dict]) -> None:
+        self.ai_daq, self.ao_daq = list(ai_daq), list(ao_daq)
+
+    def _daq(self, ch, key: str) -> str:
+        """Physical channel behind the AI or AO cell, from the lock-in."""
+        if key == "ai" and ch.type != "Drive" and 1 <= ch.ai <= len(self.ai_daq):
+            return f"AI {ch.ai}: {hardware.daq_text(self.ai_daq[ch.ai - 1])}"
+        if key == "ao" and self._drives_ao(ch) and 1 <= ch.ao <= len(self.ao_daq):
+            return f"AO {ch.ao}: {hardware.daq_text(self.ao_daq[ch.ao - 1])}"
+        return ""
 
     def set_config(self, cfg: Config) -> None:
         self.beginResetModel()
@@ -177,14 +193,14 @@ class ChannelModel(QAbstractTableModel):
             return False
         if ch.type == "Drive":
             return key in ("electrode", "type", "role", "ao") or (
-                key == "out_gain" and self.cfg.output(ch.ao) is not None)
+                key in ("out_gain", "out_offset") and self.cfg.output(ch.ao) is not None)
         if key == "shunt":
             return ch.type == "U" and ch.kh is not None
         if key in ("kh_gain", "couple", "filter", "minus", "ao") and ch.kh is None:
             return False
         if key == "ao":
             return ch.minus == MINUS_AO
-        if key == "out_gain":
+        if key in ("out_gain", "out_offset"):
             return ch.kh is not None and ch.minus == MINUS_AO and self.cfg.output(ch.ao) is not None
         return True
 
@@ -209,11 +225,13 @@ class ChannelModel(QAbstractTableModel):
             return ch.electrode if ch.kh is not None else ""
         if key == "minus":
             return ("AO" if ch.minus == MINUS_AO else ch.minus) if ch.kh is not None else ""
-        if key in ("ao", "out_gain"):
+        if key in ("ao", "out_gain", "out_offset"):
             if not self._drives_ao(ch):
                 return ""
             o = self.cfg.output(ch.ao)
-            return str(ch.ao) if key == "ao" else (f"{o.gain:g}" if o else "")
+            if key == "ao":
+                return str(ch.ao)
+            return (f"{o.gain:g}" if key == "out_gain" else f"{o.offset:g}") if o else ""
         if key in ("ext_gain", "lockin_gain"):
             return f"{getattr(ch, key):g}"
         if key in ("input", "kh_gain", "shunt", "couple", "filter") and ch.kh is None:
@@ -232,7 +250,7 @@ class ChannelModel(QAbstractTableModel):
                 return QBrush(ERROR_BG if issue.is_error else WARN_BG)
             if key in ("kh", "input") and ch.ai in self.mismatch:
                 return QBrush(MISMATCH_BG)
-            if key == "out_gain" and self._drives_ao(ch) and ch.ao in self.ao_mismatch:
+            if key in ("out_gain", "out_offset") and self._drives_ao(ch) and ch.ao in self.ao_mismatch:
                 return QBrush(MISMATCH_BG)
             return QBrush(GROUP_TINT.get(col.group, QColor(255, 255, 255)))
         why = exception(ch, key)
@@ -251,11 +269,13 @@ class ChannelModel(QAbstractTableModel):
                 parts.append(f"[{issue.code}] {issue.message}")
             if key in ("kh", "input") and ch.ai in self.mismatch:
                 parts.append(self.mismatch[ch.ai])
-            if key == "out_gain" and self._drives_ao(ch) and ch.ao in self.ao_mismatch:
+            if key in ("out_gain", "out_offset") and self._drives_ao(ch) and ch.ao in self.ao_mismatch:
                 parts.append(self.ao_mismatch[ch.ao])
+            if daq := self._daq(ch, key):
+                parts.append(daq)
             return "\n".join(parts) or col.tip
         if role == Qt.TextAlignmentRole:
-            if key in ("ext_gain", "lockin_gain", "out_gain"):
+            if key in ("ext_gain", "lockin_gain", "out_gain", "out_offset"):
                 return int(Qt.AlignRight | Qt.AlignVCenter)
             if key in ("channel", "ai", "ao", "kh", "plus", "minus"):
                 return int(Qt.AlignCenter)
@@ -284,6 +304,8 @@ class ChannelModel(QAbstractTableModel):
                 ch.ao = None if text.lower() in ("", "none") else int(text)
             elif key == "out_gain":
                 self.cfg.output(ch.ao).gain = float(text)
+            elif key == "out_offset":
+                self.cfg.output(ch.ao).offset = float(text)
             elif key == "type":
                 rules.set_type(ch, text, self.cfg.default_shunt)
             elif key == "ext_gain":

@@ -37,7 +37,7 @@ def build(cfg: Config) -> dict:
             driven.setdefault(c.ao, []).append(c.electrode)
     amps: dict[int, str] = {}
     for o in cfg.outputs:
-        ao = node(f"ao:{o.ao}", "ao", channel=o.ao, name=o.name)
+        ao = node(f"ao:{o.ao}", "ao", channel=o.ao, name=o.name, offset=o.offset)
         if o.gain != 1:
             amps[o.ao] = node(f"amp:ao{o.ao}", "gain", gain=o.gain, note="between AO and device")
         if o.ao in via_kh:

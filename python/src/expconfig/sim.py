@@ -50,16 +50,29 @@ class SimLockin:
     def __init__(self, n_ai=8, n_ao=4):
         self.input_gain = [1.0] * n_ai
         self.output_gain = [1.0] * n_ao
+        self.output_offset = [0.0] * n_ao
+        # Two channels per simulated card, like the PXI 4461s.
+        self.input_daq = [{"Channels": f"PXI1Slot{2 + i // 2}/ai{i % 2}", "Coupling": "DC", "Range": "0.316",
+                           "Terminal": "Pseudodifferential", "Type": "None"} for i in range(n_ai)]
+        self.output_daq = [{"Channels": f"PXI1Slot{2 + i // 2}/ao{i % 2}", "Range": "0.1",
+                            "Terminal": "Differential", "Type": "None"} for i in range(n_ao)]
 
     def handle(self, method, params):
         if method in _FRAMEWORK:
             return _FRAMEWORK[method](params)
+        if method == "getInputDAQ":
+            return copy.deepcopy(self.input_daq)
+        if method == "getOutputDAQ":
+            return copy.deepcopy(self.output_daq)
         if method == "getInputGain":
             return self.input_gain
         if method == "getOutputGain":
             return self.output_gain
-        if method in ("setInputGain", "setOutputGain"):
-            target = self.input_gain if method == "setInputGain" else self.output_gain
+        if method == "getOutputOffset":
+            return self.output_offset
+        if method in ("setInputGain", "setOutputGain", "setOutputOffset"):
+            target = {"setInputGain": self.input_gain, "setOutputGain": self.output_gain,
+                      "setOutputOffset": self.output_offset}[method]
             if len(params) != len(target):
                 raise RpcError(f"{method}: expected {len(target)} values, got {len(params)}", 5000)
             target[:] = [float(x) for x in params]
@@ -73,7 +86,7 @@ def start(kh_addresses: list[str], lockin_address: str, n_ai=8, n_ao=4, shunts=N
     khs = [SimKH(shunts[i]) if shunts else SimKH() for i in range(len(kh_addresses))]
     lockin = SimLockin(n_ai, n_ao)
     servers = [Server(a, k.handle).start() for a, k in zip(kh_addresses, khs)]
-    servers.append(Server(lockin_address, lockin.handle).start())
+    servers.append(Server(lockin_address, lambda m, p: lockin.handle(m, p)).start())  # tests may swap handle
     return servers, khs, lockin
 
 

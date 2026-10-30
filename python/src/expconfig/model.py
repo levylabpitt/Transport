@@ -109,12 +109,14 @@ class Channel:
 
 @dataclass
 class Output:
-    """One lock-in AO: what it drives and the gain between it and the device."""
+    """One lock-in AO: what it drives, the gain between it and the device, and the
+    offset (in output units, at the device) the lock-in subtracts to trim the amplifier."""
 
     ao: int
     name: str = ""
     gain: float = 1.0
     electrode: str = ""
+    offset: float = 0.0
 
     def to_dict(self) -> dict:
         return asdict(self)

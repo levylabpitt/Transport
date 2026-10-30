@@ -5,6 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 
 from .instruments import KH7008, Lockin
+from .rpc import RpcError
 from .model import KH_CHANNELS_PER_CHASSIS, KH_SHUNTS, Config, kh_label
 
 
@@ -46,6 +47,30 @@ def output_gains(cfg: Config, n: int) -> list[float]:
     return gains
 
 
+def output_offsets(cfg: Config, n: int) -> list[float]:
+    offsets = [0.0] * n
+    for o in cfg.outputs:
+        if 1 <= o.ao <= n:
+            offsets[o.ao - 1] = o.offset
+    return offsets
+
+
+def daq_text(entry: dict) -> str:
+    """'PXI1Slot2/ai0, +-0.316 V, DC, Pseudodifferential' from a getInputDAQ/getOutputDAQ entry."""
+    if not entry:
+        return ""
+    parts = [str(entry.get("Channels", "?"))]
+    if entry.get("Range"):
+        parts.append(f"\u00b1{entry['Range']} V")
+    parts += [str(entry[k]) for k in ("Coupling", "Terminal") if entry.get(k)]
+    return ", ".join(parts)
+
+
+def _unsupported(err: Exception) -> bool:
+    """A lock-in older than 3.9.0 answers 4001 to getInputDAQ, getOutputOffset, ..."""
+    return isinstance(err, RpcError) and err.code == 4001
+
+
 def available_shunts(reply) -> list[str] | None:
     """getShuntResistor returns the optional resistor fitted in the chassis as one
     string: "500" means the 10M position is not usable, anything else non-empty means
@@ -65,10 +90,23 @@ class Readback:
     input_gain: list[float] = field(default_factory=list)
     shunts: dict[int, list[str]] = field(default_factory=dict)
     output_gain: list[float] = field(default_factory=list)
+    # Empty when the lock-in is older than 3.9.0 and does not have the command.
+    output_offset: list[float] = field(default_factory=list)
+    input_daq: list[dict] = field(default_factory=list)
+    output_daq: list[dict] = field(default_factory=list)
     errors: list[str] = field(default_factory=list)
     # IDN replies ({vendor, model, serial, firmware}); empty when IDN failed.
     lockin_idn: dict = field(default_factory=dict)
     kh_idn: dict[int, dict] = field(default_factory=dict)
+
+    @property
+    def n_ai(self) -> int:
+        """The lock-in's input count: getInputDAQ, or the gain list on an older lock-in."""
+        return len(self.input_daq) or len(self.input_gain)
+
+    @property
+    def n_ao(self) -> int:
+        return len(self.output_daq) or len(self.output_gain)
 
     def serials(self) -> tuple[str, list[str]]:
         """Serial numbers from IDN, for the measurement record."""
@@ -78,8 +116,8 @@ class Readback:
     def mismatches(self, cfg: Config) -> list[str]:
         """Rows whose instrument state differs from the table."""
         out = []
-        if self.input_gain and len(cfg.channels) > len(self.input_gain):
-            out.append(f"AI {len(self.input_gain) + 1}: the lock-in has only {len(self.input_gain)} inputs")
+        if self.n_ai and len(cfg.channels) > self.n_ai:
+            out.append(f"AI {self.n_ai + 1}: the lock-in has only {self.n_ai} inputs")
         for ch in cfg.channels:
             if ch.kh is not None and ch.shunt != "Open":
                 avail = self.shunts.get(ch.kh // KH_CHANNELS_PER_CHASSIS)
@@ -105,6 +143,9 @@ class Readback:
             if self.output_gain and o.ao <= len(self.output_gain):
                 if abs(self.output_gain[o.ao - 1] - o.gain) > 1e-9 * max(1.0, abs(o.gain)):
                     out.append(f"AO {o.ao}: lock-in output gain {self.output_gain[o.ao - 1]}, table {o.gain}")
+            if self.output_offset and o.ao <= len(self.output_offset):
+                if abs(self.output_offset[o.ao - 1] - o.offset) > 1e-9 * max(1.0, abs(o.offset)):
+                    out.append(f"AO {o.ao}: lock-in output offset {self.output_offset[o.ao - 1]}, table {o.offset}")
         return out
 
 
@@ -141,6 +182,9 @@ def adopt(cfg: Config, rb: Readback) -> list[str]:
         if o.ao <= len(rb.output_gain) and rb.output_gain[o.ao - 1] != o.gain:
             changes.append(f"AO {o.ao}: gain {o.gain:g} -> {rb.output_gain[o.ao - 1]:g}")
             o.gain = float(rb.output_gain[o.ao - 1])
+        if o.ao <= len(rb.output_offset) and rb.output_offset[o.ao - 1] != o.offset:
+            changes.append(f"AO {o.ao}: offset {o.offset:g} -> {rb.output_offset[o.ao - 1]:g}")
+            o.offset = float(rb.output_offset[o.ao - 1])
     return changes
 
 
@@ -168,6 +212,14 @@ class Rig:
             rb.output_gain = self.lockin.get_output_gain()
         except Exception as err:
             rb.errors.append(f"Lock-in: {err}")
+            return rb
+        for attr, get in (("input_daq", self.lockin.get_input_daq), ("output_daq", self.lockin.get_output_daq),
+                          ("output_offset", self.lockin.get_output_offset)):
+            try:
+                setattr(rb, attr, get())
+            except Exception as err:
+                if not _unsupported(err):
+                    rb.errors.append(f"Lock-in: {err}")
         return rb
 
     def apply(self, cfg: Config) -> Readback:
@@ -178,6 +230,8 @@ class Rig:
             self.khs[chassis].set_all_channels(props)
         self.lockin.set_input_gain(input_gains(cfg, len(before.input_gain)))
         self.lockin.set_output_gain(output_gains(cfg, len(before.output_gain)))
+        if before.output_offset:
+            self.lockin.set_output_offset(output_offsets(cfg, len(before.output_offset)))
         return self.read()
 
     def serials(self) -> tuple[str, list[str]]:

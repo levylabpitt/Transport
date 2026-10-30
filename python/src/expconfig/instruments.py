@@ -57,5 +57,20 @@ class Lockin:
     def set_output_gain(self, gains: list[float]) -> None:
         self.rpc.call("setOutputGain", list(gains))
 
+    def get_output_offset(self) -> list[float]:
+        return list(self.rpc.call("getOutputOffset"))
+
+    def set_output_offset(self, offsets: list[float]) -> None:
+        """In output (amplified) units; the lock-in subtracts it before the output gain."""
+        self.rpc.call("setOutputOffset", list(offsets))
+
+    def get_input_daq(self) -> list[dict]:
+        """One entry per AI: {Channels (e.g. PXI1Slot2/ai0), Coupling, Range, Terminal, Type}."""
+        return list(self.rpc.call("getInputDAQ"))
+
+    def get_output_daq(self) -> list[dict]:
+        """One entry per AO: {Channels, Range, Terminal, Type}."""
+        return list(self.rpc.call("getOutputDAQ"))
+
     def close(self) -> None:
         self.rpc.close()

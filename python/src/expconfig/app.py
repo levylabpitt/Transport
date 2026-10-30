@@ -231,9 +231,10 @@ class MainWindow(QMainWindow):
 
     def _adopt_counts(self, rb: hardware.Readback) -> None:
         """The table has as many rows as the lock-in has inputs and outputs."""
-        if not rb.input_gain:
+        if not rb.n_ai:
             return
-        n_ai, n_ao = len(rb.input_gain), len(rb.output_gain)
+        self.channel_model.set_daq(rb.input_daq, rb.output_daq)
+        n_ai, n_ao = rb.n_ai, rb.n_ao
         for w, v in ((self.n_ai, n_ai), (self.n_ao, n_ao)):
             w.blockSignals(True)
             w.setValue(v)
@@ -583,7 +584,8 @@ class MainWindow(QMainWindow):
             return
         self._adopt_counts(rb)
         self.log.appendPlainText(f"{what}: KH {json.dumps(rb.kh)}")
-        self.log.appendPlainText(f"{what}: input gain {rb.input_gain}, output gain {rb.output_gain}")
+        self.log.appendPlainText(f"{what}: input gain {rb.input_gain}, output gain {rb.output_gain}, "
+                                 f"output offset {rb.output_offset or 'not supported by this lock-in'}")
         mism = rb.mismatches(self.cfg)
         self.channel_model.mismatch = {}
         self.channel_model.ao_mismatch = {}
@@ -592,7 +594,9 @@ class MainWindow(QMainWindow):
             if head[0] == "AI":
                 self.channel_model.mismatch[int(head[1])] = m
             elif head[0] == "AO":
-                self.channel_model.ao_mismatch[int(head[1])] = m
+                ao = int(head[1])
+                prev = self.channel_model.ao_mismatch.get(ao)
+                self.channel_model.ao_mismatch[ao] = f"{prev}\n{m}" if prev else m
         self.conn.setText(f"connected, {len(self.cfg.instruments.kh_addresses)} KH chassis")
         self.changed()
         self.statusBar().showMessage(f"{what}: {'matches the table' if not mism else f'{len(mism)} differences'}")

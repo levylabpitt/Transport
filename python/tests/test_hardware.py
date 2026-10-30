@@ -134,3 +134,38 @@ def test_read_collects_idn_serials(rig):
     assert rb.lockin_idn.get("serial") == "sim"
     assert sorted(rb.kh_idn) == [0, 1]
     assert rb.serials() == ("sim", ["sim", "sim"])
+
+
+def test_counts_and_names_come_from_the_daq_lists(rig):
+    cfg, _, lockin = rig
+    lockin.input_gain.extend([1.0] * 4)  # a stale gain list (the old 16-entry bug) must not add rows
+    rb = hardware.Rig(cfg).read()
+    assert (rb.n_ai, rb.n_ao) == (10, 4)
+    assert hardware.daq_text(rb.input_daq[2]) == "PXI1Slot3/ai0, ±0.316 V, DC, Pseudodifferential"
+
+
+def test_output_offset_applied_read_back_and_adopted(rig):
+    cfg, _, lockin = rig
+    cfg.outputs[3].gain, cfg.outputs[3].offset = 25, 0.02
+    r = hardware.Rig(cfg)
+    rb = r.apply(cfg)
+    assert lockin.output_offset == [0, 0, 0, 0.02]
+    assert rb.mismatches(cfg) == []
+    lockin.output_offset[3] = 0.03                  # changed on the lock-in UI
+    assert any("AO 4: lock-in output offset" in m for m in r.read().mismatches(cfg))
+    assert "AO 4: offset 0.02 -> 0.03" in hardware.adopt(cfg, r.read())
+    assert cfg.output(4).offset == 0.03
+
+
+def test_older_lockin_without_daq_or_offset_commands(rig):
+    cfg, _, lockin = rig
+    real = lockin.handle
+
+    def old(method, params):
+        if method in ("getInputDAQ", "getOutputDAQ", "getOutputOffset", "setOutputOffset"):
+            raise RpcError(f"command not supported: {method}", 4001)
+        return real(method, params)
+    lockin.handle = old
+    cfg.outputs[0].offset = 0.5
+    rb = hardware.Rig(cfg).apply(cfg)
+    assert not rb.errors and (rb.n_ai, rb.n_ao) == (10, 4) and rb.output_offset == []

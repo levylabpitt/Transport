@@ -6,7 +6,7 @@ Methods:
   getChannelConfig             -> {"Channels": [...], "Outputs": [...]}
   setChannelConfig {"Channels": [entries], "apply": true}
                                -> {"Channels": [...], "applied": bool, "mismatches": [...]}
-  setOutputs {"Outputs": [{"AO": 4, "Name": "Vbg", "Gain": 25}]}
+  setOutputs {"Outputs": [{"AO": 4, "Name": "Vbg", "Gain": 25, "Offset": 0.02}]}
   getTopology                  -> the wiring graph
   getChecks                    -> validation issues
   applyConfig                  -> {"mismatches": [...]}
@@ -81,11 +81,12 @@ class ConfigService:
                     raise RpcError(f"AO {e.get('AO')} not in the outputs table", rules.E_AO)
                 o.name = str(e.get("Name", o.name))
                 o.electrode = str(e.get("Electrode", o.electrode))
-                if "Gain" in e:
-                    try:
-                        o.gain = float(e["Gain"])
-                    except (TypeError, ValueError):
-                        raise RpcError(f"AO {o.ao}: Gain not a number", rules.E_VALUE) from None
+                for key, attr in (("Gain", "gain"), ("Offset", "offset")):
+                    if key in e:
+                        try:
+                            setattr(o, attr, float(e[key]))
+                        except (TypeError, ValueError):
+                            raise RpcError(f"AO {o.ao}: {key} not a number", rules.E_VALUE) from None
             self.set_cfg(new)
             return {"Outputs": [o.to_dict() for o in new.outputs]}
         if method == "applyConfig":

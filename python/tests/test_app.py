@@ -123,3 +123,16 @@ def test_drive_row_cells(qapp):
     assert m.setData(m.index(row, col("out_gain")), "2")
     assert w.cfg.output(9).gain == 2
     assert m.data(m.index(row, col("kh"))) == ""
+
+
+def test_output_offset_column_and_daq_tooltips(qapp):
+    w = MainWindow(demo_config(), "test")
+    w.start_sim()
+    m = w.channel_model
+    row = 3  # AI 4: the backgate row on AO 4, amp x25
+    assert m.setData(m.index(row, col("out_offset")), "0.02")
+    assert w.cfg.output(4).offset == 0.02
+    assert m.data(m.index(row, col("out_offset"))) == "0.02"
+    assert "PXI1Slot3/ai1" in m.data(m.index(row, col("ai")), Qt.ToolTipRole)
+    w.apply()
+    assert w.statusBar().currentMessage() == "Apply: matches the table"
