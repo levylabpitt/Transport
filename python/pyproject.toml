@@ -13,6 +13,13 @@ dependencies = [
 [project.scripts]
 expconfig = "expconfig.app:main"
 expconfig-sim = "expconfig.sim:main"
+expconfig-web = "expconfig.web.server:main"
+
+[project.optional-dependencies]
+web = [
+    "fastapi>=0.162.2",
+    "uvicorn>=0.54.0",
+]
 
 [dependency-groups]
 dev = ["pytest>=8"]

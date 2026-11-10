@@ -9,10 +9,10 @@ from typing import Callable
 from PySide6.QtCore import QAbstractTableModel, QModelIndex, Qt
 from PySide6.QtGui import QBrush, QColor, QFont
 
-from . import hardware, rules
+from . import hardware, palette, rules
 from .model import (
     CHANNEL_TYPES, KH_CHANNELS_PER_CHASSIS, KH_COUPLINGS, KH_FILTERS, KH_GAINS, KH_SHUNTS,
-    MINUS_AO, ROLE_STRINGS, Config, kh_label, normalize_minus, parse_kh_label,
+    MINUS_AO, MODES, SHUNTS_BY_MODE, Config, kh_label, normalize_minus, parse_kh_label,
 )
 
 
@@ -34,17 +34,21 @@ CHANNEL_COLUMNS = [
     Column("electrode", "Electrode", True,
            "Device pad cabled to the Krohn-Hite + input (or straight to the AI when KH # is none)", "Device"),
     Column("type", "Type", True,
-           "U: sourced through R_sh; V: voltage; n.c.; Ground; Drive: the AO drives the pad directly, "
-           "no KH, AI unused", "Measurement"),
-    Column("role", "Role", True, "Label the experiment VIs use to find channels (I+, V1+, Vbg, ...)",
+           "U: the pad is sourced (a voltage from the AO); V: the pad is measured; n.c.; Ground. "
+           "A U row with KH # none: the AO drives the pad directly and the AI is not used", "Measurement"),
+    Column("mode", "Mode", True,
+           "U: I drives a current (shunt 50 to 50k) or gate applies a potential, I -> 0 (shunt 50k or 10M). "
+           "V: V single-ended, or dV against a second pad on the \u2212 input", "Measurement"),
+    Column("name", "Label", False,
+           "Automatic channel label, saved with the data: U<pad>, V<pad>, or V<pad>-<pad> for a difference; the Mode column says I, gate, V or dV",
            "Measurement"),
-    Column("name", "Name", False, "Derived: U<e>, V<e>, dV<e>-<second pad>", "Measurement"),
     Column("kh", "KH #", True, "Krohn-Hite channel whose output goes to this AI. Standard: channel n", "Krohn-Hite"),
     Column("plus", "+", False, "What the Krohn-Hite + input is cabled to: the electrode", "Krohn-Hite"),
     Column("minus", "\u2212", True,
            "What the Krohn-Hite \u2212 input is cabled to. Standard: the DAC (the AO in the Lock-in group). "
            "Also GND, n.c., or a second pad to measure a difference", "Krohn-Hite"),
-    Column("input", "Config", False, "Input mode, derived from Type and the \u2212 input", "Krohn-Hite"),
+    Column("input", "Config", True, "Krohn-Hite input mode. U rows are always DIFF. On a V row, SE+ measures "
+           "one pad (mode V) and DIFF the difference to a second pad on the \u2212 input (mode dV)", "Krohn-Hite"),
     Column("kh_gain", "Gain", True, "Krohn-Hite gain", "Krohn-Hite"),
     Column("shunt", "R_sh", True, "Shunt resistor between the \u2212 and + inputs; only used by U rows",
            "Krohn-Hite"),
@@ -64,8 +68,8 @@ CHANNEL_COLUMNS = [
            "value before the output gain. Belongs to the AO, like the output gain", "Lock-in"),
 ]
 
-GROUP_TINT = {"": QColor(244, 244, 244), "Device": QColor(252, 250, 240), "Krohn-Hite": QColor(243, 251, 247),
-              "Lock-in": QColor(246, 248, 255), "Measurement": QColor(250, 246, 252)}
+# Same hues as the wiring view's boxes, paler.
+GROUP_TINT = {"": QColor(244, 244, 244), **{g: palette.tint(c) for g, c in palette.FILL.items()}}
 EXCEPTION_FG = QColor(20, 80, 200)
 ERROR_BG = QColor(255, 205, 205)
 WARN_BG = QColor(255, 236, 190)
@@ -86,9 +90,9 @@ def reference_text(ch) -> str:
 def exception(ch, key: str) -> str:
     """Why this cell differs from the standard channel (AI n = AO n = KH n), or ""."""
     n = ch.ai
-    if ch.type == "Drive":
-        if key == "type":
-            return f"AO {ch.ao} drives the pad directly; AI {n} is not used"
+    if ch.direct:
+        if key in ("type", "kh"):
+            return f"No Krohn-Hite: AO {ch.ao} drives the pad directly; AI {n} is not used"
         if key == "ao" and ch.ao != n:
             return f"Standard would be AO {n}"
         return ""
@@ -106,8 +110,14 @@ def exception(ch, key: str) -> str:
     return ""
 
 
-def choices(cfg: Config, key: str) -> tuple[list[str], bool]:
-    """Options for a column's editor, and whether free text is allowed."""
+def choices(cfg: Config, key: str, ch=None) -> tuple[list[str], bool]:
+    """Options for a column's editor, and whether free text is allowed. Some depend on the row (ch)."""
+    if key == "mode":
+        return list(MODES.get(ch.type, ())) if ch else ["I", "gate", "V", "dV"], False
+    if key == "input":
+        return ["SE+", "DIFF"], False
+    if key == "shunt" and ch is not None and ch.type == "U" and ch.mode in SHUNTS_BY_MODE:
+        return list(SHUNTS_BY_MODE[ch.mode]), False
     if key == "electrode":
         return [str(i) for i in range(1, cfg.experiment.pads + 1)], True
     if key == "type":
@@ -122,11 +132,8 @@ def choices(cfg: Config, key: str) -> tuple[list[str], bool]:
         return list(KH_FILTERS), False
     if key == "kh":
         return [kh_label(i) for i in range(KH_CHANNELS_PER_CHASSIS * cfg.kh_chassis)] + ["none"], False
-    if key == "role":
-        return list(ROLE_STRINGS), True
     if key == "minus":
-        electrodes = sorted({c.electrode for c in cfg.channels if c.electrode}, key=_natural)
-        return ["AO", "GND", "n.c."] + electrodes, True
+        return ["AO", "GND", "n.c."] + [str(i) for i in range(1, cfg.experiment.pads + 1)], True
     if key == "ao":
         return [str(o.ao) for o in cfg.outputs] + ["none"], False
     return [], True
@@ -149,7 +156,7 @@ class ChannelModel(QAbstractTableModel):
 
     def _daq(self, ch, key: str) -> str:
         """Physical channel behind the AI or AO cell, from the lock-in."""
-        if key == "ai" and ch.type != "Drive" and 1 <= ch.ai <= len(self.ai_daq):
+        if key == "ai" and not ch.direct and 1 <= ch.ai <= len(self.ai_daq):
             return f"AI {ch.ai}: {hardware.daq_text(self.ai_daq[ch.ai - 1])}"
         if key == "ao" and self._drives_ao(ch) and 1 <= ch.ao <= len(self.ao_daq):
             return f"AO {ch.ao}: {hardware.daq_text(self.ao_daq[ch.ao - 1])}"
@@ -184,15 +191,19 @@ class ChannelModel(QAbstractTableModel):
         return None
 
     def _drives_ao(self, ch) -> bool:
-        """The row's AO column applies: a Drive row, or a KH row whose - input is the DAC."""
-        return ch.ao is not None and (ch.type == "Drive" or (ch.kh is not None and ch.minus == MINUS_AO))
+        """The row's AO column applies: a U row with no KH, or a KH row whose - input is the DAC."""
+        return ch.ao is not None and (ch.direct or (ch.kh is not None and ch.minus == MINUS_AO))
 
     def _cell_editable(self, ch, key: str) -> bool:
         col = next(c for c in CHANNEL_COLUMNS if c.key == key)
         if not col.editable:
             return False
-        if ch.type == "Drive":
-            return key in ("electrode", "type", "role", "ao") or (
+        if key == "mode":
+            return ch.type in MODES
+        if key == "input":   # SE+ or DIFF is the V/dV choice; a U row is always DIFF
+            return ch.type == "V" and ch.kh is not None
+        if ch.direct:
+            return key in ("electrode", "type", "kh", "ao") or (
                 key in ("out_gain", "out_offset") and self.cfg.output(ch.ao) is not None)
         if key == "shunt":
             return ch.type == "U" and ch.kh is not None
@@ -213,7 +224,7 @@ class ChannelModel(QAbstractTableModel):
         return f
 
     def display(self, ch, key: str) -> str:
-        if ch.type == "Drive" and key in ("kh", "ai", "ext_gain", "lockin_gain"):
+        if ch.direct and key in ("ai", "ext_gain", "lockin_gain"):
             return "unused" if key == "ai" else ""
         if key == "kh":
             return kh_label(ch.kh)
@@ -308,6 +319,12 @@ class ChannelModel(QAbstractTableModel):
                 self.cfg.output(ch.ao).offset = float(text)
             elif key == "type":
                 rules.set_type(ch, text, self.cfg.default_shunt)
+            elif key == "mode":
+                rules.set_mode(ch, text, self.cfg.default_shunt)
+            elif key == "input":
+                if text not in ("SE+", "DIFF"):
+                    raise ValueError(text)
+                rules.set_mode(ch, "dV" if text == "DIFF" else "V", self.cfg.default_shunt)
             elif key == "ext_gain":
                 ch.ext_gain = float(text)
             else:

@@ -28,7 +28,7 @@ def test_export_keeps_legacy_keys_and_adds_new(tmp_path):
     assert out["Experiment"]["Instruments"] == cfg.legacy["Experiment"]["Instruments"]
     assert out["Wiring Configuration"]["KH"]["Labels"][:2] == ["I+", "I-"]
     assert out["Wiring Configuration"]["KH"]["Electrodes"][2] == "3-4"
-    assert out["Channels"][2]["name"] == "dV3-4"
+    assert out["Channels"][2]["name"] == "V3-4"
     meta = json.loads(out["json"])
     assert meta["Channels"][2]["kh"] == "A3"
     # round trip through the file
@@ -56,10 +56,10 @@ def test_backgate_amplifier_sits_after_the_kh():
     from expconfig.demo import demo_config
     cfg = demo_config()  # AI 4: U on gate via A4 from AO 4, AO 4 gain 25
     g = topology.build(cfg)
-    assert {"from": "electrode:gate", "to": "amp:ao4", "kind": "cable"} in g["edges"]
+    assert {"from": "electrode:28", "to": "amp:ao4", "kind": "cable"} in g["edges"]
     assert {"from": "amp:ao4", "to": "kh:A4:+", "kind": "cable"} in g["edges"]
     assert {"from": "ao:4", "to": "kh:A4:-", "kind": "cable"} in g["edges"]
-    assert topology.path_to_ai(g, 4) == ["electrode:gate"]
+    assert topology.path_to_ai(g, 4) == ["electrode:28"]
 
 
 def test_own_file_round_trips_experiment_and_instruments(tmp_path):

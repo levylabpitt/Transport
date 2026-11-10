@@ -1,0 +1,1568 @@
+{
+ "pads": [
+  {
+   "name": "1",
+   "used": true
+  },
+  {
+   "name": "2",
+   "used": true
+  },
+  {
+   "name": "3",
+   "used": true
+  },
+  {
+   "name": "4",
+   "used": false
+  },
+  {
+   "name": "5",
+   "used": true
+  },
+  {
+   "name": "6",
+   "used": false
+  },
+  {
+   "name": "7",
+   "used": false
+  },
+  {
+   "name": "8",
+   "used": false
+  },
+  {
+   "name": "9",
+   "used": false
+  },
+  {
+   "name": "10",
+   "used": false
+  },
+  {
+   "name": "11",
+   "used": false
+  },
+  {
+   "name": "12",
+   "used": false
+  },
+  {
+   "name": "13",
+   "used": false
+  },
+  {
+   "name": "14",
+   "used": true
+  },
+  {
+   "name": "15",
+   "used": false
+  },
+  {
+   "name": "16",
+   "used": false
+  },
+  {
+   "name": "17",
+   "used": false
+  },
+  {
+   "name": "18",
+   "used": false
+  },
+  {
+   "name": "19",
+   "used": false
+  },
+  {
+   "name": "20",
+   "used": false
+  },
+  {
+   "name": "21",
+   "used": false
+  },
+  {
+   "name": "22",
+   "used": false
+  },
+  {
+   "name": "23",
+   "used": false
+  },
+  {
+   "name": "24",
+   "used": false
+  },
+  {
+   "name": "25",
+   "used": false
+  },
+  {
+   "name": "26",
+   "used": true
+  },
+  {
+   "name": "27",
+   "used": true
+  },
+  {
+   "name": "28",
+   "used": true
+  }
+ ],
+ "rows": [
+  {
+   "ai": 1,
+   "type": "U",
+   "mode": "I",
+   "direct": false,
+   "name": "U1",
+   "electrode": "1",
+   "minus": "",
+   "minusKind": "ao",
+   "kh": "A1",
+   "khInput": "DIFF",
+   "khGain": "1",
+   "couple": "AC",
+   "filter": "OFF",
+   "shunt": "5k",
+   "extGain": 1.0,
+   "lockinGain": 1.0,
+   "ao": 1,
+   "aoSlot": 1,
+   "aoName": "",
+   "outGain": 1.0,
+   "outOffset": 0.0,
+   "aiUsed": true,
+   "aiChannel": "",
+   "aoChannel": "",
+   "cells": {
+    "electrode": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "type": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "mode": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "input": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "kh": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "kh_gain": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "couple": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "filter": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "shunt": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "minus": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "ext_gain": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "ao": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "out_gain": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "out_offset": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    }
+   },
+   "mismatch": "",
+   "idle": false
+  },
+  {
+   "ai": 2,
+   "type": "V",
+   "mode": "V",
+   "direct": false,
+   "name": "V2",
+   "electrode": "2",
+   "minus": "",
+   "minusKind": "unused",
+   "kh": "A2",
+   "khInput": "SE+",
+   "khGain": "1",
+   "couple": "AC",
+   "filter": "OFF",
+   "shunt": null,
+   "extGain": 1.0,
+   "lockinGain": 1.0,
+   "ao": null,
+   "aoSlot": 2,
+   "aoName": "",
+   "outGain": 1.0,
+   "outOffset": 0.0,
+   "aiUsed": true,
+   "aiChannel": "",
+   "aoChannel": "",
+   "cells": {
+    "electrode": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "type": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "mode": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "input": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "kh": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "kh_gain": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "couple": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "filter": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "shunt": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "minus": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "ext_gain": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "ao": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "out_gain": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "out_offset": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    }
+   },
+   "mismatch": "",
+   "idle": false
+  },
+  {
+   "ai": 3,
+   "type": "V",
+   "mode": "V",
+   "direct": false,
+   "name": "V3",
+   "electrode": "3",
+   "minus": "",
+   "minusKind": "unused",
+   "kh": "A3",
+   "khInput": "SE+",
+   "khGain": "1",
+   "couple": "AC",
+   "filter": "OFF",
+   "shunt": null,
+   "extGain": 1.0,
+   "lockinGain": 1.0,
+   "ao": null,
+   "aoSlot": 3,
+   "aoName": "",
+   "outGain": 1.0,
+   "outOffset": 0.0,
+   "aiUsed": true,
+   "aiChannel": "",
+   "aoChannel": "",
+   "cells": {
+    "electrode": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "type": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "mode": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "input": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "kh": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "kh_gain": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "couple": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "filter": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "shunt": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "minus": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "ext_gain": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "ao": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "out_gain": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "out_offset": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    }
+   },
+   "mismatch": "",
+   "idle": false
+  },
+  {
+   "ai": 4,
+   "type": "U",
+   "mode": "gate",
+   "direct": false,
+   "name": "U28",
+   "electrode": "28",
+   "minus": "",
+   "minusKind": "ao",
+   "kh": "A4",
+   "khInput": "DIFF",
+   "khGain": "1",
+   "couple": "AC",
+   "filter": "OFF",
+   "shunt": "10M",
+   "extGain": 1.0,
+   "lockinGain": 1.0,
+   "ao": 4,
+   "aoSlot": 4,
+   "aoName": "",
+   "outGain": 25,
+   "outOffset": 0.0,
+   "aiUsed": true,
+   "aiChannel": "",
+   "aoChannel": "",
+   "cells": {
+    "electrode": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "type": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "mode": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "input": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "kh": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "kh_gain": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "couple": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "filter": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "shunt": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "minus": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "ext_gain": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "ao": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "out_gain": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "out_offset": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    }
+   },
+   "mismatch": "",
+   "idle": false
+  },
+  {
+   "ai": 5,
+   "type": "V",
+   "mode": "V",
+   "direct": false,
+   "name": "V5",
+   "electrode": "5",
+   "minus": "",
+   "minusKind": "none",
+   "kh": null,
+   "khInput": "OFF",
+   "khGain": "1",
+   "couple": "AC",
+   "filter": "OFF",
+   "shunt": null,
+   "extGain": 2000.0,
+   "lockinGain": 2000.0,
+   "ao": null,
+   "aoSlot": 5,
+   "aoName": "",
+   "outGain": 1.0,
+   "outOffset": 0.0,
+   "aiUsed": true,
+   "aiChannel": "",
+   "aoChannel": "",
+   "cells": {
+    "electrode": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "type": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "mode": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "input": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "kh": {
+     "edit": true,
+     "why": "No Krohn-Hite: the pad goes straight to the ADC",
+     "issue": null
+    },
+    "kh_gain": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "couple": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "filter": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "shunt": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "minus": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "ext_gain": {
+     "edit": true,
+     "why": "An external gain stage sits before the ADC",
+     "issue": null
+    },
+    "ao": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "out_gain": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "out_offset": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    }
+   },
+   "mismatch": "",
+   "idle": false
+  },
+  {
+   "ai": 6,
+   "type": "V",
+   "mode": "V",
+   "direct": false,
+   "name": "V26",
+   "electrode": "26",
+   "minus": "",
+   "minusKind": "unused",
+   "kh": "A6",
+   "khInput": "SE+",
+   "khGain": "1",
+   "couple": "AC",
+   "filter": "OFF",
+   "shunt": null,
+   "extGain": 1.0,
+   "lockinGain": 1.0,
+   "ao": null,
+   "aoSlot": 6,
+   "aoName": "",
+   "outGain": 1.0,
+   "outOffset": 0.0,
+   "aiUsed": true,
+   "aiChannel": "",
+   "aoChannel": "",
+   "cells": {
+    "electrode": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "type": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "mode": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "input": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "kh": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "kh_gain": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "couple": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "filter": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "shunt": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "minus": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "ext_gain": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "ao": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "out_gain": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "out_offset": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    }
+   },
+   "mismatch": "",
+   "idle": false
+  },
+  {
+   "ai": 7,
+   "type": "V",
+   "mode": "V",
+   "direct": false,
+   "name": "V27",
+   "electrode": "27",
+   "minus": "",
+   "minusKind": "unused",
+   "kh": "A7",
+   "khInput": "SE+",
+   "khGain": "1",
+   "couple": "AC",
+   "filter": "OFF",
+   "shunt": null,
+   "extGain": 1.0,
+   "lockinGain": 1.0,
+   "ao": null,
+   "aoSlot": 7,
+   "aoName": "",
+   "outGain": 1.0,
+   "outOffset": 0.0,
+   "aiUsed": true,
+   "aiChannel": "",
+   "aoChannel": "",
+   "cells": {
+    "electrode": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "type": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "mode": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "input": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "kh": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "kh_gain": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "couple": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "filter": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "shunt": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "minus": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "ext_gain": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "ao": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "out_gain": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "out_offset": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    }
+   },
+   "mismatch": "",
+   "idle": false
+  },
+  {
+   "ai": 8,
+   "type": "V",
+   "mode": "dV",
+   "direct": false,
+   "name": "V26-27",
+   "electrode": "26",
+   "minus": "27",
+   "minusKind": "pad",
+   "kh": "A8",
+   "khInput": "DIFF",
+   "khGain": "1",
+   "couple": "AC",
+   "filter": "OFF",
+   "shunt": null,
+   "extGain": 1.0,
+   "lockinGain": 1.0,
+   "ao": null,
+   "aoSlot": 8,
+   "aoName": "",
+   "outGain": 1.0,
+   "outOffset": 0.0,
+   "aiUsed": true,
+   "aiChannel": "",
+   "aoChannel": "",
+   "cells": {
+    "electrode": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "type": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "mode": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "input": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "kh": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "kh_gain": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "couple": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "filter": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "shunt": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "minus": {
+     "edit": true,
+     "why": "Not the DAC: the − input is on 27",
+     "issue": null
+    },
+    "ext_gain": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "ao": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "out_gain": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "out_offset": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    }
+   },
+   "mismatch": "",
+   "idle": false
+  },
+  {
+   "ai": 9,
+   "type": "U",
+   "mode": "gate",
+   "direct": true,
+   "name": "U14",
+   "electrode": "14",
+   "minus": "",
+   "minusKind": "none",
+   "kh": null,
+   "khInput": "OFF",
+   "khGain": "1",
+   "couple": "AC",
+   "filter": "OFF",
+   "shunt": null,
+   "extGain": 1.0,
+   "lockinGain": 1.0,
+   "ao": 9,
+   "aoSlot": 9,
+   "aoName": "",
+   "outGain": 1.0,
+   "outOffset": 0.0,
+   "aiUsed": false,
+   "aiChannel": "",
+   "aoChannel": "",
+   "cells": {
+    "electrode": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "type": {
+     "edit": true,
+     "why": "No Krohn-Hite: AO 9 drives the pad directly; AI 9 is not used",
+     "issue": null
+    },
+    "mode": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "input": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "kh": {
+     "edit": true,
+     "why": "No Krohn-Hite: AO 9 drives the pad directly; AI 9 is not used",
+     "issue": null
+    },
+    "kh_gain": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "couple": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "filter": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "shunt": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "minus": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "ext_gain": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "ao": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "out_gain": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "out_offset": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    }
+   },
+   "mismatch": "",
+   "idle": false
+  },
+  {
+   "ai": 10,
+   "type": "n.c.",
+   "mode": "",
+   "direct": false,
+   "name": "n.c.",
+   "electrode": "",
+   "minus": "",
+   "minusKind": "none",
+   "kh": null,
+   "khInput": "OFF",
+   "khGain": "1",
+   "couple": "AC",
+   "filter": "OFF",
+   "shunt": null,
+   "extGain": 1.0,
+   "lockinGain": 1.0,
+   "ao": null,
+   "aoSlot": null,
+   "aoName": "",
+   "outGain": 1.0,
+   "outOffset": 0.0,
+   "aiUsed": true,
+   "aiChannel": "",
+   "aoChannel": "",
+   "cells": {
+    "electrode": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "type": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "mode": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "input": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "kh": {
+     "edit": true,
+     "why": "No Krohn-Hite: the pad goes straight to the ADC",
+     "issue": null
+    },
+    "kh_gain": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "couple": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "filter": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "shunt": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "minus": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "ext_gain": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "ao": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "out_gain": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "out_offset": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    }
+   },
+   "mismatch": "",
+   "idle": true
+  },
+  {
+   "ai": 11,
+   "type": "n.c.",
+   "mode": "",
+   "direct": false,
+   "name": "n.c.",
+   "electrode": "",
+   "minus": "",
+   "minusKind": "none",
+   "kh": null,
+   "khInput": "OFF",
+   "khGain": "1",
+   "couple": "AC",
+   "filter": "OFF",
+   "shunt": null,
+   "extGain": 1.0,
+   "lockinGain": 1.0,
+   "ao": null,
+   "aoSlot": null,
+   "aoName": "",
+   "outGain": 1.0,
+   "outOffset": 0.0,
+   "aiUsed": true,
+   "aiChannel": "",
+   "aoChannel": "",
+   "cells": {
+    "electrode": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "type": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "mode": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "input": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "kh": {
+     "edit": true,
+     "why": "No Krohn-Hite: the pad goes straight to the ADC",
+     "issue": null
+    },
+    "kh_gain": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "couple": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "filter": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "shunt": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "minus": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "ext_gain": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "ao": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "out_gain": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "out_offset": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    }
+   },
+   "mismatch": "",
+   "idle": true
+  },
+  {
+   "ai": 12,
+   "type": "n.c.",
+   "mode": "",
+   "direct": false,
+   "name": "n.c.",
+   "electrode": "",
+   "minus": "",
+   "minusKind": "none",
+   "kh": null,
+   "khInput": "OFF",
+   "khGain": "1",
+   "couple": "AC",
+   "filter": "OFF",
+   "shunt": null,
+   "extGain": 1.0,
+   "lockinGain": 1.0,
+   "ao": null,
+   "aoSlot": null,
+   "aoName": "",
+   "outGain": 1.0,
+   "outOffset": 0.0,
+   "aiUsed": true,
+   "aiChannel": "",
+   "aoChannel": "",
+   "cells": {
+    "electrode": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "type": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "mode": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "input": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "kh": {
+     "edit": true,
+     "why": "No Krohn-Hite: the pad goes straight to the ADC",
+     "issue": null
+    },
+    "kh_gain": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "couple": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "filter": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "shunt": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "minus": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "ext_gain": {
+     "edit": true,
+     "why": "",
+     "issue": null
+    },
+    "ao": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "out_gain": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    },
+    "out_offset": {
+     "edit": false,
+     "why": "",
+     "issue": null
+    }
+   },
+   "mismatch": "",
+   "idle": true
+  }
+ ],
+ "cards": [
+  {
+   "device": "lock-in AI 1",
+   "ais": [
+    1
+   ],
+   "aos": [
+    {
+     "ao": 1,
+     "channel": "",
+     "name": "",
+     "gain": 1.0,
+     "offset": 0.0,
+     "usedBy": 1
+    }
+   ],
+   "read": false,
+   "type": "",
+   "serial": "",
+   "simulated": false,
+   "slot": ""
+  },
+  {
+   "device": "lock-in AI 2",
+   "ais": [
+    2
+   ],
+   "aos": [
+    {
+     "ao": 2,
+     "channel": "",
+     "name": "",
+     "gain": 1.0,
+     "offset": 0.0,
+     "usedBy": null
+    }
+   ],
+   "read": false,
+   "type": "",
+   "serial": "",
+   "simulated": false,
+   "slot": ""
+  },
+  {
+   "device": "lock-in AI 3",
+   "ais": [
+    3
+   ],
+   "aos": [
+    {
+     "ao": 3,
+     "channel": "",
+     "name": "",
+     "gain": 1.0,
+     "offset": 0.0,
+     "usedBy": null
+    }
+   ],
+   "read": false,
+   "type": "",
+   "serial": "",
+   "simulated": false,
+   "slot": ""
+  },
+  {
+   "device": "lock-in AI 4",
+   "ais": [
+    4
+   ],
+   "aos": [
+    {
+     "ao": 4,
+     "channel": "",
+     "name": "",
+     "gain": 25,
+     "offset": 0.0,
+     "usedBy": 4
+    }
+   ],
+   "read": false,
+   "type": "",
+   "serial": "",
+   "simulated": false,
+   "slot": ""
+  },
+  {
+   "device": "lock-in AI 5",
+   "ais": [
+    5
+   ],
+   "aos": [
+    {
+     "ao": 5,
+     "channel": "",
+     "name": "",
+     "gain": 1.0,
+     "offset": 0.0,
+     "usedBy": null
+    }
+   ],
+   "read": false,
+   "type": "",
+   "serial": "",
+   "simulated": false,
+   "slot": ""
+  },
+  {
+   "device": "lock-in AI 6",
+   "ais": [
+    6
+   ],
+   "aos": [
+    {
+     "ao": 6,
+     "channel": "",
+     "name": "",
+     "gain": 1.0,
+     "offset": 0.0,
+     "usedBy": null
+    }
+   ],
+   "read": false,
+   "type": "",
+   "serial": "",
+   "simulated": false,
+   "slot": ""
+  },
+  {
+   "device": "lock-in AI 7",
+   "ais": [
+    7
+   ],
+   "aos": [
+    {
+     "ao": 7,
+     "channel": "",
+     "name": "",
+     "gain": 1.0,
+     "offset": 0.0,
+     "usedBy": null
+    }
+   ],
+   "read": false,
+   "type": "",
+   "serial": "",
+   "simulated": false,
+   "slot": ""
+  },
+  {
+   "device": "lock-in AI 8",
+   "ais": [
+    8
+   ],
+   "aos": [
+    {
+     "ao": 8,
+     "channel": "",
+     "name": "",
+     "gain": 1.0,
+     "offset": 0.0,
+     "usedBy": null
+    }
+   ],
+   "read": false,
+   "type": "",
+   "serial": "",
+   "simulated": false,
+   "slot": ""
+  },
+  {
+   "device": "lock-in AI 9",
+   "ais": [
+    9
+   ],
+   "aos": [
+    {
+     "ao": 9,
+     "channel": "",
+     "name": "",
+     "gain": 1.0,
+     "offset": 0.0,
+     "usedBy": 9
+    }
+   ],
+   "read": false,
+   "type": "",
+   "serial": "",
+   "simulated": false,
+   "slot": ""
+  },
+  {
+   "device": "lock-in AI 10",
+   "ais": [
+    10
+   ],
+   "aos": [],
+   "read": false,
+   "type": "",
+   "serial": "",
+   "simulated": false,
+   "slot": ""
+  },
+  {
+   "device": "lock-in AI 11",
+   "ais": [
+    11
+   ],
+   "aos": [],
+   "read": false,
+   "type": "",
+   "serial": "",
+   "simulated": false,
+   "slot": ""
+  },
+  {
+   "device": "lock-in AI 12",
+   "ais": [
+    12
+   ],
+   "aos": [],
+   "read": false,
+   "type": "",
+   "serial": "",
+   "simulated": false,
+   "slot": ""
+  }
+ ],
+ "idle": [],
+ "titles": {
+  "channel": "Ch",
+  "electrode": "Electrode",
+  "type": "Type",
+  "mode": "Mode",
+  "name": "Label",
+  "kh": "KH #",
+  "plus": "+",
+  "minus": "−",
+  "input": "Config",
+  "kh_gain": "Gain",
+  "shunt": "R_sh",
+  "couple": "Couple",
+  "filter": "Filter",
+  "ai": "AI",
+  "ext_gain": "Ext. gain",
+  "lockin_gain": "Input gain",
+  "ao": "AO",
+  "out_gain": "Output gain",
+  "out_offset": "Output offset"
+ },
+ "selected": null
+}

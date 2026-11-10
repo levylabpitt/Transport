@@ -27,8 +27,10 @@ DEFAULT_DIR = Path(os.environ.get("LOCALAPPDATA", ".")) / "Levylab" / "Control E
 INI_NAME = "configuration.ini"
 JSON_NAME = "Control Experiment.json"
 
+# Configure Experiment's electrode configs, as (type, mode).
 _OLD_TYPE = {
-    "Current": "U", "Gate": "U", "Voltage (SE)": "V", "Voltage (Diff)": "V", "Ground": "Ground",
+    "Current": ("U", "I"), "Gate": ("U", "gate"), "Voltage (SE)": ("V", "V"), "Voltage (Diff)": ("V", "dV"),
+    "Ground": ("Ground", ""),
 }
 
 
@@ -124,7 +126,8 @@ def import_legacy(directory: Path = DEFAULT_DIR) -> Config:
             ch = Channel(
                 ai=int(ai),
                 electrode=electrodes[i] if i < len(electrodes) else "",
-                type=_OLD_TYPE.get(configs[i] if i < len(configs) else "", "n.c."),
+                type=_OLD_TYPE.get(configs[i] if i < len(configs) else "", ("n.c.", ""))[0],
+                mode=_OLD_TYPE.get(configs[i] if i < len(configs) else "", ("n.c.", ""))[1],
                 role=ROLE_STRINGS[role_idx] if role_idx < len(ROLE_STRINGS) else "",
                 kh=kh,
                 shunt=shunts[i] if i < len(shunts) else "Open",

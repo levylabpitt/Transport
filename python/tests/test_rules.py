@@ -32,7 +32,7 @@ def test_default_rows_follow_index_and_chassis():
     ("U", "", "DIFF", "U1", "5k"),
     ("V", "", "SE+", "V1", "Open"),
     ("V", "GND", "SE+", "V1", "Open"),
-    ("V", "7", "DIFF", "dV1-7", "Open"),
+    ("V", "7", "DIFF", "V1-7", "Open"),
     ("n.c.", "", "OFF", "", "Open"),
     ("Ground", "", "OFF", "", "Open"),
 ])
@@ -50,7 +50,7 @@ def test_teed_electrodes_are_allowed_but_kh_must_be_unique():
         ch = cfg.channel(ai)
         ch.electrode, ch.minus = e, m
         rules.set_type(ch, "V", cfg.default_shunt)
-    assert [cfg.channel(a).name for a in (6, 7, 8)] == ["V6", "V7", "dV6-7"]
+    assert [cfg.channel(a).name for a in (6, 7, 8)] == ["V6", "V7", "V6-7"]
     assert [cfg.channel(a).input for a in (6, 7, 8)] == ["SE+", "SE+", "DIFF"]
     assert not [i for i in rules.validate(cfg) if i.is_error]
     cfg.channel(8).kh = cfg.channel(6).kh
@@ -104,12 +104,14 @@ def test_lockin_gain_combines_kh_and_external_gain():
     assert ch.lockin_gain == 2000
 
 
-def test_drive_row_has_no_kh_and_returns_to_standard():
+def test_u_row_with_no_kh_is_driven_directly_and_returns_to_standard():
     cfg = make()
     cfg.outputs[2].gain = 10
+    # "Drive" from an older caller becomes a U row with no KH (gate mode).
     cfg = rules.apply_entries(cfg, [{"AI": 3, "Type": "Drive", "Electrode": "14"}])
     ch = cfg.channel(3)
-    assert (ch.kh, ch.ao, ch.input) == (None, 3, "OFF")
+    assert (ch.type, ch.mode, ch.direct) == ("U", "gate", True)
+    assert (ch.kh, ch.ao, ch.input, ch.name) == (None, 3, "OFF", "U14")
     assert not [i for i in rules.validate(cfg) if i.ai == 3]
     from expconfig import topology
     g = topology.build(cfg)
@@ -118,3 +120,60 @@ def test_drive_row_has_no_kh_and_returns_to_standard():
     assert not any(n["id"] == "ai:3" for n in g["nodes"])
     cfg = rules.apply_entries(cfg, [{"AI": 3, "Type": "V"}])
     assert cfg.channel(3).kh == 2
+
+
+def test_cables_drawn_in_the_diagram_become_table_edits():
+    from expconfig import wiringedit
+    from expconfig.demo import demo_config
+    cfg = demo_config()
+    wiringedit.connect(cfg, ("pad", "4"), ("kh+", 2))          # move V2 to pad 4
+    assert cfg.channel(2).electrode == "4" and cfg.channel(2).name == "V4"
+    wiringedit.connect(cfg, ("kh-", 2), ("pad", "3"))          # either order: differential
+    assert (cfg.channel(2).minus, cfg.channel(2).input) == ("3", "DIFF")
+    wiringedit.connect(cfg, ("ao", 3), ("kh-", 3))             # AO on the - input: sourced, type U
+    assert (cfg.channel(3).type, cfg.channel(3).ao, cfg.channel(3).input) == ("U", 3, "DIFF")
+    wiringedit.connect(cfg, ("khout", 6), ("ai", 7))           # KH channels trade places
+    assert (cfg.channel(6).kh, cfg.channel(7).kh) == (6, 5)
+    wiringedit.connect(cfg, ("pad", "20"), ("ao", 5))          # AO drives a pad: U row, no KH
+    assert (cfg.channel(5).type, cfg.channel(5).electrode, cfg.channel(5).kh) == ("U", "20", None)
+    with pytest.raises(wiringedit.WiringError):
+        wiringedit.connect(cfg, ("ai", 1), ("ao", 1))
+    wiringedit.disconnect(cfg, ("kh-", 2))
+    assert cfg.channel(2).input == "SE+"
+
+
+def test_modes_set_the_shunt_and_the_label():
+    from expconfig.model import Channel
+    ch = rules.derive(Channel(ai=1, electrode="4", kh=0, type="U"))
+    assert (ch.mode, ch.name) == ("I", "U4")
+    rules._fit_shunt(ch, "5k")
+    assert ch.shunt == "5k"
+    rules.set_mode(ch, "gate", "5k")                 # a gate: large shunt, I -> 0
+    assert (ch.shunt, ch.name) == ("10M", "U4")
+    rules.set_mode(ch, "I", "500")                   # back to I: the default shunt, within range
+    assert ch.shunt == "500"
+    with pytest.raises(ValueError):
+        rules.set_mode(ch, "dV", "5k")                # not a U mode
+    v = rules.derive(Channel(ai=2, electrode="2", kh=1, type="V"))
+    rules.set_mode(v, "dV", "5k")                    # dV still needs its second pad
+    cfg = make()
+    cfg.channels[1] = v
+    assert any(i.code == rules.W_DV_NO_PAD and i.ai == 2 for i in rules.validate(cfg))
+    v.minus = "3"
+    rules.derive(v)
+    assert (v.mode, v.input, v.name) == ("dV", "DIFF", "V2-3")
+    rules.set_mode(v, "V", "5k")                     # single-ended again: the second pad comes off
+    assert (v.minus_is_electrode, v.input, v.name) == (False, "SE+", "V2")
+
+
+def test_shunt_outside_the_mode_is_reported_and_older_files_still_load():
+    from expconfig.model import Channel
+    cfg = make()
+    cfg = rules.apply_entries(cfg, [{"AI": 1, "Type": "U", "Electrode": "1", "Mode": "I"}])
+    cfg.channel(1).shunt = "10M"
+    assert any(i.code == rules.W_U_SHUNT and i.ai == 1 for i in rules.validate(cfg))
+    old = Channel.from_dict({"ai": 3, "type": "Drive", "electrode": "14", "kh": "C3"})
+    assert (old.type, old.kh, old.mode) == ("U", None, "gate")
+    # A shunt given without a mode says which mode it is.
+    cfg = rules.apply_entries(cfg, [{"AI": 2, "Type": "U", "Electrode": "2", "Shunt": "10M"}])
+    assert cfg.channel(2).mode == "gate"

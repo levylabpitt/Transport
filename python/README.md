@@ -29,6 +29,23 @@ uv run expconfig --demo
 | `sim.py` | Simulated KH chassis and lock-in |
 | `db.py` | Lab database: user and station lookups, measurement record (credentials from pgpass) |
 | `app.py`, `tablemodels.py`, `wiringview.py` | The PySide6 application |
+| `diagrammodel.py`, `diagramtypes.py`, `wiringweb.py` | The data the wiring diagram draws, its types (generated into TypeScript), and the Qt window that shows it |
+| `diagram/` | The wiring diagram (TypeScript, React Flow), built into `src/expconfig/diagram_dist/index.html` |
+
+## Wiring diagram (diagram/)
+
+Needs Node.js. From `diagram/`:
+
+```bash
+npm install
+npm run build
+npm test
+```
+
+- `npm run build` typechecks and writes `src/expconfig/diagram_dist/index.html`, which the app loads. Rebuild after changing anything in `diagram/src`.
+- `npm test` runs the layout tests on real models: cables at right angles, no two cables sharing a line, none through a box, evenly spaced elbows, every card connector drawn in front-panel order.
+- The data Python sends is described once, in `diagramtypes.py`. After changing it or `diagrammodel.py`, run `uv run python -m expconfig.diagramtypes`: it rewrites `diagram/src/model.gen.ts` and the test fixtures in `diagram/test/fixtures/`. `uv run pytest` fails until you do.
+- The layout knows where each terminal sits (`anchor()` in `layout.ts`) so the tests can check cables without a browser. If a box's CSS moves a terminal, the page logs "cable ... layout expects ..." in the browser console.
 
 ## Remote API (for FLEX)
 

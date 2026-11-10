@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>expconfig (web trial)</title>
+<link rel="stylesheet" href="/app.css">
+</head>
+<body>
+<header class="bar">
+  <strong id="title">Experiment configurator</strong>
+  <span class="trial">web trial</span>
+  <span class="grow"></span>
+  <span id="table-actions">
+    <button id="readback" title="Read the KH channels and lock-in gains">Read back</button>
+    <button id="apply" title="Write KH channels and lock-in gains, then read back">Apply to instruments</button>
+    <button id="open-diagram" title="Open the wiring diagram in its own window (D)">Wiring diagram</button>
+  </span>
+  <span id="diagram-actions" hidden>
+    <button id="fit" title="Fit the width (0)">Fit</button>
+  </span>
+</header>
+
+<main id="table-view">
+  <section class="info">
+    <div id="experiment"></div>
+    <div id="instruments"></div>
+  </section>
+  <section class="panel">
+    <h2>Channels <small>(one row per lock-in AI; click a cell to change it)</small></h2>
+    <div class="scroll"><table id="channels"></table></div>
+  </section>
+  <section class="panel">
+    <h2>Checks</h2>
+    <ul id="issues"></ul>
+  </section>
+</main>
+
+<main id="diagram-view" hidden>
+  <div id="diagram-wrap">
+    <div id="diagram"></div>
+    <svg id="overlay"></svg>
+  </div>
+</main>
+
+<footer class="bar status"><span id="status"></span></footer>
+<div id="popup" hidden></div>
+<div id="toast" hidden></div>
+<script src="/app.js"></script>
+</body>
+</html>

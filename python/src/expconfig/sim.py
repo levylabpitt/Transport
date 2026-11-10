@@ -48,14 +48,18 @@ class SimKH:
 
 class SimLockin:
     def __init__(self, n_ai=8, n_ao=4):
+        n_cards = (max(n_ai, n_ao) + 1) // 2
+        self.devices = [{"DeviceName": f"PXI1Slot{2 + i}", "ProductType": "PXI-4461", "DevIsSimulated": True,
+                         "DeviceSerialNumber": str(7344 + i), "ChassisNumber": 1, "SlotNumber": 2 + i,
+                         "ChassisSerialNumber": "9A2265"} for i in range(n_cards)]
         self.input_gain = [1.0] * n_ai
         self.output_gain = [1.0] * n_ao
         self.output_offset = [0.0] * n_ao
         # Two channels per simulated card, like the PXI 4461s.
         self.input_daq = [{"Channels": f"PXI1Slot{2 + i // 2}/ai{i % 2}", "Coupling": "DC", "Range": "0.316",
-                           "Terminal": "Pseudodifferential", "Type": "None"} for i in range(n_ai)]
+                           "Terminal": "Pseudodifferential", "Type": "PXI-4461"} for i in range(n_ai)]
         self.output_daq = [{"Channels": f"PXI1Slot{2 + i // 2}/ao{i % 2}", "Range": "0.1",
-                            "Terminal": "Differential", "Type": "None"} for i in range(n_ao)]
+                            "Terminal": "Differential", "Type": "PXI-4461"} for i in range(n_ao)]
 
     def handle(self, method, params):
         if method in _FRAMEWORK:
@@ -64,6 +68,8 @@ class SimLockin:
             return copy.deepcopy(self.input_daq)
         if method == "getOutputDAQ":
             return copy.deepcopy(self.output_daq)
+        if method == "getDevices":
+            return copy.deepcopy(self.devices)
         if method == "getInputGain":
             return self.input_gain
         if method == "getOutputGain":

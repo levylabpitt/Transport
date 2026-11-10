@@ -1,0 +1,165 @@
+/* Colors follow the channel table's groups (expconfig/palette.py). */
+:root {
+  --kh: #ceeeda;     --kh-line: #6fa585;
+  --li: #d4e0fc;     --li-line: #7d93c9;
+  --meas: #eadef8;   --meas-line: #9b86bd;
+  --other: #fcdecc;  --other-line: #c9906b;
+  --ink: #1f2430;
+  --muted: #7a8090;
+  --accent: #2b6fdc;
+  --current: #e07b00;
+  --wire: #4a5060;
+  --bg: #fbfbf9;
+  font: 12.5px/1.3 "Segoe UI", system-ui, sans-serif;
+  color: var(--ink);
+}
+html, body, #root { margin: 0; height: 100%; background: var(--bg); }
+.loading { padding: 20px; color: var(--muted); }
+
+.react-flow__edge-path { stroke: var(--wire); stroke-width: 1.5; }
+/* A cable: dark sheath, the pad color(s) inside */
+.react-flow__edge-path.cable-sheath { stroke: #2a2e38; stroke-width: 4; fill: none; stroke-linejoin: miter; }
+.cable-core { fill: none; stroke-linejoin: miter; pointer-events: none; }
+
+/* Tracing (hover a pad, cable or box): the cables carrying that pad's signal get a little
+   bolder. Nothing else changes, so it stays out of the way while editing. */
+.react-flow__edge.traced .cable-sheath { stroke-width: 5.5; }
+.react-flow__edge.traced .cable-core.one { stroke-width: 2.5; }
+.react-flow__connection-path { stroke: var(--accent); stroke-width: 2; stroke-dasharray: 6 4; }
+.react-flow__node { font-size: 12.5px; }
+
+/* Row backgrounds */
+.band { border-radius: 8px; }
+.band.even { background: #f2f2ee; }
+.band.selected { background: #e4ecfd; box-shadow: inset 0 0 0 1px #c2d3f7; }
+
+/* A channel with nothing connected: faded, but its pad slot stays clear to drop onto. */
+.react-flow__node.idle { opacity: .45; }
+.react-flow__node.idle:hover { opacity: .8; }
+
+/* Values that can be clicked */
+.field { border-radius: 4px; padding: 0 3px; margin: 0 -1px; }
+.field.editable { cursor: pointer; }
+.field.editable:hover { background: rgba(43, 111, 220, .14); box-shadow: 0 0 0 1px var(--accent); }
+.field.why { color: #1450c8; font-weight: 600; }
+.field.error { background: #ffcdcd; }
+.field.warn { background: #ffecbe; }
+.field.current { box-shadow: 0 0 0 2px var(--current); }
+.strong { font-weight: 600; }
+.muted { color: var(--muted); }
+
+/* Terminals: the cable ends */
+.terminal.react-flow__handle {
+  width: 14px; height: 14px; border-radius: 50%; background: #fff; border: 1.4px solid var(--kh-line);
+  display: flex; align-items: center; justify-content: center; cursor: crosshair;
+}
+.terminal.react-flow__handle:hover { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(43, 111, 220, .25); }
+.terminal.unused { border-color: #bbb; opacity: .7; }
+.terminal .sign { font-size: 11px; font-weight: 700; line-height: 1; pointer-events: none; color: #2a3a30; }
+.react-flow__handle.connectingto, .react-flow__handle.valid { box-shadow: 0 0 0 4px rgba(43, 111, 220, .35); }
+.hidden-handle.react-flow__handle { opacity: 0; width: 1px; height: 1px; min-width: 0; min-height: 0; border: 0; }
+
+/* Device pads */
+.pad, .palpad {
+  width: 64px; height: 26px; border-radius: 6px; display: flex; align-items: center; justify-content: center;
+  border: 1px solid rgba(0, 0, 0, .22); background: #fff; position: relative; font-weight: 600;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .06);
+}
+.pad.empty { border-style: dashed; color: var(--muted); background: #f6f6f6; font-weight: normal; }
+.pad.droppable { outline: 2px dashed var(--accent); outline-offset: 2px; }
+.pad .terminal.react-flow__handle, .palpad .terminal.react-flow__handle { right: -8px; border-color: #999; }
+.palpad { width: 48px; height: 21px; font-weight: normal; cursor: grab; border-color: #8a8f9a; }
+.palpad.used { color: #8a8170; border-color: #d6d0c4; }
+.palpad.gnd { background: #e2e2e2; font-weight: 600; }
+
+/* Krohn-Hite channel */
+.kh {
+  width: 230px; height: 60px; box-sizing: border-box; background: var(--kh); border: 1px solid var(--kh-line);
+  border-radius: 8px; position: relative; display: flex; box-shadow: 0 1px 2px rgba(0, 0, 0, .08);
+}
+.kh.off { background: #ececec; border-color: #b9b9b9; }
+.kh .shunt { position: absolute; left: -1px; top: -1px; }
+.kh .shunt-value { position: absolute; left: 34px; top: 22px; font-size: 11px; color: #2f4a3a; }
+/* Two lines, level with the + and - terminals */
+.kh-body { flex: 1; display: flex; flex-direction: column; padding-left: 72px; }
+.kh-body .line1, .kh-body .line2 { height: 29px; display: flex; gap: 8px; align-items: center; }
+.kh-body .line2 { color: #33443a; }
+.kh .mode { color: #3b5a48; font-size: 11.5px; }
+.out-label { position: absolute; right: 13px; top: 7px; font-size: 11px; color: #4d6b59; }
+.kh .terminal.react-flow__handle { left: -7px; }
+.kh > .terminal.react-flow__handle.react-flow__handle-right { right: -7px; left: auto; }
+
+.nokh { font-size: 11px; color: var(--muted); white-space: nowrap; background: var(--bg); padding: 0 4px; }
+
+/* A lock-in card (one DAQ device): its AIs and AOs where they are, used or not */
+.card {
+  width: 236px; box-sizing: border-box; background: var(--li); border: 1px solid var(--li-line); border-radius: 8px;
+  position: relative; box-shadow: 0 1px 2px rgba(0, 0, 0, .08);
+}
+.card-line { position: absolute; left: 0; width: 120px; height: 22px; display: flex; align-items: center;
+             padding: 0 6px 0 14px; gap: 2px; box-sizing: border-box; white-space: nowrap; }
+.card-line.unused { color: var(--muted); }
+.card-line .num { min-width: 16px; }
+.card-group { position: absolute; left: 124px; width: 36px; box-sizing: border-box; border-left: 1.5px solid #8ea0cc;
+              border-radius: 0; display: flex; align-items: center; justify-content: center; font-weight: 600;
+              color: #4a5f94; font-size: 12px; }
+.card-line .hw { font-size: 10.5px; color: #6a7aa6; margin-left: 4px; }
+.card .terminal.react-flow__handle { left: -7px; border-color: var(--li-line); }
+.card .terminal.unused { border-color: #b4bccf; }
+.card-band { position: absolute; left: 0; right: 66px; }
+.card-band.ai { background: var(--li); border-top-left-radius: 7px; }
+.card-band.ao { background: #ddd0ea; border-bottom-left-radius: 7px; border-top: 1px solid #b9a9cf; }
+.card-id { position: absolute; right: 0; top: 0; bottom: 0; width: 66px; border-left: 1px solid var(--li-line);
+           background: #b9c4dc; border-radius: 0 7px 7px 0;
+           display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+           font-size: 11px; text-align: center; }
+.card-type { font-size: 10px; color: #3a4258; }
+.card-sim { font-size: 9px; color: #7a5a00; background: #f3e3b0; border-radius: 3px; padding: 0 3px; }
+.gain-hint { margin-left: 6px; font-size: 11px; }
+
+/* What a channel is, next to its pad */
+.label-col { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.label {
+  width: 100%; height: 26px; box-sizing: border-box; background: var(--meas); border: 1px solid var(--meas-line);
+  border-radius: 6px; display: flex; align-items: center; justify-content: center; white-space: nowrap;
+}
+.label.idle { background: #f4f1f8; border-color: #cfc5df; color: var(--muted); }
+.label.mismatch { box-shadow: 0 0 0 2px #ffb347; }
+.label-mode { font-size: 11.5px; color: #5a4a78; }
+
+.ext {
+  width: 46px; height: 26px; background: var(--other); border: 1px solid var(--other-line); border-radius: 6px;
+  display: flex; align-items: center; justify-content: center; font-size: 11.5px;
+}
+.amp { width: 46px; display: flex; flex-direction: column; align-items: center; }
+.amp-label { font-size: 11px; color: #8a4d1c; font-weight: 600; white-space: nowrap; }
+.gnd-symbol { width: 18px; height: 16px; }
+
+/* Legend, pop-up, messages */
+.legend {
+  display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; background: rgba(255, 255, 255, .92);
+  border: 1px solid #ddd; border-radius: 8px; padding: 6px 10px; font-size: 11.5px; width: 760px;
+  box-sizing: border-box;
+}
+.legend .sw { display: inline-flex; align-items: center; gap: 4px; }
+.legend .sw i { width: 18px; height: 11px; border-radius: 3px; border: 1px solid rgba(0, 0, 0, .25); display: inline-block; }
+.legend .idle { width: 100%; color: var(--muted); }
+.legend .hint { width: 100%; color: var(--muted); }
+
+.popup {
+  position: fixed; z-index: 1000; background: #fff; border: 1px solid #b8bcc6; border-radius: 6px; min-width: 150px;
+  max-height: 320px; overflow: auto; box-shadow: 0 8px 24px rgba(0, 0, 0, .18);
+}
+.popup-title { padding: 6px 10px; font-weight: 600; background: #f4f5f8; border-bottom: 1px solid #e3e5ea; }
+.popup-wait { padding: 6px 10px; color: var(--muted); }
+.popup input { margin: 6px 8px; width: calc(100% - 16px); box-sizing: border-box; padding: 4px 6px; font: inherit;
+               border: 1px solid #b8bcc6; border-radius: 4px; }
+.popup .opt { padding: 4px 12px 4px 26px; cursor: pointer; position: relative; }
+.popup .opt:hover { background: #e6edfc; }
+.popup .opt.on::before { content: "\2713"; position: absolute; left: 9px; color: var(--accent); }
+.toast {
+  position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%); background: #2d323c; color: #fff;
+  padding: 7px 14px; border-radius: 6px; z-index: 1001; max-width: 80vw; box-shadow: 0 4px 14px rgba(0, 0, 0, .2);
+}
+.toast.bad { background: #a32020; }
+.label .field { padding: 0 0 0 1px; margin: 0; }

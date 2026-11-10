@@ -31,9 +31,9 @@ def build(cfg: Config) -> dict:
     # AO -> amp -> electrode directly.
     via_kh = {c.ao for c in cfg.channels
               if c.kh is not None and c.type == "U" and c.minus == MINUS_AO and c.ao is not None}
-    driven: dict[int, list[str]] = {}  # Drive rows: AO -> pads it drives directly
+    driven: dict[int, list[str]] = {}  # U rows with no KH: AO -> pads it drives directly
     for c in cfg.channels:
-        if c.type == "Drive" and c.ao is not None and c.electrode:
+        if c.direct and c.ao is not None and c.electrode:
             driven.setdefault(c.ao, []).append(c.electrode)
     amps: dict[int, str] = {}
     for o in cfg.outputs:
@@ -50,9 +50,9 @@ def build(cfg: Config) -> dict:
             edge(stage, node(f"electrode:{e}", "electrode", name=e))
 
     for ch in cfg.channels:
-        if ch.type == "Drive" or (ch.type == "n.c." and not ch.electrode):
+        if ch.direct or (ch.type == "n.c." and not ch.electrode):
             continue
-        ai = node(f"ai:{ch.ai}", "ai", channel=ch.ai, role=ch.role, name=ch.name,
+        ai = node(f"ai:{ch.ai}", "ai", channel=ch.ai, type=ch.type, mode=ch.mode, label=ch.name, role=ch.role,
                   ext_gain=ch.ext_gain, lockin_gain=ch.lockin_gain)
         sink = ai
         if ch.ext_gain != 1:

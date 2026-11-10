@@ -9,23 +9,25 @@ import socket
 import sys
 from pathlib import Path
 
-from PySide6.QtCore import QModelIndex, QObject, Qt, QTimer, Signal
+from PySide6.QtCore import QModelIndex, QObject, QSettings, Qt, QTimer, Signal
 from PySide6.QtGui import QAction, QFont, QKeySequence
 from PySide6.QtWidgets import (
     QAbstractItemView, QApplication, QComboBox, QFileDialog, QFormLayout, QGridLayout, QGroupBox, QHBoxLayout,
-    QHeaderView, QLabel, QLineEdit, QListWidget, QListWidgetItem, QMainWindow, QMessageBox,
+    QHeaderView, QLabel, QLineEdit, QListWidget, QListWidgetItem, QMainWindow, QMenu, QMessageBox,
     QPlainTextEdit, QScrollArea, QSpinBox, QSplitter, QStyledItemDelegate, QTableView, QTabWidget,
-    QVBoxLayout, QWidget,
+    QVBoxLayout, QWidget, QWidgetAction,
 )
 
 import threading
 
-from . import db, hardware, legacy, rules, service, sim, topology
+from . import db, diagrammodel, hardware, legacy, palette, rules, service, sim, topology, wiringedit
 from .demo import demo_config
 from .model import KH_COUPLINGS, KH_FILTERS, KH_OVERRIDES, KH_SHUNTS, Config
 from .groupheader import GroupHeader
 from .tablemodels import CHANNEL_COLUMNS, GROUP_TINT, ChannelModel, choices
+from .wiringscene import WiringScene, WiringSceneView
 from .wiringview import WiringView
+from .wiringweb import DiagramBridge, LazyDiagram
 
 
 def _idn_text(d: dict) -> str:
@@ -44,7 +46,7 @@ class ChoiceDelegate(QStyledItemDelegate):
 
     def createEditor(self, parent, option, index):
         key = CHANNEL_COLUMNS[index.column()].key
-        opts, free = choices(self.window.cfg, key)
+        opts, free = choices(self.window.cfg, key, self.window.cfg.channels[index.row()])
         if not opts:
             return super().createEditor(parent, option, index)
         box = QComboBox(parent)
@@ -129,12 +131,30 @@ class ChoiceEdit(QComboBox):
         self.blockSignals(False)
 
 
+class WiringWindow(QWidget):
+    """The wiring tabs in a window of their own, opened and closed from the main window."""
+
+    closed = Signal()
+
+    def __init__(self, tabs: QTabWidget):
+        super().__init__(None, Qt.Window)
+        self.setWindowTitle("Wiring")
+        lay = QVBoxLayout(self)
+        lay.setContentsMargins(4, 4, 4, 4)
+        lay.addWidget(tabs)
+        self.resize(720, 860)
+
+    def closeEvent(self, ev):
+        super().closeEvent(ev)
+        self.closed.emit()
+
+
 class MainWindow(QMainWindow):
     lookupsReady = Signal(object)
     instrumentsReady = Signal(object)
 
     def __init__(self, cfg: Config, source: str, api_port: int = 0, db_settings: db.DbSettings | None = None,
-                 query_instruments: bool = False):
+                 query_instruments: bool = False, restore_layout: bool = False):
         super().__init__()
         self.cfg = cfg
         self.source = source
@@ -149,7 +169,7 @@ class MainWindow(QMainWindow):
         lv = QVBoxLayout(left)
         lv.setContentsMargins(6, 6, 6, 6)
         lv.addWidget(self._header())
-        lv.addLayout(self._setall_bar())
+        lv.addWidget(self._kh_bar())
 
         self.table = QTableView()
         self.table.setHorizontalHeader(GroupHeader([c.group for c in CHANNEL_COLUMNS], GROUP_TINT))
@@ -164,20 +184,21 @@ class MainWindow(QMainWindow):
         self.table.verticalHeader().setDefaultSectionSize(24)
         self.table.verticalHeader().setVisible(False)  # the Ch column is the row number
         self.table.selectionModel().currentRowChanged.connect(self._row_selected)
+        self.table.selectionModel().currentChanged.connect(self._cell_changed)
 
         self.issues = QListWidget()
         self.issues.itemClicked.connect(self._issue_clicked)
 
-        ig = QGroupBox("Checks")
-        QVBoxLayout(ig).addWidget(self.issues)
+        self.checks = QGroupBox("Checks")
+        QVBoxLayout(self.checks).addWidget(self.issues)
 
-        tables = QSplitter(Qt.Vertical)
+        self.tables = QSplitter(Qt.Vertical)
         cg = QGroupBox("Channels (one row per lock-in AI)")
         QVBoxLayout(cg).addWidget(self.table)
-        tables.addWidget(cg)
-        tables.addWidget(ig)
-        tables.setSizes([640, 170])
-        lv.addWidget(tables, 1)
+        self.tables.addWidget(cg)
+        self.tables.addWidget(self.checks)
+        self.tables.setSizes([640, 170])
+        lv.addWidget(self.tables, 1)
 
         # --- right: wiring view, machine view, log ---
         self.wiring = WiringView(cfg)
@@ -189,16 +210,35 @@ class MainWindow(QMainWindow):
         self.machine.setFont(QFont("Consolas", 9))
         self.log = QPlainTextEdit(readOnly=True)
         self.tabs = QTabWidget()
-        self.tabs.addTab(scroll, "Wiring")
+        # The diagram: TypeScript (python/diagram) in Qt's browser, all edits through Python.
+        self._daq: tuple[list, list] = ([], [])
+        self._devices: list[dict] = []   # getDevices, for the diagram's cards
+        self.diagram_bridge = DiagramBridge(
+            model=lambda: diagrammodel.build(self.cfg, self.channel_model, *self._daq, devices=self._devices),
+            set_cell=self._diagram_set_cell, cable=self._diagram_cable, unplug=self._diagram_unplug,
+            choices=lambda ai, key: dict(zip(("options", "free"), choices(self.cfg, key, self.cfg.channel(ai)))),
+            select=lambda ai, key: self._select_cell(ai, key) if key else self._select_ai(ai))
+        self.tabs.addTab(LazyDiagram(self.diagram_bridge), "Wiring")
+        self.tabs.addTab(scroll, "Wiring (Qt drawing)")
+        # Trial: the same diagram on a QGraphicsScene, with clickable parts linked to table cells.
+        self.scene = WiringScene(cfg)
+        self.scene.rowClicked.connect(self._select_ai)
+        self.scene.cellClicked.connect(self._select_cell)
+        self.scene.cellEdit.connect(lambda ai, key: self._select_cell(ai, key, edit=True))
+        self.scene.cellMenu.connect(self._cell_menu, Qt.QueuedConnection)  # its edit rebuilds the scene
+        # Queued: the scene rebuilds itself from the table, which must not happen inside its own mouse event.
+        self.scene.connectRequested.connect(self._cable, Qt.QueuedConnection)
+        self.scene.disconnectRequested.connect(self._uncable, Qt.QueuedConnection)
+        self.tabs.addTab(WiringSceneView(self.scene), "Wiring (Qt interactive)")
         self.tabs.addTab(self.machine, "Machine view (topology JSON)")
         self.tabs.addTab(self.log, "Instrument log")
 
-        split = QSplitter(Qt.Horizontal)
-        split.addWidget(left)
-        split.addWidget(self.tabs)
-        split.setSizes([930, 570])
-        self.setCentralWidget(split)
+        # The diagram tabs live in their own window, shown with the Wiring button or Ctrl+D.
+        self.setCentralWidget(left)
+        self.wiring_window = WiringWindow(self.tabs)
         self._actions()
+        if restore_layout:
+            self._restore_layout()
         self.changed()
         self.statusBar().showMessage(f"Loaded {source}")
         self.api = None
@@ -234,17 +274,19 @@ class MainWindow(QMainWindow):
         if not rb.n_ai:
             return
         self.channel_model.set_daq(rb.input_daq, rb.output_daq)
+        self.wiring.set_daq(rb.input_daq, rb.output_daq)
+        self.scene.set_daq(rb.input_daq, rb.output_daq)
+        self._daq = (rb.input_daq, rb.output_daq)
+        if rb.devices != self._devices:
+            self._devices = rb.devices
+            if rb.devices:
+                self.log.appendPlainText(f"Lock-in DAQ devices: {hardware.inventory_text(rb.devices)}")
         n_ai, n_ao = rb.n_ai, rb.n_ao
-        for w, v in ((self.n_ai, n_ai), (self.n_ao, n_ao)):
-            w.blockSignals(True)
-            w.setValue(v)
-            w.setEnabled(False)
-            w.setToolTip("Read from the lock-in")
-            w.blockSignals(False)
         if (n_ai, n_ao) != (len(self.cfg.channels), len(self.cfg.outputs)):
             self.log.appendPlainText(f"Table resized to the lock-in: {n_ai} AI, {n_ao} AO "
                                      f"(was {len(self.cfg.channels)} AI, {len(self.cfg.outputs)} AO)")
-            self._resize()
+            self._resize(n_ai, n_ao)
+        self._show_counts("from the lock-in")
 
     def _lookups_ready(self, lk: db.Lookups) -> None:
         self.lookups = lk
@@ -327,25 +369,12 @@ class MainWindow(QMainWindow):
         self.kh_addr.editingFinished.connect(self._instruments_edit)
         self.lockin_addr = QLineEdit(self.cfg.instruments.lockin_address)
         self.lockin_addr.editingFinished.connect(self._instruments_edit)
-        self.n_ai = QSpinBox(minimum=1, maximum=64, value=len(self.cfg.channels))
-        self.n_ao = QSpinBox(minimum=0, maximum=64, value=len(self.cfg.outputs))
-        for sb in (self.n_ai, self.n_ao):
-            sb.setToolTip("Set from the lock-in when it is reachable")
-            sb.valueChanged.connect(self._resize)
-        self.default_shunt = QComboBox()
-        self.default_shunt.addItems(KH_SHUNTS[1:])
-        self.default_shunt.setCurrentText(self.cfg.default_shunt)
-        self.default_shunt.setToolTip("Shunt given to a row when its type becomes U")
-        self.default_shunt.currentTextChanged.connect(lambda t: setattr(self.cfg, "default_shunt", t))
-        counts = QHBoxLayout()
-        for lbl, wdg in (("AI", self.n_ai), ("AO", self.n_ao), ("default shunt", self.default_shunt)):
-            counts.addWidget(QLabel(lbl))
-            counts.addWidget(wdg)
-        counts.addStretch(1)
         f.addRow("Krohn-Hite", self.kh_addr)
         f.addRow("Lock-in", self.lockin_addr)
-        f.addRow("Channels", counts)
         self.conn = QLabel("not connected")
+        self.counts = QLabel()
+        self.counts.setToolTip("The table has one row per lock-in AI; the counts come from the lock-in")
+        self._show_counts("from the configuration")
         self.lockin_id = QLabel("not read")
         self.kh_id = QLabel("not read")
         for lbl in (self.lockin_id, self.kh_id):
@@ -353,7 +382,7 @@ class MainWindow(QMainWindow):
         self.api_label = QLabel("off")
         self.api_label.setToolTip("This app's own JSON-RPC server (getChannelConfig, setChannelConfig, ...)")
         self.db_label = QLabel("off")
-        for lbl, wdg in (("Status", self.conn), ("Lock-in ID", self.lockin_id), ("KH ID", self.kh_id),
+        for lbl, wdg in (("Status", self.conn), ("Channels", self.counts), ("Lock-in ID", self.lockin_id), ("KH ID", self.kh_id),
                          ("Remote API", self.api_label), ("Database", self.db_label)):
             wdg.setTextInteractionFlags(Qt.TextSelectableByMouse)
             f.addRow(lbl, wdg)
@@ -370,8 +399,20 @@ class MainWindow(QMainWindow):
         self.ed[key] = le
         return le
 
-    def _setall_bar(self) -> QHBoxLayout:
-        bar = QHBoxLayout()
+    def _kh_bar(self) -> QGroupBox:
+        """Krohn-Hite settings that act on every row, in the table's Krohn-Hite colour."""
+        box = QGroupBox("Krohn-Hite, all rows")
+        c = palette.tint(palette.FILL["Krohn-Hite"])
+        box.setStyleSheet(f"QGroupBox {{ background: rgb({c.red()}, {c.green()}, {c.blue()}); "
+                          f"border: 1px solid rgb(170, 200, 180); border-radius: 4px; margin-top: 8px; }} "
+                          f"QGroupBox::title {{ subcontrol-origin: margin; left: 8px; padding: 0 3px; }}")
+        bar = QHBoxLayout(box)
+        bar.setContentsMargins(8, 6, 8, 4)
+        self.default_shunt = QComboBox()
+        self.default_shunt.addItems(KH_SHUNTS[1:])
+        self.default_shunt.setCurrentText(self.cfg.default_shunt)
+        self.default_shunt.setToolTip("Shunt given to a row when its type becomes U")
+        self.default_shunt.currentTextChanged.connect(lambda t: setattr(self.cfg, "default_shunt", t))
         self.couple_all = QComboBox()
         self.couple_all.addItems(["Coupling (all)…"] + [f"All {c}" for c in KH_COUPLINGS])
         self.couple_all.activated.connect(lambda i: self._set_all("couple", self.couple_all, KH_COUPLINGS))
@@ -383,50 +424,84 @@ class MainWindow(QMainWindow):
         self.override.setCurrentText(self.cfg.kh_override)
         self.override.setToolTip("Applied at the next Apply only; the rows keep their types")
         self.override.currentTextChanged.connect(self._override)
+        bar.addWidget(QLabel("Default shunt"))
+        bar.addWidget(self.default_shunt)
+        bar.addSpacing(16)
         bar.addWidget(self.couple_all)
         bar.addWidget(self.filter_all)
-        bar.addSpacing(20)
-        bar.addWidget(QLabel("KH override at apply:"))
+        bar.addSpacing(16)
+        bar.addWidget(QLabel("Override at apply"))
         bar.addWidget(self.override)
         bar.addStretch(1)
-        return bar
+        return box
 
     def _actions(self) -> None:
-        tb = self.addToolBar("Main")
-        tb.setMovable(False)
+        """File and database commands live in menus; the instrument actions, used all the
+        time, are buttons on the toolbar (and in the Instruments menu)."""
+        mb = self.menuBar()
 
-        def act(text, slot, key=None, tip=""):
+        def act(menu, text, slot, key=None, tip=""):
             a = QAction(text, self)
             a.triggered.connect(slot)
             if key:
                 a.setShortcut(QKeySequence(key))
             a.setToolTip(tip or text)
-            tb.addAction(a)
+            a.setStatusTip(tip or text)
+            menu.addAction(a)
             return a
 
-        act("Import from Configure Experiment", self.import_legacy,
-            tip=f"Read {legacy.DEFAULT_DIR}")
-        act("Open…", self.open_file, "Ctrl+O")
-        act("Save as…", self.save_as, "Ctrl+Shift+S")
-        act("Write Control Experiment.json", self.save_legacy,
-            tip="Write the file Transport and FLEX read")
-        act("Export topology…", self.export_topology, tip="Save the wiring graph as JSON")
-        act("Log measurement…", self.log_measurement,
-            tip="Write this measurement (user, station, device, serials, wiring) to the lab database")
-        tb.addSeparator()
-        act("Read back", self.read_back, "F5", "Read the KH channels and lock-in gains")
-        self.apply_action = act("Apply to instruments", self.apply, "Ctrl+Return",
+        fm = mb.addMenu("&File")
+        act(fm, "Import from Configure Experiment", self.import_legacy, tip=f"Read {legacy.DEFAULT_DIR}")
+        act(fm, "Open…", self.open_file, "Ctrl+O")
+        act(fm, "Save as…", self.save_as, "Ctrl+Shift+S")
+        fm.addSeparator()
+        act(fm, "Write Control Experiment.json", self.save_legacy, tip="Write the file Transport and FLEX read")
+        act(fm, "Export topology…", self.export_topology, tip="Save the wiring graph as JSON")
+
+        im = mb.addMenu("&Instruments")
+        read = act(im, "Read back", self.read_back, "F5", "Read the KH channels and lock-in gains")
+        self.apply_action = act(im, "Apply to instruments", self.apply, "Ctrl+Return",
                                 "Write KH channels and lock-in gains, then read back")
-        act("Adopt instrument state", self.adopt,
-            tip="Copy KH gain/shunt/coupling/filter and lock-in output gains into the table")
+        adopt = act(im, "Adopt instrument state", self.adopt,
+                    tip="Copy KH gain/shunt/coupling/filter and lock-in output gains into the table")
+        im.addSeparator()
+        act(im, "Start simulated instruments", self.start_sim, tip="Start simulated KH + lock-in on free ports")
+
+        vm = mb.addMenu("&View")
+        self.diagram_action = act(vm, "Wiring diagram", self._show_diagram, "Ctrl+D",
+                                  "Open or close the wiring diagram window")
+        self.diagram_action.setCheckable(True)
+        self.wiring_window.closed.connect(lambda: self.diagram_action.setChecked(False))
+
+        dm = mb.addMenu("&Database")
+        log = act(dm, "Log measurement…", self.log_measurement,
+                  tip="Write this measurement (user, station, device, serials, wiring) to the lab database")
+
+        tb = self.addToolBar("Actions")
+        tb.setObjectName("actions")  # saveState needs it
+        tb.setMovable(False)
+        tb.setStyleSheet(
+            "QToolBar { spacing: 6px; padding: 3px; } "
+            "QToolButton { border: 1px solid rgb(150, 160, 185); border-radius: 4px; padding: 3px 12px; "
+            "background: rgb(246, 247, 251); } "
+            "QToolButton:hover { background: rgb(226, 233, 250); } "
+            "QToolButton:pressed, QToolButton:checked { background: rgb(205, 216, 245); } "
+            "QToolButton:disabled { color: rgb(160, 160, 160); border-color: rgb(200, 200, 200); }")
+        for a in (read, self.apply_action, adopt):
+            tb.addAction(a)
         tb.addSeparator()
-        act("Simulated instruments", self.start_sim, tip="Start simulated KH + lock-in on free ports")
+        tb.addAction(log)
+        tb.addSeparator()
+        tb.addAction(self.diagram_action)
 
     # ---- edits -----------------------------------------------------------
 
     def changed(self) -> None:
         self.channel_model.refresh()
+        if hasattr(self, "diagram_bridge"):
+            self.diagram_bridge.push()
         self.wiring.set_config(self.cfg)
+        self.scene.set_config(self.cfg)
         found = rules.validate(self.cfg)
         self.issues.clear()
         for i in found:
@@ -460,9 +535,12 @@ class MainWindow(QMainWindow):
         self._disconnect()
         self.changed()
 
-    def _resize(self):
+    def _show_counts(self, source: str) -> None:
+        self.counts.setText(f"{len(self.cfg.channels)} AI, {len(self.cfg.outputs)} AO ({source})")
+
+    def _resize(self, n_ai: int, n_ao: int):
         self.channel_model.beginResetModel()
-        self.cfg.resize(self.n_ai.value(), self.n_ao.value())
+        self.cfg.resize(n_ai, n_ao)
         rules.derive_all(self.cfg)
         self.channel_model.endResetModel()
         self.changed()
@@ -481,12 +559,152 @@ class MainWindow(QMainWindow):
 
     def _row_selected(self, cur: QModelIndex, _prev):
         if cur.isValid():
-            self.wiring.select(self.cfg.channels[cur.row()].ai)
+            ai = self.cfg.channels[cur.row()].ai
+            self.wiring.select(ai)
+            self.scene.select(ai)
+
+    def _cell_changed(self, cur: QModelIndex, _prev):
+        """Outline the diagram part that stands for the table's current cell."""
+        if cur.isValid():
+            self.diagram_bridge.selectedChanged.emit(self.cfg.channels[cur.row()].ai, CHANNEL_COLUMNS[cur.column()].key)
+            self.scene.highlight(self.cfg.channels[cur.row()].ai, CHANNEL_COLUMNS[cur.column()].key)
 
     def _select_ai(self, ai: int):
         row = next(i for i, c in enumerate(self.cfg.channels) if c.ai == ai)
         self.table.selectRow(row)
         self.wiring.select(ai)
+        self.scene.select(ai)
+
+    # ---- layout ------------------------------------------------------------
+
+    def _show_diagram(self, on: bool) -> None:
+        self.diagram_action.setChecked(on)
+        if not on:
+            self.wiring_window.hide()
+            return
+        self.wiring_window.show()
+        self.wiring_window.raise_()
+        self.wiring_window.activateWindow()
+
+    def _restore_layout(self) -> None:
+        st = QSettings("Levylab", "expconfig")
+        if st.value("geometry") is not None:
+            self.restoreGeometry(st.value("geometry"))
+        if st.value("diagram_geometry") is not None:
+            self.wiring_window.restoreGeometry(st.value("diagram_geometry"))
+            # Not on a monitor that is gone.
+            screens = [sc.availableGeometry() for sc in QApplication.screens()]
+            if not any(g.intersects(self.wiring_window.frameGeometry()) for g in screens):
+                self.wiring_window.move(self.geometry().topRight())
+        if st.value("diagram_open", False) in (True, "true"):
+            QTimer.singleShot(0, lambda: self._show_diagram(True))
+
+    def closeEvent(self, ev):
+        st = QSettings("Levylab", "expconfig")
+        st.setValue("geometry", self.saveGeometry())
+        st.setValue("diagram_geometry", self.wiring_window.saveGeometry())
+        st.setValue("diagram_open", self.wiring_window.isVisible())
+        super().closeEvent(ev)
+        if ev.isAccepted():
+            self.wiring_window.close()
+
+    def _cable(self, a, b) -> None:
+        """A cable drawn in the diagram: edit the table, or say why it is not possible."""
+        self._wiring_edit(lambda: wiringedit.connect(self.cfg, a, b))
+
+    def _uncable(self, port) -> None:
+        self._wiring_edit(lambda: wiringedit.disconnect(self.cfg, port))
+
+    # ---- edits from the TypeScript diagram: "" or the reason it was refused ----
+
+    def _diagram_set_cell(self, ai: int, key: str, value: str) -> str:
+        row = next((i for i, c in enumerate(self.cfg.channels) if c.ai == ai), None)
+        col = next((i for i, c in enumerate(CHANNEL_COLUMNS) if c.key == key), None)
+        if row is None or col is None:
+            return f"no cell AI {ai} {key}"
+        index = self.channel_model.index(row, col)
+        if not self.channel_model.flags(index) & Qt.ItemIsEditable:
+            return f"AI {ai}: {CHANNEL_COLUMNS[col].title} cannot be changed on this row"
+        if not self.channel_model.setData(index, value):   # on success it calls changed(), which redraws
+            return f"AI {ai}: {value!r} is not a valid {CHANNEL_COLUMNS[col].title}"
+        self.log.appendPlainText(f"Diagram: AI {ai} {CHANNEL_COLUMNS[col].title} = {value}")
+        return ""
+
+    @staticmethod
+    def _port(p: list) -> tuple:
+        kind, pid = p
+        return (kind, pid if kind in ("pad", "gnd") else int(pid))
+
+    def _diagram_cable(self, a: list, b: list) -> str:
+        return self._wiring_edit(lambda: wiringedit.connect(self.cfg, self._port(a), self._port(b)))
+
+    def _diagram_unplug(self, p: list) -> str:
+        return self._wiring_edit(lambda: wiringedit.disconnect(self.cfg, self._port(p)))
+
+    def _wiring_edit(self, edit) -> str:
+        """Apply a cable drawn in a diagram. Returns "" or why it was refused."""
+        self.channel_model.beginResetModel()
+        try:
+            msg = edit()
+        except wiringedit.WiringError as err:
+            self.statusBar().showMessage(f"Not cabled: {err}", 8000)
+            return f"Not cabled: {err}"
+        finally:
+            self.channel_model.endResetModel()
+        self.log.appendPlainText(f"Diagram: {msg}")
+        self.statusBar().showMessage(msg, 8000)
+        self.changed()
+        return ""
+
+    def _cell_menu(self, ai: int, key: str, where) -> None:
+        """Edit a table cell from the diagram: a menu of its choices, or a field for a number."""
+        row = next(i for i, c in enumerate(self.cfg.channels) if c.ai == ai)
+        col = next(i for i, c in enumerate(CHANNEL_COLUMNS) if c.key == key)
+        index = self.channel_model.index(row, col)
+        if not self.channel_model.flags(index) & Qt.ItemIsEditable:
+            return
+        title = f"AI {ai}: {CHANNEL_COLUMNS[col].title}"
+        current = self.channel_model.data(index)
+        options, free = choices(self.cfg, key, self.cfg.channel(ai))
+        menu = QMenu(self)
+        menu.addSection(title)
+        if free or not options:
+            edit = QLineEdit(str(current))
+            edit.setPlaceholderText("type a value, Enter to apply")
+            edit.setMinimumWidth(140)
+            holder = QWidget()
+            lay = QHBoxLayout(holder)
+            lay.setContentsMargins(8, 2, 8, 2)
+            lay.addWidget(edit)
+            wa = QWidgetAction(menu)
+            wa.setDefaultWidget(holder)
+            menu.addAction(wa)
+
+            def typed():
+                menu.close()
+                if not self.channel_model.setData(index, edit.text()):
+                    self.statusBar().showMessage(f"{title}: {edit.text()!r} is not a valid value", 6000)
+            edit.returnPressed.connect(typed)
+            if options:
+                menu.addSeparator()
+            edit.setFocus()
+            edit.selectAll()
+        for opt in options[:40]:
+            a = menu.addAction(opt or "(none)")
+            a.setCheckable(True)
+            a.setChecked(str(opt) == str(current))
+            a.triggered.connect(lambda _=False, v=opt: self.channel_model.setData(index, v))
+        menu.popup(where)
+
+    def _select_cell(self, ai: int, key: str, edit: bool = False):
+        row = next(i for i, c in enumerate(self.cfg.channels) if c.ai == ai)
+        col = next(i for i, c in enumerate(CHANNEL_COLUMNS) if c.key == key)
+        index = self.channel_model.index(row, col)
+        self.table.setCurrentIndex(index)
+        self.table.scrollTo(index)
+        if edit and self.channel_model.flags(index) & Qt.ItemIsEditable:
+            self.table.setFocus()
+            self.table.edit(index)
 
     def _issue_clicked(self, item):
         ai = item.data(Qt.UserRole)
@@ -503,10 +721,7 @@ class MainWindow(QMainWindow):
         self.pads.blockSignals(True)
         self.pads.setValue(e.pads)
         self.pads.blockSignals(False)
-        for w, v in ((self.n_ai, len(cfg.channels)), (self.n_ao, len(cfg.outputs))):
-            w.blockSignals(True)
-            w.setValue(v)
-            w.blockSignals(False)
+        self._show_counts("from the configuration")
         self.kh_addr.setText(", ".join(cfg.instruments.kh_addresses))
         self.lockin_addr.setText(cfg.instruments.lockin_address)
         self.override.setCurrentText(cfg.kh_override)
@@ -642,9 +857,11 @@ class MainWindow(QMainWindow):
         e = self.cfg.experiment
         try:
             lockin_sn, kh_sns = self._rig().serials()
+            devices = self._rig().devices()
         except Exception as err:
             # Instruments not answering now: use the serials from the last read, if any.
             lockin_sn, kh_sns = self.serials
+            devices = self._devices
             self.log.appendPlainText(f"Serial numbers not read now ({err}); using the last read")
         values = {
             "user": e.user, "station": e.station, "device": e.device_name,
@@ -652,11 +869,13 @@ class MainWindow(QMainWindow):
             "lockin_serial": lockin_sn, "kh_serial": ", ".join(kh_sns),
         }
         text = "\n".join(f"{k}: {v or '(empty, stored as NULL)'}" for k, v in values.items())
+        text += "\nDAQ cards (with the wiring): " + (hardware.inventory_text(devices) or
+                                                       "not reported by this lock-in")
         target = f"{self.db_settings.host}/{self.db_settings.dbname} (llab_001)"
         if QMessageBox.question(self, "Log measurement", f"Insert into {target}?\n\n{text}") != QMessageBox.Yes:
             return
         try:
-            wid = db.record_measurement(self.db_settings, wiring=db.wiring_document(self.cfg), **values)
+            wid = db.record_measurement(self.db_settings, wiring=db.wiring_document(self.cfg, devices), **values)
             self.statusBar().showMessage(f"Measurement logged to the database (wiring {wid})")
             self.log.appendPlainText(f"Database: logged {values}")
         except Exception as err:
@@ -705,7 +924,7 @@ def main(argv=None) -> None:
     else:
         cfg, source = legacy.import_legacy(), str(legacy.DEFAULT_DIR)
     w = MainWindow(cfg, source, api_port=a.api_port, db_settings=None if a.no_db else db.DbSettings(),
-                   query_instruments=not (a.offline or a.sim))
+                   query_instruments=not (a.offline or a.sim), restore_layout=True)
     if a.sim:
         w.start_sim()
         if a.apply:

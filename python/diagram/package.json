@@ -1,0 +1,28 @@
+{
+  "name": "expconfig-diagram",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Wiring diagram for expconfig (React Flow). Built into ../src/expconfig/diagram_dist/index.html, which the Qt app loads.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && tsc --noEmit -p test && vite build",
+    "typecheck": "tsc --noEmit && tsc --noEmit -p test",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@xyflow/react": "^12.12.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.3.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.7",
+    "vite-plugin-singlefile": "^2.3.4",
+    "vitest": "^5.1.0"
+  }
+}

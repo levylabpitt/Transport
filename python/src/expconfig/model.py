@@ -10,8 +10,13 @@ from __future__ import annotations
 import re
 from dataclasses import asdict, dataclass, field, fields
 
-# Drive: AO n drives the pad directly (through its output gain), no KH, AI n unused.
-CHANNEL_TYPES = ("U", "V", "n.c.", "Ground", "Drive")
+# U: the pad is sourced (a voltage from an AO). V: the pad is measured.
+CHANNEL_TYPES = ("U", "V", "n.c.", "Ground")
+# What a U or V row is for. U: I drives a current through the shunt; gate applies a
+# potential through a large shunt (I -> 0). V: V is single-ended; dV is against a second pad.
+MODES = {"U": ("I", "gate"), "V": ("V", "dV")}
+SHUNTS_BY_MODE = {"I": ("50", "500", "5k", "50k"), "gate": ("50k", "10M")}
+DEFAULT_SHUNT = {"I": "5k", "gate": "10M"}
 KH_INPUTS = ("OFF", "SE+", "SE-", "DIFF")
 KH_GAINS = ("1", "10", "100", "1000")
 KH_SHUNTS = ("Open", "50", "500", "5k", "50k", "10M")
@@ -80,9 +85,10 @@ class Channel:
     filter: str = "OFF"
     ext_gain: float = 1.0
     ao: int | None = None
+    mode: str = ""   # I or gate (U), V or dV (V); see MODES
     # derived
     input: str = "OFF"
-    name: str = ""
+    name: str = ""   # the automatic label: U<pad>, V<pad>, V<pad>-<pad>; the mode says I, gate, V or dV
 
     @property
     def lockin_gain(self) -> float:
@@ -91,6 +97,11 @@ class Channel:
     @property
     def minus_is_electrode(self) -> bool:
         return self.minus not in MINUS_KEYWORDS
+
+    @property
+    def direct(self) -> bool:
+        """A U row with no Krohn-Hite channel: its AO drives the pad directly, and its AI is not used."""
+        return self.type == "U" and self.kh is None
 
     def to_dict(self) -> dict:
         d = asdict(self)
@@ -104,6 +115,8 @@ class Channel:
         kw = {k: v for k, v in d.items() if k in names}
         if isinstance(kw.get("kh"), str):
             kw["kh"] = parse_kh_label(kw["kh"])
+        if kw.get("type") == "Drive":   # files written before Drive became a U row with no KH
+            kw.update(type="U", kh=None, mode=kw.get("mode") or "gate")
         return cls(**kw)
 
 

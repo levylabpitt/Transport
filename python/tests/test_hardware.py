@@ -144,6 +144,16 @@ def test_counts_and_names_come_from_the_daq_lists(rig):
     assert hardware.daq_text(rb.input_daq[2]) == "PXI1Slot3/ai0, ±0.316 V, DC, Pseudodifferential"
 
 
+def test_devices_and_daq_types_from_the_lockin(rig):
+    cfg, _, _ = rig
+    rb = hardware.Rig(cfg).read()
+    assert [d["DeviceName"] for d in rb.devices] == ["PXI1Slot2", "PXI1Slot3", "PXI1Slot4", "PXI1Slot5", "PXI1Slot6"]
+    assert hardware.daq_type(rb.input_daq[0]) == "PXI-4461"
+    assert hardware.daq_type({"Type": "None"}) == ""      # lock-ins before 3.11
+    assert hardware.inventory_text(rb.devices[:1]) == "PXI1Slot2 PXI-4461 #7344 (simulated)"
+    assert hardware.Rig(cfg).devices() == rb.devices
+
+
 def test_output_offset_applied_read_back_and_adopted(rig):
     cfg, _, lockin = rig
     cfg.outputs[3].gain, cfg.outputs[3].offset = 25, 0.02
@@ -162,10 +172,10 @@ def test_older_lockin_without_daq_or_offset_commands(rig):
     real = lockin.handle
 
     def old(method, params):
-        if method in ("getInputDAQ", "getOutputDAQ", "getOutputOffset", "setOutputOffset"):
+        if method in ("getInputDAQ", "getOutputDAQ", "getOutputOffset", "setOutputOffset", "getDevices"):
             raise RpcError(f"command not supported: {method}", 4001)
         return real(method, params)
     lockin.handle = old
     cfg.outputs[0].offset = 0.5
     rb = hardware.Rig(cfg).apply(cfg)
-    assert not rb.errors and (rb.n_ai, rb.n_ao) == (10, 4) and rb.output_offset == []
+    assert not rb.errors and (rb.n_ai, rb.n_ao) == (10, 4) and rb.output_offset == [] and rb.devices == []

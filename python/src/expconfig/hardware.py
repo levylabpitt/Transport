@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 
+from . import rules
 from .instruments import KH7008, Lockin
 from .rpc import RpcError
 from .model import KH_CHANNELS_PER_CHASSIS, KH_SHUNTS, Config, kh_label
@@ -66,6 +67,25 @@ def daq_text(entry: dict) -> str:
     return ", ".join(parts)
 
 
+def daq_type(entry: dict) -> str:
+    """The Type of a getInputDAQ/getOutputDAQ entry; older lock-ins send "None"."""
+    t = str(entry.get("Type") or "")
+    return "" if t == "None" else t
+
+
+def inventory_text(devices: list[dict]) -> str:
+    """'PXI1Slot2 PXI-4461 #7344, Dev1 USB-4431 #100000018 (simulated)' from getDevices."""
+    parts = []
+    for d in devices:
+        s = f"{d.get('DeviceName', '?')} {d.get('ProductType', '')}".strip()
+        if d.get("DeviceSerialNumber"):
+            s += f" #{d['DeviceSerialNumber']}"
+        if d.get("DevIsSimulated"):
+            s += " (simulated)"
+        parts.append(s)
+    return ", ".join(parts)
+
+
 def _unsupported(err: Exception) -> bool:
     """A lock-in older than 3.9.0 answers 4001 to getInputDAQ, getOutputOffset, ..."""
     return isinstance(err, RpcError) and err.code == 4001
@@ -94,6 +114,8 @@ class Readback:
     output_offset: list[float] = field(default_factory=list)
     input_daq: list[dict] = field(default_factory=list)
     output_daq: list[dict] = field(default_factory=list)
+    # getDevices: the lock-in's DAQ devices, serials included. Empty before lock-in 3.11.
+    devices: list[dict] = field(default_factory=list)
     errors: list[str] = field(default_factory=list)
     # IDN replies ({vendor, model, serial, firmware}); empty when IDN failed.
     lockin_idn: dict = field(default_factory=dict)
@@ -172,7 +194,10 @@ def adopt(cfg: Config, rb: Readback) -> list[str]:
         # old Configure Experiment never saved can be recovered from it. Only for rows
         # still at the default 1, and only gains above 1 (SR830, preamp): a ratio
         # below 1 more likely means the KH gain was changed and the lock-in is stale.
-        if ch.ext_gain == 1 and ch.type != "Drive" and ch.ai <= len(rb.input_gain):
+        if ch.type == "U" and ch.kh is not None and ch.shunt not in rules.SHUNTS_BY_MODE.get(ch.mode, ()):
+            # An adopted shunt outside the row's mode says which mode it is (10M: a gate).
+            ch.mode = next((m for m, s in rules.SHUNTS_BY_MODE.items() if ch.shunt in s), ch.mode)
+        if ch.ext_gain == 1 and not ch.direct and ch.ai <= len(rb.input_gain):
             kh_gain = float(ch.kh_gain) if ch.kh is not None else 1.0
             ext = float(rb.input_gain[ch.ai - 1]) / kh_gain
             if ext > 1 + 1e-9:
@@ -214,7 +239,7 @@ class Rig:
             rb.errors.append(f"Lock-in: {err}")
             return rb
         for attr, get in (("input_daq", self.lockin.get_input_daq), ("output_daq", self.lockin.get_output_daq),
-                          ("output_offset", self.lockin.get_output_offset)):
+                          ("output_offset", self.lockin.get_output_offset), ("devices", self.lockin.get_devices)):
             try:
                 setattr(rb, attr, get())
             except Exception as err:
@@ -238,6 +263,15 @@ class Rig:
         """Serial numbers from IDN, for the measurement record."""
         return (str(self.lockin.idn().get("serial", "")),
                 [str(kh.idn().get("serial", "")) for kh in self.khs])
+
+    def devices(self) -> list[dict]:
+        """The lock-in's DAQ devices (getDevices); [] on a lock-in before 3.11."""
+        try:
+            return self.lockin.get_devices()
+        except Exception as err:
+            if _unsupported(err):
+                return []
+            raise
 
     def close(self) -> None:
         for kh in self.khs:

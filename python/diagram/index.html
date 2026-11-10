@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wiring</title>
+<!-- Qt's bridge, when the page runs inside the Qt app; in a browser it is simply missing. -->
+<script src="qrc:///qtwebchannel/qwebchannel.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="module" src="/src/main.tsx"></script>
+</body>
+</html>

@@ -79,17 +79,32 @@ def lookups(settings: DbSettings, connect=_connect) -> Lookups:
         return Lookups(error=f"{type(err).__name__}: {err}".strip())
 
 
-def wiring_document(cfg) -> dict:
-    """What goes into public.wiring.wiring: the tables and the topology graph."""
+def daq_cards(devices: list[dict]) -> list[dict]:
+    """The lock-in's DAQ cards (getDevices) as stored with the wiring: what and which, not
+    their state (temperature, calibration), so the same rig keeps the same wiring hash."""
+    return [{"device": str(d.get("DeviceName", "")), "type": str(d.get("ProductType", "")),
+             "serial": str(d.get("DeviceSerialNumber", "")),
+             "chassis": d.get("ChassisNumber"), "slot": d.get("SlotNumber"),
+             "chassis_serial": str(d.get("ChassisSerialNumber", "")),
+             "simulated": bool(d.get("DevIsSimulated", False))}
+            for d in sorted(devices, key=lambda d: str(d.get("DeviceName", "")))]
+
+
+def wiring_document(cfg, devices: list[dict] | None = None) -> dict:
+    """What goes into public.wiring.wiring: the tables and the topology graph, and the
+    lock-in's DAQ cards with their serials when the lock-in reports them (getDevices)."""
     from . import topology
 
-    return {
+    doc = {
         "schema": WIRING_SCHEMA,
         "channels": [c.to_dict() for c in cfg.channels],
         "outputs": [o.to_dict() for o in cfg.outputs],
         "kh_override": cfg.kh_override,
         "topology": topology.build(cfg),
     }
+    if devices:
+        doc["lockin_daq"] = daq_cards(devices)
+    return doc
 
 
 def wiring_hash(doc: dict) -> str:
