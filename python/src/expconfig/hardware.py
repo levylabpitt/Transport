@@ -114,7 +114,7 @@ class Readback:
     output_offset: list[float] = field(default_factory=list)
     input_daq: list[dict] = field(default_factory=list)
     output_daq: list[dict] = field(default_factory=list)
-    # getDevices: the lock-in's DAQ devices, serials included. Empty before lock-in 3.11.
+    # getDevices: the lock-in's DAQ devices, serials included. Empty before lock-in 3.10.4.
     devices: list[dict] = field(default_factory=list)
     errors: list[str] = field(default_factory=list)
     # IDN replies ({vendor, model, serial, firmware}); empty when IDN failed.
@@ -265,7 +265,7 @@ class Rig:
                 [str(kh.idn().get("serial", "")) for kh in self.khs])
 
     def devices(self) -> list[dict]:
-        """The lock-in's DAQ devices (getDevices); [] on a lock-in before 3.11."""
+        """The lock-in's DAQ devices (getDevices); [] on a lock-in before 3.10.4."""
         try:
             return self.lockin.get_devices()
         except Exception as err:

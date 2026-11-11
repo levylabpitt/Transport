@@ -149,7 +149,7 @@ def test_devices_and_daq_types_from_the_lockin(rig):
     rb = hardware.Rig(cfg).read()
     assert [d["DeviceName"] for d in rb.devices] == ["PXI1Slot2", "PXI1Slot3", "PXI1Slot4", "PXI1Slot5", "PXI1Slot6"]
     assert hardware.daq_type(rb.input_daq[0]) == "PXI-4461"
-    assert hardware.daq_type({"Type": "None"}) == ""      # lock-ins before 3.11
+    assert hardware.daq_type({"Type": "None"}) == ""      # lock-ins before 3.10.4
     assert hardware.inventory_text(rb.devices[:1]) == "PXI1Slot2 PXI-4461 #7344 (simulated)"
     assert hardware.Rig(cfg).devices() == rb.devices
 

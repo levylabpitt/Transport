@@ -74,7 +74,7 @@ class Lockin:
 
     def get_devices(self) -> list[dict]:
         """One entry per DAQ device: {DeviceName, ProductType, DeviceSerialNumber, DevIsSimulated,
-        ChassisNumber, SlotNumber, ChassisSerialNumber, ...}. Lock-in 3.11 and later."""
+        ChassisNumber, SlotNumber, ChassisSerialNumber, ...}. Lock-in 3.10.4 and later."""
         return list(self.rpc.call("getDevices"))
 
     def close(self) -> None:

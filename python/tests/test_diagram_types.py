@@ -33,7 +33,7 @@ def test_cards_say_what_hardware_they_are():
     assert (by["PXI1Slot3"]["type"], by["PXI1Slot3"]["serial"], by["PXI1Slot3"]["slot"]) == \
         ("PXI-4461", "7345", "chassis 1, slot 3")
     assert (by["Dev1"]["type"], by["Dev1"]["slot"], by["Dev1"]["simulated"]) == ("USB-4431", "", True)
-    # Without getDevices (lock-in before 3.11): the type from the DAQ lists, no serial.
+    # Without getDevices (lock-in before 3.10.4): the type from the DAQ lists, no serial.
     by = {c["device"]: c for c in diagrammodel.cards(cfg, cm, ai, ao)}
     assert (by["Dev1"]["type"], by["Dev1"]["serial"]) == ("USB-4431", "")
     # A lock-in that sends Type "None": nothing claimed.

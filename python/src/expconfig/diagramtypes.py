@@ -84,7 +84,7 @@ class Card(TypedDict):
     device: Annotated[str, '"PXI1Slot2"; "lock-in AI n" (one per AI) until the channels are read']
     read: bool
     type: Annotated[str, '"PXI-4461", from getDevices or the DAQ Type; "" when the lock-in does not say']
-    serial: Annotated[str, 'DAQ serial number from getDevices (lock-in 3.11+); "" if unknown']
+    serial: Annotated[str, 'DAQ serial number from getDevices (lock-in 3.10.4+); "" if unknown']
     simulated: Annotated[bool, "an NI-DAQmx simulated device"]
     slot: Annotated[str, '"chassis 1, slot 2" for a PXI card; "" otherwise']
     ais: list[int]

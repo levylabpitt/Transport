@@ -59,7 +59,7 @@ export interface Card {
   device: string;   // "PXI1Slot2"; "lock-in AI n" (one per AI) until the channels are read
   read: boolean;
   type: string;   // "PXI-4461", from getDevices or the DAQ Type; "" when the lock-in does not say
-  serial: string;   // DAQ serial number from getDevices (lock-in 3.11+); "" if unknown
+  serial: string;   // DAQ serial number from getDevices (lock-in 3.10.4+); "" if unknown
   simulated: boolean;   // an NI-DAQmx simulated device
   slot: string;   // "chassis 1, slot 2" for a PXI card; "" otherwise
   ais: number[];

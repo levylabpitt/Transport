@@ -77,7 +77,7 @@ def cards(cfg: Config, model: ChannelModel, ai_daq: list[dict], ao_daq: list[dic
         chan = str(ao_daq[o.ao - 1].get("Channels", "")) if 1 <= o.ao <= len(ao_daq) else ""
         card["aos"].append({"ao": o.ao, "channel": chan, "name": o.name, "gain": o.gain, "offset": o.offset,
                             "usedBy": users.get(o.ao)})
-    # What each card is: getDevices (lock-in 3.11+), else the Type in getInputDAQ/getOutputDAQ.
+    # What each card is: getDevices (lock-in 3.10.4+), else the Type in getInputDAQ/getOutputDAQ.
     inventory = {str(d.get("DeviceName")): d for d in devices or []}
     types: dict[str, str] = {}
     for e in [*ai_daq, *ao_daq]:
