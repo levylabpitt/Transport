@@ -81,11 +81,16 @@ def lookups(settings: DbSettings, connect=_connect) -> Lookups:
 
 def daq_cards(devices: list[dict]) -> list[dict]:
     """The lock-in's DAQ cards (getDevices) as stored with the wiring: what and which, not
-    their state (temperature, calibration), so the same rig keeps the same wiring hash."""
+    their state (temperature, calibration), so the same rig keeps the same wiring hash.
+    A simulated device gets new random serials whenever it is created, so its serials are
+    stored as "": they identify nothing, and would make a new wiring row on every restart."""
+    def serial(d, key):
+        return "" if d.get("DevIsSimulated") else str(d.get(key, ""))
+
     return [{"device": str(d.get("DeviceName", "")), "type": str(d.get("ProductType", "")),
-             "serial": str(d.get("DeviceSerialNumber", "")),
+             "serial": serial(d, "DeviceSerialNumber"),
              "chassis": d.get("ChassisNumber"), "slot": d.get("SlotNumber"),
-             "chassis_serial": str(d.get("ChassisSerialNumber", "")),
+             "chassis_serial": serial(d, "ChassisSerialNumber"),
              "simulated": bool(d.get("DevIsSimulated", False))}
             for d in sorted(devices, key=lambda d: str(d.get("DeviceName", "")))]
 

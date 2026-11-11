@@ -145,12 +145,22 @@ def test_live_lookups_read_only():
 def test_daq_cards_go_with_the_wiring():
     from expconfig.demo import demo_config, demo_devices
     assert "lockin_daq" not in db.wiring_document(demo_config())   # older lock-in: same document as before
-    doc = db.wiring_document(demo_config(), demo_devices())
-    assert [(c["device"], c["type"], c["serial"]) for c in doc["lockin_daq"]][:2] == \
-        [("Dev1", "USB-4431", "100000018"), ("PXI1Slot2", "PXI-4461", "7344")]
+    real = [{**d, "DevIsSimulated": False} for d in demo_devices()]
+    doc = db.wiring_document(demo_config(), real)
+    assert [(c["device"], c["type"], c["serial"]) for c in doc["lockin_daq"]][:2] ==         [("Dev1", "USB-4431", "100000018"), ("PXI1Slot2", "PXI-4461", "7344")]
     # Only what identifies a card is kept, so a temperature reading does not make a new wiring.
-    warm = [{**d, "DevTemp": 41.5} for d in demo_devices()]
+    warm = [{**d, "DevTemp": 41.5} for d in real]
     assert db.wiring_hash(db.wiring_document(demo_config(), warm)) == db.wiring_hash(doc)
     # A swapped card does.
-    swapped = [{**d, "DeviceSerialNumber": "9999"} if d["DeviceName"] == "PXI1Slot3" else d for d in demo_devices()]
+    swapped = [{**d, "DeviceSerialNumber": "9999"} if d["DeviceName"] == "PXI1Slot3" else d for d in real]
     assert db.wiring_hash(db.wiring_document(demo_config(), swapped)) != db.wiring_hash(doc)
+
+
+def test_simulated_cards_are_stored_without_their_random_serials():
+    from expconfig.demo import demo_config, demo_devices
+    sim = db.wiring_document(demo_config(), demo_devices())
+    assert all(c["simulated"] and c["serial"] == c["chassis_serial"] == "" for c in sim["lockin_daq"])
+    assert sim["lockin_daq"][0]["type"] == "USB-4431"
+    # The lock-in restarted: new random serials, same wiring.
+    again = [{**d, "DeviceSerialNumber": "100000062", "ChassisSerialNumber": "9A22BB"} for d in demo_devices()]
+    assert db.wiring_hash(db.wiring_document(demo_config(), again)) == db.wiring_hash(sim)

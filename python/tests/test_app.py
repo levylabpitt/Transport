@@ -240,4 +240,5 @@ def test_log_measurement_stores_the_daq_cards_with_the_wiring(qapp, monkeypatch)
     monkeypatch.setattr(appmod.db, "record_measurement", lambda settings, wiring, **v: stored.update(wiring) or 7)
     w.log_measurement()
     assert "DAQ cards (with the wiring): Dev1 USB-4431 #100000018 (simulated)" in asked[0]
-    assert [c["serial"] for c in stored["lockin_daq"]] == ["100000018", "7344", "7345", "7346", "7347"]
+    assert [c["type"] for c in stored["lockin_daq"]] == ["USB-4431"] + ["PXI-4461"] * 4
+    assert all(c["serial"] == "" for c in stored["lockin_daq"])   # simulated: no serials stored
