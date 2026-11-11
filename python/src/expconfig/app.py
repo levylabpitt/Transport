@@ -4,18 +4,19 @@ from __future__ import annotations
 
 import argparse
 import copy
+import dataclasses
 import json
 import socket
 import sys
 from pathlib import Path
 
 from PySide6.QtCore import QModelIndex, QObject, QSettings, Qt, QTimer, Signal
-from PySide6.QtGui import QAction, QFont, QKeySequence
+from PySide6.QtGui import QAction, QFont, QKeySequence, QShortcut
 from PySide6.QtWidgets import (
     QAbstractItemView, QApplication, QComboBox, QFileDialog, QFormLayout, QGridLayout, QGroupBox, QHBoxLayout,
     QHeaderView, QLabel, QLineEdit, QListWidget, QListWidgetItem, QMainWindow, QMenu, QMessageBox,
     QPlainTextEdit, QScrollArea, QSpinBox, QSplitter, QStyledItemDelegate, QTableView, QTabWidget,
-    QVBoxLayout, QWidget, QWidgetAction,
+    QPushButton, QVBoxLayout, QWidget, QWidgetAction,
 )
 
 import threading
@@ -135,14 +136,32 @@ class WiringWindow(QWidget):
     """The wiring tabs in a window of their own, opened and closed from the main window."""
 
     closed = Signal()
+    saveRequested = Signal()
 
     def __init__(self, tabs: QTabWidget):
         super().__init__(None, Qt.Window)
-        self.setWindowTitle("Wiring")
+        self.setWindowTitle("Wiring[*]")
         lay = QVBoxLayout(self)
         lay.setContentsMargins(4, 4, 4, 4)
+        bar = QHBoxLayout()
+        self.save_button = QPushButton("Save")
+        self.save_button.setToolTip("Save the configuration (Ctrl+S); it is opened again next time")
+        self.save_button.clicked.connect(self.saveRequested)
+        QShortcut(QKeySequence.Save, self, activated=self.saveRequested)
+        self.saved_label = QLabel()
+        bar.addWidget(self.save_button)
+        bar.addWidget(self.saved_label)
+        bar.addStretch(1)
+        lay.addLayout(bar)
         lay.addWidget(tabs)
         self.resize(720, 860)
+
+    def show_saved(self, text: str, style: str, tip: str, modified: bool, can_save: bool) -> None:
+        self.saved_label.setText(text)
+        self.saved_label.setStyleSheet(style)
+        self.saved_label.setToolTip(tip)
+        self.save_button.setEnabled(can_save)
+        self.setWindowModified(modified)
 
     def closeEvent(self, ev):
         super().closeEvent(ev)
@@ -154,12 +173,18 @@ class MainWindow(QMainWindow):
     instrumentsReady = Signal(object)
 
     def __init__(self, cfg: Config, source: str, api_port: int = 0, db_settings: db.DbSettings | None = None,
-                 query_instruments: bool = False, restore_layout: bool = False):
+                 query_instruments: bool = False, restore_layout: bool = False,
+                 session_dir: Path | None = None):
         super().__init__()
+        # Where Save writes, and where the next start opens from (None: Save is off, as in the tests).
+        self.session_dir = session_dir
+        self._persist_layout = restore_layout
+        self._saved_fp = ""          # the configuration as last loaded or saved
+        self._never_saved = False    # the demo: nothing on disk yet
         self.cfg = cfg
         self.source = source
         self.rig: hardware.Rig | None = None
-        self.setWindowTitle("Experiment configurator (prototype)")
+        self.setWindowTitle("Experiment configurator (prototype)[*]")
         self.resize(1500, 900)
 
         self.channel_model = ChannelModel(cfg, self.changed)
@@ -239,6 +264,7 @@ class MainWindow(QMainWindow):
         self._actions()
         if restore_layout:
             self._restore_layout()
+        self._mark_saved(never=source == "demo configuration")
         self.changed()
         self.statusBar().showMessage(f"Loaded {source}")
         self.api = None
@@ -451,6 +477,10 @@ class MainWindow(QMainWindow):
             return a
 
         fm = mb.addMenu("&File")
+        self.save_action = act(fm, "Save", self.save, "Ctrl+S",
+                               "Save the configuration; the next start opens it")
+        self.wiring_window.saveRequested.connect(self.save)
+        fm.addSeparator()
         act(fm, "Import from Configure Experiment", self.import_legacy, tip=f"Read {legacy.DEFAULT_DIR}")
         act(fm, "Open…", self.open_file, "Ctrl+O")
         act(fm, "Save as…", self.save_as, "Ctrl+Shift+S")
@@ -487,6 +517,10 @@ class MainWindow(QMainWindow):
             "QToolButton:hover { background: rgb(226, 233, 250); } "
             "QToolButton:pressed, QToolButton:checked { background: rgb(205, 216, 245); } "
             "QToolButton:disabled { color: rgb(160, 160, 160); border-color: rgb(200, 200, 200); }")
+        tb.addAction(self.save_action)
+        self.saved_label = QLabel()
+        tb.addWidget(self.saved_label)
+        tb.addSeparator()
         for a in (read, self.apply_action, adopt):
             tb.addAction(a)
         tb.addSeparator()
@@ -498,6 +532,7 @@ class MainWindow(QMainWindow):
 
     def changed(self) -> None:
         self.channel_model.refresh()
+        self._show_saved()
         if hasattr(self, "diagram_bridge"):
             self.diagram_bridge.push()
         self.wiring.set_config(self.cfg)
@@ -524,6 +559,7 @@ class MainWindow(QMainWindow):
 
     def _exp_edit(self, key, text):
         setattr(self.cfg.experiment, key, text.strip())
+        self._show_saved()
         if key == "station_type" and not self.lookups.error:
             self.ed["station"].set_choices(self.lookups.stations_of(text.strip()))
 
@@ -586,10 +622,64 @@ class MainWindow(QMainWindow):
         self.wiring_window.raise_()
         self.wiring_window.activateWindow()
 
+    # ---- saved or not ----------------------------------------------------
+
+    def _fingerprint(self) -> str:
+        c = self.cfg
+        return json.dumps({"channels": [ch.to_dict() for ch in c.channels], "outputs": [o.to_dict() for o in c.outputs],
+                           "kh_override": c.kh_override, "experiment": dataclasses.asdict(c.experiment),
+                           "instruments": dataclasses.asdict(c.instruments)}, sort_keys=True, default=str)
+
+    @property
+    def modified(self) -> bool:
+        """Changed since it was opened or last saved."""
+        return self._fingerprint() != self._saved_fp
+
+    def _mark_saved(self, never: bool = False) -> None:
+        self._saved_fp, self._never_saved = self._fingerprint(), never
+        self._show_saved()
+
+    def _show_saved(self) -> None:
+        if not hasattr(self, "saved_label"):
+            return
+        where = self.session_dir / legacy.JSON_NAME if self.session_dir else "(saving is off)"
+        if self._never_saved and not self.modified:
+            text, color = "Demo, not saved", "rgb(120, 120, 120)"
+        elif self.modified:
+            text, color = "\u25cf Unsaved changes", "rgb(190, 110, 0)"
+        else:
+            text, color = "\u2713 Saved", "rgb(30, 130, 60)"
+        style = f"color: {color}; font-weight: bold; padding: 0 8px;"
+        tip = f"Save writes {where}; the next start opens it"
+        self.saved_label.setText(text)
+        self.saved_label.setStyleSheet(style)
+        self.saved_label.setToolTip(tip)
+        can_save = self.modified or self._never_saved
+        self.save_action.setEnabled(can_save)
+        self.setWindowModified(self.modified)
+        self.wiring_window.show_saved(text, style, tip, self.modified, can_save)
+
+    def save(self) -> bool:
+        """Save the configuration where the next start opens it (legacy.SESSION_DIR)."""
+        if self.session_dir is None:
+            return False
+        try:
+            p = legacy.save(self.cfg, self.session_dir)
+        except OSError as err:
+            QMessageBox.warning(self, "Save", f"Not saved:\n{err}")
+            return False
+        self._mark_saved()
+        self.statusBar().showMessage(f"Saved {p}")
+        return True
+
     def _restore_layout(self) -> None:
         st = QSettings("Levylab", "expconfig")
         if st.value("geometry") is not None:
             self.restoreGeometry(st.value("geometry"))
+        if st.value("tables_split") is not None:
+            self.tables.restoreState(st.value("tables_split"))
+        if st.value("tab") is not None:
+            self.tabs.setCurrentIndex(int(st.value("tab")))
         if st.value("diagram_geometry") is not None:
             self.wiring_window.restoreGeometry(st.value("diagram_geometry"))
             # Not on a monitor that is gone.
@@ -600,10 +690,20 @@ class MainWindow(QMainWindow):
             QTimer.singleShot(0, lambda: self._show_diagram(True))
 
     def closeEvent(self, ev):
-        st = QSettings("Levylab", "expconfig")
-        st.setValue("geometry", self.saveGeometry())
-        st.setValue("diagram_geometry", self.wiring_window.saveGeometry())
-        st.setValue("diagram_open", self.wiring_window.isVisible())
+        if self.session_dir is not None and self.modified:
+            ans = QMessageBox.question(self, "Experiment configurator", "Save the changes before closing?",
+                                       QMessageBox.Save | QMessageBox.Discard | QMessageBox.Cancel,
+                                       QMessageBox.Save)
+            if ans == QMessageBox.Cancel or (ans == QMessageBox.Save and not self.save()):
+                ev.ignore()
+                return
+        if self._persist_layout:
+            st = QSettings("Levylab", "expconfig")
+            st.setValue("geometry", self.saveGeometry())
+            st.setValue("tables_split", self.tables.saveState())
+            st.setValue("tab", self.tabs.currentIndex())
+            st.setValue("diagram_geometry", self.wiring_window.saveGeometry())
+            st.setValue("diagram_open", self.wiring_window.isVisible())
         super().closeEvent(ev)
         if ev.isAccepted():
             self.wiring_window.close()
@@ -726,6 +826,7 @@ class MainWindow(QMainWindow):
         self.lockin_addr.setText(cfg.instruments.lockin_address)
         self.override.setCurrentText(cfg.kh_override)
         self._disconnect()
+        self._mark_saved()
         self.changed()
         self.statusBar().showMessage(f"Loaded {source}")
 
@@ -766,6 +867,7 @@ class MainWindow(QMainWindow):
                 != QMessageBox.Yes:
             return
         p = legacy.save(self.cfg)
+        self._mark_saved()   # the next start opens this file: it is newer than the saved one
         self.statusBar().showMessage(f"Wrote {p}")
 
     # ---- instruments -----------------------------------------------------
@@ -907,7 +1009,7 @@ def main(argv=None) -> None:
     ap.add_argument("--sim", action="store_true", help="start simulated instruments and connect")
     ap.add_argument("--apply", action="store_true", help="apply once at startup (with --sim)")
     ap.add_argument("--select", type=int, help="select this AI at startup")
-    ap.add_argument("--tab", type=int, default=0, help="right-hand tab to show")
+    ap.add_argument("--tab", type=int, help="right-hand tab to show (default: the one shown last)")
     ap.add_argument("--screenshot", type=Path, help="render the window to this PNG and exit")
     ap.add_argument("--no-db", action="store_true", help="do not contact the lab database")
     ap.add_argument("--offline", action="store_true", help="do not query the instruments at startup")
@@ -919,19 +1021,22 @@ def main(argv=None) -> None:
     app = QApplication.instance() or QApplication(sys.argv[:1])
     if a.import_dir:
         cfg, source = legacy.import_legacy(a.import_dir), str(a.import_dir)
-    elif a.demo or not (legacy.DEFAULT_DIR / legacy.JSON_NAME).exists():
+    elif a.demo or (start := legacy.startup_source()) is None:
         cfg, source = demo_config(), "demo configuration"
     else:
-        cfg, source = legacy.import_legacy(), str(legacy.DEFAULT_DIR)
+        cfg = legacy.import_legacy(start)
+        source = "last session" if start == legacy.SESSION_DIR else str(start)
     w = MainWindow(cfg, source, api_port=a.api_port, db_settings=None if a.no_db else db.DbSettings(),
-                   query_instruments=not (a.offline or a.sim), restore_layout=True)
+                   query_instruments=not (a.offline or a.sim), restore_layout=not a.screenshot,
+                   session_dir=None if a.screenshot else legacy.SESSION_DIR)
     if a.sim:
         w.start_sim()
         if a.apply:
             w.apply()
     if a.select:
         w._select_ai(a.select)
-    w.tabs.setCurrentIndex(a.tab)
+    if a.tab is not None:
+        w.tabs.setCurrentIndex(a.tab)
     w.show()
     if a.screenshot:
         def shot():

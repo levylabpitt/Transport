@@ -242,3 +242,51 @@ def test_log_measurement_stores_the_daq_cards_with_the_wiring(qapp, monkeypatch)
     assert "DAQ cards (with the wiring): Dev1 USB-4431 #100000018 (simulated)" in asked[0]
     assert [c["type"] for c in stored["lockin_daq"]] == ["USB-4431"] + ["PXI-4461"] * 4
     assert all(c["serial"] == "" for c in stored["lockin_daq"])   # simulated: no serials stored
+
+
+def test_save_keeps_the_wiring_and_says_whether_it_is_saved(qapp, tmp_path, monkeypatch):
+    import os
+    from PySide6.QtWidgets import QMessageBox
+    from expconfig import legacy, wiringedit
+    session, shared = tmp_path / "expconfig", tmp_path / "Control Experiment"
+    w = MainWindow(demo_config(), "demo configuration", session_dir=session)
+    assert w.saved_label.text() == "Demo, not saved" and not w.isWindowModified()
+    w.close()                                                # the untouched demo: nothing to ask
+    assert not (session / legacy.JSON_NAME).exists()
+
+    w = MainWindow(demo_config(), "demo configuration", session_dir=session)
+    wiringedit.connect(w.cfg, ("pad", "20"), ("ai", 10))   # an edit made in the diagram
+    w.changed()
+    assert "Unsaved" in w.saved_label.text() and w.isWindowModified()
+    assert w.wiring_window.saved_label.text() == w.saved_label.text()
+    assert w.wiring_window.save_button.isEnabled() and w.wiring_window.isWindowModified()
+    w._exp_edit("sample", "SA9999")                          # the experiment form counts too
+    w.wiring_window.save_button.click()                      # Save in the diagram window
+    assert "Saved" in w.saved_label.text() and not w.modified and not w.wiring_window.save_button.isEnabled()
+    assert legacy.startup_source(session, shared) == session
+    again = legacy.import_legacy(session)
+    assert again.channel(10).electrode == "20" and again.experiment.sample == "SA9999"
+    assert [c.to_dict() for c in again.channels] == [c.to_dict() for c in w.cfg.channels]
+    assert [o.to_dict() for o in again.outputs] == [o.to_dict() for o in w.cfg.outputs]
+
+    # Closing with changes asks; Cancel keeps the window open, Discard closes without saving.
+    w._exp_edit("sample", "SA0000")
+    answers = [QMessageBox.Cancel, QMessageBox.Discard]
+    monkeypatch.setattr(QMessageBox, "question", lambda *a, **k: answers.pop(0))
+    assert not w.close()
+    assert w.close() and legacy.import_legacy(session).experiment.sample == "SA9999"
+
+    # Control Experiment.json written later (Configure Experiment, another tool): that wins.
+    legacy.save(demo_config(), shared)
+    t = (session / legacy.JSON_NAME).stat().st_mtime + 5
+    os.utime(shared / legacy.JSON_NAME, (t, t))
+    assert legacy.startup_source(session, shared) == shared
+    assert legacy.startup_source(tmp_path / "none", tmp_path / "nothing") is None
+
+
+def test_without_a_save_folder_nothing_is_saved_or_asked(qapp):
+    w = MainWindow(demo_config(), "test")
+    w.cfg.experiment.sample = "changed"
+    w.changed()
+    assert w.modified and not w.save()
+    assert w.close()   # no question in the tests

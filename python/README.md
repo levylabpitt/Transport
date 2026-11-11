@@ -11,7 +11,8 @@ uv sync
 uv run expconfig --demo
 ```
 
-- `uv run expconfig` opens `%LOCALAPPDATA%\Levylab\Control Experiment` if it exists. The demo configuration has a current source, a voltage pair, a backgate through a 25× amplifier, an SR830 input and a teed 6/7 pair.
+- `uv run expconfig` opens what you last saved. Save (Ctrl+S, in the toolbar and in the Wiring window) writes `%LOCALAPPDATA%\Levylab\expconfig\Control Experiment.json`; both windows show whether the configuration is saved, and closing with unsaved changes asks. If `%LOCALAPPDATA%\Levylab\Control Experiment\Control Experiment.json` was written after your last Save (Configure Experiment, or "Write Control Experiment.json"), the app opens that instead. Window size, table split, tab and the diagram window are remembered.
+- `--demo` starts from the demo configuration: a current source, a voltage pair, a backgate through a 25× amplifier, an SR830 input and a teed 6/7 pair. Save it to continue from it next time with a plain `uv run expconfig`.
 - `--sim` starts a simulated KH and lock-in on free ports and connects to them. Add `--apply` to apply once at startup.
 - `uv run expconfig-sim` runs the simulators on their own, by default on the real ports (29160 KH, 29170 lock-in). Close the LabVIEW instrument apps first, or use `--base-port`.
 - `uv run pytest` runs the tests: model, rules, file import/export, topology, the ZMQ protocol against the simulators, and the UI offscreen.

@@ -26,6 +26,18 @@ from .model import (
 DEFAULT_DIR = Path(os.environ.get("LOCALAPPDATA", ".")) / "Levylab" / "Control Experiment"
 INI_NAME = "configuration.ini"
 JSON_NAME = "Control Experiment.json"
+# The configurator's own saved configuration (Save, Ctrl+S; same format as
+# Control Experiment.json). Transport and FLEX never read it.
+SESSION_DIR = Path(os.environ.get("LOCALAPPDATA", ".")) / "Levylab" / "expconfig"
+
+
+def startup_source(session_dir: Path = SESSION_DIR, legacy_dir: Path = DEFAULT_DIR) -> Path | None:
+    """Where to start from: the last saved configuration, unless Control Experiment.json was written
+    after it (Configure Experiment or another tool changed the rig meanwhile). None: neither."""
+    session, shared = session_dir / JSON_NAME, legacy_dir / JSON_NAME
+    if session.exists() and (not shared.exists() or session.stat().st_mtime >= shared.stat().st_mtime):
+        return session_dir
+    return legacy_dir if shared.exists() else None
 
 # Configure Experiment's electrode configs, as (type, mode).
 _OLD_TYPE = {
