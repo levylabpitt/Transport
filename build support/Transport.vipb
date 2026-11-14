@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2026-10-20 18:19:42" Creator="Patrick" Comments="" ID="4fa09e91d5c71b38810f359ea2e90212">
+<VI_Package_Builder_Settings Version="2018" Created_Date="2018-09-18 13:12:29" Modified_Date="2026-11-14 14:50:57" Creator="Patrick" Comments="" ID="195f2a627d4ad3751008c725b35a81fe">
   <Library_General_Settings>
     <Package_File_Name>Levylab_lib_Transport</Package_File_Name>
-    <Library_Version>2.7.0.66</Library_Version>
+    <Library_Version>2.7.1.67</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\src</Library_Source_Folder>
     <Library_Output_Folder>..\builds\Package</Library_Output_Folder>
@@ -17,6 +17,7 @@
   </Library_General_Settings>
   <Advanced_Settings>
     <Package_Dependencies>
+      <Additional_External_Dependencies>levylab_lib_lockin_multichannel &gt;=3.10.5.105</Additional_External_Dependencies>
       <Additional_External_Dependencies>levylab_lib_plym &gt;=1.0.1.3</Additional_External_Dependencies>
       <Package_Conflicts>levylab_lib_control_experiment &gt;=1.0.0.2</Package_Conflicts>
       <Package_Conflicts>levylab_lib_transport_server &gt;=0.0.0.1</Package_Conflicts>
@@ -54,22 +55,8 @@ Server used for scripting and performing asynchronous transport measurments.
       <Copyright/>
       <Packager/>
       <URL/>
-      <Release_Notes>### 2.7.0
-
-Experiments no longer stop for an error dialog, and a lock-in that is briefly unreachable no longer ends a sweep (levylabpitt/Transport#180).
-
-- Lockin_sweep, Lockin_time and THz_TimeDelay: errors are logged to "Transport errors.log" in the experiment folder instead of opening a dialog. Brief communication errors (timeouts) are retried; any other error stops the run cleanly, saving what was acquired.
-- Lockin_sweep: keeps polling through short lock-in outages and stops with error 5162 only if the lock-in does not answer for 60 s. Sweep data is read with retries.
-- Lockin_sweep files now include:
-  - "Sweep-Data-Valid": False if the sweep data could not be read, so the file holds no sweep arrays;
-  - "Time-Array": the timestamp of each data point, derived from t0 and dt of the waveforms.
-- Configure Experiment: opens each instrument once and keeps the connection for the session, instead of reconnecting on every poll.
-- Experiment windows have a button to open the experiment folder in Explorer.
-- Transport Server: experiments are started by method (LockinSweep, LockinTime, LockinTimeDelay), and their front panels can be shown or hidden.
-- Transport Server front panel controls are preserved
-- Deprecated: Sweep Control and Continuous B Sweep can no longer be started from the Transport Server.
-
-Requires RemoteControl.ZMQ 1.5.4 and labview-zmq 3.7.1 (install both on every machine that runs Transport).</Release_Notes>
+      <Release_Notes>### 2.7.1
+- update dependency to require Multichannel Lockin 1.10.5.105</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
@@ -307,7 +294,7 @@ Requires RemoteControl.ZMQ 1.5.4 and labview-zmq 3.7.1 (install both on every ma
         <Path>..\src\Attributes</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>611409C634159DEFFB7E5BA9BB7F9030</GUID>
+      <GUID>31A5A22E9D49B0C36C51F3A38CC78E6D</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -426,7 +413,7 @@ Requires RemoteControl.ZMQ 1.5.4 and labview-zmq 3.7.1 (install both on every ma
         <Path>..\src\Control Experiment\Comments</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>0A5B95DFECF9A553CA97430C22334970</GUID>
+      <GUID>1503EFB5881E6AF758D58C5C94C95B9F</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -517,7 +504,7 @@ Requires RemoteControl.ZMQ 1.5.4 and labview-zmq 3.7.1 (install both on every ma
         <Path>..\src\Transport\Transport.showUI.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>F4E7D3181C91239661EE64186783E5AF</GUID>
+      <GUID>E00841513B25B51719C793698FF3FB3A</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -566,7 +553,7 @@ Requires RemoteControl.ZMQ 1.5.4 and labview-zmq 3.7.1 (install both on every ma
         <Path>..\src\Transport Server\Transport Server.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>85DB8ACFDFD3699130423860DB824F07</GUID>
+      <GUID>56CDC4392CBA5456D3415B49FD1EEFA1</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -853,7 +840,7 @@ Requires RemoteControl.ZMQ 1.5.4 and labview-zmq 3.7.1 (install both on every ma
         <Path>..\src\Control Experiment\API\Write Wiring Configuration v2.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>71EC78D04774307497F63B3FAC7EE45A</GUID>
+      <GUID>73117D7900D7CFF8DF5B3E2354D55B58</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1000,7 +987,7 @@ Requires RemoteControl.ZMQ 1.5.4 and labview-zmq 3.7.1 (install both on every ma
         <Path>..\src\Control Experiment\API (File)\Save Transport ITX File.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>A9090D75F4984D3E4D2260B042E5545C</GUID>
+      <GUID>27F25099F397A1D40609C32D80B793AA</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1161,7 +1148,7 @@ Requires RemoteControl.ZMQ 1.5.4 and labview-zmq 3.7.1 (install both on every ma
         <Path>..\src\Control Experiment\Comments\Comments.Create Lockin AO Description.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>3EE2A4A25F5C651BC7AA2A84C5B06369</GUID>
+      <GUID>2A7FAE96CA245BC728B8F8FB1A5E044B</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1686,7 +1673,7 @@ Requires RemoteControl.ZMQ 1.5.4 and labview-zmq 3.7.1 (install both on every ma
         <Path>..\src\Control Experiment\subVIs\Cast Unknown Instrument to Instrument Type.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>04D1045654243FA274FF78597246BC69</GUID>
+      <GUID>4B1C4EF9D25DB0FCBC08A2BBA0650846</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>1</Parent_Palette_Index>
@@ -1763,7 +1750,7 @@ Requires RemoteControl.ZMQ 1.5.4 and labview-zmq 3.7.1 (install both on every ma
         <Path>..\src\Control Experiment\Tests\Test Write.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>D9C11460DDD9DD5DE94104F04F03ADD2</GUID>
+      <GUID>CF2CA78365A89D12AA0C67AE08B444D2</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>4</Parent_Palette_Index>
@@ -1882,7 +1869,7 @@ Requires RemoteControl.ZMQ 1.5.4 and labview-zmq 3.7.1 (install both on every ma
         <Path>..\src\Control Experiment\API\Dictionary\Read All Dictionary Elements.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>E17D258483DCCA33DF78F2F869029C37</GUID>
+      <GUID>5E302D1216AB8DB54C0CDE976B2BB78D</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -1917,7 +1904,7 @@ Requires RemoteControl.ZMQ 1.5.4 and labview-zmq 3.7.1 (install both on every ma
         <Path>..\src\Transport\API (file)\Read Lockin_Sweep.json.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>6216AFA54B3795EE7E61B4BBCEC76714</GUID>
+      <GUID>BA25158EBF9DE2D5568890ED81553440</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -2092,7 +2079,7 @@ Requires RemoteControl.ZMQ 1.5.4 and labview-zmq 3.7.1 (install both on every ma
         <Path>..\src\Transport\Private\THz_TimeDelay.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>2128F223FE0186A446E5566A4BFAD8B2</GUID>
+      <GUID>1DBF61B8A8773309600085440497426A</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>3</Parent_Palette_Index>
@@ -2211,7 +2198,7 @@ Requires RemoteControl.ZMQ 1.5.4 and labview-zmq 3.7.1 (install both on every ma
         <Path>..\src\Transport Server\Inst.Transport\Documentation.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>1FBE57E4B6CC92E51574200B0A96F16D</GUID>
+      <GUID>B9AC3962ED8E7BFB46E142E526C91053</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -2470,7 +2457,7 @@ Requires RemoteControl.ZMQ 1.5.4 and labview-zmq 3.7.1 (install both on every ma
         <Path>..\src\Transport Server\Inst.Transport\API\showUI.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>72F6D0185A277229C8CB4824DF3CAA4D</GUID>
+      <GUID>F28B30A45B7AC816E83AF1301D5F9E11</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>12</Parent_Palette_Index>
@@ -2617,7 +2604,7 @@ Requires RemoteControl.ZMQ 1.5.4 and labview-zmq 3.7.1 (install both on every ma
         <Path>..\src\Transport Server\Inst.Transport\Overrides\onStop.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>198ABE80D4D3E3895F7F21ABFDF73B03</GUID>
+      <GUID>B720ABED41ADD34A932227A704DEB32B</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>12</Parent_Palette_Index>
@@ -2694,7 +2681,7 @@ Requires RemoteControl.ZMQ 1.5.4 and labview-zmq 3.7.1 (install both on every ma
         <Path>..\src\Transport Server\Inst.Transport\Private\Variant to Display String.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>8586D50B64C4D2DF8C32FE3759A7E196</GUID>
+      <GUID>3008E142A8FA8C9F41B19F16F2217BA9</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>12</Parent_Palette_Index>
@@ -2729,7 +2716,7 @@ Requires RemoteControl.ZMQ 1.5.4 and labview-zmq 3.7.1 (install both on every ma
         <Path>..\src\Transport Server\Inst.Transport\Protected\Inst.Transport.Public API.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>CC7C4B7FB36FB5ED542F5E91FF0EB1BE</GUID>
+      <GUID>F9BF387269801443ADCF09C0ECBEB437</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>12</Parent_Palette_Index>
@@ -2792,7 +2779,7 @@ Requires RemoteControl.ZMQ 1.5.4 and labview-zmq 3.7.1 (install both on every ma
         <Path>..\src\Transport Server\Inst.Transport\Tests\Test setExptParam.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>229425CCF464A07233C7E1D5AA4616D0</GUID>
+      <GUID>58CEE7166EDB417186924F28F88189A2</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>14</Parent_Palette_Index>
@@ -2897,7 +2884,7 @@ Requires RemoteControl.ZMQ 1.5.4 and labview-zmq 3.7.1 (install both on every ma
         <Path>..\src\Transport Server\Inst.Transport\Overrides\Commands\Handle setConfiguration.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>2F79081A12CF2CB92F9E6F58CBF28092</GUID>
+      <GUID>4428E8870A3920BD9A8A08336349492A</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>14</Parent_Palette_Index>
@@ -2960,7 +2947,7 @@ Requires RemoteControl.ZMQ 1.5.4 and labview-zmq 3.7.1 (install both on every ma
         <Path>..\src\Transport Server\Inst.Transport\Overrides\Configuration\Write Configuration File.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>F7DA71DD61BAAC97E60315D61DE1432C</GUID>
+      <GUID>1BA6194C3785D5BD6847FD580B07CEBA</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>14</Parent_Palette_Index>
@@ -3093,7 +3080,7 @@ Requires RemoteControl.ZMQ 1.5.4 and labview-zmq 3.7.1 (install both on every ma
         <Path>..\src\Transport Server\Inst.Transport\Overrides\SMO\Get SMO Vendor.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>0EA333A949BFF4C3C525971E6FBB16C0</GUID>
+      <GUID>A439C28CFE443D4DCECE97E25E78B1CB</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -3170,7 +3157,7 @@ Requires RemoteControl.ZMQ 1.5.4 and labview-zmq 3.7.1 (install both on every ma
         <Path>..\src\Attributes\Set StateName.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>9751645A3C50E737D32F7627DF1EF604</GUID>
+      <GUID>B1F68618B2F4C6CC330E15925C341E01</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>2</Parent_Palette_Index>
@@ -3345,7 +3332,7 @@ Requires RemoteControl.ZMQ 1.5.4 and labview-zmq 3.7.1 (install both on every ma
         <Path>..\src\Transport\API (class)\Read Dependencies.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>0CA6B3D435F750E3E36D17083ECD13D5</GUID>
+      <GUID>36E7E7917682417F338D0BFD21BF2625</GUID>
     </Functions_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
